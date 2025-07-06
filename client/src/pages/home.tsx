@@ -25,7 +25,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                 <Link href="/booking">
-                  <Button size="lg" className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-white text-white px-8 py-4 text-lg shadow-xl border-2 border-accent hover:border-white transition-all duration-300">
+                  <Button size="lg" className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white px-8 py-4 text-lg shadow-xl border-2 border-accent hover:border-white transition-all duration-300">
                     Забронировать проживание
                   </Button>
                 </Link>
@@ -88,7 +88,7 @@ export default function Home() {
           
           <div className="text-center mt-12">
             <Link href="/about">
-              <Button size="lg" className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-white text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg">
+              <Button size="lg" className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg">
                 Узнать больше
               </Button>
             </Link>
