@@ -57,50 +57,58 @@ export default function Contacts() {
               </div>
             </div>
             
-            <div className="bg-neutral p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-semibold mb-6 text-primary">Следите за нами</h3>
-              <div className="flex space-x-4">
+            <div className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-100">
+              <h3 className="text-xl font-medium mb-8 text-primary tracking-wide">Следите за нами</h3>
+              <div className="grid grid-cols-5 gap-3">
                 <a 
                   href={SITE_CONFIG.socialLinks.instagram} 
-                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  className="group relative w-14 h-14 rounded-2xl border-2 border-gray-200 hover:border-accent transition-all duration-300 flex items-center justify-center bg-white hover:bg-accent hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="Instagram"
                 >
-                  <i className="fab fa-instagram"></i>
+                  <i className="fab fa-instagram text-xl text-gray-600 group-hover:text-white transition-colors duration-300"></i>
                 </a>
                 <a 
                   href={SITE_CONFIG.socialLinks.vk} 
-                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  className="group relative w-14 h-14 rounded-2xl border-2 border-gray-200 hover:border-accent transition-all duration-300 flex items-center justify-center bg-white hover:bg-accent hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="VKontakte"
                 >
-                  <i className="fab fa-vk"></i>
+                  <i className="fab fa-vk text-xl text-gray-600 group-hover:text-white transition-colors duration-300"></i>
                 </a>
                 <a 
                   href={SITE_CONFIG.socialLinks.whatsapp} 
-                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  className="group relative w-14 h-14 rounded-2xl border-2 border-gray-200 hover:border-accent transition-all duration-300 flex items-center justify-center bg-white hover:bg-accent hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="WhatsApp"
                 >
-                  <i className="fab fa-whatsapp"></i>
+                  <i className="fab fa-whatsapp text-xl text-gray-600 group-hover:text-white transition-colors duration-300"></i>
                 </a>
                 <a 
                   href={SITE_CONFIG.socialLinks.telegram} 
-                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  className="group relative w-14 h-14 rounded-2xl border-2 border-gray-200 hover:border-accent transition-all duration-300 flex items-center justify-center bg-white hover:bg-accent hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="Telegram"
                 >
-                  <i className="fab fa-telegram"></i>
+                  <i className="fab fa-telegram text-xl text-gray-600 group-hover:text-white transition-colors duration-300"></i>
                 </a>
                 <a 
                   href={SITE_CONFIG.socialLinks.avito} 
-                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  className="group relative w-14 h-14 rounded-2xl border-2 border-gray-200 hover:border-accent transition-all duration-300 flex items-center justify-center bg-white hover:bg-accent hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  title="Avito"
                 >
-                  <AvitoIcon className="w-6 h-6" />
+                  <AvitoIcon className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors duration-300" />
                 </a>
               </div>
+              <p className="text-sm text-gray-500 mt-6 leading-relaxed">
+                Подписывайтесь на наши страницы, чтобы быть в курсе новостей и специальных предложений
+              </p>
             </div>
           </div>
         </div>
