@@ -22,10 +22,10 @@ export default function Footer() {
               <p>{SITE_CONFIG.phone}</p>
               <p>{SITE_CONFIG.email}</p>
             </div>
-            <div className="flex space-x-4 mt-4">
+            <div className="flex items-center space-x-4 mt-4">
               <a
                 href={SITE_CONFIG.socialLinks.instagram}
-                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -33,7 +33,7 @@ export default function Footer() {
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.vk}
-                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -41,7 +41,7 @@ export default function Footer() {
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.whatsapp}
-                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -49,7 +49,7 @@ export default function Footer() {
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.telegram}
-                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -57,11 +57,11 @@ export default function Footer() {
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.avito}
-                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <AvitoIcon className="w-5 h-5" />
+                <AvitoIcon className="w-6 h-6" />
               </a>
             </div>
           </div>
