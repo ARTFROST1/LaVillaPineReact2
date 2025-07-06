@@ -14,7 +14,6 @@ export default function Booking() {
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       </div>
-      
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Забронировать проживание</h1>
@@ -24,17 +23,17 @@ export default function Booking() {
         </div>
         
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-xl shadow-2xl p-8">
-            <h3 className="text-2xl font-semibold mb-6 text-primary text-center">Модуль бронирования</h3>
+          <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-[#ffffff00]">
+            <h3 className="text-2xl font-semibold mb-6 text-white text-center">Модуль бронирования</h3>
             
             {/* Third-party booking module placeholder */}
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center">
               <i className="fas fa-calendar-alt text-4xl text-gray-400 mb-4"></i>
-              <h4 className="text-xl font-semibold text-gray-600 mb-2">Интеграция стороннего модуля бронирования</h4>
-              <p className="text-gray-500 mb-4">
+              <h4 className="text-xl font-semibold text-gray-200 mb-2">Интеграция стороннего модуля бронирования</h4>
+              <p className="text-gray-300 mb-4">
                 В этой области будет размещен код стороннего модуля бронирования
               </p>
-              <div className="text-sm text-gray-400">
+              <div className="text-sm text-gray-300">
                 <p>Зона интеграции для:</p>
                 <ul className="list-disc list-inside mt-2 space-y-1">
                   <li>Календарь выбора дат</li>
