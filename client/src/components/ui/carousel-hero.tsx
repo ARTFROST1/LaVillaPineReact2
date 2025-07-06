@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+
+
 interface CarouselImage {
   url: string;
+  fallbackUrl?: string;
   alt: string;
 }
 
@@ -19,6 +22,27 @@ export default function CarouselHero({
   autoPlayInterval = 5000 
 }: CarouselHeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Компонент для слайда карусели с fallback изображениями
+  const CarouselSlideImage = ({ src, fallbackSrc, alt }: { src: string; fallbackSrc: string; alt: string }) => {
+    const [currentSrc, setCurrentSrc] = useState(src);
+    
+    useEffect(() => {
+      const img = new Image();
+      img.onload = () => setCurrentSrc(src);
+      img.onerror = () => setCurrentSrc(fallbackSrc);
+      img.src = src;
+    }, [src, fallbackSrc]);
+
+    return (
+      <div
+        className="w-full h-full bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${currentSrc})` }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      </div>
+    );
+  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % images.length);
@@ -54,12 +78,11 @@ export default function CarouselHero({
             className="carousel-slide w-full h-full flex-shrink-0"
             style={{ width: `${100 / images.length}%` }}
           >
-            <div
-              className="w-full h-full bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${image.url})` }}
-            >
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-            </div>
+            <CarouselSlideImage 
+              src={image.url} 
+              fallbackSrc={image.fallbackUrl || image.url}
+              alt={image.alt}
+            />
           </div>
         ))}
       </div>

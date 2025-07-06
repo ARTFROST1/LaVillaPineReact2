@@ -128,12 +128,34 @@ La Villa Pine is a modern full-stack web application for a luxury guest house bo
 - NODE_ENV determines development/production behavior
 - Build scripts configured for both environments
 
+## Image Management System
+
+### Structure
+- **`public/images/`** - Main images directory
+  - **`carousel/`** - Hero carousel images (carousel-1.jpg, carousel-2.jpg, etc.)
+  - **`gallery/`** - Gallery page images (gallery-1.jpg, gallery-2.jpg, etc.)
+  - **`rooms/`** - Room interior images (room-1.jpg, room-2.jpg, etc.)
+  - **`amenities/`** - Amenities images (sauna.jpg, pool.jpg, forest.jpg, interior.jpg)
+
+### Fallback System
+- Each image location has fallback to temporary Unsplash images
+- When real images are uploaded, they automatically replace fallbacks
+- All images from all folders appear in the gallery page
+- Carousel uses images from `carousel/` folder specifically
+
+### Instructions for User
+- Detailed instructions provided in `ИЗОБРАЖЕНИЯ_ИНСТРУКЦИИ.md`
+- File naming conventions established for easy management
+- Automatic image detection and fallback system implemented
+
 ## Changelog
 
 ```
 Changelog:
 - July 06, 2025. Initial setup
 - July 06, 2025. Completed Russian translation of entire website
+- July 06, 2025. Implemented comprehensive image management system with fallback support
+- July 06, 2025. Created structured image folders and user instructions
 ```
 
 ## User Preferences

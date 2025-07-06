@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface GalleryImage {
   url: string;
+  fallbackUrl?: string;
   alt: string;
 }
 
@@ -15,6 +16,36 @@ interface ImageGalleryProps {
 export default function ImageGallery({ images }: ImageGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+
+  // Компонент для изображения галереи с fallback
+  const GalleryImageComponent = ({ src, fallbackSrc, alt, className }: { 
+    src: string; 
+    fallbackSrc: string; 
+    alt: string; 
+    className?: string;
+  }) => {
+    const [currentSrc, setCurrentSrc] = useState(src);
+    
+    useEffect(() => {
+      const img = new Image();
+      img.onload = () => setCurrentSrc(src);
+      img.onerror = () => setCurrentSrc(fallbackSrc);
+      img.src = src;
+    }, [src, fallbackSrc]);
+
+    return (
+      <img
+        src={currentSrc}
+        alt={alt}
+        className={className}
+        onError={() => {
+          if (currentSrc !== fallbackSrc) {
+            setCurrentSrc(fallbackSrc);
+          }
+        }}
+      />
+    );
+  };
 
   const openModal = (index: number) => {
     setSelectedImage(index);
@@ -47,8 +78,9 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
             className="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer"
             onClick={() => openModal(index)}
           >
-            <img
+            <GalleryImageComponent
               src={image.url}
+              fallbackSrc={image.fallbackUrl || image.url}
               alt={image.alt}
               className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -65,8 +97,9 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         <DialogContent className="max-w-4xl w-full p-0 overflow-hidden">
           {selectedImage !== null && (
             <div className="relative">
-              <img
+              <GalleryImageComponent
                 src={images[selectedImage].url}
+                fallbackSrc={images[selectedImage].fallbackUrl || images[selectedImage].url}
                 alt={images[selectedImage].alt}
                 className="w-full h-auto max-h-[80vh] object-contain"
               />
