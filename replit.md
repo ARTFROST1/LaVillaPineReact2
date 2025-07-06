@@ -161,6 +161,7 @@ Changelog:
 - July 06, 2025. Fixed image loading issues and button hover colors
 - July 06, 2025. Added social media links: Instagram, VK, WhatsApp, Telegram, Avito with custom SVG icon
 - July 06, 2025. Updated footer and contacts page with complete social media integration
+- July 06, 2025. Fixed Avito icon design with correct four-circle pattern and proper alignment
 ```
 
 ## User Preferences
