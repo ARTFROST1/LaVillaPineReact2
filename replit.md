@@ -158,6 +158,9 @@ Changelog:
 - July 06, 2025. Created structured image folders and user instructions
 - July 06, 2025. Fixed carousel functionality and added hover effects to buttons
 - July 06, 2025. Updated button hover effects: yellow buttons now use blurred transparent backgrounds on hover
+- July 06, 2025. Fixed image loading issues and button hover colors
+- July 06, 2025. Added social media links: Instagram, VK, WhatsApp, Telegram, Avito with custom SVG icon
+- July 06, 2025. Updated footer and contacts page with complete social media integration
 ```
 
 ## User Preferences

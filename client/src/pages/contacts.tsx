@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ui/contact-form";
 import { SITE_CONFIG } from "@/lib/constants";
+import AvitoIcon from "@/components/ui/avito-icon";
 
 export default function Contacts() {
   return (
@@ -59,17 +60,45 @@ export default function Contacts() {
             <div className="bg-neutral p-8 rounded-xl shadow-lg">
               <h3 className="text-2xl font-semibold mb-6 text-primary">Следите за нами</h3>
               <div className="flex space-x-4">
-                <a href={SITE_CONFIG.socialLinks.instagram} className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200">
+                <a 
+                  href={SITE_CONFIG.socialLinks.instagram} 
+                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href={SITE_CONFIG.socialLinks.facebook} className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200">
-                  <i className="fab fa-facebook"></i>
+                <a 
+                  href={SITE_CONFIG.socialLinks.vk} 
+                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fab fa-vk"></i>
                 </a>
-                <a href={SITE_CONFIG.socialLinks.whatsapp} className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200">
+                <a 
+                  href={SITE_CONFIG.socialLinks.whatsapp} 
+                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-whatsapp"></i>
                 </a>
-                <a href={SITE_CONFIG.socialLinks.telegram} className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200">
+                <a 
+                  href={SITE_CONFIG.socialLinks.telegram} 
+                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-telegram"></i>
+                </a>
+                <a 
+                  href={SITE_CONFIG.socialLinks.avito} 
+                  className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AvitoIcon className="w-6 h-6" />
                 </a>
               </div>
             </div>

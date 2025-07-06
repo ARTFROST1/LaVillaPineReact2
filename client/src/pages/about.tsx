@@ -35,7 +35,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="/images/amenities/interior.jpg"
+              src="images/amenities/interior.jpg"
               alt="Modern loft interior with industrial design"
               className="rounded-xl shadow-lg w-full h-auto"
             />

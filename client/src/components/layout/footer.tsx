@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { TreePine } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import AvitoIcon from "@/components/ui/avito-icon";
 
 export default function Footer() {
   return (
@@ -12,15 +13,9 @@ export default function Footer() {
               <TreePine className="h-8 w-8 text-accent" />
               <span className="text-2xl font-bold">{SITE_CONFIG.name}</span>
             </div>
-            <p className="text-gray-300">
-              {SITE_CONFIG.description}
-            </p>
+            <p className="text-gray-300">{SITE_CONFIG.description}</p>
           </div>
-          
-          
-          
-          
-          
+
           <div>
             <h4 className="text-lg font-semibold mb-4">Контакты</h4>
             <div className="space-y-2 text-gray-300">
@@ -28,22 +23,50 @@ export default function Footer() {
               <p>{SITE_CONFIG.email}</p>
             </div>
             <div className="flex space-x-4 mt-4">
-              <a href={SITE_CONFIG.socialLinks.instagram} className="text-gray-300 hover:text-accent transition-colors duration-200">
+              <a
+                href={SITE_CONFIG.socialLinks.instagram}
+                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-instagram text-xl"></i>
               </a>
-              <a href={SITE_CONFIG.socialLinks.facebook} className="text-gray-300 hover:text-accent transition-colors duration-200">
-                <i className="fab fa-facebook text-xl"></i>
+              <a
+                href={SITE_CONFIG.socialLinks.vk}
+                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-vk text-xl"></i>
               </a>
-              <a href={SITE_CONFIG.socialLinks.whatsapp} className="text-gray-300 hover:text-accent transition-colors duration-200">
+              <a
+                href={SITE_CONFIG.socialLinks.whatsapp}
+                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-whatsapp text-xl"></i>
               </a>
-              <a href={SITE_CONFIG.socialLinks.telegram} className="text-gray-300 hover:text-accent transition-colors duration-200">
+              <a
+                href={SITE_CONFIG.socialLinks.telegram}
+                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-telegram text-xl"></i>
+              </a>
+              <a
+                href={SITE_CONFIG.socialLinks.avito}
+                className="text-gray-300 hover:text-accent transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AvitoIcon className="w-5 h-5" />
               </a>
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
           <p>&copy; 2025 {SITE_CONFIG.name}. All rights reserved.</p>
         </div>
