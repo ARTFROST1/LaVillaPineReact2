@@ -33,7 +33,7 @@ export default function Home() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="border-2 border-white text-white hover:bg-white/10 hover:text-white px-8 py-4 text-lg shadow-xl backdrop-blur-sm"
+                    className="border-2 border-white text-white bg-white/10 hover:bg-white hover:text-primary px-8 py-4 text-lg shadow-xl backdrop-blur-sm transition-all duration-300"
                   >
                     Узнать больше
                   </Button>
