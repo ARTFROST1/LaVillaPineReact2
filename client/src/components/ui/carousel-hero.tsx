@@ -18,87 +18,42 @@ export default function CarouselHero({
   autoPlayInterval = 5000 
 }: CarouselHeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % images.length);
   };
 
-  // Предзагрузка изображений
   useEffect(() => {
-    const preloadImages = async () => {
-      const promises = images.map((image, index) => {
-        return new Promise<void>((resolve) => {
-          const img = new Image();
-          img.onload = () => {
-            setLoadedImages(prev => new Set([...prev, index]));
-            resolve();
-          };
-          img.onerror = () => {
-            // Если основное изображение не загрузилось, пробуем fallback
-            if (image.fallbackUrl) {
-              const fallbackImg = new Image();
-              fallbackImg.onload = () => {
-                setLoadedImages(prev => new Set([...prev, index]));
-                resolve();
-              };
-              fallbackImg.onerror = () => resolve();
-              fallbackImg.src = image.fallbackUrl;
-            } else {
-              resolve();
-            }
-          };
-          img.src = image.url;
-        });
-      });
-      
-      await Promise.all(promises);
-    };
-
-    preloadImages();
-  }, [images]);
-
-  useEffect(() => {
-    if (autoPlay && images.length > 1 && loadedImages.size > 0) {
+    if (autoPlay && images.length > 1) {
       const interval = setInterval(nextSlide, autoPlayInterval);
       return () => clearInterval(interval);
     }
-  }, [autoPlay, autoPlayInterval, images.length, loadedImages.size]);
-
-  const getImageSrc = (image: CarouselImage, index: number) => {
-    if (loadedImages.has(index)) {
-      return image.url;
-    }
-    return image.fallbackUrl || image.url;
-  };
+  }, [autoPlay, autoPlayInterval, images.length]);
 
   return (
-    <div className="carousel-container w-full h-screen relative overflow-hidden">
-      <div 
-        className="carousel-track h-full flex transition-transform duration-700 ease-in-out" 
-        style={{ 
-          transform: `translateX(-${currentSlide * 100}%)`,
-          width: `${images.length * 100}%`
-        }}
-      >
-        {images.map((image, index) => (
-          <div 
-            key={index} 
-            className="carousel-slide w-full h-full flex-shrink-0 relative"
-            style={{ width: `${100 / images.length}%` }}
-          >
-            <div
-              className="w-full h-full bg-cover bg-center bg-no-repeat"
-              style={{ 
-                backgroundImage: `url(${getImageSrc(image, index)})`,
-                backgroundPosition: 'center',
-                backgroundSize: 'cover'
-              }}
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-          </div>
-        ))}
-      </div>
+    <div className="w-full h-screen relative overflow-hidden">
+      {/* Показываем только одно изображение в каждый момент времени */}
+      {images.map((image, index) => (
+        <div 
+          key={index} 
+          className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${
+            index === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src={image.url}
+            alt={image.alt}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // Если основное изображение не загрузилось, используем fallback
+              if (image.fallbackUrl && e.currentTarget.src !== image.fallbackUrl) {
+                e.currentTarget.src = image.fallbackUrl;
+              }
+            }}
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+      ))}
       
       {/* Dots Navigation */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
