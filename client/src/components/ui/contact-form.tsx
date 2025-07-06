@@ -107,7 +107,7 @@ export default function ContactForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-accent/20 hover:bg-white/20 hover:text-white text-accent border-2 border-accent hover:border-white backdrop-blur-sm transition-all duration-300 shadow-lg"
+          className="w-full bg-accent hover:bg-white hover:text-accent text-white border-2 border-accent hover:border-accent transition-all duration-300 shadow-lg"
         >
           {isSubmitting ? (
             <>
