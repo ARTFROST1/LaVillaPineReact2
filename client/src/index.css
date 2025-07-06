@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(200, 15%, 8%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(200, 15%, 8%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(200, 15%, 8%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(210, 40%, 25%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(197, 37%, 96%);
+  --secondary-foreground: hsl(200, 15%, 8%);
+  --accent: hsl(45, 80%, 50%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(200, 15%, 8%);
+  --radius: 0.5rem;
+  --neutral: hsl(210, 17%, 98%);
+}
+
+.dark {
+  --background: hsl(210, 40%, 3%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(210, 40%, 15%);
+  --muted-foreground: hsl(215, 16%, 65%);
+  --popover: hsl(210, 40%, 3%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(210, 40%, 3%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(210, 40%, 15%);
+  --input: hsl(210, 40%, 15%);
+  --primary: hsl(210, 40%, 25%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 40%, 15%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(45, 80%, 50%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62%, 30%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(210, 40%, 83%);
+  --radius: 0.5rem;
+  --neutral: hsl(210, 40%, 15%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-neutral {
+    color: var(--neutral);
+  }
+  
+  .bg-neutral {
+    background-color: var(--neutral);
+  }
+  
+  .border-neutral {
+    border-color: var(--neutral);
+  }
+}
+
+/* Custom animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom carousel styles */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+/* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* Hover effects */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+}
+
+.group:hover .group-hover\:bg-opacity-30 {
+  background-color: rgba(0, 0, 0, 0.3);
+}

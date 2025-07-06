@@ -1,0 +1,142 @@
+# replit.md
+
+## Overview
+
+La Villa Pine is a modern full-stack web application for a luxury guest house booking service. The application showcases two loft-style guest houses with premium amenities like saunas, heated pools, and forest locations. Built with React, TypeScript, Express.js, and PostgreSQL, it provides a complete booking and contact management system.
+
+## System Architecture
+
+### Frontend Architecture
+- **Framework**: React 18 with TypeScript
+- **Routing**: Wouter (lightweight client-side router)
+- **Styling**: Tailwind CSS with shadcn/ui component library
+- **State Management**: TanStack Query for server state management
+- **Build Tool**: Vite for development and production builds
+- **UI Components**: Radix UI primitives with custom styling
+
+### Backend Architecture
+- **Runtime**: Node.js with Express.js framework
+- **Language**: TypeScript with ES modules
+- **Database**: PostgreSQL with Drizzle ORM
+- **Validation**: Zod for runtime type checking
+- **Session Management**: In-memory storage with fallback to database
+
+### Project Structure
+```
+├── client/           # React frontend application
+├── server/           # Express.js backend application
+├── shared/           # Shared schemas and types
+├── migrations/       # Database migration files
+└── dist/            # Production build output
+```
+
+## Key Components
+
+### Frontend Components
+1. **Layout Components**
+   - Header with navigation and mobile menu
+   - Footer with site information and links
+   - Responsive design with mobile-first approach
+
+2. **Page Components**
+   - Home: Hero carousel with booking CTA
+   - About: Amenities showcase and property details
+   - Gallery: Image gallery with modal viewer
+   - Contacts: Contact form and location information
+   - Booking: Placeholder for third-party booking integration
+
+3. **UI Components**
+   - Carousel Hero: Auto-playing image carousel
+   - Image Gallery: Grid layout with lightbox functionality
+   - Contact Form: Validated form with toast notifications
+
+### Backend Components
+1. **API Routes**
+   - POST /api/contact: Submit contact messages
+   - GET /api/contact-messages: Retrieve contact messages (admin)
+
+2. **Data Layer**
+   - IStorage interface for data operations
+   - MemStorage implementation for development
+   - Database schemas for users and contact messages
+
+3. **Middleware**
+   - Request logging for API endpoints
+   - JSON body parsing
+   - Error handling with structured responses
+
+## Data Flow
+
+### Contact Form Submission
+1. User fills out contact form on frontend
+2. Form data validated using Zod schema
+3. API request sent to /api/contact endpoint
+4. Server validates data and stores in database
+5. Success/error response sent back to client
+6. Toast notification displayed to user
+
+### Image Gallery
+1. Static image URLs stored in constants
+2. Gallery component renders thumbnail grid
+3. Click handler opens modal with full-size image
+4. Navigation controls allow browsing between images
+
+### Booking Integration
+- Placeholder section prepared for third-party booking system
+- Integration area designed for external booking widgets
+- Contact information provided as fallback
+
+## External Dependencies
+
+### Frontend Dependencies
+- **UI Framework**: React 18 with React Router alternative (Wouter)
+- **Styling**: Tailwind CSS with PostCSS processing
+- **Components**: Radix UI primitives for accessibility
+- **State Management**: TanStack Query for server state
+- **Form Handling**: React Hook Form with Zod validation
+- **Icons**: Lucide React and Font Awesome
+
+### Backend Dependencies
+- **Database**: Neon serverless PostgreSQL
+- **ORM**: Drizzle ORM with PostgreSQL adapter
+- **Validation**: Zod for schema validation
+- **Build Tools**: esbuild for production builds
+- **Development**: tsx for TypeScript execution
+
+### Development Tools
+- **TypeScript**: Strict type checking enabled
+- **Vite**: Development server and build tool
+- **ESLint**: Code linting (implied by project structure)
+- **Replit Integration**: Development environment support
+
+## Deployment Strategy
+
+### Development Environment
+- Vite dev server for frontend hot reloading
+- Express server with TypeScript compilation
+- Database migrations managed through Drizzle Kit
+- Environment variables for database connection
+
+### Production Build
+1. Frontend built with Vite to `dist/public`
+2. Backend compiled with esbuild to `dist/`
+3. Static file serving from Express server
+4. Database migrations applied on deployment
+
+### Environment Configuration
+- DATABASE_URL required for PostgreSQL connection
+- NODE_ENV determines development/production behavior
+- Build scripts configured for both environments
+
+## Changelog
+
+```
+Changelog:
+- July 06, 2025. Initial setup
+```
+
+## User Preferences
+
+```
+Preferred communication style: Simple, everyday language.
+```
