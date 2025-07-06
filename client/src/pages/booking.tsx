@@ -46,7 +46,7 @@ export default function Booking() {
             </div>
             
             <div className="mt-8 text-center">
-              <p className="text-gray-600 mb-4">
+              <p className="mb-4 text-[#ffffff]">
                 Нужна помощь с бронированием? Свяжитесь с нами напрямую:
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
