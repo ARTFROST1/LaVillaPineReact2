@@ -18,7 +18,8 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">
-                Добро пожаловать в <span className="text-accent drop-shadow-lg">{SITE_CONFIG.name}</span>
+                Добро пожаловать в <br />
+                <span className="text-accent drop-shadow-lg">{SITE_CONFIG.name}</span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
                 Откройте для себя роскошные гостевые дома в стиле лофт, расположенные в чистейшей лесной местности
@@ -48,7 +49,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Почему выбирают {SITE_CONFIG.name}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Почему выбирают <br />{SITE_CONFIG.name}</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
               Два исключительных гостевых дома в стиле лофт, где современный дизайн встречается с природным спокойствием
             </p>
