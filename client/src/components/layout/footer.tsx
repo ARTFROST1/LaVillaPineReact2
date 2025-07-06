@@ -17,15 +17,7 @@ export default function Footer() {
             </p>
           </div>
           
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Быстрые ссылки</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li><Link href="/" className="hover:text-accent transition-colors duration-200">Главная</Link></li>
-              <li><Link href="/about" className="hover:text-accent transition-colors duration-200">О нас</Link></li>
-              <li><Link href="/gallery" className="hover:text-accent transition-colors duration-200">Галерея</Link></li>
-              <li><Link href="/contacts" className="hover:text-accent transition-colors duration-200">Контакты</Link></li>
-            </ul>
-          </div>
+          
           
           <div>
             <h4 className="text-lg font-semibold mb-4">Удобства</h4>
