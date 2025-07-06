@@ -7,32 +7,38 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center">
-        <CarouselHero images={HERO_IMAGES} />
+      <section className="relative w-full h-screen overflow-hidden">
+        {/* Full width carousel background */}
+        <div className="absolute inset-0 w-full h-full">
+          <CarouselHero images={HERO_IMAGES} />
+        </div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Добро пожаловать в <span className="text-accent">{SITE_CONFIG.name}</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-200">
-              Откройте для себя роскошные гостевые дома в стиле лофт, расположенные в чистейшей лесной местности
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/booking">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg">
-                  Забронировать проживание
-                </Button>
-              </Link>
-              <Link href="/about">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg"
-                >
-                  Узнать больше
-                </Button>
-              </Link>
+        {/* Overlay content */}
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">
+                Добро пожаловать в <span className="text-accent drop-shadow-lg">{SITE_CONFIG.name}</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
+                Откройте для себя роскошные гостевые дома в стиле лофт, расположенные в чистейшей лесной местности
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                <Link href="/booking">
+                  <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg shadow-xl border-2 border-transparent hover:border-accent/20">
+                    Забронировать проживание
+                  </Button>
+                </Link>
+                <Link href="/about">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-2 border-white text-white hover:bg-white/10 hover:text-white px-8 py-4 text-lg shadow-xl backdrop-blur-sm"
+                  >
+                    Узнать больше
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
