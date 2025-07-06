@@ -41,6 +41,7 @@ export const HERO_IMAGES = [
 ];
 
 export const GALLERY_IMAGES = [
+  // Галерея фотографий
   {
     url: "/images/gallery/gallery-1.jpg",
     fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -72,6 +73,37 @@ export const GALLERY_IMAGES = [
     alt: "La Villa Pine - Ванная комната"
   },
   {
+    url: "/images/gallery/gallery-7.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Интерьер"
+  },
+  {
+    url: "/images/gallery/gallery-8.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Детали"
+  },
+  {
+    url: "/images/gallery/gallery-9.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Экстерьер"
+  },
+  {
+    url: "/images/gallery/gallery-10.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Интерьер"
+  },
+  {
+    url: "/images/gallery/gallery-11.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Детали"
+  },
+  {
+    url: "/images/gallery/gallery-12.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Интерьер"
+  },
+  // Фотографии комнат
+  {
     url: "/images/rooms/room-1.jpg",
     fallbackUrl: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
     alt: "La Villa Pine - Номер 1"
@@ -81,6 +113,12 @@ export const GALLERY_IMAGES = [
     fallbackUrl: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
     alt: "La Villa Pine - Номер 2"
   },
+  {
+    url: "/images/rooms/room-3.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Номер 3"
+  },
+  // Удобства
   {
     url: "/images/amenities/sauna.jpg",
     fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
