@@ -133,10 +133,12 @@ La Villa Pine is a modern full-stack web application for a luxury guest house bo
 ```
 Changelog:
 - July 06, 2025. Initial setup
+- July 06, 2025. Completed Russian translation of entire website
 ```
 
 ## User Preferences
 
 ```
 Preferred communication style: Simple, everyday language.
+Website language: Russian
 ```

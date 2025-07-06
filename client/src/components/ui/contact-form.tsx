@@ -11,9 +11,9 @@ import { apiRequest } from "@/lib/queryClient";
 import { Loader2 } from "lucide-react";
 
 const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters")
+  name: z.string().min(2, "Имя должно содержать не менее 2 символов"),
+  email: z.string().email("Пожалуйста, введите действительный адрес электронной почты"),
+  message: z.string().min(10, "Сообщение должно содержать не менее 10 символов")
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -40,17 +40,17 @@ export default function ContactForm() {
       
       if (result.success) {
         toast({
-          title: "Message sent successfully!",
-          description: "We will get back to you soon.",
+          title: "Сообщение успешно отправлено!",
+          description: "Мы скоро свяжемся с вами.",
         });
         reset();
       } else {
-        throw new Error(result.message || "Failed to send message");
+        throw new Error(result.message || "Не удалось отправить сообщение");
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
+        title: "Ошибка",
+        description: error instanceof Error ? error.message : "Не удалось отправить сообщение. Пожалуйста, попробуйте снова.",
         variant: "destructive",
       });
     } finally {
@@ -60,18 +60,20 @@ export default function ContactForm() {
 
   return (
     <div className="bg-neutral p-8 rounded-xl shadow-lg">
-      <h3 className="text-2xl font-semibold mb-6 text-primary">Send Message</h3>
+      <h3 className="text-2xl font-semibold mb-6 text-primary">Отправить сообщение</h3>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
-          <Label htmlFor="name" className="text-gray-700 text-sm font-medium">Name</Label>
+          <Label htmlFor="name" className="text-gray-700 text-sm font-medium">Имя</Label>
           <Input
             id="name"
             type="text"
-            placeholder="Your name"
+            placeholder="Ваше имя"
             className="mt-2"
             {...register("name")}
-            error={errors.name?.message}
           />
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+          )}
         </div>
         
         <div>
@@ -79,19 +81,21 @@ export default function ContactForm() {
           <Input
             id="email"
             type="email"
-            placeholder="Your email"
+            placeholder="Ваш email"
             className="mt-2"
             {...register("email")}
-            error={errors.email?.message}
           />
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+          )}
         </div>
         
         <div>
-          <Label htmlFor="message" className="text-gray-700 text-sm font-medium">Message</Label>
+          <Label htmlFor="message" className="text-gray-700 text-sm font-medium">Сообщение</Label>
           <Textarea
             id="message"
             rows={4}
-            placeholder="Your message"
+            placeholder="Ваше сообщение"
             className="mt-2 resize-none"
             {...register("message")}
           />
@@ -108,10 +112,10 @@ export default function ContactForm() {
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Sending...
+              Отправка...
             </>
           ) : (
-            "Send Message"
+            "Отправить сообщение"
           )}
         </Button>
       </form>

@@ -6,21 +6,21 @@ export default function Contacts() {
     <div className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Связаться с нами</h1>
           <p className="text-xl text-gray-600">
-            Get in touch to book your stay or ask any questions about our guest houses
+            Свяжитесь с нами, чтобы забронировать проживание или задать любые вопросы о наших гостевых домах
           </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             <div className="bg-neutral p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-semibold mb-6 text-primary">Contact Information</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-primary">Контактная информация</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <i className="fas fa-phone text-accent text-xl mr-4"></i>
                   <div>
-                    <p className="font-semibold">Phone</p>
+                    <p className="font-semibold">Телефон</p>
                     <p className="text-gray-600">{SITE_CONFIG.phone}</p>
                   </div>
                 </div>
@@ -34,7 +34,7 @@ export default function Contacts() {
                 <div className="flex items-center">
                   <i className="fas fa-map-marker-alt text-accent text-xl mr-4"></i>
                   <div>
-                    <p className="font-semibold">Address</p>
+                    <p className="font-semibold">Адрес</p>
                     <p className="text-gray-600">{SITE_CONFIG.address}</p>
                   </div>
                 </div>
@@ -46,18 +46,18 @@ export default function Contacts() {
           
           <div className="space-y-8">
             <div className="bg-neutral p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-semibold mb-6 text-primary">Location</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-primary">Расположение</h3>
               <div className="w-full h-64 bg-gray-300 rounded-lg flex items-center justify-center">
                 <div className="text-center text-gray-600">
                   <i className="fas fa-map-marked-alt text-4xl mb-2"></i>
-                  <p className="font-semibold">Yandex Maps Integration</p>
-                  <p className="text-sm">Interactive map will be displayed here</p>
+                  <p className="font-semibold">Интеграция с Яндекс Картами</p>
+                  <p className="text-sm">Интерактивная карта будет отображена здесь</p>
                 </div>
               </div>
             </div>
             
             <div className="bg-neutral p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-semibold mb-6 text-primary">Follow Us</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-primary">Следите за нами</h3>
               <div className="flex space-x-4">
                 <a href={SITE_CONFIG.socialLinks.instagram} className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-accent/90 transition-colors duration-200">
                   <i className="fab fa-instagram"></i>

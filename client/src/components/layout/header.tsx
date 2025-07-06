@@ -9,10 +9,10 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Gallery", href: "/gallery" },
-    { name: "Contacts", href: "/contacts" },
+    { name: "Главная", href: "/" },
+    { name: "О нас", href: "/about" },
+    { name: "Галерея", href: "/gallery" },
+    { name: "Контакты", href: "/contacts" },
   ];
 
   const toggleMobileMenu = () => {
@@ -42,7 +42,7 @@ export default function Header() {
             ))}
             <Link href="/booking">
               <Button className="bg-accent hover:bg-accent/90 text-white">
-                Book Now
+                Забронировать
               </Button>
             </Link>
           </div>
@@ -77,7 +77,7 @@ export default function Header() {
               ))}
               <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button className="bg-accent hover:bg-accent/90 text-white w-full">
-                  Book Now
+                  Забронировать
                 </Button>
               </Link>
             </div>

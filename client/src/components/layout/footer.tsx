@@ -18,27 +18,27 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Быстрые ссылки</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><Link href="/" className="hover:text-accent transition-colors duration-200">Home</Link></li>
-              <li><Link href="/about" className="hover:text-accent transition-colors duration-200">About</Link></li>
-              <li><Link href="/gallery" className="hover:text-accent transition-colors duration-200">Gallery</Link></li>
-              <li><Link href="/contacts" className="hover:text-accent transition-colors duration-200">Contacts</Link></li>
+              <li><Link href="/" className="hover:text-accent transition-colors duration-200">Главная</Link></li>
+              <li><Link href="/about" className="hover:text-accent transition-colors duration-200">О нас</Link></li>
+              <li><Link href="/gallery" className="hover:text-accent transition-colors duration-200">Галерея</Link></li>
+              <li><Link href="/contacts" className="hover:text-accent transition-colors duration-200">Контакты</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Amenities</h4>
+            <h4 className="text-lg font-semibold mb-4">Удобства</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Private Sauna</li>
-              <li>Heated Pool</li>
-              <li>Forest Location</li>
-              <li>Designer Interiors</li>
+              <li>Приватная сауна</li>
+              <li>Подогреваемый бассейн</li>
+              <li>Лесная локация</li>
+              <li>Дизайнерские интерьеры</li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4">Контакты</h4>
             <div className="space-y-2 text-gray-300">
               <p>{SITE_CONFIG.phone}</p>
               <p>{SITE_CONFIG.email}</p>

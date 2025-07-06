@@ -5,11 +5,11 @@ export default function About() {
     <div className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">About La Villa Pine</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">О La Villa Pine</h1>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Discover two exceptional loft-style guest houses where modern design meets natural tranquility. 
-            Each house features designer renovations, private saunas, and heated pools, all set against 
-            the backdrop of a pristine forest where squirrels and birds create a symphony of nature.
+            Откройте для себя два исключительных гостевых дома в стиле лофт, где современный дизайн встречается 
+            с природным спокойствием. Каждый дом имеет дизайнерский ремонт, частные сауны и подогреваемые бассейны, 
+            все это на фоне чистого леса, где белки и птицы создают симфонию природы.
           </p>
         </div>
         
@@ -34,28 +34,28 @@ export default function About() {
             />
           </div>
           <div>
-            <h3 className="text-3xl font-bold mb-6">Designer Interiors</h3>
+            <h3 className="text-3xl font-bold mb-6">Дизайнерские интерьеры</h3>
             <p className="text-lg text-gray-600 mb-6">
-              Each guest house features meticulously designed interiors that blend industrial 
-              loft aesthetics with modern comfort. High ceilings, exposed elements, and 
-              contemporary furnishings create an atmosphere of sophisticated relaxation.
+              Каждый гостевой дом имеет тщательно спроектированные интерьеры, которые сочетают 
+              индустриальную эстетику лофта с современным комфортом. Высокие потолки, открытые элементы 
+              и современная мебель создают атмосферу изысканного расслабления.
             </p>
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-center">
                 <i className="fas fa-check text-accent mr-3"></i>
-                Open-plan living spaces with high ceilings
+                Открытые жилые пространства с высокими потолками
               </li>
               <li className="flex items-center">
                 <i className="fas fa-check text-accent mr-3"></i>
-                Premium furnishings and modern appliances
+                Премиальная мебель и современная техника
               </li>
               <li className="flex items-center">
                 <i className="fas fa-check text-accent mr-3"></i>
-                Floor-to-ceiling windows with forest views
+                Окна от пола до потолка с видом на лес
               </li>
               <li className="flex items-center">
                 <i className="fas fa-check text-accent mr-3"></i>
-                Fully equipped kitchen and dining areas
+                Полностью оборудованная кухня и столовая
               </li>
             </ul>
           </div>

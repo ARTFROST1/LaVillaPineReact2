@@ -13,15 +13,15 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Welcome to <span className="text-accent">{SITE_CONFIG.name}</span>
+              Добро пожаловать в <span className="text-accent">{SITE_CONFIG.name}</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200">
-              Experience luxury loft-style guest houses nestled in pristine forest surroundings
+              Откройте для себя роскошные гостевые дома в стиле лофт, расположенные в чистейшей лесной местности
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/booking">
                 <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg">
-                  Book Your Stay
+                  Забронировать проживание
                 </Button>
               </Link>
               <Link href="/about">
@@ -30,7 +30,7 @@ export default function Home() {
                   variant="outline" 
                   className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg"
                 >
-                  Learn More
+                  Узнать больше
                 </Button>
               </Link>
             </div>
@@ -42,9 +42,9 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Why Choose {SITE_CONFIG.name}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Почему выбирают {SITE_CONFIG.name}</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Two exceptional loft-style guest houses where modern design meets natural tranquility
+              Два исключительных гостевых дома в стиле лофт, где современный дизайн встречается с природным спокойствием
             </p>
           </div>
           
@@ -53,9 +53,9 @@ export default function Home() {
               <div className="text-accent text-4xl mb-4">
                 <i className="fas fa-home"></i>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Modern Loft Design</h3>
+              <h3 className="text-2xl font-semibold mb-4">Современный дизайн лофт</h3>
               <p className="text-gray-600">
-                Designer renovations with industrial elements and contemporary comfort
+                Дизайнерский ремонт с индустриальными элементами и современным комфортом
               </p>
             </div>
             
@@ -63,9 +63,9 @@ export default function Home() {
               <div className="text-accent text-4xl mb-4">
                 <i className="fas fa-swimming-pool"></i>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Heated Pools & Sauna</h3>
+              <h3 className="text-2xl font-semibold mb-4">Подогреваемые бассейны и сауна</h3>
               <p className="text-gray-600">
-                Private heated pools and saunas for year-round relaxation
+                Частные подогреваемые бассейны и сауны для круглогодичного отдыха
               </p>
             </div>
             
@@ -73,9 +73,9 @@ export default function Home() {
               <div className="text-accent text-4xl mb-4">
                 <i className="fas fa-tree"></i>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Forest Surroundings</h3>
+              <h3 className="text-2xl font-semibold mb-4">Лесное окружение</h3>
               <p className="text-gray-600">
-                Pristine forest location with wildlife and natural stream
+                Чистая лесная местность с дикими животными и природным ручьем
               </p>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link href="/about">
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                Discover More
+                Узнать больше
               </Button>
             </Link>
           </div>
