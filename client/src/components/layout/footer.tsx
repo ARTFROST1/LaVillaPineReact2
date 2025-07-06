@@ -61,7 +61,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <AvitoIcon className="w-6 h-6" />
+                <AvitoIcon className="text-xl" />
               </a>
             </div>
           </div>
