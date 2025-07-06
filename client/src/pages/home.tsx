@@ -25,7 +25,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                 <Link href="/booking">
-                  <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg shadow-xl border-2 border-transparent hover:border-accent/20">
+                  <Button size="lg" className="bg-accent hover:bg-white hover:text-accent text-white px-8 py-4 text-lg shadow-xl border-2 border-accent hover:border-accent transition-all duration-300">
                     Забронировать проживание
                   </Button>
                 </Link>
@@ -88,7 +88,7 @@ export default function Home() {
           
           <div className="text-center mt-12">
             <Link href="/about">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
+              <Button size="lg" className="bg-accent hover:bg-white hover:text-accent text-white border-2 border-accent hover:border-accent transition-all duration-300 shadow-lg">
                 Узнать больше
               </Button>
             </Link>

@@ -41,7 +41,7 @@ export default function Header() {
               </Link>
             ))}
             <Link href="/booking">
-              <Button className="bg-accent hover:bg-accent/90 text-white">
+              <Button className="bg-accent hover:bg-white hover:text-accent text-white border-2 border-accent hover:border-accent transition-all duration-300 shadow-md">
                 Забронировать
               </Button>
             </Link>
@@ -76,7 +76,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="bg-accent hover:bg-accent/90 text-white w-full">
+                <Button className="bg-accent hover:bg-white hover:text-accent text-white border-2 border-accent hover:border-accent transition-all duration-300 shadow-md w-full">
                   Забронировать
                 </Button>
               </Link>
