@@ -1,8 +1,4 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-
 
 interface CarouselImage {
   url: string;
@@ -22,51 +18,64 @@ export default function CarouselHero({
   autoPlayInterval = 5000 
 }: CarouselHeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Компонент для слайда карусели с fallback изображениями
-  const CarouselSlideImage = ({ src, fallbackSrc, alt }: { src: string; fallbackSrc: string; alt: string }) => {
-    const [currentSrc, setCurrentSrc] = useState(src);
-    
-    useEffect(() => {
-      const img = new Image();
-      img.onload = () => setCurrentSrc(src);
-      img.onerror = () => setCurrentSrc(fallbackSrc);
-      img.src = src;
-    }, [src, fallbackSrc]);
-
-    return (
-      <div
-        className="w-full h-full bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${currentSrc})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      </div>
-    );
-  };
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % images.length);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
-  };
+  // Предзагрузка изображений
+  useEffect(() => {
+    const preloadImages = async () => {
+      const promises = images.map((image, index) => {
+        return new Promise<void>((resolve) => {
+          const img = new Image();
+          img.onload = () => {
+            setLoadedImages(prev => new Set([...prev, index]));
+            resolve();
+          };
+          img.onerror = () => {
+            // Если основное изображение не загрузилось, пробуем fallback
+            if (image.fallbackUrl) {
+              const fallbackImg = new Image();
+              fallbackImg.onload = () => {
+                setLoadedImages(prev => new Set([...prev, index]));
+                resolve();
+              };
+              fallbackImg.onerror = () => resolve();
+              fallbackImg.src = image.fallbackUrl;
+            } else {
+              resolve();
+            }
+          };
+          img.src = image.url;
+        });
+      });
+      
+      await Promise.all(promises);
+    };
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
+    preloadImages();
+  }, [images]);
 
   useEffect(() => {
-    if (autoPlay) {
+    if (autoPlay && images.length > 1 && loadedImages.size > 0) {
       const interval = setInterval(nextSlide, autoPlayInterval);
       return () => clearInterval(interval);
     }
-  }, [autoPlay, autoPlayInterval]);
+  }, [autoPlay, autoPlayInterval, images.length, loadedImages.size]);
+
+  const getImageSrc = (image: CarouselImage, index: number) => {
+    if (loadedImages.has(index)) {
+      return image.url;
+    }
+    return image.fallbackUrl || image.url;
+  };
 
   return (
     <div className="carousel-container w-full h-screen relative overflow-hidden">
       <div 
-        className="carousel-track h-full flex" 
+        className="carousel-track h-full flex transition-transform duration-700 ease-in-out" 
         style={{ 
           transform: `translateX(-${currentSlide * 100}%)`,
           width: `${images.length * 100}%`
@@ -75,49 +84,29 @@ export default function CarouselHero({
         {images.map((image, index) => (
           <div 
             key={index} 
-            className="carousel-slide w-full h-full flex-shrink-0"
+            className="carousel-slide w-full h-full flex-shrink-0 relative"
             style={{ width: `${100 / images.length}%` }}
           >
-            <CarouselSlideImage 
-              src={image.url} 
-              fallbackSrc={image.fallbackUrl || image.url}
-              alt={image.alt}
+            <div
+              className="w-full h-full bg-cover bg-center bg-no-repeat"
+              style={{ 
+                backgroundImage: `url(${getImageSrc(image, index)})`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover'
+              }}
             />
+            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
           </div>
         ))}
-      </div>
-      
-      {/* Navigation Arrows */}
-      <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-30">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={prevSlide}
-          className="bg-white/20 border-white/30 text-white hover:bg-white/30 backdrop-blur-sm"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </Button>
-      </div>
-      
-      <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={nextSlide}
-          className="bg-white/20 border-white/30 text-white hover:bg-white/30 backdrop-blur-sm"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </Button>
       </div>
       
       {/* Dots Navigation */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
         {images.map((_, index) => (
-          <button
+          <div
             key={index}
-            onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? "bg-white opacity-100 scale-125" : "bg-white opacity-60 hover:opacity-80"
+              index === currentSlide ? "bg-white opacity-100 scale-125" : "bg-white opacity-60"
             }`}
           />
         ))}
