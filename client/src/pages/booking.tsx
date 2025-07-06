@@ -51,13 +51,13 @@ export default function Booking() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contacts">
-                  <Button className="bg-accent hover:bg-white hover:text-accent text-white border-2 border-accent hover:border-accent transition-all duration-300 shadow-lg">
+                  <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-white text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg">
                     <i className="fas fa-envelope mr-2"></i>
                     Связаться с нами
                   </Button>
                 </Link>
                 <a href={`tel:${SITE_CONFIG.phone}`}>
-                  <Button variant="outline" className="border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300 shadow-lg">
+                  <Button variant="outline" className="border-2 border-accent text-accent bg-white/20 backdrop-blur-sm hover:bg-accent hover:text-white transition-all duration-300 shadow-lg">
                     <i className="fas fa-phone mr-2"></i>
                     Позвонить
                   </Button>

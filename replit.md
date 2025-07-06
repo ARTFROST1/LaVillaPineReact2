@@ -156,6 +156,8 @@ Changelog:
 - July 06, 2025. Completed Russian translation of entire website
 - July 06, 2025. Implemented comprehensive image management system with fallback support
 - July 06, 2025. Created structured image folders and user instructions
+- July 06, 2025. Fixed carousel functionality and added hover effects to buttons
+- July 06, 2025. Updated button hover effects: yellow buttons now use blurred transparent backgrounds on hover
 ```
 
 ## User Preferences
