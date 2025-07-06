@@ -19,15 +19,7 @@ export default function Footer() {
           
           
           
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Удобства</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li>Приватная сауна</li>
-              <li>Подогреваемый бассейн</li>
-              <li>Лесная локация</li>
-              <li>Дизайнерские интерьеры</li>
-            </ul>
-          </div>
+          
           
           <div>
             <h4 className="text-lg font-semibold mb-4">Контакты</h4>
