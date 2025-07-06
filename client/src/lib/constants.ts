@@ -8,9 +8,10 @@ export const SITE_CONFIG = {
     "Кольцевая улица, 4, посёлок Тульский, Майкопский район, Республика Адыгея (Адыгея)",
   socialLinks: {
     instagram: "https://www.instagram.com/lavillapine/",
-    facebook: "https://vk.com/lavillapine",
-    whatsapp: "#",
+    vk: "https://vk.com/lavillapine",
+    whatsapp: "https://wa.me/79189240007",
     telegram: "https://t.me/LaVillaPine",
+    avito: "https://www.avito.ru/user/lavillapine",
   },
 };
 
