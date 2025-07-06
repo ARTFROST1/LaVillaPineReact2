@@ -164,6 +164,7 @@ Changelog:
 - July 06, 2025. Fixed Avito icon design with correct four-circle pattern and proper alignment
 - July 06, 2025. Redesigned "Follow us" section on contacts page with modern, minimalist styling
 - July 06, 2025. Integrated Yandex Maps API with proper authentication and interactive map on contacts page
+- July 06, 2025. Enhanced About page with detailed property information, images for amenities cards, and premium service details
 ```
 
 ## User Preferences
