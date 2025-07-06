@@ -1,6 +1,7 @@
 import ContactForm from "@/components/ui/contact-form";
 import { SITE_CONFIG } from "@/lib/constants";
 import AvitoIcon from "@/components/ui/avito-icon";
+import YandexMap from "@/components/ui/yandex-map";
 
 export default function Contacts() {
   return (
@@ -48,13 +49,10 @@ export default function Contacts() {
           <div className="space-y-8">
             <div className="bg-neutral p-8 rounded-xl shadow-lg">
               <h3 className="text-2xl font-semibold mb-6 text-primary">Расположение</h3>
-              <div className="w-full h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <i className="fas fa-map-marked-alt text-4xl mb-2"></i>
-                  <p className="font-semibold">Интеграция с Яндекс Картами</p>
-                  <p className="text-sm">Интерактивная карта будет отображена здесь</p>
-                </div>
-              </div>
+              <YandexMap 
+                address={SITE_CONFIG.address}
+                className="w-full h-64"
+              />
             </div>
             
             <div className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-100">

@@ -163,6 +163,7 @@ Changelog:
 - July 06, 2025. Updated footer and contacts page with complete social media integration
 - July 06, 2025. Fixed Avito icon design with correct four-circle pattern and proper alignment
 - July 06, 2025. Redesigned "Follow us" section on contacts page with modern, minimalist styling
+- July 06, 2025. Integrated Yandex Maps API with proper authentication and interactive map on contacts page
 ```
 
 ## User Preferences
