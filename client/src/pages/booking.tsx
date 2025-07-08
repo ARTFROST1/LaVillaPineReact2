@@ -1,8 +1,60 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
+import { useEffect } from "react";
+
+// Global type declaration for HomeReserve widget
+declare global {
+  interface Window {
+    homereserve?: {
+      initWidgetSearch: (config: { token: string; tag: string }) => void;
+    };
+  }
+}
 
 export default function Booking() {
+  useEffect(() => {
+    // Check if script is already loaded
+    if (document.querySelector('script[src="https://homereserve.ru/widget.js"]')) {
+      // Script already exists, try to initialize
+      if (window.homereserve) {
+        window.homereserve.initWidgetSearch({
+          token: "Aijbfbb7Zl",
+          tag: "site"
+        });
+      }
+      return;
+    }
+
+    // Load HomeReserve widget script
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://homereserve.ru/widget.js';
+    script.onload = () => {
+      // Wait a bit for the module to fully load and initialize
+      setTimeout(() => {
+        if (window.homereserve && document.getElementById('hr-widget')) {
+          window.homereserve.initWidgetSearch({
+            token: "Aijbfbb7Zl",
+            tag: "site"
+          });
+        }
+      }, 100);
+    };
+    script.onerror = () => {
+      console.error('Failed to load HomeReserve widget script');
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://homereserve.ru/widget.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <div className="py-20 relative">
       {/* Room background with overlay */}
@@ -26,23 +78,9 @@ export default function Booking() {
           <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-[#ffffff00]">
             <h3 className="text-2xl font-semibold mb-6 text-white text-center">Модуль бронирования</h3>
             
-            {/* Third-party booking module placeholder */}
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center">
-              <i className="fas fa-calendar-alt text-4xl text-gray-400 mb-4"></i>
-              <h4 className="text-xl font-semibold text-gray-200 mb-2">Интеграция стороннего модуля бронирования</h4>
-              <p className="text-gray-300 mb-4">
-                В этой области будет размещен код стороннего модуля бронирования
-              </p>
-              <div className="text-sm text-gray-300">
-                <p>Зона интеграции для:</p>
-                <ul className="list-disc list-inside mt-2 space-y-1">
-                  <li>Календарь выбора дат</li>
-                  <li>Выбор дома (Дом 1 или Дом 2)</li>
-                  <li>Форма информации о гостях</li>
-                  <li>Обработка платежей</li>
-                  <li>Подтверждение бронирования</li>
-                </ul>
-              </div>
+            {/* HomeReserve Booking Widget */}
+            <div className="rounded-lg bg-white/10 backdrop-blur-sm p-6">
+              <div id="hr-widget"></div>
             </div>
             
             <div className="mt-8 text-center">
