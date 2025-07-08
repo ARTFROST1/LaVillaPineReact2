@@ -169,6 +169,7 @@ Changelog:
 - July 08, 2025. Migrated project from Replit Agent to standard Replit environment
 - July 08, 2025. Integrated HomeReserve booking widget with token authentication and dynamic loading
 - July 08, 2025. Redesigned booking page layout: widget directly on background, contact buttons in separate section
+- July 08, 2025. Complete redesign of contacts page with modern, informative layout and FAQ section
 ```
 
 ## User Preferences
