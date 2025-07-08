@@ -89,7 +89,19 @@ export default function YandexMap({
 
         mapInstanceRef.current = map;
 
-        // Добавляем цветную метку
+        // Создаем кастомную цветную метку с SVG иконкой
+        const customIcon = {
+          iconLayout: 'default#image',
+          iconImageHref: 'data:image/svg+xml;base64,' + btoa(`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+              <circle cx="12" cy="12" r="10" fill="#D4AF37" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" fill="#ffffff"/>
+            </svg>
+          `),
+          iconImageSize: [32, 32],
+          iconImageOffset: [-16, -16]
+        };
+
         const placemark = new ymaps.Placemark(
           coords,
           {
@@ -100,21 +112,23 @@ export default function YandexMap({
             `,
             hintContent: "La Villa Pine",
           },
-          {
-            preset: "islands#redDotIcon",
-            iconColor: "#D4AF37", // Золотистый цвет метки
-          },
+          customIcon
         );
 
         map.geoObjects.add(placemark);
         
-        // Убираем серый фильтр с метки, чтобы она оставалась цветной
-        placemark.events.add('mapchange', function() {
-          const iconElement = placemark.getElement();
-          if (iconElement) {
-            iconElement.style.filter = 'none';
+        // Убираем серый фильтр с элемента метки после добавления
+        setTimeout(() => {
+          const placemarkElement = placemark.getElement();
+          if (placemarkElement) {
+            placemarkElement.style.filter = 'none';
+            // Также убираем фильтр с дочерних элементов
+            const childElements = placemarkElement.querySelectorAll('*');
+            childElements.forEach(child => {
+              child.style.filter = 'none';
+            });
           }
-        });
+        }, 100);
 
         setIsLoading(false);
       } catch (error) {
