@@ -2,17 +2,19 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, TreePine } from "lucide-react";
-import { SITE_CONFIG } from "@/lib/constants";
+import { useLanguage } from "@/hooks/use-language";
+import LanguageSwitcher from "@/components/ui/language-switcher";
 
 export default function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navigation = [
-    { name: "Главная", href: "/" },
-    { name: "О нас", href: "/about" },
-    { name: "Галерея", href: "/gallery" },
-    { name: "Контакты", href: "/contacts" },
+    { name: t.home, href: "/" },
+    { name: t.about, href: "/about" },
+    { name: t.gallery, href: "/gallery" },
+    { name: t.contacts, href: "/contacts" },
   ];
 
   const toggleMobileMenu = () => {
@@ -25,7 +27,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <TreePine className="h-8 w-8 text-accent" />
-            <span className="text-2xl font-bold text-primary">{SITE_CONFIG.name}</span>
+            <span className="text-2xl font-bold text-primary">{t.siteName}</span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -40,9 +42,10 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+            <LanguageSwitcher />
             <Link href="/booking">
               <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-md">
-                Забронировать
+                {t.booking}
               </Button>
             </Link>
           </div>
@@ -75,11 +78,14 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-              <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-md w-full">
-                  Забронировать
-                </Button>
-              </Link>
+              <div className="flex items-center justify-between">
+                <LanguageSwitcher />
+                <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-md">
+                    {t.booking}
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         )}

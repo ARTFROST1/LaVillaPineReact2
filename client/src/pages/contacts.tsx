@@ -1,9 +1,11 @@
 import ContactForm from "@/components/ui/contact-form";
 import { SITE_CONFIG } from "@/lib/constants";
+import { useLanguage } from "@/hooks/use-language";
 import AvitoIcon from "@/components/ui/avito-icon";
 import YandexMap from "@/components/ui/yandex-map";
 
 export default function Contacts() {
+  const { t } = useLanguage();
   return (
     <div className="relative min-h-screen">
       {/* Background image with overlay */}

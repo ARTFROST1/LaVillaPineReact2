@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
+import { useLanguage } from "@/hooks/use-language";
 import { useEffect } from "react";
 
 // Global type declaration for HomeReserve widget
@@ -13,6 +14,7 @@ declare global {
 }
 
 export default function Booking() {
+  const { t } = useLanguage();
   useEffect(() => {
     // Check if script is already loaded
     if (document.querySelector('script[src="https://homereserve.ru/widget.js"]')) {

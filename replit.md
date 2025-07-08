@@ -169,6 +169,9 @@ Changelog:
 - July 08, 2025. Migrated project from Replit Agent to standard Replit environment
 - July 08, 2025. Integrated HomeReserve booking widget with token authentication and dynamic loading
 - July 08, 2025. Redesigned booking page layout: widget directly on background, contact buttons in separate section
+- July 08, 2025. Implemented comprehensive multi-language support (Russian/English) with React Context API
+- July 08, 2025. Added language switcher component with localStorage persistence
+- July 08, 2025. Updated all pages and components to use translation system
 - July 08, 2025. Successfully migrated project from Replit Agent to standard Replit environment
 - July 08, 2025. Fixed header navigation alignment issue - centered all navigation elements properly
 ```

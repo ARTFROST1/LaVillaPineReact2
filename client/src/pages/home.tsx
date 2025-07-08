@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import CarouselHero from "@/components/ui/carousel-hero";
 import DynamicImage from "@/components/ui/dynamic-image";
+import { useLanguage } from "@/hooks/use-language";
 import { HERO_IMAGES, SITE_CONFIG } from "@/lib/constants";
 
 // Типы для HomeReserve
@@ -15,6 +16,7 @@ declare global {
 }
 
 export default function Home() {
+  const { t } = useLanguage();
   useEffect(() => {
     // Динамически загружаем скрипт HomeReserve
     const script = document.createElement('script');
@@ -53,13 +55,13 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">
-                Добро пожаловать в <br />
+                {t.heroTitle.split('La Villa Pine')[0]} <br />
                 <span className="text-accent drop-shadow-lg">
-                  {SITE_CONFIG.name}
+                  {t.siteName}
                 </span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
-                Откройте для себя роскошные гостевые дома в стиле лофт
+                {t.heroSubtitle}
               </p>
               {/* HomeReserve Search Widget */}
               <div className="max-w-2xl mx-auto mt-8">
@@ -75,12 +77,11 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
-              Почему выбирают <br />
-              {SITE_CONFIG.name}
+              {t.welcomeTitle} <br />
+              {t.siteName}
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Два исключительных гостевых дома в стиле лофт, где современный
-              дизайн встречается с природным спокойствием
+              {t.welcomeDescription}
             </p>
           </div>
 
@@ -100,11 +101,10 @@ export default function Home() {
                   <i className="fas fa-home"></i>
                 </div>
                 <h3 className="text-2xl font-semibold mb-4">
-                  Современный дизайн лофт
+                  {t.amenityTitles.interior}
                 </h3>
                 <p className="text-gray-600">
-                  Дизайнерский ремонт с индустриальными элементами и современным
-                  комфортом
+                  {t.amenityDescriptions.interior}
                 </p>
               </div>
             </div>
@@ -124,11 +124,10 @@ export default function Home() {
                   <i className="fas fa-swimming-pool"></i>
                 </div>
                 <h3 className="text-2xl font-semibold mb-4">
-                  Подогреваемые бассейны и сауна
+                  {t.amenityTitles.pool} и {t.amenityTitles.sauna}
                 </h3>
                 <p className="text-gray-600">
-                  Частные подогреваемые бассейны и сауны для круглогодичного
-                  отдыха
+                  {t.amenityDescriptions.pool}
                 </p>
               </div>
             </div>
