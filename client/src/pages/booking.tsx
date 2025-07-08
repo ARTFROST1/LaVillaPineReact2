@@ -17,7 +17,7 @@ export default function Booking() {
     // Check if script is already loaded
     if (document.querySelector('script[src="https://homereserve.ru/widget.js"]')) {
       // Script already exists, try to initialize
-      if (window.homereserve) {
+      if (window.homereserve && document.getElementById('hr-widget-booking')) {
         window.homereserve.initWidgetSearch({
           token: "Aijbfbb7Zl",
           tag: "site"
@@ -33,7 +33,7 @@ export default function Booking() {
     script.onload = () => {
       // Wait a bit for the module to fully load and initialize
       setTimeout(() => {
-        if (window.homereserve && document.getElementById('hr-widget')) {
+        if (window.homereserve && document.getElementById('hr-widget-booking')) {
           window.homereserve.initWidgetSearch({
             token: "Aijbfbb7Zl",
             tag: "site"
@@ -80,7 +80,7 @@ export default function Booking() {
           
           {/* HomeReserve Booking Widget - directly on background */}
           <div className="mb-12">
-            <div id="hr-widget"></div>
+            <div id="hr-widget-booking"></div>
           </div>
           
           {/* Contact buttons section */}
