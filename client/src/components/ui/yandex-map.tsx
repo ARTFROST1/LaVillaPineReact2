@@ -66,52 +66,37 @@ export default function YandexMap({
 
         if (!mapRef.current || mapInstanceRef.current) return;
 
+        // Координаты La Villa Pine
+        const coords = [44.496225, 40.165312];
+
         // Создаем карту с минимальными элементами управления
         const map = new ymaps.Map(mapRef.current, {
-          center: [44.6086, 40.1006], // Примерные координаты Майкопского района
-          zoom: 10,
+          center: coords,
+          zoom: 12,
           controls: ["zoomControl"], // Только зум
         });
 
         mapInstanceRef.current = map;
 
-        // Геокодируем адрес
-        ymaps
-          .geocode(address, {
-            results: 1,
-          })
-          .then((res: any) => {
-            const firstGeoObject = res.geoObjects.get(0);
-            const coords = firstGeoObject.geometry.getCoordinates();
-
-            // Центрируем карту на найденном адресе
-            map.setCenter(coords, 10);
-
-            // Добавляем метку
-            const placemark = new ymaps.Placemark(
-              coords,
-              {
-                balloonContent: `
+        // Добавляем метку
+        const placemark = new ymaps.Placemark(
+          coords,
+          {
+            balloonContent: `
               <strong>La Villa Pine</strong><br>
               ${address}<br>
               <small>Гостевые дома в стиле лофт</small>
             `,
-                hintContent: "La Villa Pine",
-              },
-              {
-                preset: "islands#darkGreenDotIcon",
-                iconColor: "#D4AF37", // Золотистый цвет метки
-              },
-            );
+            hintContent: "La Villa Pine",
+          },
+          {
+            preset: "islands#darkGreenDotIcon",
+            iconColor: "#D4AF37", // Золотистый цвет метки
+          },
+        );
 
-            map.geoObjects.add(placemark);
-            setIsLoading(false);
-          })
-          .catch((error: any) => {
-            console.error("Ошибка геокодирования:", error);
-            setIsLoading(false);
-            // Если геокодирование не удалось, оставляем карту на общих координатах
-          });
+        map.geoObjects.add(placemark);
+        setIsLoading(false);
       } catch (error) {
         console.error("Ошибка загрузки Яндекс.Карт:", error);
         setError("Ошибка загрузки карты");
