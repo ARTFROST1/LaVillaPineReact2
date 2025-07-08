@@ -66,17 +66,11 @@ export default function YandexMap({
 
         if (!mapRef.current || mapInstanceRef.current) return;
 
-        // Создаем карту
+        // Создаем карту с минимальными элементами управления
         const map = new ymaps.Map(mapRef.current, {
           center: [44.6086, 40.1006], // Примерные координаты Майкопского района
           zoom: 10,
-          controls: [
-            "zoomControl",
-            "searchControl",
-            "typeSelector",
-            "fullscreenControl",
-            "geolocationControl",
-          ],
+          controls: ["zoomControl"], // Только зум
         });
 
         mapInstanceRef.current = map;
@@ -105,7 +99,8 @@ export default function YandexMap({
                 hintContent: "La Villa Pine",
               },
               {
-                preset: "islands#redDotIcon",
+                preset: "islands#darkGreenDotIcon",
+                iconColor: "#D4AF37", // Золотистый цвет метки
               },
             );
 
