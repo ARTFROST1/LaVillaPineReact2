@@ -73,8 +73,7 @@ export default function Booking() {
         </div>
         
         <div className="max-w-4xl mx-auto">
-          {/* Title */}
-          <h3 className="text-2xl font-semibold mb-8 text-white text-center">Модуль бронирования</h3>
+          
           
           {/* HomeReserve Booking Widget - directly on background */}
           <div className="mb-12">
