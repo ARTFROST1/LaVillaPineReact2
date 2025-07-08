@@ -23,6 +23,12 @@ export interface Translations {
   aboutTitle: string;
   aboutDescription: string;
   amenitiesTitle: string;
+  premiumComfort: string;
+  premiumComfortDescription: string;
+  exclusiveFeatures: string;
+  exclusiveFeaturesDescription: string;
+  perfectLocation: string;
+  perfectLocationDescription: string;
   amenityTitles: {
     sauna: string;
     pool: string;
@@ -42,6 +48,8 @@ export interface Translations {
   
   // Contacts page
   contactsTitle: string;
+  getInTouch: string;
+  getInTouchDescription: string;
   contactForm: {
     title: string;
     name: string;
@@ -94,6 +102,12 @@ export const translations: Record<Language, Translations> = {
     aboutTitle: 'О La Villa Pine',
     aboutDescription: 'Откройте для себя два исключительных гостевых дома в стиле лофт, где современный дизайн встречается с природным спокойствием. Каждый дом имеет дизайнерский ремонт, частные сауны и подогреваемые бассейны, все это на фоне чистого леса.',
     amenitiesTitle: 'Наши удобства',
+    premiumComfort: 'Премиум комфорт',
+    premiumComfortDescription: 'Каждый дом площадью 80 квадратных метров предлагает просторные спальни с большими кроватями, полностью оборудованные кухни с современной техникой и стильные ванные комнаты с душевыми кабинами премиум-класса.',
+    exclusiveFeatures: 'Эксклюзивные возможности',
+    exclusiveFeaturesDescription: 'Наслаждайтесь частными подогреваемыми бассейнами и традиционными финскими саунами в каждом доме. Идеально для отдыха в любое время года с современными удобствами и природным окружением.',
+    perfectLocation: 'Идеальное расположение',
+    perfectLocationDescription: 'Расположенные в нетронутом сосновом лесу, наши дома предлагают полную приватность, при этом оставаясь легкодоступными. Наслаждайтесь дикой природой, включая белок и различных лесных птиц, прямо у вашего порога.',
     amenityTitles: {
       sauna: 'Финская сауна',
       pool: 'Подогреваемый бассейн',
@@ -113,8 +127,10 @@ export const translations: Record<Language, Translations> = {
     
     // Contacts page
     contactsTitle: 'Контакты',
+    getInTouch: 'Свяжитесь с нами',
+    getInTouchDescription: 'У вас есть вопросы о наших гостевых домах? Мы всегда готовы помочь вам спланировать идеальный отдых в La Villa Pine.',
     contactForm: {
-      title: 'Свяжитесь с нами',
+      title: 'Отправить сообщение',
       name: 'Имя',
       email: 'Email',
       phone: 'Телефон',
@@ -123,7 +139,7 @@ export const translations: Record<Language, Translations> = {
       success: 'Сообщение успешно отправлено!',
       error: 'Ошибка при отправке сообщения'
     },
-    followUs: 'Подписывайтесь на нас',
+    followUs: 'Подписывайтесь на наши страницы, чтобы быть в курсе новостей и специальных предложений',
     location: 'Наше местоположение',
     
     // Booking page
@@ -164,6 +180,12 @@ export const translations: Record<Language, Translations> = {
     aboutTitle: 'About La Villa Pine',
     aboutDescription: 'Discover two exceptional loft-style guest houses where modern design meets natural tranquility. Each house features designer renovations, private saunas and heated pools, all set against a pristine forest backdrop.',
     amenitiesTitle: 'Our Amenities',
+    premiumComfort: 'Premium Comfort',
+    premiumComfortDescription: 'Each 80 square meter house offers spacious bedrooms with large beds, fully equipped kitchens with modern appliances, and stylish bathrooms with premium shower facilities.',
+    exclusiveFeatures: 'Exclusive Features',
+    exclusiveFeaturesDescription: 'Enjoy private heated pools and traditional Finnish saunas in each house. Perfect for year-round relaxation with modern amenities and natural surroundings.',
+    perfectLocation: 'Perfect Location',
+    perfectLocationDescription: 'Located in pristine pine forest, our houses offer complete privacy while remaining easily accessible. Enjoy wildlife including squirrels and various forest birds right at your doorstep.',
     amenityTitles: {
       sauna: 'Finnish Sauna',
       pool: 'Heated Pool',
@@ -183,8 +205,10 @@ export const translations: Record<Language, Translations> = {
     
     // Contacts page
     contactsTitle: 'Contacts',
+    getInTouch: 'Get in Touch',
+    getInTouchDescription: 'Have questions about our guest houses? We are always ready to help you plan the perfect getaway at La Villa Pine.',
     contactForm: {
-      title: 'Contact Us',
+      title: 'Send Message',
       name: 'Name',
       email: 'Email',
       phone: 'Phone',
@@ -193,7 +217,7 @@ export const translations: Record<Language, Translations> = {
       success: 'Message sent successfully!',
       error: 'Error sending message'
     },
-    followUs: 'Follow Us',
+    followUs: 'Follow our pages to stay updated with news and special offers',
     location: 'Our Location',
     
     // Booking page

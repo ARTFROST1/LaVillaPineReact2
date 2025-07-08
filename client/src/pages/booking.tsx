@@ -70,8 +70,8 @@ export default function Booking() {
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Бронирование</h1>
-          <p className="text-xl text-gray-200">Спланируйте свой идеальный отдых в La Villa Pine уже сегодня</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">{t.bookingTitle}</h1>
+          <p className="text-xl text-gray-200">{t.bookingDescription}</p>
         </div>
         
         <div className="max-w-4xl mx-auto">
@@ -87,13 +87,13 @@ export default function Booking() {
             <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/10">
               <div className="text-center">
                 <p className="mb-4 text-white">
-                  Нужна помощь с бронированием? Свяжитесь с нами напрямую:
+                  {t.needHelp} {t.contactUs}:
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/contacts">
                     <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg">
                       <i className="fas fa-envelope mr-2"></i>
-                      Связаться с нами
+                      {t.contactUs}
                     </Button>
                   </Link>
                   <a href={`tel:${SITE_CONFIG.phone}`}>

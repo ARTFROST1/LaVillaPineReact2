@@ -21,9 +21,9 @@ export default function Contacts() {
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold">Связаться с нами</h1>
+            <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold">{t.getInTouch}</h1>
             <p className="text-lg text-gray-600 font-light">
-              Свяжитесь с нами, чтобы забронировать проживание или задать любые вопросы
+              {t.getInTouchDescription}
             </p>
           </div>
           
@@ -31,7 +31,7 @@ export default function Contacts() {
           <div className="max-w-4xl mx-auto space-y-12">
             {/* 1. Contact Information */}
             <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-xl">
-              <h2 className="text-2xl font-light mb-8 text-primary">Контактная информация</h2>
+              <h2 className="text-2xl font-light mb-8 text-primary">{t.contacts}</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -125,13 +125,13 @@ export default function Contacts() {
                 </a>
               </div>
               <p className="text-sm text-gray-500 mt-6 text-center font-light">
-                Подписывайтесь на наши страницы, чтобы быть в курсе новостей и специальных предложений
+                {t.followUs}
               </p>
             </div>
             
             {/* 4. Contact Form */}
             <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-xl">
-              <h2 className="text-2xl font-light mb-6 text-primary">Отправить сообщение</h2>
+              <h2 className="text-2xl font-light mb-6 text-primary">{t.contactForm.title}</h2>
               <ContactForm />
             </div>
           </div>

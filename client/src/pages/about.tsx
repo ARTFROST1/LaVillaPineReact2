@@ -15,7 +15,7 @@ export default function About() {
             {t.aboutDescription}
           </p>
           <div className="bg-neutral/50 p-8 rounded-2xl text-left max-w-3xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-4 text-primary">Премиум комфорт</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-primary">{t.premiumComfort}</h2>
             <p className="text-gray-700 mb-4">
               В каждом доме вас ждут 3 просторные спальни, 2 современных санузла и большой холл с полностью оборудованной кухней. 
               Сауна с RGB светодиодной подсветкой создаст атмосферу релакса, а всё необходимое для комфортного отдыха уже предусмотрено: 
