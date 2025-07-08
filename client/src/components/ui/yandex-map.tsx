@@ -102,27 +102,48 @@ export default function YandexMap({
 
         map.geoObjects.add(placemark);
 
-        // Применяем черно-белый фильтр только к фоновому слою карты после загрузки
+        // Применяем черно-белый фильтр к карте и создаем CSS для цветных меток
         map.events.add('ready', function() {
-          setTimeout(() => {
-            const mapContainer = mapRef.current;
-            if (mapContainer) {
-              // Ищем слой карты и применяем фильтр только к нему
-              const mapPanes = mapContainer.querySelectorAll('.ymaps-2-1-79-map-bg, .ymaps-2-1-79-ground-pane');
-              mapPanes.forEach(pane => {
-                pane.style.filter = 'grayscale(100%)';
-              });
-              
-              // Или применяем фильтр ко всему контейнеру, но потом убираем с меток
-              mapContainer.style.filter = 'grayscale(100%)';
-              
-              // Убираем фильтр с элементов меток
-              const placemarkElements = mapContainer.querySelectorAll('.ymaps-2-1-79-placemark-overlay, .ymaps-2-1-79-balloon');
-              placemarkElements.forEach(element => {
-                element.style.filter = 'none';
-              });
+          // Создаем CSS стиль для цветных меток
+          const style = document.createElement('style');
+          style.textContent = `
+            .yandex-map-container {
+              filter: grayscale(100%);
             }
-          }, 500);
+            .yandex-map-container [class*="placemark"], 
+            .yandex-map-container [class*="balloon"],
+            .yandex-map-container [class*="icon"] {
+              filter: grayscale(0%) !important;
+            }
+            /* Специфичные селекторы для Яндекс.Карт */
+            .yandex-map-container ymaps[class*="placemark"],
+            .yandex-map-container ymaps[class*="balloon"],
+            .yandex-map-container [class*="ymaps"][class*="placemark"],
+            .yandex-map-container [class*="ymaps"][class*="balloon"] {
+              filter: grayscale(0%) !important;
+            }
+          `;
+          document.head.appendChild(style);
+          
+          // Применяем класс к контейнеру карты
+          const mapContainer = mapRef.current;
+          if (mapContainer) {
+            mapContainer.classList.add('yandex-map-container');
+          }
+          
+          // Дополнительно пытаемся найти и перекрасить метки
+          setTimeout(() => {
+            const allElements = mapContainer?.querySelectorAll('*');
+            allElements?.forEach(element => {
+              const className = element.className;
+              if (typeof className === 'string' && 
+                  (className.includes('placemark') || 
+                   className.includes('balloon') || 
+                   className.includes('icon'))) {
+                element.style.filter = 'grayscale(0%) !important';
+              }
+            });
+          }, 1000);
         });
 
         setIsLoading(false);
