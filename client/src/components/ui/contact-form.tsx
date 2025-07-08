@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/hooks/use-language";
 import { apiRequest } from "@/lib/queryClient";
 import { Loader2 } from "lucide-react";
 
@@ -20,7 +19,6 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
-  const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   
@@ -42,7 +40,7 @@ export default function ContactForm() {
       
       if (result.success) {
         toast({
-          title: t.contactForm.success,
+          title: "Сообщение успешно отправлено!",
           description: "Мы скоро свяжемся с вами.",
         });
         reset();
@@ -51,8 +49,8 @@ export default function ContactForm() {
       }
     } catch (error) {
       toast({
-        title: t.contactForm.error,
-        description: error instanceof Error ? error.message : t.contactForm.error,
+        title: "Ошибка",
+        description: error instanceof Error ? error.message : "Не удалось отправить сообщение. Пожалуйста, попробуйте снова.",
         variant: "destructive",
       });
     } finally {
@@ -63,11 +61,11 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
-        <Label htmlFor="name" className="text-gray-700 text-sm font-medium">{t.contactForm.name}</Label>
+        <Label htmlFor="name" className="text-gray-700 text-sm font-medium">Имя</Label>
         <Input
           id="name"
           type="text"
-          placeholder={t.contactForm.name}
+          placeholder="Ваше имя"
           className="mt-2"
           {...register("name")}
         />
@@ -77,11 +75,11 @@ export default function ContactForm() {
       </div>
       
       <div>
-        <Label htmlFor="email" className="text-gray-700 text-sm font-medium">{t.contactForm.email}</Label>
+        <Label htmlFor="email" className="text-gray-700 text-sm font-medium">Email</Label>
         <Input
           id="email"
           type="email"
-          placeholder={t.contactForm.email}
+          placeholder="Ваш email"
           className="mt-2"
           {...register("email")}
         />
@@ -91,11 +89,11 @@ export default function ContactForm() {
       </div>
       
       <div>
-        <Label htmlFor="message" className="text-gray-700 text-sm font-medium">{t.contactForm.message}</Label>
+        <Label htmlFor="message" className="text-gray-700 text-sm font-medium">Сообщение</Label>
         <Textarea
           id="message"
           rows={4}
-          placeholder={t.contactForm.message}
+          placeholder="Ваше сообщение"
           className="mt-2 resize-none"
           {...register("message")}
         />
@@ -112,10 +110,10 @@ export default function ContactForm() {
         {isSubmitting ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            {t.contactForm.submit}...
+            Отправка...
           </>
         ) : (
-          t.contactForm.submit
+          "Отправить сообщение"
         )}
       </Button>
     </form>

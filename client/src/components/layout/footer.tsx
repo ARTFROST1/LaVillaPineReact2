@@ -1,11 +1,9 @@
 import { Link } from "wouter";
 import { TreePine } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
-import { useLanguage } from "@/hooks/use-language";
 import AvitoIcon from "@/components/ui/avito-icon";
 
 export default function Footer() {
-  const { t } = useLanguage();
   return (
     <footer className="bg-primary text-white py-12">
       <div className="container mx-auto px-4">
@@ -13,13 +11,13 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <TreePine className="h-8 w-8 text-accent" />
-              <span className="text-2xl font-bold">{t.siteName}</span>
+              <span className="text-2xl font-bold">{SITE_CONFIG.name}</span>
             </div>
-            <p className="text-gray-300">{t.siteDescription}</p>
+            <p className="text-gray-300">{SITE_CONFIG.description}</p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">{t.contacts}</h4>
+            <h4 className="text-lg font-semibold mb-4">Контакты</h4>
             <div className="space-y-2 text-gray-300">
               <p>{SITE_CONFIG.phone}</p>
               <p>{SITE_CONFIG.email}</p>
@@ -70,7 +68,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 {t.siteName}. {t.allRightsReserved}.</p>
+          <p>&copy; 2025 {SITE_CONFIG.name}. All rights reserved.</p>
         </div>
       </div>
     </footer>

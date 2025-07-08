@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
-import { useLanguage } from "@/hooks/use-language";
 import { useEffect } from "react";
 
 // Global type declaration for HomeReserve widget
@@ -14,7 +13,6 @@ declare global {
 }
 
 export default function Booking() {
-  const { t } = useLanguage();
   useEffect(() => {
     // Check if script is already loaded
     if (document.querySelector('script[src="https://homereserve.ru/widget.js"]')) {
@@ -70,8 +68,8 @@ export default function Booking() {
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">{t.bookingTitle}</h1>
-          <p className="text-xl text-gray-200">{t.bookingDescription}</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Бронирование</h1>
+          <p className="text-xl text-gray-200">Спланируйте свой идеальный отдых в La Villa Pine уже сегодня</p>
         </div>
         
         <div className="max-w-4xl mx-auto">
@@ -87,13 +85,13 @@ export default function Booking() {
             <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/10">
               <div className="text-center">
                 <p className="mb-4 text-white">
-                  {t.needHelp} {t.contactUs}:
+                  Нужна помощь с бронированием? Свяжитесь с нами напрямую:
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/contacts">
                     <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg">
                       <i className="fas fa-envelope mr-2"></i>
-                      {t.contactUs}
+                      Связаться с нами
                     </Button>
                   </Link>
                   <a href={`tel:${SITE_CONFIG.phone}`}>
