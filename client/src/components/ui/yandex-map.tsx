@@ -74,11 +74,22 @@ export default function YandexMap({
           center: coords,
           zoom: 13,
           controls: ["zoomControl"], // Только зум
+          type: "yandex#map"
         });
+
+        // Добавляем черно-белый стиль карты
+        map.options.set('restrictMapArea', false);
+        map.options.set('suppressMapOpenBlock', true);
+        
+        // Применяем черно-белый фильтр к карте
+        const mapContainer = mapRef.current;
+        if (mapContainer) {
+          mapContainer.style.filter = 'grayscale(100%)';
+        }
 
         mapInstanceRef.current = map;
 
-        // Добавляем метку
+        // Добавляем цветную метку
         const placemark = new ymaps.Placemark(
           coords,
           {
@@ -96,6 +107,15 @@ export default function YandexMap({
         );
 
         map.geoObjects.add(placemark);
+        
+        // Убираем серый фильтр с метки, чтобы она оставалась цветной
+        placemark.events.add('mapchange', function() {
+          const iconElement = placemark.getElement();
+          if (iconElement) {
+            iconElement.style.filter = 'none';
+          }
+        });
+
         setIsLoading(false);
       } catch (error) {
         console.error("Ошибка загрузки Яндекс.Карт:", error);
