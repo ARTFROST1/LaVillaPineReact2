@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import CarouselHero from "@/components/ui/carousel-hero";
+import DynamicImage from "@/components/ui/dynamic-image";
 import { HERO_IMAGES, SITE_CONFIG } from "@/lib/constants";
 
 // Типы для HomeReserve
@@ -84,40 +85,73 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-neutral p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
-              <div className="text-accent text-4xl mb-4">
-                <i className="fas fa-home"></i>
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+              <div className="relative h-48 overflow-hidden">
+                <DynamicImage 
+                  src="/images/amenities/interior.jpg"
+                  fallbackSrc="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  alt="Современный дизайн лофт"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">
-                Современный дизайн лофт
-              </h3>
-              <p className="text-gray-600">
-                Дизайнерский ремонт с индустриальными элементами и современным
-                комфортом
-              </p>
+              <div className="p-8 text-center">
+                <div className="text-accent text-4xl mb-4">
+                  <i className="fas fa-home"></i>
+                </div>
+                <h3 className="text-2xl font-semibold mb-4">
+                  Современный дизайн лофт
+                </h3>
+                <p className="text-gray-600">
+                  Дизайнерский ремонт с индустриальными элементами и современным
+                  комфортом
+                </p>
+              </div>
             </div>
 
-            <div className="bg-neutral p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
-              <div className="text-accent text-4xl mb-4">
-                <i className="fas fa-swimming-pool"></i>
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+              <div className="relative h-48 overflow-hidden">
+                <DynamicImage 
+                  src="/images/amenities/pool.jpg"
+                  fallbackSrc="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  alt="Подогреваемые бассейны"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">
-                Подогреваемые бассейны и сауна
-              </h3>
-              <p className="text-gray-600">
-                Частные подогреваемые бассейны и сауны для круглогодичного
-                отдыха
-              </p>
+              <div className="p-8 text-center">
+                <div className="text-accent text-4xl mb-4">
+                  <i className="fas fa-swimming-pool"></i>
+                </div>
+                <h3 className="text-2xl font-semibold mb-4">
+                  Подогреваемые бассейны и сауна
+                </h3>
+                <p className="text-gray-600">
+                  Частные подогреваемые бассейны и сауны для круглогодичного
+                  отдыха
+                </p>
+              </div>
             </div>
 
-            <div className="bg-neutral p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
-              <div className="text-accent text-4xl mb-4">
-                <i className="fas fa-tree"></i>
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+              <div className="relative h-48 overflow-hidden">
+                <DynamicImage 
+                  src="/images/amenities/forest.jpg"
+                  fallbackSrc="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  alt="Лесное окружение"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Лесное окружение</h3>
-              <p className="text-gray-600">
-                Чистая лесная местность с дикими животными и природным ручьем
-              </p>
+              <div className="p-8 text-center">
+                <div className="text-accent text-4xl mb-4">
+                  <i className="fas fa-tree"></i>
+                </div>
+                <h3 className="text-2xl font-semibold mb-4">Лесное окружение</h3>
+                <p className="text-gray-600">
+                  Чистая лесная местность с дикими животными и природным ручьем
+                </p>
+              </div>
             </div>
           </div>
 
