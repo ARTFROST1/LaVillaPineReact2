@@ -66,13 +66,10 @@ export default function YandexMap({
 
         if (!mapRef.current || mapInstanceRef.current) return;
 
-        // Координаты La Villa Pine
-        const coords = [44.496225, 40.165312];
-
         // Создаем карту с минимальными элементами управления
         const map = new ymaps.Map(mapRef.current, {
-          center: coords,
-          zoom: 12,
+          center: [44.496225, 40.165312], // Примерные координаты Майкопского района
+          zoom: 13,
           controls: ["zoomControl"], // Только зум
         });
 
@@ -90,7 +87,7 @@ export default function YandexMap({
             hintContent: "La Villa Pine",
           },
           {
-            preset: "islands#darkGreenDotIcon",
+            preset: "islands#redDotIcon",
             iconColor: "#D4AF37", // Золотистый цвет метки
           },
         );
