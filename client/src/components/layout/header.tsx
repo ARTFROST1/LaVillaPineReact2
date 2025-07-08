@@ -28,7 +28,7 @@ export default function Header() {
             <span className="text-2xl font-bold text-primary">{SITE_CONFIG.name}</span>
           </Link>
           
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
