@@ -82,9 +82,10 @@ La Villa Pine is a modern full-stack web application for a luxury guest house bo
 4. Navigation controls allow browsing between images
 
 ### Booking Integration
-- Placeholder section prepared for third-party booking system
-- Integration area designed for external booking widgets
-- Contact information provided as fallback
+- HomeReserve widget fully integrated with token "Aijbfbb7Zl"
+- Widget loads dynamically and displays directly on background
+- Contact buttons separated into dedicated section below widget
+- Proper error handling and script cleanup implemented
 
 ## External Dependencies
 
@@ -165,6 +166,9 @@ Changelog:
 - July 06, 2025. Redesigned "Follow us" section on contacts page with modern, minimalist styling
 - July 06, 2025. Integrated Yandex Maps API with proper authentication and interactive map on contacts page
 - July 06, 2025. Enhanced About page with detailed property information, images for amenities cards, and premium service details
+- July 08, 2025. Migrated project from Replit Agent to standard Replit environment
+- July 08, 2025. Integrated HomeReserve booking widget with token authentication and dynamic loading
+- July 08, 2025. Redesigned booking page layout: widget directly on background, contact buttons in separate section
 ```
 
 ## User Preferences

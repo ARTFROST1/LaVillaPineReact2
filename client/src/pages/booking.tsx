@@ -74,32 +74,36 @@ export default function Booking() {
           </p>
         </div>
         
-        <div className="max-w-2xl mx-auto">
-          <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-[#ffffff00]">
-            <h3 className="text-2xl font-semibold mb-6 text-white text-center">Модуль бронирования</h3>
-            
-            {/* HomeReserve Booking Widget */}
-            <div className="rounded-lg bg-white/10 backdrop-blur-sm p-6">
-              <div id="hr-widget"></div>
-            </div>
-            
-            <div className="mt-8 text-center">
-              <p className="mb-4 text-[#ffffff]">
-                Нужна помощь с бронированием? Свяжитесь с нами напрямую:
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contacts">
-                  <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg">
-                    <i className="fas fa-envelope mr-2"></i>
-                    Связаться с нами
-                  </Button>
-                </Link>
-                <a href={`tel:${SITE_CONFIG.phone}`}>
-                  <Button variant="outline" className="border-2 border-accent text-accent bg-white/20 backdrop-blur-sm hover:bg-accent hover:text-white transition-all duration-300 shadow-lg">
-                    <i className="fas fa-phone mr-2"></i>
-                    Позвонить
-                  </Button>
-                </a>
+        <div className="max-w-4xl mx-auto">
+          {/* Title */}
+          <h3 className="text-2xl font-semibold mb-8 text-white text-center">Модуль бронирования</h3>
+          
+          {/* HomeReserve Booking Widget - directly on background */}
+          <div className="mb-12">
+            <div id="hr-widget"></div>
+          </div>
+          
+          {/* Contact buttons section */}
+          <div className="max-w-2xl mx-auto">
+            <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/10">
+              <div className="text-center">
+                <p className="mb-4 text-white">
+                  Нужна помощь с бронированием? Свяжитесь с нами напрямую:
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/contacts">
+                    <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg">
+                      <i className="fas fa-envelope mr-2"></i>
+                      Связаться с нами
+                    </Button>
+                  </Link>
+                  <a href={`tel:${SITE_CONFIG.phone}`}>
+                    <Button variant="outline" className="border-2 border-accent text-accent bg-white/20 backdrop-blur-sm hover:bg-accent hover:text-white transition-all duration-300 shadow-lg">
+                      <i className="fas fa-phone mr-2"></i>
+                      Позвонить
+                    </Button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
