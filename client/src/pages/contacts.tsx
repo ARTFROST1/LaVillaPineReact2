@@ -15,12 +15,11 @@ export default function Contacts() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/95"></div>
       </div>
-      
       <div className="relative z-10 py-20">
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-light mb-6 text-primary">Связаться с нами</h1>
+            <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold">Связаться с нами</h1>
             <p className="text-lg text-gray-600 font-light">
               Свяжитесь с нами, чтобы забронировать проживание или задать любые вопросы
             </p>
