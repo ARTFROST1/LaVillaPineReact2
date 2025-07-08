@@ -59,66 +59,63 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-neutral p-8 rounded-xl shadow-lg">
-      <h3 className="text-2xl font-semibold mb-6 text-primary">Отправить сообщение</h3>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div>
-          <Label htmlFor="name" className="text-gray-700 text-sm font-medium">Имя</Label>
-          <Input
-            id="name"
-            type="text"
-            placeholder="Ваше имя"
-            className="mt-2"
-            {...register("name")}
-          />
-          {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-          )}
-        </div>
-        
-        <div>
-          <Label htmlFor="email" className="text-gray-700 text-sm font-medium">Email</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="Ваш email"
-            className="mt-2"
-            {...register("email")}
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-          )}
-        </div>
-        
-        <div>
-          <Label htmlFor="message" className="text-gray-700 text-sm font-medium">Сообщение</Label>
-          <Textarea
-            id="message"
-            rows={4}
-            placeholder="Ваше сообщение"
-            className="mt-2 resize-none"
-            {...register("message")}
-          />
-          {errors.message && (
-            <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-          )}
-        </div>
-        
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg"
-        >
-          {isSubmitting ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Отправка...
-            </>
-          ) : (
-            "Отправить сообщение"
-          )}
-        </Button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div>
+        <Label htmlFor="name" className="text-gray-700 text-sm font-medium">Имя</Label>
+        <Input
+          id="name"
+          type="text"
+          placeholder="Ваше имя"
+          className="mt-2"
+          {...register("name")}
+        />
+        {errors.name && (
+          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+        )}
+      </div>
+      
+      <div>
+        <Label htmlFor="email" className="text-gray-700 text-sm font-medium">Email</Label>
+        <Input
+          id="email"
+          type="email"
+          placeholder="Ваш email"
+          className="mt-2"
+          {...register("email")}
+        />
+        {errors.email && (
+          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+        )}
+      </div>
+      
+      <div>
+        <Label htmlFor="message" className="text-gray-700 text-sm font-medium">Сообщение</Label>
+        <Textarea
+          id="message"
+          rows={4}
+          placeholder="Ваше сообщение"
+          className="mt-2 resize-none"
+          {...register("message")}
+        />
+        {errors.message && (
+          <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+        )}
+      </div>
+      
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg"
+      >
+        {isSubmitting ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Отправка...
+          </>
+        ) : (
+          "Отправить сообщение"
+        )}
+      </Button>
+    </form>
   );
 }
