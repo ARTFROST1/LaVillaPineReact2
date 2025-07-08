@@ -80,28 +80,10 @@ export default function YandexMap({
         // Добавляем черно-белый стиль карты
         map.options.set('restrictMapArea', false);
         map.options.set('suppressMapOpenBlock', true);
-        
-        // Применяем черно-белый фильтр к карте
-        const mapContainer = mapRef.current;
-        if (mapContainer) {
-          mapContainer.style.filter = 'grayscale(100%)';
-        }
 
         mapInstanceRef.current = map;
 
-        // Создаем кастомную цветную метку в виде классической иконки pin
-        const customIcon = {
-          iconLayout: 'default#image',
-          iconImageHref: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 40" width="24" height="40">
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 28 12 28s12-19 12-28c0-6.627-5.373-12-12-12z" fill="#D4AF37" stroke="#ffffff" stroke-width="2"/>
-              <circle cx="12" cy="12" r="4" fill="#ffffff"/>
-            </svg>
-          `),
-          iconImageSize: [24, 40],
-          iconImageOffset: [-12, -40]
-        };
-
+        // Создаем стандартную цветную метку
         const placemark = new ymaps.Placemark(
           coords,
           {
@@ -112,10 +94,37 @@ export default function YandexMap({
             `,
             hintContent: "La Villa Pine",
           },
-          customIcon
+          {
+            preset: "islands#redDotIcon",
+            iconColor: "#D4AF37", // Золотистый цвет метки
+          }
         );
 
         map.geoObjects.add(placemark);
+
+        // Применяем черно-белый фильтр только к фоновому слою карты после загрузки
+        map.events.add('ready', function() {
+          setTimeout(() => {
+            const mapContainer = mapRef.current;
+            if (mapContainer) {
+              // Ищем слой карты и применяем фильтр только к нему
+              const mapPanes = mapContainer.querySelectorAll('.ymaps-2-1-79-map-bg, .ymaps-2-1-79-ground-pane');
+              mapPanes.forEach(pane => {
+                pane.style.filter = 'grayscale(100%)';
+              });
+              
+              // Или применяем фильтр ко всему контейнеру, но потом убираем с меток
+              mapContainer.style.filter = 'grayscale(100%)';
+              
+              // Убираем фильтр с элементов меток
+              const placemarkElements = mapContainer.querySelectorAll('.ymaps-2-1-79-placemark-overlay, .ymaps-2-1-79-balloon');
+              placemarkElements.forEach(element => {
+                element.style.filter = 'none';
+              });
+            }
+          }, 500);
+        });
+
         setIsLoading(false);
       } catch (error) {
         console.error("Ошибка загрузки Яндекс.Карт:", error);
