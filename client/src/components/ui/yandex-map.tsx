@@ -89,17 +89,17 @@ export default function YandexMap({
 
         mapInstanceRef.current = map;
 
-        // Создаем кастомную цветную метку с SVG иконкой
+        // Создаем кастомную цветную метку в виде классической иконки pin
         const customIcon = {
           iconLayout: 'default#image',
           iconImageHref: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-              <circle cx="16" cy="16" r="12" fill="#D4AF37" stroke="#ffffff" stroke-width="3"/>
-              <circle cx="16" cy="16" r="5" fill="#ffffff"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 40" width="24" height="40">
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 28 12 28s12-19 12-28c0-6.627-5.373-12-12-12z" fill="#D4AF37" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" fill="#ffffff"/>
             </svg>
           `),
-          iconImageSize: [32, 32],
-          iconImageOffset: [-16, -16]
+          iconImageSize: [24, 40],
+          iconImageOffset: [-12, -40]
         };
 
         const placemark = new ymaps.Placemark(
