@@ -17,37 +17,6 @@ export default function Contacts() {
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             <div className="bg-neutral p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-semibold mb-6 text-primary">Контактная информация</h3>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <i className="fas fa-phone text-accent text-xl mr-4"></i>
-                  <div>
-                    <p className="font-semibold">Телефон</p>
-                    <p className="text-gray-600">{SITE_CONFIG.phone}</p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-envelope text-accent text-xl mr-4"></i>
-                  <div>
-                    <p className="font-semibold">Email</p>
-                    <p className="text-gray-600">{SITE_CONFIG.email}</p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-map-marker-alt text-accent text-xl mr-4"></i>
-                  <div>
-                    <p className="font-semibold">Адрес</p>
-                    <p className="text-gray-600">{SITE_CONFIG.address}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <ContactForm />
-          </div>
-          
-          <div className="space-y-8">
-            <div className="bg-neutral p-8 rounded-xl shadow-lg">
               <h3 className="text-2xl font-semibold mb-6 text-primary">Расположение</h3>
               <YandexMap 
                 address={SITE_CONFIG.address}
@@ -108,6 +77,37 @@ export default function Contacts() {
                 Подписывайтесь на наши страницы, чтобы быть в курсе новостей и специальных предложений
               </p>
             </div>
+          </div>
+          
+          <div className="space-y-8">
+            <div className="bg-neutral p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-semibold mb-6 text-primary">Контактная информация</h3>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <i className="fas fa-phone text-accent text-xl mr-4"></i>
+                  <div>
+                    <p className="font-semibold">Телефон</p>
+                    <p className="text-gray-600">{SITE_CONFIG.phone}</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-envelope text-accent text-xl mr-4"></i>
+                  <div>
+                    <p className="font-semibold">Email</p>
+                    <p className="text-gray-600">{SITE_CONFIG.email}</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-map-marker-alt text-accent text-xl mr-4"></i>
+                  <div>
+                    <p className="font-semibold">Адрес</p>
+                    <p className="text-gray-600">{SITE_CONFIG.address}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <ContactForm />
           </div>
         </div>
       </div>
