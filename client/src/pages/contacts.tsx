@@ -33,28 +33,28 @@ export default function Contacts() {
               <h2 className="text-2xl font-light mb-8 text-primary">Контактная информация</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <i className="fas fa-phone text-accent text-lg"></i>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <p className="font-medium text-sm text-gray-500 uppercase tracking-wide">Телефон</p>
                     <p className="text-gray-800 font-medium">{SITE_CONFIG.phone}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <i className="fas fa-envelope text-accent text-lg"></i>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <p className="font-medium text-sm text-gray-500 uppercase tracking-wide">Email</p>
                     <p className="text-gray-800 font-medium">{SITE_CONFIG.email}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <i className="fas fa-map-marker-alt text-accent text-lg"></i>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <p className="font-medium text-sm text-gray-500 uppercase tracking-wide">Адрес</p>
                     <p className="text-gray-800 font-medium">{SITE_CONFIG.address}</p>
                   </div>
