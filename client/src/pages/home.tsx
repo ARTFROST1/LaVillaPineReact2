@@ -1,9 +1,43 @@
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import CarouselHero from "@/components/ui/carousel-hero";
 import { HERO_IMAGES, SITE_CONFIG } from "@/lib/constants";
 
+// Типы для HomeReserve
+declare global {
+  interface Window {
+    homereserve?: {
+      initWidgetSearch: (config: { token: string; tag: string }) => void;
+    };
+  }
+}
+
 export default function Home() {
+  useEffect(() => {
+    // Динамически загружаем скрипт HomeReserve
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://homereserve.ru/widget.js';
+    script.onload = () => {
+      // Инициализируем поисковую форму после загрузки скрипта с небольшой задержкой
+      setTimeout(() => {
+        if (window.homereserve) {
+          window.homereserve.initWidgetSearch({
+            token: "Aijbfbb7Zl",
+            tag: "site"
+          });
+        }
+      }, 100);
+    };
+    document.head.appendChild(script);
+
+    // Очистка при размонтировании компонента
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <div>
       {/* Hero Section */}
@@ -26,24 +60,9 @@ export default function Home() {
               <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
                 Откройте для себя роскошные гостевые дома в стиле лофт
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <Link href="/booking">
-                  <Button
-                    size="lg"
-                    className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white px-8 py-4 text-lg shadow-xl border-2 border-accent hover:border-white transition-all duration-300"
-                  >
-                    Забронировать
-                  </Button>
-                </Link>
-                <Link href="/about">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-white text-white bg-[#ffffff00] hover:bg-white hover:text-primary px-8 py-4 text-lg shadow-xl backdrop-blur-sm transition-all duration-300"
-                  >
-                    Узнать больше
-                  </Button>
-                </Link>
+              {/* HomeReserve Search Widget */}
+              <div className="max-w-2xl mx-auto mt-8">
+                <div id="hr-widget"></div>
               </div>
             </div>
           </div>
