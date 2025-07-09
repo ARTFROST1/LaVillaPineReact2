@@ -71,21 +71,21 @@ export default function Home() {
       </section>
 
       {/* Features Preview */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Почему выбирают <br />
               {SITE_CONFIG.name}
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed">
               Два исключительных гостевых дома в стиле лофт, где современный
               дизайн встречается с природным спокойствием
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div className="bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-border">
               <div className="relative h-48 overflow-hidden">
                 <DynamicImage 
                   src="/images/amenities/interior.jpg"
@@ -99,17 +99,17 @@ export default function Home() {
                 <div className="text-accent text-4xl mb-4">
                   <i className="fas fa-home"></i>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">
+                <h3 className="text-2xl font-semibold mb-4 text-card-foreground">
                   Современный дизайн лофт
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Дизайнерский ремонт с индустриальными элементами и современным
                   комфортом
                 </p>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div className="bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-border">
               <div className="relative h-48 overflow-hidden">
                 <DynamicImage 
                   src="/images/amenities/pool.jpg"
@@ -123,17 +123,17 @@ export default function Home() {
                 <div className="text-accent text-4xl mb-4">
                   <i className="fas fa-swimming-pool"></i>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">
+                <h3 className="text-2xl font-semibold mb-4 text-card-foreground">
                   Подогреваемые бассейны и сауна
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Частные подогреваемые бассейны и сауны для круглогодичного
                   отдыха
                 </p>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div className="bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-border">
               <div className="relative h-48 overflow-hidden">
                 <DynamicImage 
                   src="/images/amenities/forest.jpg"
@@ -147,8 +147,8 @@ export default function Home() {
                 <div className="text-accent text-4xl mb-4">
                   <i className="fas fa-tree"></i>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">Лесное окружение</h3>
-                <p className="text-gray-600">
+                <h3 className="text-2xl font-semibold mb-4 text-card-foreground">Лесное окружение</h3>
+                <p className="text-muted-foreground">
                   Чистая лесная местность с дикими животными и природным ручьем
                 </p>
               </div>

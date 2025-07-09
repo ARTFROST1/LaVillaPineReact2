@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, TreePine } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 
 export default function Header() {
   const [location] = useLocation();
@@ -20,7 +21,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-background/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-border/40">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
@@ -45,9 +46,11 @@ export default function Header() {
                 Забронировать
               </Button>
             </Link>
+            <ThemeSwitcher />
           </div>
           
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeSwitcher />
             <Button
               variant="ghost"
               size="icon"
