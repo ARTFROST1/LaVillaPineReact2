@@ -175,9 +175,6 @@ Changelog:
 - July 09, 2025. Configured Yandex SMTP and Telegram bot integration for contact notifications
 - July 09, 2025. Successfully completed migration from Replit Agent to standard Replit environment
 - July 09, 2025. Created comprehensive migration guide for local development environment (Visual Studio Code)
-- July 09, 2025. Implemented comprehensive theme switcher with smooth dark/light mode transitions
-- July 09, 2025. Updated all pages (Home, About, Gallery, Contacts, Booking) with proper theme-aware styling
-- July 09, 2025. Added theme persistence using localStorage with animated sun/moon icons
 ```
 
 ## User Preferences

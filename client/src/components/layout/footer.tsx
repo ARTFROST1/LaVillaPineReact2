@@ -5,7 +5,7 @@ import AvitoIcon from "@/components/ui/avito-icon";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary dark:bg-primary text-white py-12">
+    <footer className="bg-primary text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -13,7 +13,7 @@ export default function Footer() {
               <TreePine className="h-8 w-8 text-accent" />
               <span className="text-2xl font-bold">{SITE_CONFIG.name}</span>
             </div>
-            <p className="text-gray-300 dark:text-gray-300">{SITE_CONFIG.description}</p>
+            <p className="text-gray-300">{SITE_CONFIG.description}</p>
           </div>
 
           <div>
