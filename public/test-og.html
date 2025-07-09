@@ -3,59 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Open Graph - La Villa Pine</title>
+    <title>La Villa Pine - Open Graph Test</title>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://lavillapine.com/" />
+    <meta property="og:url" content="https://lavillapine.onrender.com/" />
     <meta property="og:title" content="La Villa Pine - Роскошные гостевые дома в стиле лофт" />
     <meta property="og:description" content="La Villa Pine - роскошные гостевые дома с подогреваемыми бассейнами, саунами и современным дизайном. Идеальное место для отдыха в красивом лесном окружении." />
-    <meta property="og:image" content="https://lavillapine.com/images/og-image.jpg" />
+    <meta property="og:image" content="https://lavillapine.onrender.com/images/og-image.jpg?v=2025070902" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="La Villa Pine - Роскошный гостевой дом с подогреваемым бассейном и современным дизайном" />
     <meta property="og:site_name" content="La Villa Pine" />
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:secure_url" content="https://lavillapine.com/images/og-image.jpg" />
-    <meta property="og:updated_time" content="2025-07-09T18:38:00Z" />
+    <meta property="og:image:secure_url" content="https://lavillapine.onrender.com/images/og-image.jpg?v=2025070902" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://lavillapine.com/" />
+    <meta property="twitter:url" content="https://lavillapine.onrender.com/" />
     <meta property="twitter:title" content="La Villa Pine - Роскошные гостевые дома в стиле лофт" />
     <meta property="twitter:description" content="La Villa Pine - роскошные гостевые дома с подогреваемыми бассейнами, саунами и современным дизайном. Идеальное место для отдыха в красивом лесном окружении." />
-    <meta property="twitter:image" content="https://lavillapine.com/images/og-image.jpg" />
+    <meta property="twitter:image" content="https://lavillapine.onrender.com/images/og-image.jpg?v=2025070902" />
     <meta property="twitter:image:alt" content="La Villa Pine - Роскошный гостевой дом с подогреваемым бассейном и современным дизайном" />
-    
-    <!-- Telegram -->
-    <meta property="telegram:channel" content="@lavillapine" />
-    
-    <!-- Force cache refresh -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
 </head>
 <body>
     <h1>Open Graph Test Page</h1>
     <p>Эта страница создана для тестирования Open Graph метатегов.</p>
+    <p>Картинка для превью: <a href="/images/og-image.jpg" target="_blank">/images/og-image.jpg</a></p>
     
-    <h2>Информация об изображении:</h2>
-    <p><strong>URL:</strong> <a href="/images/og-image.jpg">/images/og-image.jpg</a></p>
-    <p><strong>Размер:</strong> 1200x630 пикселей</p>
-    <p><strong>Формат:</strong> JPEG</p>
-    
-    <h2>Текущее изображение:</h2>
-    <img src="/images/og-image.jpg" alt="La Villa Pine Preview" style="max-width: 100%; height: auto; border: 1px solid #ccc;">
-    
-    <h2>Как протестировать:</h2>
+    <h2>Инструкции для тестирования:</h2>
     <ol>
-        <li>Используйте <a href="https://developers.facebook.com/tools/debug/" target="_blank">Facebook Debugger</a></li>
-        <li>Используйте <a href="https://cards-dev.twitter.com/validator" target="_blank">Twitter Card Validator</a></li>
-        <li>Используйте <a href="https://www.opengraph.xyz/" target="_blank">OpenGraph.xyz</a></li>
-        <li>Отправьте ссылку в Telegram чат</li>
+        <li>Скопируйте URL этой страницы: <code>https://lavillapine.onrender.com/test-og.html</code></li>
+        <li>Вставьте ссылку в Telegram, WhatsApp, или Facebook</li>
+        <li>Проверьте что появилось правильное превью с вашей картинкой</li>
     </ol>
     
-    <p><strong>Обновлено:</strong> 2025-07-09 в 18:38 UTC</p>
+    <h2>Если превью не обновилось:</h2>
+    <p>Некоторые платформы кэшируют превью. Попробуйте:</p>
+    <ul>
+        <li><a href="https://developers.facebook.com/tools/debug/" target="_blank">Facebook Sharing Debugger</a></li>
+        <li><a href="https://cards-dev.twitter.com/validator" target="_blank">Twitter Card Validator</a></li>
+        <li>Добавьте к URL параметр: <code>?cache=new</code></li>
+    </ul>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
 </body>
 </html>
