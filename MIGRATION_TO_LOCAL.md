@@ -40,6 +40,11 @@ cd la-villa-pine
 npm install
 ```
 
+#### Если вы используете Windows, установите дополнительный пакет:
+```bash
+npm install cross-env
+```
+
 ### 3. Настройка переменных окружения
 
 #### Создайте файл `.env` в корне проекта:
@@ -129,8 +134,21 @@ tsc --version
 ```
 
 ### 4. Проблемы с запуском
+
+#### Проблема с NODE_ENV на Windows:
 ```bash
-# Если команда tsx не найдена, установите глобально:
+# Если получаете ошибку 'NODE_ENV' is not recognized as an internal or external command
+# Установите cross-env:
+npm install cross-env
+
+# Затем измените команду в package.json:
+"dev": "cross-env NODE_ENV=development tsx server/index.ts"
+"start": "cross-env NODE_ENV=production node dist/index.js"
+```
+
+#### Если команда tsx не найдена:
+```bash
+# Установите tsx глобально:
 npm install -g tsx
 
 # Или используйте через npx:
