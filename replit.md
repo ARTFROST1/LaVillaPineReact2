@@ -185,6 +185,7 @@ Changelog:
 - July 09, 2025. Created comprehensive troubleshooting guide for Telegram bot configuration on Render platform
 - July 09, 2025. Fixed Open Graph meta tags for proper social media previews - replaced Unsplash image with custom og-image.jpg
 - July 09, 2025. Added comprehensive social media meta tags including Twitter, Telegram, and Facebook preview support
+- July 09, 2025. Updated Open Graph preview image to branded La Villa Pine photo with pool and logo for better social media representation
 ```
 
 ## User Preferences
