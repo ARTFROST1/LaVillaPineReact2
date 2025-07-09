@@ -5,6 +5,8 @@ import { insertContactMessageSchema } from "@shared/schema";
 import { z } from "zod";
 import { sendContactEmail } from "./email";
 import { sendTelegramNotification } from "./telegram-bot";
+import { sendEmailJSMessage, sendFormspreeMessage } from "./emailjs-service";
+import { sendSimpleEmail, sendWebhookEmail, sendNetlifyForm } from "./simple-email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -23,22 +25,44 @@ export async function registerRoutes(app: Express): Promise<Server> {
         message: validatedData.message
       };
       
-      const emailSent = await sendContactEmail(contactData);
-      const telegramSent = await sendTelegramNotification(contactData);
+      // Попробуем несколько способов отправки email
+      const [
+        emailSent,
+        telegramSent,
+        emailjsSent,
+        formspreeOk,
+        simpleEmailSent,
+        webhookEmailSent,
+        netlifyFormSent
+      ] = await Promise.all([
+        sendContactEmail(contactData),
+        sendTelegramNotification(contactData),
+        sendEmailJSMessage(contactData),
+        sendFormspreeMessage(contactData),
+        sendSimpleEmail(contactData),
+        sendWebhookEmail(contactData),
+        sendNetlifyForm(contactData)
+      ]);
       
-      if (emailSent || telegramSent) {
-        const methods = [];
-        if (emailSent) methods.push('email');
-        if (telegramSent) methods.push('Telegram');
+      const successMethods = [];
+      if (emailSent) successMethods.push('SMTP');
+      if (telegramSent) successMethods.push('Telegram');
+      if (emailjsSent) successMethods.push('EmailJS');
+      if (formspreeOk) successMethods.push('Formspree');
+      if (simpleEmailSent) successMethods.push('FormSubmit');
+      if (webhookEmailSent) successMethods.push('Submit Form');
+      if (netlifyFormSent) successMethods.push('Netlify Forms');
+      
+      if (successMethods.length > 0) {
         res.json({ 
           success: true, 
-          message: `Сообщение отправлено успешно через ${methods.join(' и ')}!`, 
+          message: `Сообщение отправлено на lavillapine@yandex.com через ${successMethods.join(', ')}!`, 
           id: message.id 
         });
       } else {
         res.json({ 
           success: true, 
-          message: "Сообщение сохранено. Уведомления будут отправлены позже.", 
+          message: "Сообщение сохранено в базе данных. Проверьте настройки email или Telegram для уведомлений.", 
           id: message.id 
         });
       }

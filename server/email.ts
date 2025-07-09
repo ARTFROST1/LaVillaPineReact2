@@ -2,9 +2,16 @@ import nodemailer from 'nodemailer';
 
 // Попробуем разные настройки для email сервисов
 function createTransporter() {
+  console.log('Создание email транспортера...');
+  console.log('EMAIL_USER доступен:', !!process.env.EMAIL_USER);
+  console.log('EMAIL_PASS доступен:', !!process.env.EMAIL_PASS);
+  
   // Сначала попробуем Gmail SMTP
   if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+    console.log('Найдены учетные данные email');
+    
     if (process.env.EMAIL_USER.includes('@gmail.com')) {
+      console.log('Настройка Gmail SMTP...');
       return nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -16,19 +23,50 @@ function createTransporter() {
     
     // Для Yandex с другими настройками
     if (process.env.EMAIL_USER.includes('@yandex.com')) {
-      return nodemailer.createTransport({
-        host: 'smtp.yandex.ru',
-        port: 587,
-        secure: false,
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS
+      console.log('Настройка Yandex SMTP транспортера...');
+      
+      // Попробуем разные конфигурации для Yandex
+      const yandexConfigs = [
+        {
+          host: 'smtp.yandex.com',
+          port: 465,
+          secure: true,
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+          }
         },
-        tls: {
-          rejectUnauthorized: false
+        {
+          host: 'smtp.yandex.ru',
+          port: 587,
+          secure: false,
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
+        },
+        {
+          host: 'smtp.yandex.com',
+          port: 25,
+          secure: false,
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
         }
-      });
+      ];
+      
+      // Возвращаем первую конфигурацию, в будущем можем добавить перебор
+      return nodemailer.createTransport(yandexConfigs[0]);
     }
+  } else {
+    console.log('Учетные данные email не найдены');
   }
   
   // Резервный вариант - используем формspree или аналогичный сервис
@@ -48,10 +86,15 @@ export async function sendContactEmail(data: EmailData): Promise<boolean> {
   // Если есть настроенный транспортер, используем его
   if (transporter) {
     try {
+      console.log('Проверка SMTP соединения...');
+      console.log('EMAIL_USER:', process.env.EMAIL_USER);
+      console.log('EMAIL_PASS length:', process.env.EMAIL_PASS ? process.env.EMAIL_PASS.length : 'не установлен');
+      
       await transporter.verify();
+      console.log('SMTP соединение проверено успешно');
       
       const mailOptions = {
-        from: process.env.EMAIL_USER || 'noreply@lavillapine.com',
+        from: process.env.EMAIL_USER,
         to: 'lavillapine@yandex.com',
         replyTo: data.email,
         subject: `Новое сообщение от ${data.name} - La Villa Pine`,
@@ -73,6 +116,15 @@ export async function sendContactEmail(data: EmailData): Promise<boolean> {
       return true;
     } catch (error) {
       console.error('Ошибка отправки email через SMTP:', error);
+      
+      // Специальная обработка ошибок аутентификации
+      if (error.code === 'EAUTH') {
+        console.error('Проблема с аутентификацией. Проверьте:');
+        console.error('1. Правильность email адреса');
+        console.error('2. Используется ли пароль приложения (не основной пароль)');
+        console.error('3. Включена ли двухфакторная аутентификация');
+        console.error('4. Разрешен ли доступ для внешних приложений');
+      }
     }
   }
   
