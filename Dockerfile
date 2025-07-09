@@ -15,10 +15,11 @@ COPY . .
 # Собираем проект
 RUN npm run build
 
+# Копируем папку public в dist для статических файлов
+RUN node copy-static.js
+
 # Открываем порт
 EXPOSE 5000
 
 # Запускаем приложение
 CMD ["npm", "start"]
-
-COPY public ./public
