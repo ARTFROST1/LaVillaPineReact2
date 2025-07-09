@@ -5,8 +5,6 @@
 ### Необходимое программное обеспечение:
 - **Node.js** версии 18 или выше
 - **npm** (устанавливается вместе с Node.js)
-- **PostgreSQL** (локальная установка или удаленная БД)
-- **Git** для работы с репозиторием
 - **Visual Studio Code** (или другой редактор)
 
 ## Пошаговая инструкция
@@ -22,39 +20,18 @@ node --version
 # Рекомендуется версия 18 LTS или выше
 ```
 
-#### Установка PostgreSQL:
+### 2. Настройка проекта после скачивания
+
+#### Предполагаем, что вы уже скачали архив проекта из Replit
+
+#### Распакуйте и перейдите в директорию проекта:
 ```bash
-# Ubuntu/Debian:
-sudo apt update
-sudo apt install postgresql postgresql-contrib
-
-# macOS (с Homebrew):
-brew install postgresql
-
-# Windows: скачайте с https://www.postgresql.org/download/windows/
-```
-
-### 2. Скачивание проекта
-
-#### Из Replit:
-1. В Replit откройте Shell и выполните:
-```bash
-# Создайте архив всего проекта
-tar -czf la-villa-pine.tar.gz .
-
-# Скачайте файл через веб-интерфейс Replit
-```
-
-2. Или используйте Git (если настроен):
-```bash
-git clone <your-replit-repo-url>
-```
-
-### 3. Настройка локального проекта
-
-#### Распакуйте и перейдите в директорию:
-```bash
+# Распакуйте архив
 tar -xzf la-villa-pine.tar.gz
+# или если архив в zip формате:
+# unzip la-villa-pine.zip
+
+# Перейдите в папку проекта
 cd la-villa-pine
 ```
 
@@ -63,27 +40,7 @@ cd la-villa-pine
 npm install
 ```
 
-### 4. Настройка базы данных
-
-#### Создайте базу данных PostgreSQL:
-```bash
-# Войдите в PostgreSQL
-sudo -u postgres psql
-
-# Создайте базу данных
-CREATE DATABASE lavilla_pine;
-
-# Создайте пользователя
-CREATE USER lavilla_user WITH PASSWORD 'your_password';
-
-# Дайте права пользователю
-GRANT ALL PRIVILEGES ON DATABASE lavilla_pine TO lavilla_user;
-
-# Выйдите из PostgreSQL
-\q
-```
-
-### 5. Настройка переменных окружения
+### 3. Настройка переменных окружения
 
 #### Создайте файл `.env` в корне проекта:
 ```env
@@ -91,43 +48,31 @@ GRANT ALL PRIVILEGES ON DATABASE lavilla_pine TO lavilla_user;
 NODE_ENV=development
 PORT=5000
 
-# База данных
-DATABASE_URL=postgresql://lavilla_user:your_password@localhost:5432/lavilla_pine
-
-# Email настройки (опционально)
+# Email настройки (опционально, для формы обратной связи)
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_app_password
 
-# Telegram Bot (опционально)
+# Telegram Bot (опционально, для уведомлений)
 TELEGRAM_BOT_TOKEN=your_bot_token
 TELEGRAM_CHAT_ID=your_chat_id
 
-# Yandex Maps API
+# Yandex Maps API (для карты на странице контактов)
 YANDEX_MAPS_API_KEY=your_yandex_maps_key
 ```
 
-### 6. Миграция базы данных
+**Примечание:** Все настройки в .env файле опциональны. Проект будет работать и без них, но некоторые функции могут быть недоступны (отправка email, карта).
 
-#### Выполните миграции:
-```bash
-# Генерация миграций
-npx drizzle-kit generate
-
-# Применение миграций
-npx drizzle-kit migrate
-```
-
-### 7. Настройка Visual Studio Code
+### 4. Настройка Visual Studio Code
 
 #### Рекомендуемые расширения:
-- **TypeScript and JavaScript Language Features**
-- **ES7+ React/Redux/React-Native snippets**
-- **Tailwind CSS IntelliSense**
-- **Auto Rename Tag**
-- **Prettier - Code formatter**
-- **ESLint**
+- **TypeScript and JavaScript Language Features** (обычно уже установлено)
+- **ES7+ React/Redux/React-Native snippets** - для удобства работы с React
+- **Tailwind CSS IntelliSense** - автодополнение для Tailwind CSS
+- **Auto Rename Tag** - автоматическое переименование парных тегов
+- **Prettier - Code formatter** - форматирование кода
+- **ESLint** - проверка кода на ошибки
 
-#### Создайте файл `.vscode/settings.json`:
+#### Создайте файл `.vscode/settings.json` в корне проекта:
 ```json
 {
   "editor.formatOnSave": true,
@@ -142,7 +87,7 @@ npx drizzle-kit migrate
 }
 ```
 
-### 8. Запуск проекта
+### 5. Запуск проекта
 
 #### Запустите в режиме разработки:
 ```bash
@@ -154,6 +99,8 @@ npm run dev
 http://localhost:5000
 ```
 
+**Поздравляю! Проект должен запуститься и работать точно так же, как в Replit.**
+
 ## Возможные проблемы и решения
 
 ### 1. Проблемы с портами
@@ -162,16 +109,7 @@ http://localhost:5000
 "dev": "NODE_ENV=development PORT=3000 tsx server/index.ts"
 ```
 
-### 2. Проблемы с базой данных
-```bash
-# Проверьте статус PostgreSQL
-sudo service postgresql status
-
-# Перезапустите PostgreSQL
-sudo service postgresql restart
-```
-
-### 3. Проблемы с зависимостями
+### 2. Проблемы с зависимостями
 ```bash
 # Очистите кеш npm
 npm cache clean --force
@@ -181,13 +119,22 @@ rm -rf node_modules package-lock.json
 npm install
 ```
 
-### 4. Проблемы с TypeScript
+### 3. Проблемы с TypeScript
 ```bash
 # Глобальная установка TypeScript
 npm install -g typescript
 
 # Проверьте версию
 tsc --version
+```
+
+### 4. Проблемы с запуском
+```bash
+# Если команда tsx не найдена, установите глобально:
+npm install -g tsx
+
+# Или используйте через npx:
+npx tsx server/index.ts
 ```
 
 ## Структура проекта после миграции
@@ -202,13 +149,12 @@ la-villa-pine/
 │   │   └── lib/            # Утилиты и конфигурация
 ├── server/                 # Backend Express приложение
 │   ├── routes.ts           # API маршруты
-│   ├── storage.ts          # Работа с базой данных
+│   ├── storage.ts          # Работа с данными (в памяти)
 │   └── index.ts            # Точка входа сервера
 ├── shared/                 # Общие типы и схемы
-│   └── schema.ts           # Схемы базы данных
-├── migrations/             # Миграции базы данных
-├── public/                 # Статические файлы
-├── .env                    # Переменные окружения
+│   └── schema.ts           # Схемы данных
+├── public/                 # Статические файлы (изображения)
+├── .env                    # Переменные окружения (опционально)
 ├── package.json            # Зависимости проекта
 ├── tsconfig.json           # Конфигурация TypeScript
 └── vite.config.ts          # Конфигурация Vite
@@ -223,16 +169,9 @@ npm run build        # Сборка для продакшена
 npm run start        # Запуск продакшен версии
 ```
 
-### База данных:
-```bash
-npx drizzle-kit studio     # Веб-интерфейс для БД
-npx drizzle-kit generate   # Генерация миграций
-npx drizzle-kit migrate    # Применение миграций
-```
-
 ### Проверка кода:
 ```bash
-npm run type-check   # Проверка TypeScript
+npm run type-check   # Проверка TypeScript (если есть в package.json)
 ```
 
 ## Готово!
@@ -240,8 +179,10 @@ npm run type-check   # Проверка TypeScript
 После выполнения всех шагов ваш проект La Villa Pine будет полностью работать в локальной среде разработки. Вы сможете:
 
 - Редактировать код в Visual Studio Code
-- Видеть изменения в реальном времени
-- Работать с базой данных локально
+- Видеть изменения в реальном времени (hot reload)
+- Работать с проектом полностью локально
 - Развертывать проект на любом хостинге
+
+**Важно:** Проект использует in-memory хранилище данных, поэтому база данных не требуется. Все данные хранятся в памяти во время работы приложения.
 
 Если возникнут проблемы, проверьте логи в терминале и убедитесь, что все зависимости установлены правильно.
