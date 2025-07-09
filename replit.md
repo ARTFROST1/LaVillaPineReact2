@@ -171,6 +171,8 @@ Changelog:
 - July 08, 2025. Redesigned booking page layout: widget directly on background, contact buttons in separate section
 - July 08, 2025. Successfully migrated project from Replit Agent to standard Replit environment
 - July 08, 2025. Fixed header navigation alignment issue - centered all navigation elements properly
+- July 09, 2025. Added email functionality for contact form with multiple fallback options (SMTP, Telegram, webhook)
+- July 09, 2025. Configured Yandex SMTP and Telegram bot integration for contact notifications
 ```
 
 ## User Preferences

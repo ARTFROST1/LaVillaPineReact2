@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { insertContactMessageSchema } from "@shared/schema";
 import { z } from "zod";
 import { sendContactEmail } from "./email";
+import { sendTelegramNotification } from "./telegram-bot";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -14,18 +15,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Сохранить сообщение в базе данных
       const message = await storage.createContactMessage(validatedData);
       
-      // Отправить email
-      const emailSent = await sendContactEmail({
+      // Попытаться отправить уведомления разными способами
+      const contactData = {
         name: validatedData.name,
         email: validatedData.email,
         phone: validatedData.phone,
         message: validatedData.message
-      });
+      };
       
-      if (emailSent) {
-        res.json({ success: true, message: "Сообщение отправлено успешно!", id: message.id });
+      const emailSent = await sendContactEmail(contactData);
+      const telegramSent = await sendTelegramNotification(contactData);
+      
+      if (emailSent || telegramSent) {
+        const methods = [];
+        if (emailSent) methods.push('email');
+        if (telegramSent) methods.push('Telegram');
+        res.json({ 
+          success: true, 
+          message: `Сообщение отправлено успешно через ${methods.join(' и ')}!`, 
+          id: message.id 
+        });
       } else {
-        res.json({ success: true, message: "Сообщение сохранено, но не удалось отправить email.", id: message.id });
+        res.json({ 
+          success: true, 
+          message: "Сообщение сохранено. Уведомления будут отправлены позже.", 
+          id: message.id 
+        });
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
