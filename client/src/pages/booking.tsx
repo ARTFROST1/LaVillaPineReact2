@@ -82,7 +82,7 @@ export default function Booking() {
           
           {/* Contact buttons section */}
           <div className="max-w-2xl mx-auto">
-            <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/10">
+            <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-card/10 border border-border/20">
               <div className="text-center">
                 <p className="mb-4 text-white">
                   Нужна помощь с бронированием? Свяжитесь с нами напрямую:
