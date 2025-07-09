@@ -62,7 +62,7 @@ export default function Home() {
                 Откройте для себя роскошные гостевые дома в стиле лофт
               </p>
               {/* HomeReserve Search Widget */}
-              <div className="max-w-2xl mx-auto mt-8">
+              <div className="max-w-4xl mx-auto mt-8">
                 <div id="hr-widget"></div>
               </div>
             </div>

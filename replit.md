@@ -178,6 +178,9 @@ Changelog:
 - July 09, 2025. Prepared project for Render deployment with configuration files (render.yaml, Dockerfile, .gitignore)
 - July 09, 2025. Updated server to use PORT environment variable for Render compatibility
 - July 09, 2025. Created comprehensive Render deployment guide with step-by-step instructions
+- July 09, 2025. Successfully completed migration from Replit Agent to standard Replit environment
+- July 09, 2025. Fixed booking widget sizing - made home page booking widget same size as booking page (max-w-4xl)
+- July 09, 2025. Fixed critical deployment issue with static images not loading on Render - created copy-static.js script and updated Dockerfile
 ```
 
 ## User Preferences
