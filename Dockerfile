@@ -20,3 +20,5 @@ EXPOSE 5000
 
 # Запускаем приложение
 CMD ["npm", "start"]
+
+COPY public ./public
