@@ -183,6 +183,8 @@ Changelog:
 - July 09, 2025. Fixed critical deployment issue with static images not loading on Render - created copy-static.js script and updated Dockerfile
 - July 09, 2025. Enhanced Telegram bot debugging with detailed logging and validation for production deployment issues
 - July 09, 2025. Created comprehensive troubleshooting guide for Telegram bot configuration on Render platform
+- July 09, 2025. Fixed Open Graph meta tags for proper social media previews - replaced Unsplash image with custom og-image.jpg
+- July 09, 2025. Added comprehensive social media meta tags including Twitter, Telegram, and Facebook preview support
 ```
 
 ## User Preferences
