@@ -224,12 +224,12 @@ export const AMENITIES = [
       "https://images.unsplash.com/photo-1574906519174-daa3b7a6de14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
-    icon: "fas fa-concierge-bell",
-    title: "Премиум Сервис",
+    icon: "fas fa-car",
+    title: "Удобная Парковка",
     description:
-      "Профессиональный ресепшен с администратором, который поможет с заселением и любыми вопросами. Гостиничный сервис в комфорте частного дома.",
+      "Просторная парковка прямо у дома позволяет оставить автомобиль в безопасности и удобстве. Никаких поисков места — ваша машина всегда рядом с входом.",
     image: "/images/amenities/interior.jpg",
     fallbackImage:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
 ];
