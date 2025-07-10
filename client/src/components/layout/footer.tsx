@@ -1,7 +1,7 @@
 import { Link } from "wouter";
-import { TreePine } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import AvitoIcon from "@/components/ui/avito-icon";
+import CustomTreeIcon from "@/components/ui/custom-tree-icon";
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <TreePine className="h-8 w-8 text-accent" />
+              <CustomTreeIcon className="h-8 w-8" />
               <span className="text-2xl font-bold">{SITE_CONFIG.name}</span>
             </div>
             <p className="text-gray-300">{SITE_CONFIG.description}</p>

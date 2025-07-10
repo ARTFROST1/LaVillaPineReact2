@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, TreePine } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import CustomTreeIcon from "@/components/ui/custom-tree-icon";
 
 export default function Header() {
   const [location] = useLocation();
@@ -24,7 +25,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <TreePine className="h-8 w-8 text-accent" />
+            <CustomTreeIcon className="h-8 w-8" />
             <span className="text-2xl font-bold text-primary">{SITE_CONFIG.name}</span>
           </Link>
           
