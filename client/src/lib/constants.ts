@@ -227,7 +227,7 @@ export const AMENITIES = [
     icon: "fas fa-car",
     title: "Удобная Парковка",
     description:
-      "Просторная парковка прямо у дома позволяет оставить автомобиль в безопасности и удобстве. Никаких поисков места — ваша машина всегда рядом с входом.",
+      "Просторная парковка с навесом прямо у дома — удобно, безопасно и всегда под рукой, не нужно искать место или переживать за машину.",
     image: "/images/amenities/interior.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
