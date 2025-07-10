@@ -37,7 +37,7 @@ export default function ComingSoonBanner({
           <p
             className={`text-xl md:text-2xl font-semibold ${isHomePage ? "text-accent" : "text-primary"}`}
           >
-            после 20 августа 2025
+            C 20 августа 2025
           </p>
         </div>
 
