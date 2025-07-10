@@ -144,6 +144,12 @@ export const GALLERY_IMAGES = [
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
     alt: "La Villa Pine - Номер 3",
   },
+  {
+    url: "/images/gallery/gallery-13.jpg",
+    fallbackUrl:
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Новое фото",
+  },
   // Удобства
   {
     url: "/images/amenities/sauna.jpg",
