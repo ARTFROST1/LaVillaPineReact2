@@ -183,7 +183,7 @@ export const AMENITIES = [
   },
   {
     icon: "fas fa-hot-tub",
-    title: "Приватная Сауна",
+    title: "Финская Сауна",
     description:
       "Каждый дом оборудован собственной приватной сауной с современным дизайном, идеально подходящей для расслабления и оздоровления.",
     image: "/images/amenities/sauna.jpg",
