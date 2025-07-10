@@ -192,6 +192,9 @@ Changelog:
 - July 10, 2025. Implemented temporary "Coming Soon" banner system for pre-opening period (after August 20, 2025)
 - July 10, 2025. Added toggle control in constants.ts (showComingSoonBanner) to easily switch between banner and booking module
 - July 10, 2025. Created comprehensive removal instructions for restoring full booking functionality
+- July 10, 2025. Successfully completed migration from Replit Agent to standard Replit environment with enhanced About page styling
+- July 10, 2025. Improved "Премиум комфорт" section with better structured subheadings and consistent spacing
+- July 10, 2025. Updated amenities list: replaced "Природный Ручей" and "Полная Приватность" with "Мангальные Зоны" and "Премиум Сервис"
 ```
 
 ## User Preferences

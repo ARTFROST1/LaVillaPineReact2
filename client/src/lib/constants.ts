@@ -176,7 +176,7 @@ export const AMENITIES = [
     icon: "fas fa-home",
     title: "Дизайн Лофт",
     description:
-      "Изысканный лофт-подход с высокими потолками и открытым планом. Мужественные индустриальные детали создают атмосферу престижного урбан-шика, где каждый элемент подобран специально.",
+      "Интерьер в лофт-стиле с акцентами из металла, кирпича и дерева смотрится стильно, но не перегруженно. Всё подобрано со вкусом, без лишнего: просто, понятно, красиво.",
     image: "/images/amenities/interior.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -185,7 +185,7 @@ export const AMENITIES = [
     icon: "fas fa-hot-tub",
     title: "Финская Сауна",
     description:
-      "Ваша собственная сауна с RGB LED-освещением. Настройте освещение под настроение — от мягкого, расслабляющего света до яркого, жизнерадостного цвета. Настоящая спа-атмосфера дома.",
+      "Сауна прямо в доме — с подсветкой, как вы захотите. Меняйте цвет и создавайте нужное настроение: от спокойного и тёплого до яркого и бодрящего. Настоящая спа-атмосфера дома.",
     image: "/images/amenities/sauna.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -194,7 +194,7 @@ export const AMENITIES = [
     icon: "fas fa-swimming-pool",
     title: "Подогреваемый Бассейн",
     description:
-      "Просторный бассейн с комфортной температурой круглый год. Стильная подсветка делает его особенно атмосферным в сумерках — плавайте днём и вечером с видом на лес.",
+      "Большой тёплый бассейн доступен в любое время года. Днём — расслабляющий отдых на солнце, вечером — вода с подсветкой и вид на лес. Атмосфера, в которую хочется возвращаться.",
     image: "/images/amenities/pool.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -209,21 +209,21 @@ export const AMENITIES = [
       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
-    icon: "fas fa-water",
-    title: "Природный Ручей",
+    icon: "fas fa-fire",
+    title: "Мангальные Зоны",
     description:
-      "Мелодичный ручей создаёт умиротворяющий звуковой фон. Большие окна позволяют создать гармоничное продолжение леса, будто дом стоит прямо внутри его красоты.",
-    image: "/images/amenities/forest.jpg",
+      "Стильные мангальные зоны с удобной мебелью и подсветкой для вечернего отдыха. Идеально для уютных посиделок с друзьями или семьёй на свежем воздухе.",
+    image: "/images/amenities/interior.jpg",
     fallbackImage:
-      "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1574906519174-daa3b7a6de14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
-    icon: "fas fa-shield-alt",
-    title: "Полная Приватность",
+    icon: "fas fa-concierge-bell",
+    title: "Премиум Сервис",
     description:
-      "Собственные бассейны и сауны — не нужно делить с другими. Полное погружение в природу и продуманный комфорт от парковки до халатов в атмосфере эксклюзивности.",
-    image: "/images/gallery/gallery-1.jpg",
+      "Профессиональный ресепшен с администратором, который поможет с заселением и любыми вопросами. Гостиничный сервис в комфорте частного дома.",
+    image: "/images/amenities/interior.jpg",
     fallbackImage:
-      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
 ];
