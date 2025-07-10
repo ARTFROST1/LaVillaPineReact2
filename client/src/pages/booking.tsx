@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useEffect } from "react";
+import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 
 // Global type declaration for HomeReserve widget
 declare global {
@@ -14,43 +15,46 @@ declare global {
 
 export default function Booking() {
   useEffect(() => {
-    // Check if script is already loaded
-    if (document.querySelector('script[src="https://homereserve.ru/widget.js"]')) {
-      // Script already exists, try to initialize
-      if (window.homereserve) {
-        window.homereserve.initWidgetSearch({
-          token: "Aijbfbb7Zl",
-          tag: "site"
-        });
+    // Загружаем модуль бронирования только если баннер отключен
+    if (!SITE_CONFIG.showComingSoonBanner) {
+      // Check if script is already loaded
+      if (document.querySelector('script[src="https://homereserve.ru/widget.js"]')) {
+        // Script already exists, try to initialize
+        if (window.homereserve) {
+          window.homereserve.initWidgetSearch({
+            token: "Aijbfbb7Zl",
+            tag: "site"
+          });
+        }
+        return;
       }
-      return;
+
+      // Load HomeReserve widget script
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'https://homereserve.ru/widget.js';
+      script.onload = () => {
+        // Initialize module immediately after script loads
+        if (window.homereserve && document.getElementById('hr-widget')) {
+          window.homereserve.initWidgetSearch({
+            token: "Aijbfbb7Zl",
+            tag: "site"
+          });
+        }
+      };
+      script.onerror = () => {
+        console.error('Failed to load HomeReserve widget script');
+      };
+      document.head.appendChild(script);
+
+      return () => {
+        // Cleanup script on unmount
+        const existingScript = document.querySelector('script[src="https://homereserve.ru/widget.js"]');
+        if (existingScript) {
+          document.head.removeChild(existingScript);
+        }
+      };
     }
-
-    // Load HomeReserve widget script
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'https://homereserve.ru/widget.js';
-    script.onload = () => {
-      // Initialize module immediately after script loads
-      if (window.homereserve && document.getElementById('hr-widget')) {
-        window.homereserve.initWidgetSearch({
-          token: "Aijbfbb7Zl",
-          tag: "site"
-        });
-      }
-    };
-    script.onerror = () => {
-      console.error('Failed to load HomeReserve widget script');
-    };
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://homereserve.ru/widget.js"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
   }, []);
 
   return (
@@ -73,35 +77,44 @@ export default function Booking() {
         <div className="max-w-4xl mx-auto">
           
           
-          {/* HomeReserve Booking Widget - directly on background */}
-          <div className="mb-12">
-            <div id="hr-widget"></div>
-          </div>
-          
-          {/* Contact buttons section */}
-          <div className="max-w-2xl mx-auto">
-            <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/10">
-              <div className="text-center">
-                <p className="mb-4 text-white">
-                  Нужна помощь с бронированием? Свяжитесь с нами напрямую:
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/contacts">
-                    <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg">
-                      <i className="fas fa-envelope mr-2"></i>
-                      Связаться с нами
-                    </Button>
-                  </Link>
-                  <a href={`tel:${SITE_CONFIG.phone}`}>
-                    <Button variant="outline" className="border-2 border-accent text-accent bg-white/20 backdrop-blur-sm hover:bg-accent hover:text-white transition-all duration-300 shadow-lg">
-                      <i className="fas fa-phone mr-2"></i>
-                      Позвонить
-                    </Button>
-                  </a>
+          {/* Условное отображение: баннер или модуль бронирования */}
+          {SITE_CONFIG.showComingSoonBanner ? (
+            <div className="mb-12">
+              <ComingSoonBanner variant="booking" />
+            </div>
+          ) : (
+            <>
+              {/* HomeReserve Booking Widget - directly on background */}
+              <div className="mb-12">
+                <div id="hr-widget"></div>
+              </div>
+              
+              {/* Contact buttons section */}
+              <div className="max-w-2xl mx-auto">
+                <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/10">
+                  <div className="text-center">
+                    <p className="mb-4 text-white">
+                      Нужна помощь с бронированием? Свяжитесь с нами напрямую:
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Link href="/contacts">
+                        <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg">
+                          <i className="fas fa-envelope mr-2"></i>
+                          Связаться с нами
+                        </Button>
+                      </Link>
+                      <a href={`tel:${SITE_CONFIG.phone}`}>
+                        <Button variant="outline" className="border-2 border-accent text-accent bg-white/20 backdrop-blur-sm hover:bg-accent hover:text-white transition-all duration-300 shadow-lg">
+                          <i className="fas fa-phone mr-2"></i>
+                          Позвонить
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </div>
     </div>

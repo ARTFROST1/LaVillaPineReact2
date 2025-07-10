@@ -189,6 +189,9 @@ Changelog:
 - July 09, 2025. Completed migration from Replit Agent to standard Replit environment with full functionality
 - July 09, 2025. Fixed social media preview issue - created og-image-final.jpg with proper cache-busting for Render deployment
 - July 09, 2025. Added comprehensive social media cache refresh instructions and debugging tools
+- July 10, 2025. Implemented temporary "Coming Soon" banner system for pre-opening period (after August 20, 2025)
+- July 10, 2025. Added toggle control in constants.ts (showComingSoonBanner) to easily switch between banner and booking module
+- July 10, 2025. Created comprehensive removal instructions for restoring full booking functionality
 ```
 
 ## User Preferences

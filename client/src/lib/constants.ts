@@ -13,6 +13,9 @@ export const SITE_CONFIG = {
     telegram: "https://t.me/LaVillaPine",
     avito: "https://www.avito.ru/user/lavillapine",
   },
+  // Контроль отображения баннера "Скоро открытие"
+  // Для возврата к рабочему состоянию измените на false
+  showComingSoonBanner: true,
 };
 
 export const HERO_IMAGES = [

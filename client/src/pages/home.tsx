@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import CarouselHero from "@/components/ui/carousel-hero";
 import DynamicImage from "@/components/ui/dynamic-image";
+import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import { HERO_IMAGES, SITE_CONFIG } from "@/lib/constants";
 
 // Типы для HomeReserve
@@ -16,25 +17,31 @@ declare global {
 
 export default function Home() {
   useEffect(() => {
-    // Динамически загружаем скрипт HomeReserve
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'https://homereserve.ru/widget.js';
-    script.onload = () => {
-      // Инициализируем поисковую форму после загрузки скрипта
-      if (window.homereserve) {
-        window.homereserve.initWidgetSearch({
-          token: "Aijbfbb7Zl",
-          tag: "site"
-        });
-      }
-    };
-    document.head.appendChild(script);
+    // Загружаем модуль бронирования только если баннер отключен
+    if (!SITE_CONFIG.showComingSoonBanner) {
+      // Динамически загружаем скрипт HomeReserve
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'https://homereserve.ru/widget.js';
+      script.onload = () => {
+        // Инициализируем поисковую форму после загрузки скрипта
+        if (window.homereserve) {
+          window.homereserve.initWidgetSearch({
+            token: "Aijbfbb7Zl",
+            tag: "site"
+          });
+        }
+      };
+      document.head.appendChild(script);
 
-    // Очистка при размонтировании компонента
-    return () => {
-      document.head.removeChild(script);
-    };
+      // Очистка при размонтировании компонента
+      return () => {
+        const existingScript = document.querySelector('script[src="https://homereserve.ru/widget.js"]');
+        if (existingScript) {
+          document.head.removeChild(existingScript);
+        }
+      };
+    }
   }, []);
 
   return (
@@ -59,9 +66,13 @@ export default function Home() {
               <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
                 Откройте для себя роскошные гостевые дома в стиле лофт
               </p>
-              {/* HomeReserve Search Widget */}
+              {/* Условное отображение: баннер или модуль бронирования */}
               <div className="max-w-4xl mx-auto mt-8">
-                <div id="hr-widget"></div>
+                {SITE_CONFIG.showComingSoonBanner ? (
+                  <ComingSoonBanner variant="home" />
+                ) : (
+                  <div id="hr-widget"></div>
+                )}
               </div>
             </div>
           </div>
