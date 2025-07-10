@@ -6,7 +6,7 @@ export default function About() {
     <div className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary font-display">
             О La Villa Pine
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed mb-8">
@@ -17,7 +17,7 @@ export default function About() {
             природы.
           </p>
           <div className="bg-neutral/50 p-8 rounded-2xl text-left max-w-3xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-4 text-primary">Премиум комфорт</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-primary font-display">Премиум комфорт</h2>
             <p className="text-gray-700 mb-4">
               В каждом доме вас ждут 3 просторные спальни, 2 современных санузла и большой холл с полностью оборудованной кухней. 
               Сауна с RGB светодиодной подсветкой создаст атмосферу релакса, а всё необходимое для комфортного отдыха уже предусмотрено: 
@@ -79,7 +79,7 @@ export default function About() {
         {/* Удобное расположение */}
         <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-12 rounded-3xl mb-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-primary">Идеальное расположение</h2>
+            <h2 className="text-3xl font-bold mb-6 text-primary font-display">Идеальное расположение</h2>
             <p className="text-lg text-gray-700 mb-8">
               La Villa Pine находится в удобном месте - всего 20 минут до города и 30 минут до гор. 
               В шаговой доступности кофейня, а заказать еду можно из ресторана "Пхали-Ханкали". 

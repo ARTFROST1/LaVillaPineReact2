@@ -70,7 +70,7 @@ export default function Booking() {
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Бронирование</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white font-display">Бронирование</h1>
           <p className="text-xl text-gray-200">Спланируйте свой идеальный отдых в La Villa Pine уже сегодня</p>
         </div>
         

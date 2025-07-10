@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <CustomTreeIcon className="h-8 w-8" />
-              <span className="text-2xl font-bold">{SITE_CONFIG.name}</span>
+              <span className="text-2xl font-bold font-display">{SITE_CONFIG.name}</span>
             </div>
             <p className="text-gray-300">{SITE_CONFIG.description}</p>
           </div>

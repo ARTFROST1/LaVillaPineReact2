@@ -26,7 +26,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <CustomTreeIcon className="h-8 w-8" />
-            <span className="text-2xl font-bold text-primary">{SITE_CONFIG.name}</span>
+            <span className="text-2xl font-bold text-primary font-display">{SITE_CONFIG.name}</span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">

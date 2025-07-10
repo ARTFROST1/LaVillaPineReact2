@@ -57,7 +57,7 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl font-display">
                 Добро пожаловать в <br />
                 <span className="text-accent drop-shadow-lg">
                   {SITE_CONFIG.name}
@@ -83,7 +83,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary font-display">
               Почему выбирают <br />
               {SITE_CONFIG.name}
             </h2>
