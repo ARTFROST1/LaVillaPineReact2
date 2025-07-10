@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   },
   // Контроль отображения баннера "Скоро открытие"
   // Для возврата к рабочему состоянию измените на false
-  showComingSoonBanner: true,
+  showComingSoonBanner: true, // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 };
 
 export const HERO_IMAGES = [
@@ -178,7 +178,8 @@ export const AMENITIES = [
     description:
       "Современная архитектура в стиле лофт с дизайнерским ремонтом, отличающаяся открытыми пространствами, индустриальными элементами и современным комфортом.",
     image: "/images/amenities/interior.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
     icon: "fas fa-hot-tub",
@@ -186,7 +187,8 @@ export const AMENITIES = [
     description:
       "Каждый дом оборудован собственной приватной сауной с современным дизайном, идеально подходящей для расслабления и оздоровления.",
     image: "/images/amenities/sauna.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
     icon: "fas fa-swimming-pool",
@@ -194,7 +196,8 @@ export const AMENITIES = [
     description:
       "Большие подогреваемые открытые бассейны обеспечивают круглогодичное наслаждение плаванием с потрясающим видом на окружающий лес.",
     image: "/images/amenities/pool.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
     icon: "fas fa-tree",
@@ -202,7 +205,8 @@ export const AMENITIES = [
     description:
       "Расположены прямо рядом с чистейшим лесом, где процветает дикая природа, что обеспечивает непревзойденную приватность и естественную красоту.",
     image: "/images/amenities/forest.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
     icon: "fas fa-water",
@@ -210,7 +214,8 @@ export const AMENITIES = [
     description:
       "Нежный ручей протекает через близлежащий лес, создавая умиротворяющий звуковой фон для вашего природного отдыха.",
     image: "/images/amenities/forest.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
     icon: "fas fa-shield-alt",
@@ -218,6 +223,7 @@ export const AMENITIES = [
     description:
       "Каждый дом предлагает полную приватность со своим собственным пространством, обеспечивая интимные и эксклюзивные впечатления для вас и ваших гостей.",
     image: "/images/gallery/gallery-1.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
 ];
