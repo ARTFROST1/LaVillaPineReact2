@@ -74,12 +74,12 @@ export default function YandexMap({
           center: coords,
           zoom: 13,
           controls: ["zoomControl"], // Только зум
-          type: "yandex#map"
+          type: "yandex#map",
         });
 
         // Добавляем черно-белый стиль карты
-        map.options.set('restrictMapArea', false);
-        map.options.set('suppressMapOpenBlock', true);
+        map.options.set("restrictMapArea", false);
+        map.options.set("suppressMapOpenBlock", true);
 
         mapInstanceRef.current = map;
 
@@ -96,16 +96,16 @@ export default function YandexMap({
           },
           {
             preset: "islands#redDotIcon",
-            iconColor: "#D4AF37", // Золотистый цвет метки
-          }
+            iconColor: "#E6B319", // жёлтый цвет метки
+          },
         );
 
         map.geoObjects.add(placemark);
 
         // Применяем черно-белый фильтр к карте и создаем CSS для цветных меток
-        map.events.add('ready', function() {
+        map.events.add("ready", function () {
           // Создаем CSS стиль для цветных меток
-          const style = document.createElement('style');
+          const style = document.createElement("style");
           style.textContent = `
             .yandex-map-container {
               filter: grayscale(100%);
@@ -124,23 +124,25 @@ export default function YandexMap({
             }
           `;
           document.head.appendChild(style);
-          
+
           // Применяем класс к контейнеру карты
           const mapContainer = mapRef.current;
           if (mapContainer) {
-            mapContainer.classList.add('yandex-map-container');
+            mapContainer.classList.add("yandex-map-container");
           }
-          
+
           // Дополнительно пытаемся найти и перекрасить метки
           setTimeout(() => {
-            const allElements = mapContainer?.querySelectorAll('*');
-            allElements?.forEach(element => {
+            const allElements = mapContainer?.querySelectorAll("*");
+            allElements?.forEach((element) => {
               const className = element.className;
-              if (typeof className === 'string' && 
-                  (className.includes('placemark') || 
-                   className.includes('balloon') || 
-                   className.includes('icon'))) {
-                element.style.filter = 'grayscale(0%) !important';
+              if (
+                typeof className === "string" &&
+                (className.includes("placemark") ||
+                  className.includes("balloon") ||
+                  className.includes("icon"))
+              ) {
+                element.style.filter = "grayscale(0%) !important";
               }
             });
           }, 1000);
