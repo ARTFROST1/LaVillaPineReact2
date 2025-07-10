@@ -21,15 +21,13 @@ export default function Home() {
     script.type = 'module';
     script.src = 'https://homereserve.ru/widget.js';
     script.onload = () => {
-      // Инициализируем поисковую форму после загрузки скрипта с небольшой задержкой
-      setTimeout(() => {
-        if (window.homereserve) {
-          window.homereserve.initWidgetSearch({
-            token: "Aijbfbb7Zl",
-            tag: "site"
-          });
-        }
-      }, 100);
+      // Инициализируем поисковую форму после загрузки скрипта
+      if (window.homereserve) {
+        window.homereserve.initWidgetSearch({
+          token: "Aijbfbb7Zl",
+          tag: "site"
+        });
+      }
     };
     document.head.appendChild(script);
 

@@ -31,15 +31,13 @@ export default function Booking() {
     script.type = 'module';
     script.src = 'https://homereserve.ru/widget.js';
     script.onload = () => {
-      // Wait a bit for the module to fully load and initialize
-      setTimeout(() => {
-        if (window.homereserve && document.getElementById('hr-widget')) {
-          window.homereserve.initWidgetSearch({
-            token: "Aijbfbb7Zl",
-            tag: "site"
-          });
-        }
-      }, 100);
+      // Initialize module immediately after script loads
+      if (window.homereserve && document.getElementById('hr-widget')) {
+        window.homereserve.initWidgetSearch({
+          token: "Aijbfbb7Zl",
+          tag: "site"
+        });
+      }
     };
     script.onerror = () => {
       console.error('Failed to load HomeReserve widget script');
