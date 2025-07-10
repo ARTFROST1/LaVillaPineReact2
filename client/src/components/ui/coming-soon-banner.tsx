@@ -146,7 +146,7 @@ export default function ComingSoonBanner({
               variant="outline"
               className={`${
                 isHomePage
-                  ? "border-accent text-accent hover:bg-white/20 hover:border-white hover:text-white"
+                  ? "bg-white/10 border-accent text-white hover:bg-white hover:border-white hover:text-primary backdrop-blur-sm"
                   : "border-primary text-primary hover:bg-primary hover:text-white"
               } transition-all duration-300 w-full sm:w-auto`}
             >
