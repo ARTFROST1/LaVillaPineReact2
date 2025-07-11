@@ -19,8 +19,8 @@ export async function sendEmailJSMessage(data: EmailData): Promise<boolean> {
       template_params: {
         to_email: 'lavillapine@yandex.com',
         from_name: data.name,
-        from_email: data.email,
-        phone: data.phone || '',
+        phone: data.phone,
+        from_email: data.email || '',
         message: data.message,
         subject: `Новое сообщение от ${data.name} - La Villa Pine`
       }
@@ -59,11 +59,11 @@ export async function sendFormspreeMessage(data: EmailData): Promise<boolean> {
     
     const formspreeData = {
       name: data.name,
-      email: data.email,
-      phone: data.phone || '',
+      phone: data.phone,
+      email: data.email || '',
       message: data.message,
       _subject: `Новое сообщение от ${data.name} - La Villa Pine`,
-      _replyto: data.email
+      _replyto: data.email || 'noreply@lavillapine.com'
     };
     
     const response = await fetch(formspreeEndpoint, {

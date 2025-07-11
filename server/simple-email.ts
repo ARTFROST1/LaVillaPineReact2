@@ -8,8 +8,8 @@ export async function sendSimpleEmail(data: EmailData): Promise<boolean> {
     
     const formData = new URLSearchParams({
       name: data.name,
-      email: data.email,
-      phone: data.phone || '',
+      phone: data.phone,
+      email: data.email || '',
       message: data.message,
       _subject: `Новое сообщение от ${data.name} - La Villa Pine`,
       _next: 'https://thankyou.com',
@@ -45,8 +45,8 @@ export async function sendWebhookEmail(data: EmailData): Promise<boolean> {
     
     const payload = {
       name: data.name,
-      email: data.email,
-      phone: data.phone || '',
+      phone: data.phone,
+      email: data.email || '',
       message: data.message,
       _subject: `Новое сообщение от ${data.name} - La Villa Pine`
     };
@@ -85,8 +85,8 @@ export async function sendNetlifyForm(data: EmailData): Promise<boolean> {
     const formData = new URLSearchParams({
       'form-name': 'contact',
       name: data.name,
-      email: data.email,
-      phone: data.phone || '',
+      phone: data.phone,
+      email: data.email || '',
       message: data.message
     });
     

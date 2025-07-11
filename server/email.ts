@@ -77,8 +77,8 @@ const transporter = createTransporter();
 
 export interface EmailData {
   name: string;
-  email: string;
-  phone?: string;
+  phone: string;
+  email?: string;
   message: string;
 }
 
@@ -96,18 +96,17 @@ export async function sendContactEmail(data: EmailData): Promise<boolean> {
       const mailOptions = {
         from: process.env.EMAIL_USER,
         to: 'lavillapine@yandex.com',
-        replyTo: data.email,
         subject: `Новое сообщение от ${data.name} - La Villa Pine`,
         html: `
           <h2>Новое сообщение с сайта La Villa Pine</h2>
           <p><strong>Имя:</strong> ${data.name}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          ${data.phone ? `<p><strong>Телефон:</strong> ${data.phone}</p>` : ''}
+          <p><strong>Телефон:</strong> ${data.phone}</p>
+          ${data.email ? `<p><strong>Email:</strong> ${data.email}</p>` : ''}
           <p><strong>Сообщение:</strong></p>
           <p>${data.message.replace(/\n/g, '<br>')}</p>
           <hr>
           <p><em>Отправлено с сайта La Villa Pine</em></p>
-          <p><em>Для ответа используйте адрес: ${data.email}</em></p>
+          <p><em>Для связи используйте телефон: ${data.phone}</em></p>
         `
       };
 

@@ -29,8 +29,8 @@ export async function sendTelegramNotification(data: EmailData): Promise<boolean
 🏠 <b>Новое сообщение с сайта La Villa Pine</b>
 
 👤 <b>Имя:</b> ${data.name}
-📧 <b>Email:</b> ${data.email}
-${data.phone ? `📞 <b>Телефон:</b> ${data.phone}` : ''}
+📞 <b>Телефон:</b> ${data.phone}
+${data.email ? `📧 <b>Email:</b> ${data.email}` : ''}
 
 💬 <b>Сообщение:</b>
 ${data.message}

@@ -20,7 +20,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Попытаться отправить уведомления разными способами
       const contactData = {
         name: validatedData.name,
-        email: validatedData.email,
         phone: validatedData.phone,
         message: validatedData.message
       };

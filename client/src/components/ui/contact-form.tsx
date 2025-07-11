@@ -12,7 +12,9 @@ import { Loader2 } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Имя должно содержать не менее 2 символов"),
-  email: z.string().email("Пожалуйста, введите действительный адрес электронной почты"),
+  phone: z.string()
+    .min(10, "Номер телефона должен содержать не менее 10 цифр")
+    .regex(/^[\+]?[0-9\s\-\(\)]{10,}$/, "Пожалуйста, введите корректный номер телефона"),
   message: z.string().min(10, "Сообщение должно содержать не менее 10 символов")
 });
 
@@ -75,16 +77,16 @@ export default function ContactForm() {
       </div>
       
       <div>
-        <Label htmlFor="email" className="text-gray-700 text-sm font-medium">Email</Label>
+        <Label htmlFor="phone" className="text-gray-700 text-sm font-medium">Номер телефона</Label>
         <Input
-          id="email"
-          type="email"
-          placeholder="Ваш email"
+          id="phone"
+          type="tel"
+          placeholder="+7 (XXX) XXX-XX-XX"
           className="mt-2"
-          {...register("email")}
+          {...register("phone")}
         />
-        {errors.email && (
-          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+        {errors.phone && (
+          <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
         )}
       </div>
       

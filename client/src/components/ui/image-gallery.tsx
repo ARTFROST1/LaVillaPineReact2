@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -95,6 +95,12 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-w-4xl w-full p-0 overflow-hidden">
+          <DialogTitle className="sr-only">
+            {selectedImage !== null ? images[selectedImage].alt : "Изображение галереи"}
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Просмотр изображений галереи La Villa Pine. Используйте кнопки навигации для перехода между изображениями.
+          </DialogDescription>
           {selectedImage !== null && (
             <div className="relative">
               <GalleryImageComponent
