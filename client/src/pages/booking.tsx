@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useEffect } from "react";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
+import BookingDateNotice from "@/components/ui/booking-date-notice";
 
 // Global type declaration for HomeReserve widget
 declare global {
@@ -85,8 +86,11 @@ export default function Booking() {
           ) : (
             <>
               {/* HomeReserve Booking Widget - directly on background */}
-              <div className="mb-12">
+              <div className="mb-12 space-y-4">
                 <div id="hr-widget"></div>
+                {SITE_CONFIG.showBookingDateNotice && (
+                  <BookingDateNotice variant="booking" />
+                )}
               </div>
               
               {/* Contact buttons section */}

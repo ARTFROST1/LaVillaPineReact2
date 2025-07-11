@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import CarouselHero from "@/components/ui/carousel-hero";
 import DynamicImage from "@/components/ui/dynamic-image";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
+import BookingDateNotice from "@/components/ui/booking-date-notice";
 import { HERO_IMAGES, SITE_CONFIG } from "@/lib/constants";
 
 // Типы для HomeReserve
@@ -71,7 +72,12 @@ export default function Home() {
                 {SITE_CONFIG.showComingSoonBanner ? (
                   <ComingSoonBanner variant="home" />
                 ) : (
-                  <div id="hr-widget"></div>
+                  <div className="space-y-4">
+                    <div id="hr-widget"></div>
+                    {SITE_CONFIG.showBookingDateNotice && (
+                      <BookingDateNotice variant="home" />
+                    )}
+                  </div>
                 )}
               </div>
             </div>

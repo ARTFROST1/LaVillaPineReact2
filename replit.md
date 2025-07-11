@@ -195,6 +195,9 @@ Changelog:
 - July 10, 2025. Successfully completed migration from Replit Agent to standard Replit environment with enhanced About page styling
 - July 10, 2025. Improved "Премиум комфорт" section with better structured subheadings and consistent spacing
 - July 10, 2025. Updated amenities list: replaced "Природный Ручей" and "Полная Приватность" with "Мангальные Зоны" and "Премиум Сервис"
+- July 11, 2025. Removed "Coming Soon" banner and replaced with booking date notice for August 20, 2025
+- July 11, 2025. Created BookingDateNotice component for controlled display of booking availability information
+- July 11, 2025. Added showBookingDateNotice toggle in constants.ts for easy on/off control of booking date notice
 ```
 
 ## User Preferences
