@@ -13,8 +13,8 @@ export default function YandexReviews({
   
   const dimensions = {
     small: { width: "150", height: "50" },
-    medium: { width: "180", height: "60" },
-    large: { width: "200", height: "70" }
+    medium: { width: "220", height: "80" },
+    large: { width: "280", height: "100" }
   };
 
   const { width, height } = dimensions[size];
