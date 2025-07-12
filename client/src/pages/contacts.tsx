@@ -126,7 +126,7 @@ export default function Contacts() {
               
               {/* Yandex Reviews Widget */}
               <div className="flex justify-center mt-6 mb-4">
-                <YandexReviews />
+                <YandexReviews theme="light" size="large" />
               </div>
               
               <p className="text-sm text-gray-500 mt-6 text-center font-light">

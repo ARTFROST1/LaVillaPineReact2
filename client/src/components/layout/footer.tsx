@@ -26,7 +26,7 @@ export default function Footer() {
             
             {/* Yandex Reviews Widget */}
             <div className="mt-4 mb-4">
-              <YandexReviews />
+              <YandexReviews theme="dark" size="medium" />
             </div>
             
             <div className="flex items-center space-x-4 mt-4">
