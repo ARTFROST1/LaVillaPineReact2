@@ -1,11 +1,22 @@
 import ContactForm from "@/components/ui/contact-form";
+import PageMeta from "@/components/seo/PageMeta";
 import { SITE_CONFIG } from "@/lib/constants";
+import { SEO_PAGES } from "@/lib/seo-constants";
 import AvitoIcon from "@/components/ui/avito-icon";
 import YandexMap from "@/components/ui/yandex-map";
 
 export default function Contacts() {
   return (
     <div className="relative min-h-screen">
+      <PageMeta 
+        title={SEO_PAGES.contacts.title}
+        description={SEO_PAGES.contacts.description}
+        keywords={SEO_PAGES.contacts.keywords}
+        ogTitle={SEO_PAGES.contacts.ogTitle}
+        ogDescription={SEO_PAGES.contacts.ogDescription}
+        ogImage={SEO_PAGES.contacts.ogImage}
+        canonical="https://lavillapine.onrender.com/contacts"
+      />
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed"
@@ -19,9 +30,9 @@ export default function Contacts() {
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold font-display">Связаться с нами</h1>
+            <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold font-display">Бронирование и контакты La Villa Pine</h1>
             <p className="text-lg text-gray-600 font-light">
-              Свяжитесь с нами, чтобы забронировать проживание или задать любые вопросы
+              Забронируйте роскошный лофт-дом в Адыгее или получите консультацию по всем вопросам
             </p>
           </div>
           

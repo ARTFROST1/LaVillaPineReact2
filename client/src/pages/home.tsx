@@ -5,7 +5,9 @@ import CarouselHero from "@/components/ui/carousel-hero";
 import DynamicImage from "@/components/ui/dynamic-image";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
+import PageMeta from "@/components/seo/PageMeta";
 import { HERO_IMAGES, SITE_CONFIG } from "@/lib/constants";
+import { SEO_PAGES } from "@/lib/seo-constants";
 
 // Типы для HomeReserve
 declare global {
@@ -47,6 +49,15 @@ export default function Home() {
 
   return (
     <div>
+      <PageMeta 
+        title={SEO_PAGES.home.title}
+        description={SEO_PAGES.home.description}
+        keywords={SEO_PAGES.home.keywords}
+        ogTitle={SEO_PAGES.home.ogTitle}
+        ogDescription={SEO_PAGES.home.ogDescription}
+        ogImage={SEO_PAGES.home.ogImage}
+        canonical="https://lavillapine.onrender.com/"
+      />
       {/* Hero Section */}
       <section className="relative w-full h-screen overflow-hidden">
         {/* Full width carousel background */}
@@ -59,9 +70,9 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl font-display">
-                Добро пожаловать в <br />
+                Премиальные лофт-дома <br />
                 <span className="text-accent drop-shadow-lg">
-                  {SITE_CONFIG.name}
+                  с бассейном в Адыгее
                 </span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto">

@@ -1,13 +1,24 @@
 import { AMENITIES } from "@/lib/constants";
 import DynamicImage from "@/components/ui/dynamic-image";
+import PageMeta from "@/components/seo/PageMeta";
+import { SEO_PAGES } from "@/lib/seo-constants";
 
 export default function About() {
   return (
     <div className="py-20 bg-white">
+      <PageMeta 
+        title={SEO_PAGES.about.title}
+        description={SEO_PAGES.about.description}
+        keywords={SEO_PAGES.about.keywords}
+        ogTitle={SEO_PAGES.about.ogTitle}
+        ogDescription={SEO_PAGES.about.ogDescription}
+        ogImage={SEO_PAGES.about.ogImage}
+        canonical="https://lavillapine.onrender.com/about"
+      />
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary font-display">
-            О La Villa Pine
+            Роскошные лофт-дома в стиле премиум
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed mb-8">
             Наши лофт-дома сделаны так, чтобы вам сразу чувствовалось: это место особенное.

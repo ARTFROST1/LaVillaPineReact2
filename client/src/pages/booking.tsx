@@ -4,6 +4,8 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { useEffect } from "react";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
+import PageMeta from "@/components/seo/PageMeta";
+import { SEO_PAGES } from "@/lib/seo-constants";
 
 // Global type declaration for HomeReserve widget
 declare global {
@@ -60,6 +62,15 @@ export default function Booking() {
 
   return (
     <div className="py-20 relative">
+      <PageMeta 
+        title={SEO_PAGES.booking.title}
+        description={SEO_PAGES.booking.description}
+        keywords={SEO_PAGES.booking.keywords}
+        ogTitle={SEO_PAGES.booking.ogTitle}
+        ogDescription={SEO_PAGES.booking.ogDescription}
+        ogImage={SEO_PAGES.booking.ogImage}
+        canonical="https://lavillapine.onrender.com/booking"
+      />
       {/* Room background with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
@@ -71,8 +82,8 @@ export default function Booking() {
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white font-display">Бронирование</h1>
-          <p className="text-xl text-gray-200">Спланируйте свой идеальный отдых в La Villa Pine уже сегодня</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white font-display">Онлайн бронирование лофт-домов в Адыгее</h1>
+          <p className="text-xl text-gray-200">Забронируйте роскошный отдых в La Villa Pine на удобные даты</p>
         </div>
         
         <div className="max-w-4xl mx-auto">
