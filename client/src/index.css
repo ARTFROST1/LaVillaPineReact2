@@ -243,9 +243,32 @@ html {
 #hr-widget .card > div:first-child,
 #hr-widget .widget-card > div:first-child,
 #hr-widget [class*="card"] > div:first-child {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Принудительное выравнивание изображений */
+#hr-widget img,
+#hr-widget .card img,
+#hr-widget .widget-card img,
+#hr-widget [class*="card"] img {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
+}
+
+/* Дополнительные стили для контейнеров */
+#hr-widget [class*="col"],
+#hr-widget [class*="grid"],
+#hr-widget .row > div,
+#hr-widget .container > div {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 #hr-widget .card .image-container::after,
@@ -256,4 +279,27 @@ html {
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
   pointer-events: none;
+}
+
+/* Исправление для Bootstrap/Grid систем в виджете */
+#hr-widget * {
+  box-sizing: border-box !important;
+}
+
+#hr-widget .card,
+#hr-widget .widget-card,
+#hr-widget [class*="card"] {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#hr-widget .card img,
+#hr-widget .widget-card img,
+#hr-widget [class*="card"] img {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
 }
