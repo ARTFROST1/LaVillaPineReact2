@@ -9,7 +9,7 @@ import BookingDateNotice from "@/components/ui/booking-date-notice";
 declare global {
   interface Window {
     homereserve?: {
-      initWidgetSearch: (config: { token: string; tag: string }) => void;
+      initWidgetList: (config: { token: string; tag: string }) => void;
     };
   }
 }
@@ -22,7 +22,7 @@ export default function Booking() {
       if (document.querySelector('script[src="https://homereserve.ru/widget.js"]')) {
         // Script already exists, try to initialize
         if (window.homereserve) {
-          window.homereserve.initWidgetSearch({
+          window.homereserve.initWidgetList({
             token: "Aijbfbb7Zl",
             tag: "site"
           });
@@ -37,7 +37,7 @@ export default function Booking() {
       script.onload = () => {
         // Initialize module immediately after script loads
         if (window.homereserve && document.getElementById('hr-widget')) {
-          window.homereserve.initWidgetSearch({
+          window.homereserve.initWidgetList({
             token: "Aijbfbb7Zl",
             tag: "site"
           });

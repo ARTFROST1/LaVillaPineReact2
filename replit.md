@@ -198,6 +198,7 @@ Changelog:
 - July 11, 2025. Removed "Coming Soon" banner and replaced with booking date notice for August 20, 2025
 - July 11, 2025. Created BookingDateNotice component for controlled display of booking availability information
 - July 11, 2025. Added showBookingDateNotice toggle in constants.ts for easy on/off control of booking date notice
+- July 11, 2025. Updated booking page widget to use initWidgetList instead of initWidgetSearch for new HomeReserve integration
 ```
 
 ## User Preferences
