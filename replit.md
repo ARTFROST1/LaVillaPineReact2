@@ -202,6 +202,7 @@ Changelog:
 - July 11, 2025. Updated Open Graph preview image to branded La Villa Pine photo with pool and logo for better social media representation
 - July 12, 2025. Successfully completed migration from Replit Agent to standard Replit environment
 - July 12, 2025. Added Yandex Reviews widget as fixed element in bottom-left corner of all pages for enhanced social proof
+- July 12, 2025. Integrated Yandex Metrika analytics counter (ID: 103308092) in HTML head section for comprehensive website tracking
 ```
 
 ## User Preferences
