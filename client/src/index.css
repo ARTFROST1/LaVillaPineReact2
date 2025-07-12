@@ -207,6 +207,9 @@ html {
   object-position: center;
   transition: transform 0.5s ease;
   border-radius: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 #hr-widget .card:hover img,
@@ -226,8 +229,22 @@ html {
 /* Градиент поверх изображений в виджете */
 #hr-widget .card .image-container,
 #hr-widget .widget-card .image-container,
-#hr-widget [class*="card"] .image-container {
+#hr-widget [class*="card"] .image-container,
+#hr-widget .image-wrapper,
+#hr-widget [class*="image"] {
   position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Контейнеры изображений для равномерных отступов */
+#hr-widget .card > div:first-child,
+#hr-widget .widget-card > div:first-child,
+#hr-widget [class*="card"] > div:first-child {
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
