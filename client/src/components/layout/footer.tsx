@@ -2,7 +2,6 @@ import { Link } from "wouter";
 import { SITE_CONFIG } from "@/lib/constants";
 import AvitoIcon from "@/components/ui/avito-icon";
 import CustomTreeIcon from "@/components/ui/custom-tree-icon";
-import YandexReviews from "@/components/ui/yandex-reviews";
 
 export default function Footer() {
   return (
@@ -23,12 +22,6 @@ export default function Footer() {
               <p>{SITE_CONFIG.phone}</p>
               <p>{SITE_CONFIG.email}</p>
             </div>
-            
-            {/* Yandex Reviews Widget */}
-            <div className="mt-4 mb-4">
-              <YandexReviews />
-            </div>
-            
             <div className="flex items-center space-x-4 mt-4">
               <a
                 href={SITE_CONFIG.socialLinks.instagram}

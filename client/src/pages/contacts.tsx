@@ -2,7 +2,6 @@ import ContactForm from "@/components/ui/contact-form";
 import { SITE_CONFIG } from "@/lib/constants";
 import AvitoIcon from "@/components/ui/avito-icon";
 import YandexMap from "@/components/ui/yandex-map";
-import YandexReviews from "@/components/ui/yandex-reviews";
 
 export default function Contacts() {
   return (
@@ -123,12 +122,6 @@ export default function Contacts() {
                   <AvitoIcon className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors duration-300" />
                 </a>
               </div>
-              
-              {/* Yandex Reviews Widget */}
-              <div className="flex justify-center mt-6 mb-4">
-                <YandexReviews />
-              </div>
-              
               <p className="text-sm text-gray-500 mt-6 text-center font-light">
                 Подписывайтесь на наши страницы, чтобы быть в курсе новостей и специальных предложений
               </p>

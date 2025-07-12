@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import YandexReviews from "@/components/ui/yandex-reviews";
 import Home from "@/pages/home";
 import About from "@/pages/about";
 import Gallery from "@/pages/gallery";
@@ -37,6 +38,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <YandexReviews />
       </TooltipProvider>
     </QueryClientProvider>
   );
