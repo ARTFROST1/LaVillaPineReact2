@@ -184,24 +184,35 @@ html {
 #hr-widget {
   max-width: 100%;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 /* Основные стили для всех изображений в виджете */
 #hr-widget img {
   max-width: 100% !important;
   width: 100% !important;
+  height: auto !important;
   object-fit: cover !important;
   object-position: center center !important;
   border-radius: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
 }
 
 /* Стили для карточек и элементов */
 #hr-widget .hr-card,
 #hr-widget .hr-item,
 #hr-widget [class*="card"],
-#hr-widget [class*="item"] {
+#hr-widget [class*="item"],
+#hr-widget > div {
   overflow: hidden !important;
   border-radius: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 /* Стили для контейнеров изображений */
@@ -210,9 +221,11 @@ html {
 #hr-widget [class*="photo"],
 #hr-widget [class*="picture"] {
   overflow: hidden !important;
-  border-radius: 8px 8px 0 0 !important;
+  border-radius: 8px !important;
   width: 100% !important;
   position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Принудительное ограничение размеров */
@@ -220,6 +233,9 @@ html {
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
+  border-radius: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Исправление для всех вложенных элементов */
@@ -227,14 +243,23 @@ html {
   box-sizing: border-box !important;
 }
 
+/* Убираем все отступы и поля */
+#hr-widget,
+#hr-widget * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /* Дополнительные стили для предотвращения переполнения */
 #hr-widget > * {
   overflow: hidden !important;
+  border-radius: 8px !important;
 }
 
 /* Специальные стили для проблемных селекторов */
 #hr-widget [style*="width"] {
   max-width: 100% !important;
+  width: 100% !important;
 }
 
 #hr-widget [style*="height"] img {
@@ -242,4 +267,5 @@ html {
   height: 100% !important;
   object-fit: cover !important;
   object-position: center center !important;
+  border-radius: 8px !important;
 }

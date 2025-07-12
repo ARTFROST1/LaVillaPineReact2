@@ -31,6 +31,7 @@ export default function Booking() {
           setTimeout(() => {
             const widget = document.getElementById('hr-widget');
             if (widget) {
+              // Исправляем все изображения
               const images = widget.querySelectorAll('img');
               images.forEach(img => {
                 img.style.maxWidth = '100%';
@@ -38,9 +39,13 @@ export default function Booking() {
                 img.style.height = 'auto';
                 img.style.objectFit = 'cover';
                 img.style.objectPosition = 'center center';
+                img.style.borderRadius = '8px';
+                img.style.margin = '0';
+                img.style.padding = '0';
+                img.style.display = 'block';
               });
               
-              // Также исправляем div с background-image
+              // Исправляем div с background-image
               const bgDivs = widget.querySelectorAll('div[style*="background-image"]');
               bgDivs.forEach(div => {
                 div.style.backgroundSize = 'cover';
@@ -48,6 +53,20 @@ export default function Booking() {
                 div.style.backgroundRepeat = 'no-repeat';
                 div.style.width = '100%';
                 div.style.maxWidth = '100%';
+                div.style.borderRadius = '8px';
+                div.style.margin = '0';
+                div.style.padding = '0';
+              });
+              
+              // Исправляем все контейнеры
+              const allDivs = widget.querySelectorAll('div');
+              allDivs.forEach(div => {
+                div.style.borderRadius = '8px';
+                div.style.overflow = 'hidden';
+                div.style.margin = '0';
+                div.style.padding = '0';
+                div.style.maxWidth = '100%';
+                div.style.boxSizing = 'border-box';
               });
             }
           }, 1000);
@@ -71,6 +90,7 @@ export default function Booking() {
           setTimeout(() => {
             const widget = document.getElementById('hr-widget');
             if (widget) {
+              // Исправляем все изображения
               const images = widget.querySelectorAll('img');
               images.forEach(img => {
                 img.style.maxWidth = '100%';
@@ -78,9 +98,13 @@ export default function Booking() {
                 img.style.height = 'auto';
                 img.style.objectFit = 'cover';
                 img.style.objectPosition = 'center center';
+                img.style.borderRadius = '8px';
+                img.style.margin = '0';
+                img.style.padding = '0';
+                img.style.display = 'block';
               });
               
-              // Также исправляем div с background-image
+              // Исправляем div с background-image
               const bgDivs = widget.querySelectorAll('div[style*="background-image"]');
               bgDivs.forEach(div => {
                 div.style.backgroundSize = 'cover';
@@ -88,6 +112,20 @@ export default function Booking() {
                 div.style.backgroundRepeat = 'no-repeat';
                 div.style.width = '100%';
                 div.style.maxWidth = '100%';
+                div.style.borderRadius = '8px';
+                div.style.margin = '0';
+                div.style.padding = '0';
+              });
+              
+              // Исправляем все контейнеры
+              const allDivs = widget.querySelectorAll('div');
+              allDivs.forEach(div => {
+                div.style.borderRadius = '8px';
+                div.style.overflow = 'hidden';
+                div.style.margin = '0';
+                div.style.padding = '0';
+                div.style.maxWidth = '100%';
+                div.style.boxSizing = 'border-box';
               });
             }
           }, 1000);
