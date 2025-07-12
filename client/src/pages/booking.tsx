@@ -26,54 +26,6 @@ export default function Booking() {
             token: "Aijbfbb7Zl",
             tag: "site"
           });
-          
-          // Добавляем исправление изображений после инициализации
-          setTimeout(() => {
-            const widget = document.getElementById('hr-widget');
-            if (widget) {
-              // Исправляем все изображения
-              const images = widget.querySelectorAll('img');
-              images.forEach(img => {
-                img.style.maxWidth = '100%';
-                img.style.width = '100%';
-                img.style.height = 'auto';
-                img.style.objectFit = 'cover';
-                img.style.objectPosition = 'center center';
-                img.style.borderRadius = '8px';
-                img.style.margin = '0';
-                img.style.padding = '0';
-                img.style.display = 'block';
-              });
-              
-              // Исправляем div с background-image
-              const bgDivs = widget.querySelectorAll('div[style*="background-image"]');
-              bgDivs.forEach(div => {
-                div.style.backgroundSize = 'cover';
-                div.style.backgroundPosition = 'center center';
-                div.style.backgroundRepeat = 'no-repeat';
-                div.style.width = '100%';
-                div.style.maxWidth = '100%';
-                div.style.borderRadius = '8px';
-                div.style.margin = '0';
-                div.style.padding = '0';
-              });
-              
-              // Исправляем все контейнеры
-              const allDivs = widget.querySelectorAll('div');
-              allDivs.forEach((div, index) => {
-                div.style.borderRadius = '8px';
-                div.style.overflow = 'hidden';
-                div.style.maxWidth = '100%';
-                div.style.boxSizing = 'border-box';
-                
-                // Добавляем отступы для карточек (не для самого виджета)
-                if (index > 0) {
-                  div.style.margin = '0 0 8px 0';
-                  div.style.padding = '8px';
-                }
-              });
-            }
-          }, 1000);
         }
         return;
       }
@@ -89,54 +41,6 @@ export default function Booking() {
             token: "Aijbfbb7Zl",
             tag: "site"
           });
-          
-          // Добавляем исправление изображений после инициализации
-          setTimeout(() => {
-            const widget = document.getElementById('hr-widget');
-            if (widget) {
-              // Исправляем все изображения
-              const images = widget.querySelectorAll('img');
-              images.forEach(img => {
-                img.style.maxWidth = '100%';
-                img.style.width = '100%';
-                img.style.height = 'auto';
-                img.style.objectFit = 'cover';
-                img.style.objectPosition = 'center center';
-                img.style.borderRadius = '8px';
-                img.style.margin = '0';
-                img.style.padding = '0';
-                img.style.display = 'block';
-              });
-              
-              // Исправляем div с background-image
-              const bgDivs = widget.querySelectorAll('div[style*="background-image"]');
-              bgDivs.forEach(div => {
-                div.style.backgroundSize = 'cover';
-                div.style.backgroundPosition = 'center center';
-                div.style.backgroundRepeat = 'no-repeat';
-                div.style.width = '100%';
-                div.style.maxWidth = '100%';
-                div.style.borderRadius = '8px';
-                div.style.margin = '0';
-                div.style.padding = '0';
-              });
-              
-              // Исправляем все контейнеры
-              const allDivs = widget.querySelectorAll('div');
-              allDivs.forEach((div, index) => {
-                div.style.borderRadius = '8px';
-                div.style.overflow = 'hidden';
-                div.style.maxWidth = '100%';
-                div.style.boxSizing = 'border-box';
-                
-                // Добавляем отступы для карточек (не для самого виджета)
-                if (index > 0) {
-                  div.style.margin = '0 0 8px 0';
-                  div.style.padding = '8px';
-                }
-              });
-            }
-          }, 1000);
         }
       };
       script.onerror = () => {
@@ -183,7 +87,7 @@ export default function Booking() {
             <>
               {/* HomeReserve Booking Widget - directly on background */}
               <div className="mb-12 space-y-4">
-                <div id="hr-widget" className="w-full overflow-hidden rounded-lg"></div>
+                <div id="hr-widget"></div>
                 {SITE_CONFIG.showBookingDateNotice && (
                   <BookingDateNotice variant="booking" />
                 )}
