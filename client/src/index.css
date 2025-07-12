@@ -179,3 +179,64 @@ html {
 .group:hover .group-hover\:bg-opacity-30 {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+/* HomeReserve widget card improvements */
+#hr-widget .card,
+#hr-widget .widget-card,
+#hr-widget [class*="card"] {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+#hr-widget .card:hover,
+#hr-widget .widget-card:hover,
+#hr-widget [class*="card"]:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+}
+
+#hr-widget img,
+#hr-widget .card img,
+#hr-widget .widget-card img,
+#hr-widget [class*="card"] img {
+  width: 100%;
+  height: 12rem; /* 192px */
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+  border-radius: 0;
+}
+
+#hr-widget .card:hover img,
+#hr-widget .widget-card:hover img,
+#hr-widget [class*="card"]:hover img {
+  transform: scale(1.1);
+}
+
+#hr-widget .card .content,
+#hr-widget .widget-card .content,
+#hr-widget [class*="card"] .content,
+#hr-widget .card-body,
+#hr-widget .card-content {
+  padding: 1.5rem;
+}
+
+/* Градиент поверх изображений в виджете */
+#hr-widget .card .image-container,
+#hr-widget .widget-card .image-container,
+#hr-widget [class*="card"] .image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+#hr-widget .card .image-container::after,
+#hr-widget .widget-card .image-container::after,
+#hr-widget [class*="card"] .image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  pointer-events: none;
+}
