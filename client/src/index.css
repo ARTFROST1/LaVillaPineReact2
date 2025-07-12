@@ -186,40 +186,60 @@ html {
   overflow: hidden;
 }
 
+/* Основные стили для всех изображений в виджете */
 #hr-widget img {
   max-width: 100% !important;
-  height: auto !important;
+  width: 100% !important;
   object-fit: cover !important;
+  object-position: center center !important;
   border-radius: 8px !important;
 }
 
+/* Стили для карточек и элементов */
 #hr-widget .hr-card,
-#hr-widget .hr-item {
+#hr-widget .hr-item,
+#hr-widget [class*="card"],
+#hr-widget [class*="item"] {
   overflow: hidden !important;
   border-radius: 8px !important;
 }
 
-#hr-widget .hr-card img,
-#hr-widget .hr-item img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover !important;
+/* Стили для контейнеров изображений */
+#hr-widget .hr-image-container,
+#hr-widget [class*="image"],
+#hr-widget [class*="photo"],
+#hr-widget [class*="picture"] {
+  overflow: hidden !important;
   border-radius: 8px 8px 0 0 !important;
+  width: 100% !important;
+  position: relative !important;
 }
 
-/* Дополнительные стили для исправления layout */
+/* Принудительное ограничение размеров */
+#hr-widget div[style*="background-image"] {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Исправление для всех вложенных элементов */
 #hr-widget * {
   box-sizing: border-box !important;
 }
 
-#hr-widget .hr-image-container {
+/* Дополнительные стили для предотвращения переполнения */
+#hr-widget > * {
   overflow: hidden !important;
-  border-radius: 8px 8px 0 0 !important;
 }
 
-#hr-widget .hr-image-container img {
+/* Специальные стили для проблемных селекторов */
+#hr-widget [style*="width"] {
+  max-width: 100% !important;
+}
+
+#hr-widget [style*="height"] img {
   width: 100% !important;
-  height: 200px !important;
+  height: 100% !important;
   object-fit: cover !important;
-  object-position: center !important;
+  object-position: center center !important;
 }

@@ -26,6 +26,31 @@ export default function Booking() {
             token: "Aijbfbb7Zl",
             tag: "site"
           });
+          
+          // Добавляем исправление изображений после инициализации
+          setTimeout(() => {
+            const widget = document.getElementById('hr-widget');
+            if (widget) {
+              const images = widget.querySelectorAll('img');
+              images.forEach(img => {
+                img.style.maxWidth = '100%';
+                img.style.width = '100%';
+                img.style.height = 'auto';
+                img.style.objectFit = 'cover';
+                img.style.objectPosition = 'center center';
+              });
+              
+              // Также исправляем div с background-image
+              const bgDivs = widget.querySelectorAll('div[style*="background-image"]');
+              bgDivs.forEach(div => {
+                div.style.backgroundSize = 'cover';
+                div.style.backgroundPosition = 'center center';
+                div.style.backgroundRepeat = 'no-repeat';
+                div.style.width = '100%';
+                div.style.maxWidth = '100%';
+              });
+            }
+          }, 1000);
         }
         return;
       }
@@ -41,6 +66,31 @@ export default function Booking() {
             token: "Aijbfbb7Zl",
             tag: "site"
           });
+          
+          // Добавляем исправление изображений после инициализации
+          setTimeout(() => {
+            const widget = document.getElementById('hr-widget');
+            if (widget) {
+              const images = widget.querySelectorAll('img');
+              images.forEach(img => {
+                img.style.maxWidth = '100%';
+                img.style.width = '100%';
+                img.style.height = 'auto';
+                img.style.objectFit = 'cover';
+                img.style.objectPosition = 'center center';
+              });
+              
+              // Также исправляем div с background-image
+              const bgDivs = widget.querySelectorAll('div[style*="background-image"]');
+              bgDivs.forEach(div => {
+                div.style.backgroundSize = 'cover';
+                div.style.backgroundPosition = 'center center';
+                div.style.backgroundRepeat = 'no-repeat';
+                div.style.width = '100%';
+                div.style.maxWidth = '100%';
+              });
+            }
+          }, 1000);
         }
       };
       script.onerror = () => {
