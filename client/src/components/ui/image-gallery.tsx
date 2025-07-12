@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface GalleryImage {
@@ -109,16 +109,6 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 alt={images[selectedImage].alt}
                 className="w-full h-auto max-h-[80vh] object-contain"
               />
-              
-              {/* Close button */}
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={closeModal}
-                className="absolute top-4 right-4 bg-white/20 border-white/30 text-white hover:bg-white/30"
-              >
-                <X className="h-6 w-6" />
-              </Button>
               
               {/* Navigation */}
               {images.length > 1 && (
