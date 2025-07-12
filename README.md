@@ -50,11 +50,18 @@ npm start
 ## Структура проекта
 
 ```
-├── client/           # React frontend
-├── server/           # Express backend
-├── shared/           # Общие схемы и типы
-├── public/           # Статические файлы
-└── dist/            # Собранный проект
+├── client/              # React frontend
+├── server/              # Express backend
+├── shared/              # Общие схемы и типы
+├── public/              # Статические файлы
+├── docs/                # Документация проекта
+├── attached_assets/     # Рабочие файлы разработки
+└── dist/               # Собранный проект (генерируется)
 ```
 
-Подробная инструкция по деплою в файле `RENDER_DEPLOY_GUIDE.md`.
+## Документация
+
+Полная документация находится в папке `docs/`:
+- [Руководство по развертыванию](./docs/DEPLOYMENT_GUIDE.md)
+- [Инструкции по изображениям](./docs/ИЗОБРАЖЕНИЯ_ИНСТРУКЦИИ.md)  
+- [Локальная разработка](./docs/MIGRATION_TO_LOCAL.md)

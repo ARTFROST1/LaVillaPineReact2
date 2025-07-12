@@ -23,11 +23,14 @@ La Villa Pine is a modern full-stack web application for a luxury guest house bo
 
 ### Project Structure
 ```
-├── client/           # React frontend application
-├── server/           # Express.js backend application
-├── shared/           # Shared schemas and types
-├── migrations/       # Database migration files
-└── dist/            # Production build output
+├── client/              # React frontend application
+├── server/              # Express.js backend application
+├── shared/              # Shared schemas and types
+├── public/              # Static files and images
+├── docs/                # Project documentation
+├── attached_assets/     # Development working files
+├── migrations/          # Database migration files (if needed)
+└── dist/               # Production build output (generated)
 ```
 
 ## Key Components
@@ -199,6 +202,7 @@ Changelog:
 - July 11, 2025. Created BookingDateNotice component for controlled display of booking availability information
 - July 11, 2025. Added showBookingDateNotice toggle in constants.ts for easy on/off control of booking date notice
 - July 11, 2025. Updated booking page widget to use initWidgetList instead of initWidgetSearch for new HomeReserve integration
+- July 12, 2025. Comprehensive project cleanup and optimization: removed 9 redundant documentation files, cleaned temporary assets, organized documentation into docs/ folder, optimized file naming conventions, freed ~3.25MB disk space
 ```
 
 ## User Preferences
