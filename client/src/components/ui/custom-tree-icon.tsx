@@ -1,4 +1,4 @@
-import treeIconPath from "@assets/la-villa-tree-logo.png";
+import treeIconPath from "@assets/LaVilla tree_1752148387057.png";
 
 interface CustomTreeIconProps {
   className?: string;
