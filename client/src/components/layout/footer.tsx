@@ -5,7 +5,7 @@ import CustomTreeIcon from "@/components/ui/custom-tree-icon";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-12">
+    <footer className="bg-primary text-white py-12 pb-20">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
