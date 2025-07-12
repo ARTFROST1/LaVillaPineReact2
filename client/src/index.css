@@ -185,12 +185,9 @@ html {
 #hr-widget .widget-card,
 #hr-widget [class*="card"] {
   border-radius: 1rem;
-  overflow: visible;
+  overflow: hidden;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
-  padding: 0.75rem !important;
-  margin: 0.5rem !important;
-  background: white;
 }
 
 #hr-widget .card:hover,
@@ -209,10 +206,7 @@ html {
   object-fit: cover;
   object-position: center;
   transition: transform 0.5s ease;
-  border-radius: 0.5rem;
-  margin: 0;
-  padding: 0;
-  display: block;
+  border-radius: 0;
 }
 
 #hr-widget .card:hover img,
@@ -232,47 +226,9 @@ html {
 /* Градиент поверх изображений в виджете */
 #hr-widget .card .image-container,
 #hr-widget .widget-card .image-container,
-#hr-widget [class*="card"] .image-container,
-#hr-widget .image-wrapper,
-#hr-widget [class*="image"] {
+#hr-widget [class*="card"] .image-container {
   position: relative;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-/* Контейнеры изображений с красивыми отступами */
-#hr-widget .card > div:first-child,
-#hr-widget .widget-card > div:first-child,
-#hr-widget [class*="card"] > div:first-child {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden;
-  box-sizing: border-box;
-  border-radius: 0.5rem;
-}
-
-/* Принудительное выравнивание изображений */
-#hr-widget img,
-#hr-widget .card img,
-#hr-widget .widget-card img,
-#hr-widget [class*="card"] img {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  box-sizing: border-box;
-  position: relative;
-  left: 0;
-  right: 0;
-}
-
-/* Дополнительные стили для контейнеров */
-#hr-widget [class*="col"],
-#hr-widget [class*="grid"],
-#hr-widget .row > div,
-#hr-widget .container > div {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
 }
 
 #hr-widget .card .image-container::after,
@@ -283,22 +239,4 @@ html {
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
   pointer-events: none;
-}
-
-/* Исправление для Bootstrap/Grid систем в виджете */
-#hr-widget * {
-  box-sizing: border-box !important;
-}
-
-/* Убираем дублирующие стили - они уже настроены выше */
-
-#hr-widget .card img,
-#hr-widget .widget-card img,
-#hr-widget [class*="card"] img {
-  max-width: 100% !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  outline: none !important;
 }
