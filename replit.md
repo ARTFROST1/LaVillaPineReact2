@@ -199,6 +199,7 @@ Changelog:
 - July 11, 2025. Created BookingDateNotice component for controlled display of booking availability information
 - July 11, 2025. Added showBookingDateNotice toggle in constants.ts for easy on/off control of booking date notice
 - July 11, 2025. Updated booking page widget to use initWidgetList instead of initWidgetSearch for new HomeReserve integration
+- July 11, 2025. Updated Open Graph preview image to branded La Villa Pine photo with pool and logo for better social media representation
 ```
 
 ## User Preferences
