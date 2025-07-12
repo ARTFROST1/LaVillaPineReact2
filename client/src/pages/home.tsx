@@ -73,7 +73,7 @@ export default function Home() {
                   <ComingSoonBanner variant="home" />
                 ) : (
                   <div className="space-y-4">
-                    <div id="hr-widget"></div>
+                    <div id="hr-widget" className="w-full overflow-hidden rounded-lg"></div>
                     {SITE_CONFIG.showBookingDateNotice && (
                       <BookingDateNotice variant="home" />
                     )}

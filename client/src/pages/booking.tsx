@@ -87,7 +87,7 @@ export default function Booking() {
             <>
               {/* HomeReserve Booking Widget - directly on background */}
               <div className="mb-12 space-y-4">
-                <div id="hr-widget"></div>
+                <div id="hr-widget" className="w-full overflow-hidden rounded-lg"></div>
                 {SITE_CONFIG.showBookingDateNotice && (
                   <BookingDateNotice variant="booking" />
                 )}

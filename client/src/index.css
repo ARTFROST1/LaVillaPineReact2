@@ -179,3 +179,47 @@ html {
 .group:hover .group-hover\:bg-opacity-30 {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+/* HomeReserve Widget Fixes */
+#hr-widget {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#hr-widget img {
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+}
+
+#hr-widget .hr-card,
+#hr-widget .hr-item {
+  overflow: hidden !important;
+  border-radius: 8px !important;
+}
+
+#hr-widget .hr-card img,
+#hr-widget .hr-item img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+/* Дополнительные стили для исправления layout */
+#hr-widget * {
+  box-sizing: border-box !important;
+}
+
+#hr-widget .hr-image-container {
+  overflow: hidden !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+#hr-widget .hr-image-container img {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
