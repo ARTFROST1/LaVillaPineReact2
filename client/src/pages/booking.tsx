@@ -60,13 +60,17 @@ export default function Booking() {
               
               // Исправляем все контейнеры
               const allDivs = widget.querySelectorAll('div');
-              allDivs.forEach(div => {
+              allDivs.forEach((div, index) => {
                 div.style.borderRadius = '8px';
                 div.style.overflow = 'hidden';
-                div.style.margin = '0';
-                div.style.padding = '0';
                 div.style.maxWidth = '100%';
                 div.style.boxSizing = 'border-box';
+                
+                // Добавляем отступы для карточек (не для самого виджета)
+                if (index > 0) {
+                  div.style.margin = '0 0 8px 0';
+                  div.style.padding = '8px';
+                }
               });
             }
           }, 1000);
@@ -119,13 +123,17 @@ export default function Booking() {
               
               // Исправляем все контейнеры
               const allDivs = widget.querySelectorAll('div');
-              allDivs.forEach(div => {
+              allDivs.forEach((div, index) => {
                 div.style.borderRadius = '8px';
                 div.style.overflow = 'hidden';
-                div.style.margin = '0';
-                div.style.padding = '0';
                 div.style.maxWidth = '100%';
                 div.style.boxSizing = 'border-box';
+                
+                // Добавляем отступы для карточек (не для самого виджета)
+                if (index > 0) {
+                  div.style.margin = '0 0 8px 0';
+                  div.style.padding = '8px';
+                }
               });
             }
           }, 1000);

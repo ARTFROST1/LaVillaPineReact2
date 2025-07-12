@@ -185,6 +185,7 @@ html {
   max-width: 100%;
   overflow: hidden;
   border-radius: 8px;
+  padding: 12px !important;
 }
 
 /* Основные стили для всех изображений в виджете */
@@ -243,11 +244,19 @@ html {
   box-sizing: border-box !important;
 }
 
-/* Убираем все отступы и поля */
-#hr-widget,
+/* Убираем все отступы и поля, кроме основного контейнера */
 #hr-widget * {
   margin: 0 !important;
   padding: 0 !important;
+}
+
+/* Добавляем отступы для карточек и элементов внутри */
+#hr-widget .hr-card,
+#hr-widget .hr-item,
+#hr-widget [class*="card"],
+#hr-widget [class*="item"] {
+  margin-bottom: 8px !important;
+  padding: 8px !important;
 }
 
 /* Дополнительные стили для предотвращения переполнения */
