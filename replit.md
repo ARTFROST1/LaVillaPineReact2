@@ -215,6 +215,9 @@ Changelog:
 - July 14, 2025. Added sitemap.xml with all site pages and proper SEO metadata for search engine indexing
 - July 14, 2025. Integrated IndexNow protocol for real-time notifications to Yandex and Bing search engines about page updates
 - July 14, 2025. Created admin dashboard at /admin for managing IndexNow notifications and SEO tools
+- July 14, 2025. Enhanced IndexNow implementation with Yandex-compliant GET/POST methods, URL validation, and comprehensive error handling
+- July 14, 2025. Added IndexNow key validation, automatic sitemap updates, and detailed logging for SEO operations
+- July 14, 2025. Created comprehensive documentation for IndexNow setup and usage in docs/INDEXNOW_SETUP.md
 ```
 
 ## User Preferences

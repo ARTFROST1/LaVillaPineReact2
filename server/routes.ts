@@ -7,7 +7,7 @@ import { sendContactEmail } from "./email";
 import { sendTelegramNotification } from "./telegram-bot";
 import { sendEmailJSMessage, sendFormspreeMessage } from "./emailjs-service";
 import { sendSimpleEmail, sendWebhookEmail, sendNetlifyForm } from "./simple-email";
-import { notifyIndexNow, getAllSiteUrls, getIndexNowKey } from "./indexnow";
+import { notifyIndexNow, getAllSiteUrls, getIndexNowKey, notifyIndexNowSingleUrl, validateIndexNowKey } from "./indexnow";
 import { updateSitemap, getSitemapUrls } from "./sitemap-generator";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -121,6 +121,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
+      // Валидация URL
+      for (const url of urls) {
+        if (!url.startsWith("https://lavillapine.onrender.com/")) {
+          return res.status(400).json({ 
+            success: false, 
+            message: `Недопустимый URL: ${url}. Только URL сайта lavillapine.onrender.com разрешены.` 
+          });
+        }
+      }
+
       const success = await notifyIndexNow(urls);
       
       if (success) {
@@ -132,6 +142,47 @@ export async function registerRoutes(app: Express): Promise<Server> {
         res.status(500).json({ 
           success: false, 
           message: "Не удалось отправить IndexNow уведомления" 
+        });
+      }
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Ошибка при отправке IndexNow уведомления" 
+      });
+    }
+  });
+
+  // IndexNow single URL endpoint (GET method as recommended by Yandex)
+  app.post("/api/indexnow/single", async (req, res) => {
+    try {
+      const { url } = req.body;
+      
+      if (!url || typeof url !== "string") {
+        return res.status(400).json({ 
+          success: false, 
+          message: "URL is required" 
+        });
+      }
+
+      // Валидация URL
+      if (!url.startsWith("https://lavillapine.onrender.com/")) {
+        return res.status(400).json({ 
+          success: false, 
+          message: `Недопустимый URL: ${url}. Только URL сайта lavillapine.onrender.com разрешены.` 
+        });
+      }
+
+      const success = await notifyIndexNowSingleUrl(url);
+      
+      if (success) {
+        res.json({ 
+          success: true, 
+          message: `IndexNow уведомление отправлено для ${url}` 
+        });
+      } else {
+        res.status(500).json({ 
+          success: false, 
+          message: "Не удалось отправить IndexNow уведомление" 
         });
       }
     } catch (error) {
@@ -171,11 +222,42 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/indexnow/key", async (req, res) => {
     try {
       const key = getIndexNowKey();
-      res.json({ key });
+      const isValid = validateIndexNowKey(key);
+      res.json({ 
+        key, 
+        isValid,
+        keyLocation: "https://lavillapine.onrender.com/indexnow-key.txt"
+      });
     } catch (error) {
       res.status(500).json({ 
         success: false, 
         message: "Failed to get IndexNow key" 
+      });
+    }
+  });
+
+  // Validate IndexNow key endpoint
+  app.get("/api/indexnow/validate", async (req, res) => {
+    try {
+      const key = getIndexNowKey();
+      const isValid = validateIndexNowKey(key);
+      
+      // Попытаемся получить ключ с сайта для проверки
+      const response = await fetch("https://lavillapine.onrender.com/indexnow-key.txt");
+      const keyFromSite = await response.text();
+      const keyMatches = keyFromSite.trim() === key;
+      
+      res.json({ 
+        success: true,
+        keyValid: isValid,
+        keyAccessible: response.ok,
+        keyMatches: keyMatches,
+        message: `Ключ IndexNow ${isValid && keyMatches ? 'настроен корректно' : 'требует проверки'}`
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Ошибка при проверке ключа IndexNow" 
       });
     }
   });
