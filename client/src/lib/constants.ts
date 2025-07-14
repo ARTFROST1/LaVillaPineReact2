@@ -16,7 +16,7 @@ export const SITE_CONFIG = {
   // Контроль отображения баннера "Скоро открытие"
   // Для возврата к рабочему состоянию измените на false
   showComingSoonBanner: false, // Баннер отключен, показываем модуль бронирования
-  
+
   // Контроль отображения пометки о начале приёма бронирований с 20 августа 2025
   // Для отключения пометки измените на false
   showBookingDateNotice: true, // Показывать пометку о датах бронирования !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -94,10 +94,10 @@ export const GALLERY_IMAGES = [
     alt: "La Villa Pine - Ванная комната",
   },
   {
-    url: "/images/gallery/gallery-7.jpg",
+    url: "/images/amenities/sauna.jpg",
     fallbackUrl:
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Интерьер",
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Сауна",
   },
   {
     url: "/images/gallery/gallery-8.jpg",
@@ -154,12 +154,30 @@ export const GALLERY_IMAGES = [
       "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
     alt: "La Villa Pine - Новое фото",
   },
+  {
+    url: "/images/gallery/gallery-14.jpg",
+    fallbackUrl:
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Санузел",
+  },
+  {
+    url: "/images/gallery/gallery-15.jpg",
+    fallbackUrl:
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Душева",
+  },
+  {
+    url: "/images/gallery/gallery-16.jpg",
+    fallbackUrl:
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Интерьер",
+  },
   // Удобства
   {
-    url: "/images/amenities/sauna.jpg",
+    url: "/images/gallery/gallery-7.jpg",
     fallbackUrl:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Сауна",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Интерьер",
   },
   {
     url: "/images/amenities/pool.jpg",
@@ -172,6 +190,12 @@ export const GALLERY_IMAGES = [
     fallbackUrl:
       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
     alt: "La Villa Pine - Лес",
+  },
+  {
+    url: "/images/amenities/bbq.jpg",
+    fallbackUrl:
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Мангал",
   },
   {
     url: "/images/amenities/interior.jpg",
@@ -223,7 +247,7 @@ export const AMENITIES = [
     title: "Мангальные Зоны",
     description:
       "Стильные мангальные зоны с удобной мебелью и подсветкой для вечернего отдыха. Идеально для уютных посиделок с друзьями или семьёй на свежем воздухе.",
-    image: "/images/amenities/interior.jpg",
+    image: "/images/amenities/bbq.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1574906519174-daa3b7a6de14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
@@ -232,7 +256,7 @@ export const AMENITIES = [
     title: "Удобная Парковка",
     description:
       "Просторная парковка с навесом прямо у дома — удобно, безопасно и всегда под рукой, не нужно искать место или переживать за машину.",
-    image: "/images/amenities/interior.jpg",
+    image: "/images/amenities/parking.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
