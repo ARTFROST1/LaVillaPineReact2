@@ -39,6 +39,15 @@ export const SEO_PAGES = {
     ogTitle: "Бронирование La Villa Pine - резервация лофт-домов",
     ogDescription: "Забронируйте свой идеальный отдых в роскошных лофт-домах онлайн. Проверьте доступность и резервируйте даты прямо сейчас.",
     ogImage: "https://lavillapine.onrender.com/images/og-image.jpg?v=2025071101"
+  },
+  admin: {
+    title: "Администрирование SEO - La Villa Pine | Управление поисковой оптимизацией",
+    description: "Панель управления SEO для сайта La Villa Pine. Уведомления IndexNow, управление sitemap и мониторинг поисковой оптимизации.",
+    keywords: "администрирование SEO, IndexNow, sitemap, поисковая оптимизация, управление сайтом",
+    robots: "noindex, nofollow",
+    ogTitle: "Администрирование SEO - La Villa Pine",
+    ogDescription: "Панель управления поисковой оптимизацией для сайта La Villa Pine",
+    ogImage: "https://lavillapine.onrender.com/images/og-image.jpg?v=2025071101"
   }
 } as const;
 

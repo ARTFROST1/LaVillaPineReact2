@@ -7,6 +7,8 @@ import { sendContactEmail } from "./email";
 import { sendTelegramNotification } from "./telegram-bot";
 import { sendEmailJSMessage, sendFormspreeMessage } from "./emailjs-service";
 import { sendSimpleEmail, sendWebhookEmail, sendNetlifyForm } from "./simple-email";
+import { notifyIndexNow, getAllSiteUrls, getIndexNowKey } from "./indexnow";
+import { updateSitemap, getSitemapUrls } from "./sitemap-generator";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -103,6 +105,135 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ 
         success: false, 
         message: "Failed to get API key" 
+      });
+    }
+  });
+
+  // IndexNow protocol endpoint - notify search engines about URL changes
+  app.post("/api/indexnow", async (req, res) => {
+    try {
+      const { urls } = req.body;
+      
+      if (!urls || !Array.isArray(urls)) {
+        return res.status(400).json({ 
+          success: false, 
+          message: "URLs array is required" 
+        });
+      }
+
+      const success = await notifyIndexNow(urls);
+      
+      if (success) {
+        res.json({ 
+          success: true, 
+          message: `IndexNow уведомления отправлены для ${urls.length} URL` 
+        });
+      } else {
+        res.status(500).json({ 
+          success: false, 
+          message: "Не удалось отправить IndexNow уведомления" 
+        });
+      }
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Ошибка при отправке IndexNow уведомления" 
+      });
+    }
+  });
+
+  // Notify all pages via IndexNow
+  app.post("/api/indexnow/all", async (req, res) => {
+    try {
+      const urls = getAllSiteUrls();
+      const success = await notifyIndexNow(urls);
+      
+      if (success) {
+        res.json({ 
+          success: true, 
+          message: `IndexNow уведомления отправлены для всех страниц сайта (${urls.length} URL)` 
+        });
+      } else {
+        res.status(500).json({ 
+          success: false, 
+          message: "Не удалось отправить IndexNow уведомления для всех страниц" 
+        });
+      }
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Ошибка при отправке IndexNow уведомления для всех страниц" 
+      });
+    }
+  });
+
+  // Get IndexNow key for verification
+  app.get("/api/indexnow/key", async (req, res) => {
+    try {
+      const key = getIndexNowKey();
+      res.json({ key });
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to get IndexNow key" 
+      });
+    }
+  });
+
+  // Update sitemap with current date
+  app.post("/api/sitemap/update", async (req, res) => {
+    try {
+      const success = await updateSitemap();
+      
+      if (success) {
+        res.json({ 
+          success: true, 
+          message: "Sitemap обновлен успешно" 
+        });
+      } else {
+        res.status(500).json({ 
+          success: false, 
+          message: "Не удалось обновить sitemap" 
+        });
+      }
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Ошибка при обновлении sitemap" 
+      });
+    }
+  });
+
+  // Update sitemap and notify IndexNow
+  app.post("/api/seo/update-all", async (req, res) => {
+    try {
+      // Update sitemap first
+      const sitemapUpdated = await updateSitemap();
+      
+      // Then notify search engines
+      const urls = getAllSiteUrls();
+      const indexNowSent = await notifyIndexNow(urls);
+      
+      if (sitemapUpdated && indexNowSent) {
+        res.json({ 
+          success: true, 
+          message: `Sitemap обновлен и IndexNow уведомления отправлены для ${urls.length} URL` 
+        });
+      } else if (sitemapUpdated) {
+        res.json({ 
+          success: true, 
+          message: "Sitemap обновлен, но не удалось отправить IndexNow уведомления" 
+        });
+      } else {
+        res.status(500).json({ 
+          success: false, 
+          message: "Не удалось обновить sitemap и отправить IndexNow уведомления" 
+        });
+      }
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Ошибка при обновлении SEO данных" 
       });
     }
   });
