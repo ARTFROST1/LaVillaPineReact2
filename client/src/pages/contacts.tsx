@@ -30,7 +30,7 @@ export default function Contacts() {
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold font-display">Бронирование и контакты La Villa Pine</h1>
+            <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold font-display">Наши контакты</h1>
             <p className="text-lg text-gray-600 font-light">
               Забронируйте роскошный лофт-дом в Адыгее или получите консультацию по всем вопросам
             </p>

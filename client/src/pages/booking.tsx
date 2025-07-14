@@ -21,38 +21,42 @@ export default function Booking() {
     // Загружаем модуль бронирования только если баннер отключен
     if (!SITE_CONFIG.showComingSoonBanner) {
       // Check if script is already loaded
-      if (document.querySelector('script[src="https://homereserve.ru/widget.js"]')) {
+      if (
+        document.querySelector('script[src="https://homereserve.ru/widget.js"]')
+      ) {
         // Script already exists, try to initialize
         if (window.homereserve) {
           window.homereserve.initWidgetList({
             token: "Aijbfbb7Zl",
-            tag: "site"
+            tag: "site",
           });
         }
         return;
       }
 
       // Load HomeReserve widget script
-      const script = document.createElement('script');
-      script.type = 'module';
-      script.src = 'https://homereserve.ru/widget.js';
+      const script = document.createElement("script");
+      script.type = "module";
+      script.src = "https://homereserve.ru/widget.js";
       script.onload = () => {
         // Initialize module immediately after script loads
-        if (window.homereserve && document.getElementById('hr-widget')) {
+        if (window.homereserve && document.getElementById("hr-widget")) {
           window.homereserve.initWidgetList({
             token: "Aijbfbb7Zl",
-            tag: "site"
+            tag: "site",
           });
         }
       };
       script.onerror = () => {
-        console.error('Failed to load HomeReserve widget script');
+        console.error("Failed to load HomeReserve widget script");
       };
       document.head.appendChild(script);
 
       return () => {
         // Cleanup script on unmount
-        const existingScript = document.querySelector('script[src="https://homereserve.ru/widget.js"]');
+        const existingScript = document.querySelector(
+          'script[src="https://homereserve.ru/widget.js"]',
+        );
         if (existingScript) {
           document.head.removeChild(existingScript);
         }
@@ -62,7 +66,7 @@ export default function Booking() {
 
   return (
     <div className="py-20 relative">
-      <PageMeta 
+      <PageMeta
         title={SEO_PAGES.booking.title}
         description={SEO_PAGES.booking.description}
         keywords={SEO_PAGES.booking.keywords}
@@ -72,23 +76,25 @@ export default function Booking() {
         canonical="https://lavillapine.onrender.com/booking"
       />
       {/* Room background with overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center" 
-        style={{ 
-          backgroundImage: 'url(/images/rooms/room-1.jpg)' 
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url(/images/rooms/room-1.jpg)",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white font-display">Онлайн бронирование лофт-домов в Адыгее</h1>
-          <p className="text-xl text-gray-200">Забронируйте роскошный отдых в La Villa Pine на удобные даты</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white font-display">
+            Бронирование
+          </h1>
+          <p className="text-xl text-gray-200">
+            Забронируйте роскошный отдых в La Villa Pine на удобные даты
+          </p>
         </div>
-        
+
         <div className="max-w-4xl mx-auto">
-          
-          
           {/* Условное отображение: баннер или модуль бронирования */}
           {SITE_CONFIG.showComingSoonBanner ? (
             <div className="mb-12">
@@ -103,7 +109,7 @@ export default function Booking() {
                   <BookingDateNotice variant="booking" />
                 )}
               </div>
-              
+
               {/* Contact buttons section */}
               <div className="max-w-2xl mx-auto">
                 <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/10">
@@ -119,7 +125,10 @@ export default function Booking() {
                         </Button>
                       </Link>
                       <a href={`tel:${SITE_CONFIG.phone}`}>
-                        <Button variant="outline" className="border-2 border-accent text-accent bg-white/20 backdrop-blur-sm hover:bg-accent hover:text-white transition-all duration-300 shadow-lg">
+                        <Button
+                          variant="outline"
+                          className="border-2 border-accent text-accent bg-white/20 backdrop-blur-sm hover:bg-accent hover:text-white transition-all duration-300 shadow-lg"
+                        >
                           <i className="fas fa-phone mr-2"></i>
                           Позвонить
                         </Button>

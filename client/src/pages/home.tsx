@@ -23,15 +23,15 @@ export default function Home() {
     // Загружаем модуль бронирования только если баннер отключен
     if (!SITE_CONFIG.showComingSoonBanner) {
       // Динамически загружаем скрипт HomeReserve
-      const script = document.createElement('script');
-      script.type = 'module';
-      script.src = 'https://homereserve.ru/widget.js';
+      const script = document.createElement("script");
+      script.type = "module";
+      script.src = "https://homereserve.ru/widget.js";
       script.onload = () => {
         // Инициализируем поисковую форму после загрузки скрипта
         if (window.homereserve) {
           window.homereserve.initWidgetSearch({
             token: "Aijbfbb7Zl",
-            tag: "site"
+            tag: "site",
           });
         }
       };
@@ -39,7 +39,9 @@ export default function Home() {
 
       // Очистка при размонтировании компонента
       return () => {
-        const existingScript = document.querySelector('script[src="https://homereserve.ru/widget.js"]');
+        const existingScript = document.querySelector(
+          'script[src="https://homereserve.ru/widget.js"]',
+        );
         if (existingScript) {
           document.head.removeChild(existingScript);
         }
@@ -49,7 +51,7 @@ export default function Home() {
 
   return (
     <div>
-      <PageMeta 
+      <PageMeta
         title={SEO_PAGES.home.title}
         description={SEO_PAGES.home.description}
         keywords={SEO_PAGES.home.keywords}
@@ -70,9 +72,9 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl font-display">
-                Премиальные лофт-дома <br />
+                Добро пожаловать в <br />
                 <span className="text-accent drop-shadow-lg">
-                  с бассейном в Адыгее
+                  La Villa Pine
                 </span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
@@ -113,7 +115,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 overflow-hidden">
-                <DynamicImage 
+                <DynamicImage
                   src="/images/amenities/interior.jpg"
                   fallbackSrc="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
                   alt="Современный дизайн лофт"
@@ -137,7 +139,7 @@ export default function Home() {
 
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 overflow-hidden">
-                <DynamicImage 
+                <DynamicImage
                   src="/images/amenities/pool.jpg"
                   fallbackSrc="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
                   alt="Подогреваемые бассейны"
@@ -161,7 +163,7 @@ export default function Home() {
 
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
               <div className="relative h-48 overflow-hidden">
-                <DynamicImage 
+                <DynamicImage
                   src="/images/amenities/forest.jpg"
                   fallbackSrc="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
                   alt="Лесное окружение"
@@ -173,7 +175,9 @@ export default function Home() {
                 <div className="text-accent text-4xl mb-4">
                   <i className="fas fa-tree"></i>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">Лесное окружение</h3>
+                <h3 className="text-2xl font-semibold mb-4">
+                  Лесное окружение
+                </h3>
                 <p className="text-gray-600">
                   Чистая лесная местность с дикими животными и природным ручьем
                 </p>
