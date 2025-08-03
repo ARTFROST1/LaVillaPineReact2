@@ -13,7 +13,7 @@ export default function BookingDateNotice({
 
   return (
     <div
-      className={`flex items-center gap-3 p-4 rounded-lg border ${
+      className={`flex items-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg border ${
         isHomePage
           ? "bg-white/10 border-white/20 text-white backdrop-blur-sm"
           : "bg-blue-50 border-blue-200 text-blue-800"
@@ -21,19 +21,19 @@ export default function BookingDateNotice({
     >
       <div className="flex-shrink-0">
         <Info
-          className={`w-5 h-5 ${
+          className={`w-4 h-4 sm:w-5 sm:h-5 ${
             isHomePage ? "text-accent" : "text-blue-600"
           }`}
         />
       </div>
       <div className="flex-1">
-        <p className={`text-sm font-medium ${isHomePage ? "text-white" : "text-blue-800"}`}>
+        <p className={`text-xs sm:text-sm font-medium ${isHomePage ? "text-white" : "text-blue-800"}`}>
           Мы начинаем принимать брони с 20 августа 2025
         </p>
       </div>
       <div className="flex-shrink-0">
         <Calendar
-          className={`w-5 h-5 ${
+          className={`w-4 h-4 sm:w-5 sm:h-5 ${
             isHomePage ? "text-accent" : "text-blue-600"
           }`}
         />
