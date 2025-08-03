@@ -3,4 +3,4 @@ Allow: /
 Allow: /favicon.ico
 Allow: /images/
 
-Sitemap: https://lavillapine.onrender.com/sitemap.xml
+Sitemap: /sitemap.xml
