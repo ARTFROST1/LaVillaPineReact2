@@ -9,7 +9,7 @@ import { sendEmailJSMessage, sendFormspreeMessage } from "./emailjs-service";
 import { sendSimpleEmail, sendWebhookEmail, sendNetlifyForm } from "./simple-email";
 import { notifyIndexNow, getAllSiteUrls, getIndexNowKey, notifyIndexNowSingleUrl, validateIndexNowKey } from "./indexnow";
 import { updateSitemap, getSitemapUrls } from "./sitemap-generator";
-import { generateRealtyFeedXML, generateRealtyFeedJSON } from "./feed-generator";
+import { generateRealtyFeedYML, generateRealtyFeedXML, generateRealtyFeedJSON } from "./feed-generator";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -321,7 +321,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Реалти фид для Яндекса (XML формат)
+  // YML фид для недвижимости (основной формат для Яндекса)
+  app.get("/realty-feed.yml", (req, res) => {
+    try {
+      const feedYML = generateRealtyFeedYML();
+      res.set({
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600' // Кеш на 1 час
+      });
+      res.send(feedYML);
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Ошибка при генерации YML фида недвижимости" 
+      });
+    }
+  });
+
+  // Реалти фид для Яндекса (XML формат - совместимость)
   app.get("/realty-feed.xml", (req, res) => {
     try {
       const feedXML = generateRealtyFeedXML();

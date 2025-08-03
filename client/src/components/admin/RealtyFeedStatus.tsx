@@ -5,11 +5,12 @@ import { ExternalLink, CheckCircle, AlertCircle } from "lucide-react";
 
 // Компонент для проверки статуса фидов недвижимости
 export const RealtyFeedStatus: React.FC = () => {
+  const [ymlStatus, setYmlStatus] = useState<'idle' | 'checking' | 'success' | 'error'>('idle');
   const [xmlStatus, setXmlStatus] = useState<'idle' | 'checking' | 'success' | 'error'>('idle');
   const [jsonStatus, setJsonStatus] = useState<'idle' | 'checking' | 'success' | 'error'>('idle');
 
-  const checkFeedStatus = async (type: 'xml' | 'json') => {
-    const setState = type === 'xml' ? setXmlStatus : setJsonStatus;
+  const checkFeedStatus = async (type: 'yml' | 'xml' | 'json') => {
+    const setState = type === 'yml' ? setYmlStatus : type === 'xml' ? setXmlStatus : setJsonStatus;
     setState('checking');
     
     try {
@@ -46,7 +47,35 @@ export const RealtyFeedStatus: React.FC = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* YML Feed (основной) */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <h4 className="font-medium">YML фид <span className="text-xs bg-green-100 text-green-800 px-1 rounded">основной</span></h4>
+              {getStatusIcon(ymlStatus)}
+            </div>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => checkFeedStatus('yml')}
+                disabled={ymlStatus === 'checking'}
+              >
+                {ymlStatus === 'checking' ? 'Проверка...' : 'Проверить'}
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                asChild
+              >
+                <a href="/realty-feed.yml" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="h-4 w-4 mr-1" />
+                  Открыть
+                </a>
+              </Button>
+            </div>
+          </div>
+
           {/* XML Feed */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
@@ -109,7 +138,7 @@ export const RealtyFeedStatus: React.FC = () => {
           <ol className="text-sm text-muted-foreground space-y-1 list-decimal list-inside">
             <li>Перейдите в Яндекс.Вебмастер → Сниппеты и ответы → Дополненное представление</li>
             <li>Выберите раздел "Недвижимость"</li>
-            <li>Добавьте URL фида: <code>https://lavillapine.onrender.com/realty-feed.xml</code></li>
+            <li>Добавьте URL фида: <code>https://lavillapine.onrender.com/realty-feed.yml</code></li>
             <li>Дождитесь обработки фида (обычно 1-7 дней)</li>
             <li>Проверьте отображение в поисковой выдаче</li>
           </ol>
