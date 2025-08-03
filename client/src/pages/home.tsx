@@ -8,6 +8,7 @@ import DynamicImage from "@/components/ui/dynamic-image";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
+import { OrganizationSchema, RealEstateSchema, BreadcrumbsSchema } from "@/components/seo/StructuredData";
 import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
@@ -128,6 +129,13 @@ export default function Home() {
         ogImage={SEO_PAGES.home.ogImage}
         canonical="https://lavillapine.onrender.com/"
       />
+      
+      {/* Микроразметка Schema.org для расширенных сниппетов */}
+      <OrganizationSchema />
+      <RealEstateSchema />
+      <BreadcrumbsSchema items={[
+        { name: "Главная" }
+      ]} />
       {/* Hero Section */}
       <section className="relative w-full h-screen overflow-hidden">
         {/* Full width carousel background */}

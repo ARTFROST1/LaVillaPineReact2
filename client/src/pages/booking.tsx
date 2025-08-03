@@ -5,12 +5,14 @@ import { useEffect } from "react";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
+import { BreadcrumbsSchema } from "@/components/seo/StructuredData";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
 // Global type declaration for HomeReserve widget
 declare global {
   interface Window {
     homereserve?: {
+      initWidgetSearch: (config: { token: string; tag: string }) => void;
       initWidgetList: (config: { token: string; tag: string }) => void;
     };
   }
@@ -75,6 +77,10 @@ export default function Booking() {
         ogImage={SEO_PAGES.booking.ogImage}
         canonical="https://lavillapine.onrender.com/booking"
       />
+      <BreadcrumbsSchema items={[
+        { name: "Главная", url: "/" },
+        { name: "Бронирование" }
+      ]} />
       {/* Room background with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"

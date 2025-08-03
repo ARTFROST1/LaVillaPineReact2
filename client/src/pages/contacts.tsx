@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ui/contact-form";
 import PageMeta from "@/components/seo/PageMeta";
+import { BreadcrumbsSchema } from "@/components/seo/StructuredData";
 import { SITE_CONFIG } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 import AvitoIcon from "@/components/ui/avito-icon";
@@ -17,6 +18,10 @@ export default function Contacts() {
         ogImage={SEO_PAGES.contacts.ogImage}
         canonical="https://lavillapine.onrender.com/contacts"
       />
+      <BreadcrumbsSchema items={[
+        { name: "Главная", url: "/" },
+        { name: "Контакты" }
+      ]} />
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed"
