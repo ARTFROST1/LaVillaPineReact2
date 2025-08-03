@@ -4,3 +4,7 @@ Allow: /favicon.ico
 Allow: /images/
 
 Sitemap: /sitemap.xml
+
+# Реалти фиды для специальных блоков недвижимости Яндекса
+# Yandex Realty Feed XML: https://lavillapine.onrender.com/realty-feed.xml
+# Yandex Realty Feed JSON: https://lavillapine.onrender.com/realty-feed.json

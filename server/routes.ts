@@ -9,6 +9,7 @@ import { sendEmailJSMessage, sendFormspreeMessage } from "./emailjs-service";
 import { sendSimpleEmail, sendWebhookEmail, sendNetlifyForm } from "./simple-email";
 import { notifyIndexNow, getAllSiteUrls, getIndexNowKey, notifyIndexNowSingleUrl, validateIndexNowKey } from "./indexnow";
 import { updateSitemap, getSitemapUrls } from "./sitemap-generator";
+import { generateRealtyFeedXML, generateRealtyFeedJSON } from "./feed-generator";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -316,6 +317,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ 
         success: false, 
         message: "Ошибка при обновлении SEO данных" 
+      });
+    }
+  });
+
+  // Реалти фид для Яндекса (XML формат)
+  app.get("/realty-feed.xml", (req, res) => {
+    try {
+      const feedXML = generateRealtyFeedXML();
+      res.set({
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600' // Кеш на 1 час
+      });
+      res.send(feedXML);
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Ошибка при генерации реалти фида" 
+      });
+    }
+  });
+
+  // Реалти фид для Яндекса (JSON формат)
+  app.get("/realty-feed.json", (req, res) => {
+    try {
+      const feedJSON = generateRealtyFeedJSON();
+      res.set({
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600' // Кеш на 1 час
+      });
+      res.send(feedJSON);
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Ошибка при генерации реалти фида JSON" 
       });
     }
   });
