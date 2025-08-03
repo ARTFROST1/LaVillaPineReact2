@@ -55,6 +55,91 @@ export const HERO_IMAGES = [
   },
 ];
 
+// Галереи изображений для карточек на главной странице
+export const FEATURE_GALLERIES = {
+  loftDesign: [
+    {
+      url: "/images/amenities/interior.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Современный лофт интерьер - гостиная"
+    },
+    {
+      url: "/images/rooms/room-1.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лофт спальня - современный дизайн"
+    },
+    {
+      url: "/images/rooms/room-2.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лофт кухня с индустриальными элементами"
+    },
+    {
+      url: "/images/gallery/gallery-1.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лофт интерьер - детали дизайна"
+    },
+    {
+      url: "/images/gallery/gallery-2.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Современная ванная комната в стиле лофт"
+    }
+  ],
+  poolSauna: [
+    {
+      url: "/images/amenities/pool.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Подогреваемый бассейн - общий вид"
+    },
+    {
+      url: "/images/amenities/sauna.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Сауна с RGB-подсветкой"
+    },
+    {
+      url: "/images/gallery/gallery-3.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Бассейн вечером - атмосферное освещение"
+    },
+    {
+      url: "/images/gallery/gallery-7.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Сауна - интерьер и отделка"
+    },
+    {
+      url: "/images/gallery/gallery-11.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Зона отдыха у бассейна"
+    }
+  ],
+  forestSurrounding: [
+    {
+      url: "/images/amenities/forest.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лесное окружение - природный пейзаж"
+    },
+    {
+      url: "/images/gallery/gallery-9.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лесная тропа рядом с домом"
+    },
+    {
+      url: "/images/gallery/gallery-13.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Вид на лес с террасы"
+    },
+    {
+      url: "/images/gallery/gallery-15.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Дикая природа - утренний лес"
+    },
+    {
+      url: "/images/amenities/bbq.jpg",
+      fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Мангальная зона в лесу"
+    }
+  ]
+};
+
 export const GALLERY_IMAGES = [
   // Галерея фотографий
   {

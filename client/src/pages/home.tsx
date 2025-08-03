@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import CarouselHero from "@/components/ui/carousel-hero";
 import DynamicImage from "@/components/ui/dynamic-image";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
-import { HERO_IMAGES, SITE_CONFIG } from "@/lib/constants";
+import { HERO_IMAGES, SITE_CONFIG, FEATURE_GALLERIES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
 // Типы для HomeReserve
@@ -18,7 +20,70 @@ declare global {
   }
 }
 
+type GalleryType = 'loftDesign' | 'poolSauna' | 'forestSurrounding';
+
 export default function Home() {
+  const [selectedGallery, setSelectedGallery] = useState<GalleryType | null>(null);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+
+  // Функции для управления галереей
+  const openGallery = (galleryType: GalleryType, imageIndex = 0) => {
+    setSelectedGallery(galleryType);
+    setSelectedImage(imageIndex);
+    setIsGalleryOpen(true);
+  };
+
+  const closeGallery = () => {
+    setIsGalleryOpen(false);
+    setSelectedGallery(null);
+    setSelectedImage(null);
+  };
+
+  const nextImage = () => {
+    if (selectedGallery && selectedImage !== null) {
+      const gallery = FEATURE_GALLERIES[selectedGallery];
+      setSelectedImage((selectedImage + 1) % gallery.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedGallery && selectedImage !== null) {
+      const gallery = FEATURE_GALLERIES[selectedGallery];
+      setSelectedImage((selectedImage - 1 + gallery.length) % gallery.length);
+    }
+  };
+
+  // Компонент для отображения изображения с fallback
+  const GalleryImageComponent = ({ src, fallbackSrc, alt, className }: { 
+    src: string; 
+    fallbackSrc: string; 
+    alt: string; 
+    className?: string;
+  }) => {
+    const [currentSrc, setCurrentSrc] = useState(src);
+    
+    useEffect(() => {
+      const img = new Image();
+      img.onload = () => setCurrentSrc(src);
+      img.onerror = () => setCurrentSrc(fallbackSrc);
+      img.src = src;
+    }, [src, fallbackSrc]);
+
+    return (
+      <img
+        src={currentSrc}
+        alt={alt}
+        className={className}
+        onError={() => {
+          if (currentSrc !== fallbackSrc) {
+            setCurrentSrc(fallbackSrc);
+          }
+        }}
+      />
+    );
+  };
+
   useEffect(() => {
     // Загружаем модуль бронирования только если баннер отключен
     if (!SITE_CONFIG.showComingSoonBanner) {
@@ -113,7 +178,11 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div 
+              className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer"
+              onClick={() => openGallery('loftDesign')}
+              data-testid="card-loft-design"
+            >
               <div className="relative h-40 sm:h-48 overflow-hidden">
                 <DynamicImage
                   src="/images/amenities/interior.jpg"
@@ -122,6 +191,11 @@ export default function Home() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-white text-2xl bg-black/50 rounded-full p-3">
+                    <i className="fas fa-expand"></i>
+                  </div>
+                </div>
               </div>
               <div className="p-4 sm:p-6 md:p-8 text-center">
                 <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
@@ -137,7 +211,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div 
+              className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer"
+              onClick={() => openGallery('poolSauna')}
+              data-testid="card-pool-sauna"
+            >
               <div className="relative h-40 sm:h-48 overflow-hidden">
                 <DynamicImage
                   src="/images/amenities/pool.jpg"
@@ -146,6 +224,11 @@ export default function Home() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-white text-2xl bg-black/50 rounded-full p-3">
+                    <i className="fas fa-expand"></i>
+                  </div>
+                </div>
               </div>
               <div className="p-4 sm:p-6 md:p-8 text-center">
                 <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
@@ -161,7 +244,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+            <div 
+              className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer"
+              onClick={() => openGallery('forestSurrounding')}
+              data-testid="card-forest-surrounding"
+            >
               <div className="relative h-40 sm:h-48 overflow-hidden">
                 <DynamicImage
                   src="/images/amenities/forest.jpg"
@@ -170,6 +257,11 @@ export default function Home() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-white text-2xl bg-black/50 rounded-full p-3">
+                    <i className="fas fa-expand"></i>
+                  </div>
+                </div>
               </div>
               <div className="p-4 sm:p-6 md:p-8 text-center">
                 <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
@@ -197,6 +289,61 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Модальное окно галереи */}
+      <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
+        <DialogContent className="max-w-4xl w-full p-0 overflow-hidden">
+          <DialogTitle className="sr-only">
+            {selectedGallery && selectedImage !== null 
+              ? FEATURE_GALLERIES[selectedGallery][selectedImage].alt 
+              : "Галерея изображений"
+            }
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Просмотр галереи изображений La Villa Pine. Используйте кнопки навигации для перехода между изображениями.
+          </DialogDescription>
+          {selectedGallery && selectedImage !== null && (
+            <div className="relative">
+              <GalleryImageComponent
+                src={FEATURE_GALLERIES[selectedGallery][selectedImage].url}
+                fallbackSrc={FEATURE_GALLERIES[selectedGallery][selectedImage].fallbackUrl}
+                alt={FEATURE_GALLERIES[selectedGallery][selectedImage].alt}
+                className="w-full h-auto max-h-[80vh] object-contain"
+              />
+              
+              {/* Навигация */}
+              {FEATURE_GALLERIES[selectedGallery].length > 1 && (
+                <>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={prevImage}
+                    className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30"
+                    data-testid="button-prev-image"
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </Button>
+                  
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={nextImage}
+                    className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30"
+                    data-testid="button-next-image"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </Button>
+                </>
+              )}
+              
+              {/* Счетчик изображений */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                {selectedImage + 1} / {FEATURE_GALLERIES[selectedGallery].length}
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
