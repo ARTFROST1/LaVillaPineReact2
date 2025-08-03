@@ -17,10 +17,10 @@ export default function About() {
       />
       <div className="container mx-auto px-3 sm:px-4">
         <div className="max-w-3xl lg:max-w-4xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-primary font-display">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
             О нас
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6 sm:mb-8">
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
             Наши лофт-дома сделаны так, чтобы вам сразу чувствовалось: это место
             особенное. Здесь чистые линии и индустриальные детали создают
             стильный, но тёплый интерьер. Мы используем дерево, камень, металл и
@@ -30,17 +30,17 @@ export default function About() {
             которую можно ощутить. Всё выглядит модно и со вкусом, но при этом
             остаётся домашним.
           </p>
-          <div className="bg-neutral/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-left max-w-2xl lg:max-w-3xl mx-auto">
-            <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-primary font-display">
+          <div className="bg-gradient-to-br from-neutral/50 to-neutral/30 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-left max-w-2xl lg:max-w-3xl mx-auto border border-accent/20 shadow-lg">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-display">
               Премиум комфорт
             </h2>
 
             <div className="space-y-4 sm:space-y-6 mb-4 sm:mb-6">
               <div>
-                <h3 className="text-sm sm:text-base font-semibold text-primary mb-2 border-l-3 sm:border-l-4 border-accent pl-2 sm:pl-3">
+                <h3 className="text-base sm:text-lg font-semibold text-primary mb-2 border-l-3 sm:border-l-4 border-accent pl-2 sm:pl-3">
                   Три спальни, где хочется просыпаться
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed pl-3 sm:pl-5">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed pl-3 sm:pl-5">
                   Каждая комната продумана для настоящего отдыха: удобные
                   матрасы, простое и мягкое освещение, уютный текстиль — всё это
                   чувствуется сразу, стоит переступить порог.
@@ -48,10 +48,10 @@ export default function About() {
               </div>
 
               <div>
-                <h3 className="text-sm sm:text-base font-semibold text-primary mb-2 border-l-3 sm:border-l-4 border-accent pl-2 sm:pl-3">
+                <h3 className="text-base sm:text-lg font-semibold text-primary mb-2 border-l-3 sm:border-l-4 border-accent pl-2 sm:pl-3">
                   Два больших санузла — чисто и комфортно
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed pl-3 sm:pl-5">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed pl-3 sm:pl-5">
                   Просторные, со стеклянными перегородками и хромированными
                   элементами. Они сделаны так, чтобы вы чувствовали
                   современность и удобство в каждой мелочи — от полотенец до
@@ -60,10 +60,10 @@ export default function About() {
               </div>
 
               <div>
-                <h3 className="text-sm sm:text-base font-semibold text-primary mb-2 border-l-3 sm:border-l-4 border-accent pl-2 sm:pl-3">
+                <h3 className="text-base sm:text-lg font-semibold text-primary mb-2 border-l-3 sm:border-l-4 border-accent pl-2 sm:pl-3">
                   Сауна с RGB-подсветкой — от релакса до вечернего настроения
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed pl-3 sm:pl-5">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed pl-3 sm:pl-5">
                   Сауна дома — это не просто теплая комната, это место, где
                   можно полностью отключиться. Вы сами выбираете, каким будет
                   свет: мягким и расслабляющим или ярким и бодрящим. Сочетание
@@ -72,9 +72,9 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
+            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 text-sm sm:text-base">
               <div>
-                <h3 className="font-semibold text-primary mb-2 text-sm sm:text-base">
+                <h3 className="font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 text-base sm:text-lg">
                   Внутри дома:
                 </h3>
                 <ul className="space-y-1 text-gray-600">
@@ -87,7 +87,7 @@ export default function About() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-primary mb-2 text-sm sm:text-base">
+                <h3 className="font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 text-base sm:text-lg">
                   На территории:
                 </h3>
                 <ul className="space-y-1 text-gray-600">
@@ -107,7 +107,7 @@ export default function About() {
           {AMENITIES.map((amenity, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+              className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-accent/10 hover:border-accent/30"
             >
               <div className="relative h-36 sm:h-40 md:h-48 overflow-hidden">
                 <DynamicImage
@@ -122,10 +122,10 @@ export default function About() {
                 </div>
               </div>
               <div className="p-3 sm:p-4 md:p-6">
-                <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3 text-primary">
+                <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-primary">
                   {amenity.title}
                 </h3>
-                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                   {amenity.description}
                 </p>
               </div>
@@ -134,12 +134,12 @@ export default function About() {
         </div>
 
         {/* Удобное расположение */}
-        <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-4 sm:p-6 md:p-8 lg:p-12 rounded-2xl sm:rounded-3xl mb-10 sm:mb-12 md:mb-16">
+        <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-accent/10 p-4 sm:p-6 md:p-8 lg:p-12 rounded-2xl sm:rounded-3xl mb-10 sm:mb-12 md:mb-16 border border-accent/20 shadow-lg">
           <div className="text-center max-w-2xl lg:max-w-3xl mx-auto">
-            <h2 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-primary font-display">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-display">
               Идеальное расположение
             </h2>
-            <p className="text-sm sm:text-base text-gray-700 mb-6 sm:mb-8">
+            <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8">
               Всего 20 минут до города и 30 минут до гор — комфортное
               путешествие как для любителей городской жизни, так и для
               почитателей природы. В нескольких шагах кофейня с идеальным
@@ -148,20 +148,20 @@ export default function About() {
               рядом — релакс никогда не был таким доступным.
             </p>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-              <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md">
+              <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md border border-accent/10 hover:border-accent/30 transition-all duration-300">
                 <i className="fas fa-city text-accent text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"></i>
-                <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2">До города</h3>
-                <p className="text-gray-600 text-xs sm:text-sm">20 минут</p>
+                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">До города</h3>
+                <p className="text-gray-600 text-sm sm:text-base">20 минут</p>
               </div>
-              <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md">
+              <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md border border-accent/10 hover:border-accent/30 transition-all duration-300">
                 <i className="fas fa-mountain text-accent text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"></i>
-                <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2">До гор</h3>
-                <p className="text-gray-600 text-xs sm:text-sm">30 минут</p>
+                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">До гор</h3>
+                <p className="text-gray-600 text-sm sm:text-base">30 минут</p>
               </div>
-              <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md sm:col-span-2 md:col-span-1">
+              <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md border border-accent/10 hover:border-accent/30 transition-all duration-300 sm:col-span-2 md:col-span-1">
                 <i className="fas fa-spa text-accent text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"></i>
-                <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2">До спа-комплекса</h3>
-                <p className="text-gray-600 text-xs sm:text-sm">Рядом</p>
+                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">До спа-комплекса</h3>
+                <p className="text-gray-600 text-sm sm:text-base">Рядом</p>
               </div>
             </div>
           </div>
@@ -170,15 +170,15 @@ export default function About() {
         {/* Сервис и комфорт */}
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-10 sm:mb-12 md:mb-16">
           <div>
-            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Премиум сервис</h3>
-            <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Премиум сервис</h3>
+            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
               Уютная зона приёма гостей с заботливым администратором — всё
               организовано так, чтобы вы чувствовали себя как в высококлассном
               отеле, только куда уютнее. От заселения до рекомендаций по досугу
               — полный сервис, где каждая деталь продумана для вашего спокойного
               отдыха.
             </p>
-            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-600">
               <li className="flex items-center">
                 <i className="fas fa-check text-accent mr-2 sm:mr-3 text-sm sm:text-base"></i>
                 Профессиональный ресепшен с администратором
