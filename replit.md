@@ -223,6 +223,8 @@ Changelog:
 - August 03, 2025. Enhanced header navigation with smaller fonts and improved mobile spacing
 - August 03, 2025. Updated carousel and UI components for better mobile performance and smaller screen sizes
 - August 03, 2025. Optimized booking widgets and banners with responsive design improvements
+- August 03, 2025. Completed comprehensive mobile optimization of About page with smaller elements, compact text, and minimalist design approach
+- August 03, 2025. Enhanced all UI components (booking notices, banners, amenity cards) with mobile-first responsive design and smaller sizes
 ```
 
 ## User Preferences
