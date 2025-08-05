@@ -3,4 +3,4 @@ Allow: /
 Allow: /favicon.ico
 Allow: /images/
 
-Sitemap: https://workspace--artfrostt07.replit.app/sitemap.xml
+Sitemap: https://lavillapine.onrender.com/sitemap.xml
