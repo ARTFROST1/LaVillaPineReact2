@@ -1,7 +1,6 @@
 import { AMENITIES } from "@/lib/constants";
 import DynamicImage from "@/components/ui/dynamic-image";
 import PageMeta from "@/components/seo/PageMeta";
-import { BreadcrumbsSchema } from "@/components/seo/StructuredData";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
 export default function About() {
@@ -16,10 +15,6 @@ export default function About() {
         ogImage={SEO_PAGES.about.ogImage}
         canonical="https://lavillapine.onrender.com/about"
       />
-      <BreadcrumbsSchema items={[
-        { name: "Главная", url: "/" },
-        { name: "О нас" }
-      ]} />
       <div className="container mx-auto px-3 sm:px-4">
         <div className="max-w-3xl lg:max-w-4xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">

@@ -8,8 +8,6 @@ import DynamicImage from "@/components/ui/dynamic-image";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
-import { OrganizationSchema, RealEstateSchema, BreadcrumbsSchema } from "@/components/seo/StructuredData";
-import RealtyOfferMicrodata from "@/components/seo/RealtyMicrodata";
 import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
@@ -18,7 +16,6 @@ declare global {
   interface Window {
     homereserve?: {
       initWidgetSearch: (config: { token: string; tag: string }) => void;
-      initWidgetList: (config: { token: string; tag: string }) => void;
     };
   }
 }
@@ -130,56 +127,6 @@ export default function Home() {
         ogDescription={SEO_PAGES.home.ogDescription}
         ogImage={SEO_PAGES.home.ogImage}
         canonical="https://lavillapine.onrender.com/"
-      />
-      
-      {/* Микроразметка Schema.org для расширенных сниппетов */}
-      <OrganizationSchema />
-      <RealEstateSchema />
-      <BreadcrumbsSchema items={[
-        { name: "Главная" }
-      ]} />
-      
-      {/* Микроразметка конкретных предложений для фидов */}
-      <RealtyOfferMicrodata 
-        offerId="lavilla-house-1"
-        title="La Villa Pine - Премиальный лофт-дом #1 с бассейном и сауной"
-        description="Роскошный лофт-дом в стиле минимализм с подогреваемым бассейном, сауной, тремя спальнями и двумя санузлами. Идеальное место для отдыха в живописном лесном окружении Адыгеи."
-        price={15000}
-        area={120}
-        rooms={3}
-        images={[
-          "https://lavillapine.onrender.com/images/carousel/interior-1.jpg",
-          "https://lavillapine.onrender.com/images/carousel/pool-1.jpg",
-          "https://lavillapine.onrender.com/images/rooms/room-1.jpg"
-        ]}
-        features={[
-          "Подогреваемый крытый бассейн",
-          "Сауна",
-          "Современный дизайн в стиле лофт",
-          "Кондиционер во всех комнатах",
-          "Высокоскоростной Wi-Fi"
-        ]}
-      />
-      
-      <RealtyOfferMicrodata 
-        offerId="lavilla-house-2"
-        title="La Villa Pine - Премиальный лофт-дом #2 с бассейном и сауной"
-        description="Второй роскошный лофт-дом в стиле минимализм с подогреваемым бассейном, сауной, тремя спальнями и двумя санузлами. Аналогичный первому дому уровень комфорта в живописном лесном окружении."
-        price={15000}
-        area={120}
-        rooms={3}
-        images={[
-          "https://lavillapine.onrender.com/images/carousel/interior-2.jpg",
-          "https://lavillapine.onrender.com/images/carousel/pool-2.jpg",
-          "https://lavillapine.onrender.com/images/rooms/room-2.jpg"
-        ]}
-        features={[
-          "Подогреваемый крытый бассейн",
-          "Сауна",
-          "Современный дизайн в стиле лофт",
-          "Кондиционер во всех комнатах",
-          "Высокоскоростной Wi-Fi"
-        ]}
       />
       {/* Hero Section */}
       <section className="relative w-full h-screen overflow-hidden">

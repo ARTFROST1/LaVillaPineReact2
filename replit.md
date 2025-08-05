@@ -39,8 +39,6 @@ Website language: Russian
 - **Social Media Integration**: Comprehensive social media links and optimized Open Graph meta tags for previews.
 - **Analytics & Reviews**: Integration of Yandex Metrika for analytics and a fixed Yandex Reviews widget for social proof.
 - **Mobile Optimization**: Responsive typography, compact layouts, and enhanced UI components for improved mobile performance across all pages.
-- **Yandex Realty Feeds**: YML-фид по стандарту Яндекса для интеграции со специальными блоками недвижимости, содержащий детальную информацию о предложениях, ценах, характеристиках и фотографиях недвижимости. Включает сеты (sets) для группировки предложений и все обязательные параметры согласно требованиям Яндекс.Вебмастера.
-- **Enhanced Microdata**: Schema.org microdata for real estate listings, product offers, and organization information to improve search engine understanding and rich snippet display.
 
 ## External Dependencies
 
@@ -62,4 +60,3 @@ Website language: Russian
 - **Analytics**: Yandex Metrika
 - **Reviews**: Yandex Reviews widget
 - **Search Engines**: IndexNow protocol for Yandex and Bing
-- **Yandex Webmaster**: Real estate feed integration for enhanced snippets and special blocks

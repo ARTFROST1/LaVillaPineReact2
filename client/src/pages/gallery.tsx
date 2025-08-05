@@ -1,6 +1,5 @@
 import ImageGallery from "@/components/ui/image-gallery";
 import PageMeta from "@/components/seo/PageMeta";
-import { BreadcrumbsSchema } from "@/components/seo/StructuredData";
 import { GALLERY_IMAGES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
@@ -16,10 +15,6 @@ export default function Gallery() {
         ogImage={SEO_PAGES.gallery.ogImage}
         canonical="https://lavillapine.onrender.com/gallery"
       />
-      <BreadcrumbsSchema items={[
-        { name: "Главная", url: "/" },
-        { name: "Галерея" }
-      ]} />
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary font-display">
