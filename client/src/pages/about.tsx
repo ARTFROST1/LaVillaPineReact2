@@ -22,56 +22,15 @@ export default function About() {
           </h1>
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
             Наши лофт-дома сделаны так, чтобы вам сразу чувствовалось: это место
-            особенное. Здесь чистые линии и индустриальные детали создают
-            стильный, но тёплый интерьер. Мы используем дерево, камень, металл и
-            стекло — всё это вместе выглядит минималистично, но не холодно: оно
-            словно дышит и приглушённо шепчет «комфорт». Главная идея — простота
-            и качество. Нет вычурности, только честная, современная красота,
-            которую можно ощутить. Всё выглядит модно и со вкусом, но при этом
-            остаётся домашним.
+            особенное. Здесь чёткие линии и объёмные элементы создают стильный и
+            иютный интерьер. Мы используем дерево, камень, металл и стекло — всё
+            это вместе выглядит минималистично но с душой: оно словно дышит и
+            приглушённо шепчет «релакс»
           </p>
           <div className="bg-gradient-to-br from-neutral/50 to-neutral/30 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-left max-w-2xl lg:max-w-3xl mx-auto border border-accent/20 shadow-lg">
             <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-display">
               Премиум комфорт
             </h2>
-
-            <div className="space-y-4 sm:space-y-6 mb-4 sm:mb-6">
-              <div>
-                <h3 className="text-base sm:text-lg font-semibold text-primary mb-2 border-l-3 sm:border-l-4 border-accent pl-2 sm:pl-3">
-                  Три спальни, где хочется просыпаться
-                </h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed pl-3 sm:pl-5">
-                  Каждая комната продумана для настоящего отдыха: удобные
-                  матрасы, простое и мягкое освещение, уютный текстиль — всё это
-                  чувствуется сразу, стоит переступить порог.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-base sm:text-lg font-semibold text-primary mb-2 border-l-3 sm:border-l-4 border-accent pl-2 sm:pl-3">
-                  Два больших санузла — чисто и комфортно
-                </h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed pl-3 sm:pl-5">
-                  Просторные, со стеклянными перегородками и хромированными
-                  элементами. Они сделаны так, чтобы вы чувствовали
-                  современность и удобство в каждой мелочи — от полотенец до
-                  вместительных полок.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-base sm:text-lg font-semibold text-primary mb-2 border-l-3 sm:border-l-4 border-accent pl-2 sm:pl-3">
-                  Сауна с RGB-подсветкой — от релакса до вечернего настроения
-                </h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed pl-3 sm:pl-5">
-                  Сауна дома — это не просто теплая комната, это место, где
-                  можно полностью отключиться. Вы сами выбираете, каким будет
-                  свет: мягким и расслабляющим или ярким и бодрящим. Сочетание
-                  удобных полок, равномерного тепла и мягкой LED‑подсветки
-                  создаёт атмосферу настоящего мини‑спа.
-                </p>
-              </div>
-            </div>
             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 text-sm sm:text-base">
               <div>
                 <h3 className="font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 text-base sm:text-lg">
@@ -142,26 +101,31 @@ export default function About() {
             <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8">
               Всего 20 минут до города и 30 минут до гор — комфортное
               путешествие как для любителей городской жизни, так и для
-              почитателей природы. В нескольких шагах кофейня с идеальным
-              утренним кофе и ресторан "Пхали-Ханкали", где можно заказать блюда
-              прямо к дому. Минеральные источники и спа "Благодать" буквально
-              рядом — релакс никогда не был таким доступным.
+              почитателей природы. В нескольких шагах кофейни, рестораны, где
+              можно заказать блюда прямо к дому. Минеральные источники и спа
+              близко
             </p>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
               <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md border border-accent/10 hover:border-accent/30 transition-all duration-300">
                 <i className="fas fa-city text-accent text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"></i>
-                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">До города</h3>
+                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">
+                  От города
+                </h3>
                 <p className="text-gray-600 text-sm sm:text-base">20 минут</p>
               </div>
               <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md border border-accent/10 hover:border-accent/30 transition-all duration-300">
                 <i className="fas fa-mountain text-accent text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"></i>
-                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">До гор</h3>
+                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">
+                  До гор
+                </h3>
                 <p className="text-gray-600 text-sm sm:text-base">30 минут</p>
               </div>
               <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md border border-accent/10 hover:border-accent/30 transition-all duration-300 sm:col-span-2 md:col-span-1">
                 <i className="fas fa-spa text-accent text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"></i>
-                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">До спа-комплекса</h3>
-                <p className="text-gray-600 text-sm sm:text-base">Рядом</p>
+                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">
+                  До спа-комплексов
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base">2 минуты</p>
               </div>
             </div>
           </div>
@@ -170,13 +134,13 @@ export default function About() {
         {/* Сервис и комфорт */}
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-10 sm:mb-12 md:mb-16">
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Премиум сервис</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Премиум сервис
+            </h3>
             <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
-              Уютная зона приёма гостей с заботливым администратором — всё
-              организовано так, чтобы вы чувствовали себя как в высококлассном
-              отеле, только куда уютнее. От заселения до рекомендаций по досугу
-              — полный сервис, где каждая деталь продумана для вашего спокойного
-              отдыха.
+              Уютная зона приёма гостей с заботливым администратором — всё как в
+              высококлассном отеле, только куда уютнее. От заселения до
+              рекомендаций по досугу — мы заботимся о каждом госте
             </p>
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-600">
               <li className="flex items-center">

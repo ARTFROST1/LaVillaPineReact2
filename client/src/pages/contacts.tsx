@@ -32,7 +32,7 @@ export default function Contacts() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold font-display">Наши контакты</h1>
             <p className="text-lg text-gray-600 font-light">
-              Забронируйте роскошный лофт-дом в Адыгее или получите консультацию по всем вопросам
+              Свяжитесь с нами удобным способ чтобы забронировать или задать вопрос
             </p>
           </div>
           
@@ -85,7 +85,7 @@ export default function Contacts() {
             
             {/* 3. Social Media */}
             <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-xl">
-              <h2 className="text-2xl font-light mb-8 text-primary">Следите за нами</h2>
+              <h2 className="text-2xl font-light mb-8 text-primary">Мы в соцсетях</h2>
               <div className="flex justify-center space-x-4">
                 <a 
                   href={SITE_CONFIG.socialLinks.instagram} 
@@ -140,7 +140,7 @@ export default function Contacts() {
             
             {/* 4. Contact Form */}
             <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-xl">
-              <h2 className="text-2xl font-light mb-6 text-primary">Отправить сообщение</h2>
+              <h2 className="text-2xl font-light mb-6 text-primary">Отправить сообщение нам</h2>
               <ContactForm />
             </div>
           </div>

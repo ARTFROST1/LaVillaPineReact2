@@ -3,6 +3,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import YandexReviews from "@/components/ui/yandex-reviews";
@@ -15,6 +16,8 @@ import Admin from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
 function Router() {
+  useScrollToTop();
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

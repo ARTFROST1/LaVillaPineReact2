@@ -90,7 +90,7 @@ export default function Booking() {
             Бронирование
           </h1>
           <p className="text-xl text-gray-200">
-            Забронируйте роскошный отдых в La Villa Pine на удобные даты
+            Забронируйте отдых в La Villa Pine на удобные даты
           </p>
         </div>
 
@@ -115,7 +115,7 @@ export default function Booking() {
                 <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/10">
                   <div className="text-center">
                     <p className="mb-4 text-white">
-                      Нужна помощь с бронированием? Свяжитесь с нами напрямую:
+                     Свяжитесь с нами прямо сейчас:
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Link href="/contacts">

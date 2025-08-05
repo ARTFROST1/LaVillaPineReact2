@@ -142,11 +142,11 @@ export default function Home() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-2xl font-display">
                 Добро пожаловать в <br />
                 <span className="text-accent drop-shadow-lg">
-                  La Villa Pine
+                  {SITE_CONFIG.name}
                 </span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-2xl mx-auto">
-                Откройте для себя роскошные гостевые дома в стиле лофт
+                Откройте для себя гостевые дома в стиле лофт
               </p>
               {/* Условное отображение: баннер или модуль бронирования */}
               <div className="max-w-3xl lg:max-w-4xl mx-auto mt-6 sm:mt-8">
@@ -175,8 +175,7 @@ export default function Home() {
               {SITE_CONFIG.name}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-              Два исключительных гостевых дома в стиле лофт, где современный
-              дизайн встречается с природным спокойствием
+              Две уникальные виллы в стиле лофт с современным дизайном, где комфорт и уют сочетаются с природой
             </p>
           </div>
 
@@ -200,7 +199,7 @@ export default function Home() {
                   <i className="fas fa-home"></i>
                 </div>
                 <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4">
-                  Современный дизайн лофт
+                  Современный лофт дизайн
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600">
                   Дизайнерский ремонт с индустриальными элементами и современным

@@ -28,15 +28,8 @@ export default function BookingDateNotice({
       </div>
       <div className="flex-1">
         <p className={`text-xs sm:text-sm font-medium ${isHomePage ? "text-white" : "text-blue-800"}`}>
-          Мы начинаем принимать брони с 20 августа 2025
+          Для брониронирования свяжитесь с нами любым удобным способом
         </p>
-      </div>
-      <div className="flex-shrink-0">
-        <Calendar
-          className={`w-4 h-4 sm:w-5 sm:h-5 ${
-            isHomePage ? "text-accent" : "text-blue-600"
-          }`}
-        />
       </div>
     </div>
   );
