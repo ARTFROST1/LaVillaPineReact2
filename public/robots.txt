@@ -3,4 +3,4 @@ Allow: /
 Allow: /favicon.ico
 Allow: /images/
 
-Sitemap: /sitemap.xml
+Sitemap: https://workspace--artfrostt07.replit.app/sitemap.xml
