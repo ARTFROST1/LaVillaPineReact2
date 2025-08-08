@@ -135,44 +135,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Удобное расположение */}
-        <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-accent/10 p-4 sm:p-6 md:p-8 lg:p-12 rounded-2xl sm:rounded-3xl mb-10 sm:mb-12 md:mb-16 border border-accent/20 shadow-lg">
-          <div className="text-center max-w-2xl lg:max-w-3xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-display">
-              Идеальное расположение
-            </h2>
-            <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8">
-              Всего 20 минут до города и 30 минут до гор — комфортное
-              путешествие как для любителей городской жизни, так и для
-              почитателей природы. В нескольких шагах кофейни, рестораны, где
-              можно заказать блюда прямо к дому. Минеральные источники и спа
-              близко
-            </p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-              <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md border border-accent/10 hover:border-accent/30 transition-all duration-300">
-                <i className="fas fa-city text-accent text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"></i>
-                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">
-                  От города
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base">20 минут</p>
-              </div>
-              <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md border border-accent/10 hover:border-accent/30 transition-all duration-300">
-                <i className="fas fa-mountain text-accent text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"></i>
-                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">
-                  До гор
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base">30 минут</p>
-              </div>
-              <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl shadow-md border border-accent/10 hover:border-accent/30 transition-all duration-300 sm:col-span-2 md:col-span-1">
-                <i className="fas fa-spa text-accent text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3"></i>
-                <h3 className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 text-primary">
-                  До спа-комплексов
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base">2 минуты</p>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         {/* Сервис и комфорт */}
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-10 sm:mb-12 md:mb-16">

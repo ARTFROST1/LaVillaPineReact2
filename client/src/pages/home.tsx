@@ -227,6 +227,97 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Идеальное расположение */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-neutral/30 to-neutral/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
+              Идеальное расположение
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
+              Всего 20 минут до города и 30 минут до гор — комфортное путешествие как для любителей городской жизни, так и для почитателей природы
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {/* От города */}
+            <div className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+              <DynamicImage
+                src="/images/amenities/interior.jpg"
+                fallbackSrc="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                alt="До города"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white">
+                <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3">
+                  <i className="fas fa-city"></i>
+                </div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">
+                  От города
+                </h3>
+                <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
+                  20 минут
+                </p>
+                <p className="text-xs sm:text-sm text-gray-200 mt-1 sm:mt-2">
+                  Удобный доступ к городской инфраструктуре
+                </p>
+              </div>
+            </div>
+
+            {/* До гор */}
+            <div className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+              <DynamicImage
+                src="/images/amenities/forest.jpg"
+                fallbackSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                alt="До гор"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white">
+                <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3">
+                  <i className="fas fa-mountain"></i>
+                </div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">
+                  До гор
+                </h3>
+                <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
+                  30 минут
+                </p>
+                <p className="text-xs sm:text-sm text-gray-200 mt-1 sm:mt-2">
+                  Горные пейзажи и свежий воздух
+                </p>
+              </div>
+            </div>
+
+            {/* До спа-комплексов */}
+            <div className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 sm:col-span-2 lg:col-span-1">
+              <DynamicImage
+                src="/images/amenities/pool.jpg"
+                fallbackSrc="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                alt="До спа-комплексов"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white">
+                <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3">
+                  <i className="fas fa-spa"></i>
+                </div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">
+                  До спа-комплексов
+                </h3>
+                <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
+                  2 минуты
+                </p>
+                <p className="text-xs sm:text-sm text-gray-200 mt-1 sm:mt-2">
+                  Минеральные источники рядом
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Модальное окно галереи */}
       <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
         <DialogContent className="max-w-4xl w-full p-0 overflow-hidden">
