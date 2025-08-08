@@ -360,7 +360,7 @@ export default function Home() {
               <Link href="/booking">
                 <Button
                   size="lg"
-                  className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-primary hover:text-accent font-medium px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 text-base sm:text-lg md:text-xl rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-out group relative overflow-hidden"
+                  className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-medium px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 text-base sm:text-lg md:text-xl rounded-xl sm:rounded-2xl group"
                 >
                   <span className="flex items-center space-x-3">
                     <i className="fas fa-calendar-check text-lg sm:text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110"></i>
