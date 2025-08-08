@@ -37,7 +37,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           if (!cardEl) return;
 
           const cardStartProgress = index * progressPerCard;
-          const cardEndProgress = (index + 1) * progressPerCard;
+          const cardEndProgress = cardStartProgress + progressPerCard * 0.7; // Карточка раскрывается на 70% от своего времени
           const nextCardStartProgress = (index + 1) * progressPerCard;
           const isLastCard = index === totalCards - 1;
           
