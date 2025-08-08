@@ -288,12 +288,6 @@ export const GALLERY_IMAGES = [
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
     alt: "La Villa Pine - Интерьер",
   },
-  {
-    url: "/images/amenities/parking.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Парковка",
-  },
 ];
 
 export const AMENITIES = [
@@ -301,7 +295,7 @@ export const AMENITIES = [
     icon: "fas fa-home",
     title: "Дизайн Лофт",
     description:
-      "Металл, кирпич, дерево — современно и со вкусом. Без лишнего, только уют и стиль.",
+      "Интерьер в лофт-стиле с акцентами из металла, кирпича и дерева смотрится стильно, но не перегруженно. Всё подобрано со вкусом, без лишнего: просто, понятно, красиво.",
     image: "/images/amenities/interior.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -310,7 +304,7 @@ export const AMENITIES = [
     icon: "fas fa-hot-tub",
     title: "Финская Сауна",
     description:
-      "Сменные цвета под настроение. Спокойствие, тепло и спа-атмосфера прямо в доме.",
+      "Сауна прямо в доме — с подсветкой, как вы захотите. Меняйте цвет и создавайте нужное настроение: от спокойного и тёплого до яркого и бодрящего. Настоящая спа-атмосфера дома.",
     image: "/images/amenities/sauna.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -319,7 +313,7 @@ export const AMENITIES = [
     icon: "fas fa-swimming-pool",
     title: "Подогреваемый Бассейн",
     description:
-      "Днём — солнце и релакс, вечером — огни и лес. Настоящий отдых в любое время.",
+      "Большой тёплый бассейн доступен в любое время года. Днём — расслабляющий отдых на солнце, вечером — вода с подсветкой и вид на лес. Атмосфера, в которую хочется возвращаться.",
     image: "/images/amenities/pool.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -328,7 +322,7 @@ export const AMENITIES = [
     icon: "fas fa-tree",
     title: "Лесная Локация",
     description:
-      "Прогулки среди деревьев, пение птиц и белки у дома — природа совсем рядом.",
+      "Живописный сосновый лес в паре шагов от дома. Здесь обитают белки и поют птицы, а рядом течёт мелодичный ручей — лучшего места для утренней прогулки не найти.",
     image: "/images/amenities/forest.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -337,7 +331,7 @@ export const AMENITIES = [
     icon: "fas fa-fire",
     title: "Мангальные Зоны",
     description:
-      "Удобства, свет и уют — для тёплых вечеров с семьёй и друзьями на свежем воздухе.",
+      "Стильные мангальные зоны с удобной мебелью и подсветкой для вечернего отдыха. Идеально для уютных посиделок с друзьями или семьёй на свежем воздухе.",
     image: "/images/amenities/bbq.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1574906519174-daa3b7a6de14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -346,7 +340,7 @@ export const AMENITIES = [
     icon: "fas fa-car",
     title: "Удобная Парковка",
     description:
-      "Прямо у дома. Безопасно, удобно и без поисков места.",
+      "Просторная парковка с навесом прямо у дома — удобно, безопасно и всегда под рукой, не нужно искать место или переживать за машину.",
     image: "/images/amenities/parking.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",

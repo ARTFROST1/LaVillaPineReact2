@@ -328,6 +328,9 @@ export default function Home() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
                 Наше расположение
               </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                Удобное место для комфортного отдыха в окружении природы
+              </p>
             </div>
 
             {/* Адрес */}
@@ -348,26 +351,11 @@ export default function Home() {
             </div>
 
             {/* Карта */}
-            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-accent/10 mb-8 sm:mb-10 md:mb-12">
+            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-accent/10">
               <YandexMap 
                 address={SITE_CONFIG.address}
                 className="w-full h-64 sm:h-80 md:h-96"
               />
-            </div>
-
-            {/* Кнопка бронирования */}
-            <div className="text-center">
-              <Link href="/booking">
-                <Button
-                  size="lg"
-                  className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-medium px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 text-base sm:text-lg md:text-xl rounded-xl sm:rounded-2xl group"
-                >
-                  <span className="flex items-center space-x-3">
-                    <i className="fas fa-calendar-check text-lg sm:text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110"></i>
-                    <span className="transition-all duration-300">Забронировать</span>
-                  </span>
-                </Button>
-              </Link>
             </div>
           </div>
         </div>
