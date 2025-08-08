@@ -328,9 +328,6 @@ export default function Home() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
                 Наше расположение
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                Удобное место для комфортного отдыха в окружении природы
-              </p>
             </div>
 
             {/* Адрес */}
@@ -351,11 +348,27 @@ export default function Home() {
             </div>
 
             {/* Карта */}
-            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-accent/10">
+            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-accent/10 mb-8 sm:mb-10 md:mb-12">
               <YandexMap 
                 address={SITE_CONFIG.address}
                 className="w-full h-64 sm:h-80 md:h-96"
               />
+            </div>
+
+            {/* Кнопка бронирования */}
+            <div className="text-center">
+              <Link href="/booking">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-accent via-accent to-primary hover:from-primary hover:via-accent hover:to-accent text-white font-semibold px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 text-base sm:text-lg md:text-xl rounded-xl sm:rounded-2xl shadow-2xl hover:shadow-accent/30 transform hover:-translate-y-1 transition-all duration-500 ease-out border-0 hover:scale-105 backdrop-blur-sm relative overflow-hidden group"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                  <span className="relative z-10 flex items-center space-x-3">
+                    <i className="fas fa-calendar-check text-lg sm:text-xl md:text-2xl"></i>
+                    <span>Забронировать</span>
+                  </span>
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
