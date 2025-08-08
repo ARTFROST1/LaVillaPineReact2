@@ -75,38 +75,23 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             // Следующая карточка начала появляться - эта начинает блюриться, потом исчезает
             const nextCardProgress = (scrollProgress - nextCardStartProgress) / progressPerCard;
             
-            // НАСТРОЙКИ ЭФФЕКТОВ (изменяйте эти значения для настройки анимации):
-            // blurThreshold - когда начинается размытие
-            const blurThreshold = 0.5;
-            
+            // НАСТРОЙКИ ЭФФЕКТОВ:
             // hideThreshold - когда карточка полностью скрывается
             // Для предпоследней карточки используем более низкий порог
             const isSecondToLast = index === totalCards - 2;
-            const hideThreshold = isSecondToLast ? 0.4 : 0.8;
+            const hideThreshold = isSecondToLast ? 0.3 : 0.6;
             
-            if (nextCardProgress < blurThreshold) {
-              // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
+            if (nextCardProgress < hideThreshold) {
+              // Карточка остается четкой до момента исчезновения
               cardEl.style.opacity = '1';
               cardEl.style.transform = 'translateY(0px) scale(1)';
               cardEl.style.filter = 'blur(0px)';
               cardEl.style.zIndex = (1000 - index).toString();
-            } else if (nextCardProgress < hideThreshold) {
-              // Карточка размывается - между 30% и 70% появления следующей
-              const adjustedProgress = (nextCardProgress - blurThreshold) / (hideThreshold - blurThreshold);
-              
-              const blurAmount = Math.min(8, adjustedProgress * 8);
-              const opacity = Math.max(0.3, 1 - adjustedProgress * 0.7);
-              const scale = Math.max(0.95, 1 - adjustedProgress * 0.05);
-              
-              cardEl.style.opacity = opacity.toString();
-              cardEl.style.transform = `translateY(0px) scale(${scale})`;
-              cardEl.style.filter = `blur(${blurAmount}px)`;
-              cardEl.style.zIndex = (1000 - index).toString();
             } else {
-              // Карточка полностью скрыта - следующая карточка появилась больше чем на 70%
+              // Карточка полностью скрыта - следующая карточка появилась достаточно
               cardEl.style.opacity = '0';
-              cardEl.style.transform = 'translateY(0px) scale(0.9)';
-              cardEl.style.filter = 'blur(10px)';
+              cardEl.style.transform = 'translateY(0px) scale(1)';
+              cardEl.style.filter = 'blur(0px)';
               cardEl.style.zIndex = (1000 - index).toString();
             }
           }
