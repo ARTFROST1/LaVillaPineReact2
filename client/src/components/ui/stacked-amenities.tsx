@@ -41,23 +41,32 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         const totalCards = AMENITIES.length;
         const progressPerCard = 1 / totalCards;
         
-        // Находим индекс карточки "Удобная Парковка" (последняя карточка)
-        const parkingCardIndex = AMENITIES.findIndex(amenity => amenity.title === "Удобная Парковка");
-        const parkingCardStartProgress = parkingCardIndex * progressPerCard;
+        // Проверяем, доскроллил ли пользователь до блока "Идеальное расположение"
+        // Ищем элемент с заголовком "Идеальное расположение"
+        const locationSection = document.evaluate("//h2[contains(text(), 'Идеальное расположение')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue as HTMLElement;
         
-        // НАСТРОЙКА ВРЕМЕНИ СКРЫТИЯ ЗАГОЛОВКА:
-        // Увеличьте это значение, чтобы заголовок исчезал позже
-        // 0 = исчезает сразу когда появляется последняя карточка
-        // 0.5 = исчезает когда последняя карточка наполовину раскрыта
-        // 1 = исчезает только когда последняя карточка полностью раскрыта
-        const HEADER_HIDE_DELAY = 0.7;
-        
-        // Проверяем, начала ли карточка парковки появляться с учетом задержки
-        const hideThreshold = parkingCardStartProgress + (progressPerCard * HEADER_HIDE_DELAY);
-        if (scrollProgress >= hideThreshold) {
-          setIsHeaderVisible(false);
+        if (locationSection) {
+          const locationRect = locationSection.getBoundingClientRect();
+          const locationTop = locationRect.top;
+          
+          // Заголовок исчезает когда блок "Идеальное расположение" входит в область видимости
+          // Настройте значение 0.8 для изменения момента исчезновения заголовка
+          if (locationTop <= viewportHeight * 0.8) {
+            setIsHeaderVisible(false);
+          } else {
+            setIsHeaderVisible(true);
+          }
         } else {
-          setIsHeaderVisible(true);
+          // Если блок не найден, используем старую логику как fallback
+          const parkingCardIndex = AMENITIES.findIndex(amenity => amenity.title === "Удобная Парковка");
+          const parkingCardStartProgress = parkingCardIndex * progressPerCard;
+          const hideThreshold = parkingCardStartProgress + (progressPerCard * 0.9);
+          
+          if (scrollProgress >= hideThreshold) {
+            setIsHeaderVisible(false);
+          } else {
+            setIsHeaderVisible(true);
+          }
         }
         
         cardRefs.current.forEach((cardEl, index) => {
