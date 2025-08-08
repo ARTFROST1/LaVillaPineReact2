@@ -39,6 +39,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           const cardStartProgress = index * progressPerCard;
           const cardEndProgress = (index + 1) * progressPerCard;
           const nextCardStartProgress = (index + 1) * progressPerCard;
+          const isLastCard = index === totalCards - 1;
           
           // Определяем состояние карточки
           if (scrollProgress < cardStartProgress) {
@@ -58,6 +59,12 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             cardEl.style.transform = `translateY(${translateY}vh) scale(${scale})`;
             cardEl.style.filter = 'blur(0px)'; // Всегда чёткая во время раскрытия
             cardEl.style.zIndex = (1000 + index).toString();
+          } else if (isLastCard) {
+            // Последняя карточка - остается четкой и видимой
+            cardEl.style.opacity = '1';
+            cardEl.style.transform = 'translateY(0px) scale(1)';
+            cardEl.style.filter = 'blur(0px)';
+            cardEl.style.zIndex = (1000 - index).toString();
           } else if (scrollProgress >= cardEndProgress && scrollProgress < nextCardStartProgress) {
             // Карточка полностью раскрыта и зафиксирована - остается чёткой
             cardEl.style.opacity = '1';
@@ -70,10 +77,10 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             
             // НАСТРОЙКИ ЭФФЕКТОВ (изменяйте эти значения для настройки анимации):
             // blurThreshold - когда начинается размытие (0.3 = когда следующая карточка появилась на 30%)
-            const blurThreshold = 0.3;
+            const blurThreshold = 0.5;
             
             // hideThreshold - когда карточка полностью скрывается (0.7 = когда следующая карточка появилась на 70%)
-            const hideThreshold = 0.7;
+            const hideThreshold = 1.2;
             
             if (nextCardProgress < blurThreshold) {
               // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
