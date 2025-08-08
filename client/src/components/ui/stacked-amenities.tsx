@@ -23,9 +23,6 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
   const lastScrollY = useRef(0);
   const animationFrameId = useRef<number | null>(null);
   const isAnimating = useRef(false);
-  const touchStartY = useRef<number | null>(null);
-  const touchVelocity = useRef(0);
-  const lastTouchTime = useRef(0);
 
   // Оптимизированная функция обновления анимации с requestAnimationFrame для плавности
   const updateAnimation = useCallback(() => {
@@ -90,7 +87,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         if (scrollProgress < cardStartProgress) {
           // Карточка еще не появилась
           cardEl.style.opacity = '0';
-          cardEl.style.transform = 'translateY(100vh) scale(0.8)';
+          cardEl.style.transform = 'translateY(100vh) scale(0.8) translateZ(0)';
           cardEl.style.filter = 'blur(0px)';
           cardEl.style.zIndex = '1';
         } else if (scrollProgress >= cardStartProgress && scrollProgress < cardEndProgress) {
@@ -101,19 +98,19 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           const scale = 0.8 + cardProgress * 0.2;
           
           cardEl.style.opacity = opacity.toString();
-          cardEl.style.transform = `translateY(${translateY}vh) scale(${scale})`;
+          cardEl.style.transform = `translateY(${translateY}vh) scale(${scale}) translateZ(0)`;
           cardEl.style.filter = 'blur(0px)'; // Всегда чёткая во время раскрытия
           cardEl.style.zIndex = (1000 + index).toString();
         } else if (isLastCard) {
           // Последняя карточка - остается четкой и видимой всегда после полного раскрытия
           cardEl.style.opacity = '1';
-          cardEl.style.transform = 'translateY(0px) scale(1)';
+          cardEl.style.transform = 'translateY(0px) scale(1) translateZ(0)';
           cardEl.style.filter = 'blur(0px)';
           cardEl.style.zIndex = (1000 - index).toString();
         } else if (scrollProgress >= cardEndProgress && scrollProgress < nextCardStartProgress) {
           // Карточка полностью раскрыта и зафиксирована - остается чёткой
           cardEl.style.opacity = '1';
-          cardEl.style.transform = 'translateY(0px) scale(1)';
+          cardEl.style.transform = 'translateY(0px) scale(1) translateZ(0)';
           cardEl.style.filter = 'blur(0px)'; // Остается чёткой пока следующая не начнет появляться
           cardEl.style.zIndex = (1000 - index).toString();
         } else {
@@ -131,7 +128,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           if (nextCardProgress < blurThreshold) {
             // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
             cardEl.style.opacity = '1';
-            cardEl.style.transform = 'translateY(0px) scale(1)';
+            cardEl.style.transform = 'translateY(0px) scale(1) translateZ(0)';
             cardEl.style.filter = 'blur(0px)';
             cardEl.style.zIndex = (1000 - index).toString();
           } else if (nextCardProgress < hideThreshold) {
@@ -143,13 +140,13 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             const scale = Math.max(0.95, 1 - adjustedProgress * 0.05);
             
             cardEl.style.opacity = opacity.toString();
-            cardEl.style.transform = `translateY(0px) scale(${scale})`;
+            cardEl.style.transform = `translateY(0px) scale(${scale}) translateZ(0)`;
             cardEl.style.filter = `blur(${blurAmount}px)`;
             cardEl.style.zIndex = (1000 - index).toString();
           } else {
             // Карточка полностью скрыта - следующая карточка появилась больше чем на 70%
             cardEl.style.opacity = '0';
-            cardEl.style.transform = 'translateY(0px) scale(0.9)';
+            cardEl.style.transform = 'translateY(0px) scale(0.9) translateZ(0)';
             cardEl.style.filter = 'blur(10px)';
             cardEl.style.zIndex = (1000 - index).toString();
           }
@@ -160,10 +157,8 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
     isAnimating.current = false;
   }, []);
 
-  // Оптимизированный обработчик скролла с throttling для мобильных устройств
+  // Оптимизированный обработчик скролла с requestAnimationFrame для плавности
   const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY;
-    
     // Отменяем предыдущий запрос анимации если он есть
     if (animationFrameId.current) {
       cancelAnimationFrame(animationFrameId.current);
@@ -174,77 +169,17 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
       isAnimating.current = true;
       animationFrameId.current = requestAnimationFrame(updateAnimation);
     }
-    
-    lastScrollY.current = currentScrollY;
-  }, [updateAnimation]);
-
-  // Обработчики касаний для улучшения мобильного опыта
-  const handleTouchStart = useCallback((e: TouchEvent) => {
-    touchStartY.current = e.touches[0].clientY;
-    touchVelocity.current = 0;
-    lastTouchTime.current = Date.now();
-  }, []);
-
-  const handleTouchMove = useCallback((e: TouchEvent) => {
-    if (touchStartY.current === null) return;
-    
-    const currentTime = Date.now();
-    const deltaTime = currentTime - lastTouchTime.current;
-    const currentY = e.touches[0].clientY;
-    const deltaY = currentY - touchStartY.current;
-    
-    // Вычисляем скорость касания
-    if (deltaTime > 0) {
-      touchVelocity.current = deltaY / deltaTime;
-    }
-    
-    lastTouchTime.current = currentTime;
-  }, []);
-
-  const handleTouchEnd = useCallback(() => {
-    touchStartY.current = null;
-    
-    // Если касание было быстрым, добавляем дополнительную плавность
-    if (Math.abs(touchVelocity.current) > 0.5) {
-      // Используем плавную анимацию для резких движений
-      const smoothAnimation = () => {
-        if (!isAnimating.current) {
-          isAnimating.current = true;
-          requestAnimationFrame(() => {
-            updateAnimation();
-            // Добавляем небольшую задержку для дополнительной плавности
-            setTimeout(() => {
-              if (!isAnimating.current) {
-                requestAnimationFrame(updateAnimation);
-              }
-            }, 16); // ~60fps
-          });
-        }
-      };
-      
-      smoothAnimation();
-    }
-    
-    touchVelocity.current = 0;
   }, [updateAnimation]);
 
   useEffect(() => {
-    // Обработчики событий с улучшенными настройками для мобильных устройств
+    // Обработчики событий с улучшенными настройками для плавности
     const scrollOptions = { 
       passive: true,
       capture: false
     };
-    
-    const touchOptions = {
-      passive: true,
-      capture: false
-    };
 
-    // Добавляем обработчики
+    // Добавляем обработчик скролла
     window.addEventListener('scroll', handleScroll, scrollOptions);
-    window.addEventListener('touchstart', handleTouchStart, touchOptions);
-    window.addEventListener('touchmove', handleTouchMove, touchOptions);
-    window.addEventListener('touchend', handleTouchEnd, touchOptions);
     
     // Запускаем начальное обновление
     updateAnimation();
@@ -252,15 +187,12 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
     return () => {
       // Очищаем обработчики и анимации
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
       
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, [handleScroll, handleTouchStart, handleTouchMove, handleTouchEnd, updateAnimation]);
+  }, [handleScroll, updateAnimation]);
 
   return (
     <div 
@@ -271,6 +203,9 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         // Улучшаем производительность скролла на мобильных устройствах
         willChange: 'transform',
         transform: 'translateZ(0)', // Включаем аппаратное ускорение
+        // Добавляем специальные CSS свойства для мобильных устройств
+        WebkitOverflowScrolling: 'touch',
+        overscrollBehavior: 'contain',
       }}
     >
       {/* Заголовок секции */}
