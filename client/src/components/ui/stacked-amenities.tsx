@@ -76,11 +76,13 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             const nextCardProgress = (scrollProgress - nextCardStartProgress) / progressPerCard;
             
             // НАСТРОЙКИ ЭФФЕКТОВ (изменяйте эти значения для настройки анимации):
-            // blurThreshold - когда начинается размытие (0.3 = когда следующая карточка появилась на 30%)
-            const blurThreshold = 0.6;
+            // blurThreshold - когда начинается размытие
+            const blurThreshold = 0.5;
             
-            // hideThreshold - когда карточка полностью скрывается (0.8 = когда следующая карточка появилась на 80%)
-            const hideThreshold = 0.8;
+            // hideThreshold - когда карточка полностью скрывается
+            // Для предпоследней карточки используем более низкий порог
+            const isSecondToLast = index === totalCards - 2;
+            const hideThreshold = isSecondToLast ? 0.4 : 0.8;
             
             if (nextCardProgress < blurThreshold) {
               // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
