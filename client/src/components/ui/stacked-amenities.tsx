@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { AMENITIES } from "@/lib/constants";
@@ -20,148 +20,258 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
   const containerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const headerRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
+  const animationFrameId = useRef<number | null>(null);
+  const isAnimating = useRef(false);
+  const touchStartY = useRef<number | null>(null);
+  const touchVelocity = useRef(0);
+  const lastTouchTime = useRef(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
+  // Оптимизированная функция обновления анимации с requestAnimationFrame для плавности
+  const updateAnimation = useCallback(() => {
+    if (!containerRef.current) {
+      isAnimating.current = false;
+      return;
+    }
 
-      const containerRect = containerRef.current.getBoundingClientRect();
-      const containerTop = containerRect.top;
-      const containerHeight = containerRect.height;
-      const viewportHeight = window.innerHeight;
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const containerTop = containerRect.top;
+    const containerHeight = containerRect.height;
+    const viewportHeight = window.innerHeight;
 
-      // Начинаем анимацию когда контейнер входит в область видимости
-      if (containerTop < viewportHeight && containerTop + containerHeight > 0) {
-        // Рассчитываем прогресс скролла более точно
-        const scrollableHeight = containerHeight - viewportHeight;
-        const scrolled = Math.max(0, viewportHeight - containerTop);
-        const scrollProgress = Math.min(1, scrolled / scrollableHeight);
+    // Начинаем анимацию когда контейнер входит в область видимости
+    if (containerTop < viewportHeight && containerTop + containerHeight > 0) {
+      // Рассчитываем прогресс скролла более точно
+      const scrollableHeight = containerHeight - viewportHeight;
+      const scrolled = Math.max(0, viewportHeight - containerTop);
+      const scrollProgress = Math.min(1, scrolled / scrollableHeight);
 
-        // Определяем какие карточки должны быть активными
-        const totalCards = AMENITIES.length;
-        const progressPerCard = 1 / totalCards;
+      // Определяем какие карточки должны быть активными
+      const totalCards = AMENITIES.length;
+      const progressPerCard = 1 / totalCards;
+      
+      // Проверяем, доскроллил ли пользователь до блока "Идеальное расположение"
+      // Ищем элемент с заголовком "Идеальное расположение"
+      const locationSection = document.evaluate("//h2[contains(text(), 'Идеальное расположение')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue as HTMLElement;
+      
+      if (locationSection) {
+        const locationRect = locationSection.getBoundingClientRect();
+        const locationTop = locationRect.top;
         
-        // Проверяем, доскроллил ли пользователь до блока "Идеальное расположение"
-        // Ищем элемент с заголовком "Идеальное расположение"
-        const locationSection = document.evaluate("//h2[contains(text(), 'Идеальное расположение')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue as HTMLElement;
-        
-        if (locationSection) {
-          const locationRect = locationSection.getBoundingClientRect();
-          const locationTop = locationRect.top;
-          
-          // Заголовок исчезает когда блок "Идеальное расположение" входит в область видимости
-          // Настройте значение 0.8 для изменения момента исчезновения заголовка
-          if (locationTop <= viewportHeight * 0.8) {
-            setIsHeaderVisible(false);
-          } else {
-            setIsHeaderVisible(true);
-          }
+        // Заголовок исчезает когда блок "Идеальное расположение" входит в область видимости
+        // Настройте значение 0.8 для изменения момента исчезновения заголовка
+        if (locationTop <= viewportHeight * 0.8) {
+          setIsHeaderVisible(false);
         } else {
-          // Если блок не найден, используем старую логику как fallback
-          const parkingCardIndex = AMENITIES.findIndex(amenity => amenity.title === "Удобная Парковка");
-          const parkingCardStartProgress = parkingCardIndex * progressPerCard;
-          const hideThreshold = parkingCardStartProgress + (progressPerCard * 0.9);
-          
-          if (scrollProgress >= hideThreshold) {
-            setIsHeaderVisible(false);
-          } else {
-            setIsHeaderVisible(true);
-          }
+          setIsHeaderVisible(true);
         }
+      } else {
+        // Если блок не найден, используем старую логику как fallback
+        const parkingCardIndex = AMENITIES.findIndex(amenity => amenity.title === "Удобная Парковка");
+        const parkingCardStartProgress = parkingCardIndex * progressPerCard;
+        const hideThreshold = parkingCardStartProgress + (progressPerCard * 0.9);
         
-        cardRefs.current.forEach((cardEl, index) => {
-          if (!cardEl) return;
+        if (scrollProgress >= hideThreshold) {
+          setIsHeaderVisible(false);
+        } else {
+          setIsHeaderVisible(true);
+        }
+      }
+      
+      cardRefs.current.forEach((cardEl, index) => {
+        if (!cardEl) return;
 
-          const cardStartProgress = index * progressPerCard;
-          const cardEndProgress = (index + 1) * progressPerCard;
-          const nextCardStartProgress = (index + 1) * progressPerCard;
-          const isLastCard = index === totalCards - 1;
+        const cardStartProgress = index * progressPerCard;
+        const cardEndProgress = (index + 1) * progressPerCard;
+        const nextCardStartProgress = (index + 1) * progressPerCard;
+        const isLastCard = index === totalCards - 1;
+        
+        // Определяем состояние карточки
+        if (scrollProgress < cardStartProgress) {
+          // Карточка еще не появилась
+          cardEl.style.opacity = '0';
+          cardEl.style.transform = 'translateY(100vh) scale(0.8)';
+          cardEl.style.filter = 'blur(0px)';
+          cardEl.style.zIndex = '1';
+        } else if (scrollProgress >= cardStartProgress && scrollProgress < cardEndProgress) {
+          // Карточка появляется и раскрывается - всегда чёткая
+          const cardProgress = (scrollProgress - cardStartProgress) / progressPerCard;
+          const translateY = (1 - cardProgress) * 100;
+          const opacity = Math.min(1, cardProgress * 2);
+          const scale = 0.8 + cardProgress * 0.2;
           
-          // Определяем состояние карточки
-          if (scrollProgress < cardStartProgress) {
-            // Карточка еще не появилась
-            cardEl.style.opacity = '0';
-            cardEl.style.transform = 'translateY(100vh) scale(0.8)';
+          cardEl.style.opacity = opacity.toString();
+          cardEl.style.transform = `translateY(${translateY}vh) scale(${scale})`;
+          cardEl.style.filter = 'blur(0px)'; // Всегда чёткая во время раскрытия
+          cardEl.style.zIndex = (1000 + index).toString();
+        } else if (isLastCard) {
+          // Последняя карточка - остается четкой и видимой всегда после полного раскрытия
+          cardEl.style.opacity = '1';
+          cardEl.style.transform = 'translateY(0px) scale(1)';
+          cardEl.style.filter = 'blur(0px)';
+          cardEl.style.zIndex = (1000 - index).toString();
+        } else if (scrollProgress >= cardEndProgress && scrollProgress < nextCardStartProgress) {
+          // Карточка полностью раскрыта и зафиксирована - остается чёткой
+          cardEl.style.opacity = '1';
+          cardEl.style.transform = 'translateY(0px) scale(1)';
+          cardEl.style.filter = 'blur(0px)'; // Остается чёткой пока следующая не начнет появляться
+          cardEl.style.zIndex = (1000 - index).toString();
+        } else {
+          // Следующая карточка начала появляться - эта начинает блюриться, потом исчезает
+          const nextCardProgress = (scrollProgress - nextCardStartProgress) / progressPerCard;
+          
+          // НАСТРОЙКИ ЭФФЕКТОВ (изменяйте эти значения для настройки анимации):
+          // blurThreshold - когда начинается размытие
+          const blurThreshold = 0.8;
+          
+          // hideThreshold - когда карточка полностью скрывается
+          // Для предпоследней карточки используем более низкий порог
+          const hideThreshold = 0.95;
+          
+          if (nextCardProgress < blurThreshold) {
+            // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
+            cardEl.style.opacity = '1';
+            cardEl.style.transform = 'translateY(0px) scale(1)';
             cardEl.style.filter = 'blur(0px)';
-            cardEl.style.zIndex = '1';
-          } else if (scrollProgress >= cardStartProgress && scrollProgress < cardEndProgress) {
-            // Карточка появляется и раскрывается - всегда чёткая
-            const cardProgress = (scrollProgress - cardStartProgress) / progressPerCard;
-            const translateY = (1 - cardProgress) * 100;
-            const opacity = Math.min(1, cardProgress * 2);
-            const scale = 0.8 + cardProgress * 0.2;
+            cardEl.style.zIndex = (1000 - index).toString();
+          } else if (nextCardProgress < hideThreshold) {
+            // Карточка размывается - между 30% и 70% появления следующей
+            const adjustedProgress = (nextCardProgress - blurThreshold) / (hideThreshold - blurThreshold);
+            
+            const blurAmount = Math.min(8, adjustedProgress * 8);
+            const opacity = Math.max(0.3, 1 - adjustedProgress * 0.7);
+            const scale = Math.max(0.95, 1 - adjustedProgress * 0.05);
             
             cardEl.style.opacity = opacity.toString();
-            cardEl.style.transform = `translateY(${translateY}vh) scale(${scale})`;
-            cardEl.style.filter = 'blur(0px)'; // Всегда чёткая во время раскрытия
-            cardEl.style.zIndex = (1000 + index).toString();
-          } else if (isLastCard) {
-            // Последняя карточка - остается четкой и видимой всегда после полного раскрытия
-            cardEl.style.opacity = '1';
-            cardEl.style.transform = 'translateY(0px) scale(1)';
-            cardEl.style.filter = 'blur(0px)';
-            cardEl.style.zIndex = (1000 - index).toString();
-          } else if (scrollProgress >= cardEndProgress && scrollProgress < nextCardStartProgress) {
-            // Карточка полностью раскрыта и зафиксирована - остается чёткой
-            cardEl.style.opacity = '1';
-            cardEl.style.transform = 'translateY(0px) scale(1)';
-            cardEl.style.filter = 'blur(0px)'; // Остается чёткой пока следующая не начнет появляться
+            cardEl.style.transform = `translateY(0px) scale(${scale})`;
+            cardEl.style.filter = `blur(${blurAmount}px)`;
             cardEl.style.zIndex = (1000 - index).toString();
           } else {
-            // Следующая карточка начала появляться - эта начинает блюриться, потом исчезает
-            const nextCardProgress = (scrollProgress - nextCardStartProgress) / progressPerCard;
-            
-            // НАСТРОЙКИ ЭФФЕКТОВ (изменяйте эти значения для настройки анимации):
-            // blurThreshold - когда начинается размытие
-            const blurThreshold = 0.8;
-            
-            // hideThreshold - когда карточка полностью скрывается
-            // Для предпоследней карточки используем более низкий порог
-            const hideThreshold = 0.95;
-            
-            if (nextCardProgress < blurThreshold) {
-              // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
-              cardEl.style.opacity = '1';
-              cardEl.style.transform = 'translateY(0px) scale(1)';
-              cardEl.style.filter = 'blur(0px)';
-              cardEl.style.zIndex = (1000 - index).toString();
-            } else if (nextCardProgress < hideThreshold) {
-              // Карточка размывается - между 30% и 70% появления следующей
-              const adjustedProgress = (nextCardProgress - blurThreshold) / (hideThreshold - blurThreshold);
-              
-              const blurAmount = Math.min(8, adjustedProgress * 8);
-              const opacity = Math.max(0.3, 1 - adjustedProgress * 0.7);
-              const scale = Math.max(0.95, 1 - adjustedProgress * 0.05);
-              
-              cardEl.style.opacity = opacity.toString();
-              cardEl.style.transform = `translateY(0px) scale(${scale})`;
-              cardEl.style.filter = `blur(${blurAmount}px)`;
-              cardEl.style.zIndex = (1000 - index).toString();
-            } else {
-              // Карточка полностью скрыта - следующая карточка появилась больше чем на 70%
-              cardEl.style.opacity = '0';
-              cardEl.style.transform = 'translateY(0px) scale(0.9)';
-              cardEl.style.filter = 'blur(10px)';
-              cardEl.style.zIndex = (1000 - index).toString();
-            }
+            // Карточка полностью скрыта - следующая карточка появилась больше чем на 70%
+            cardEl.style.opacity = '0';
+            cardEl.style.transform = 'translateY(0px) scale(0.9)';
+            cardEl.style.filter = 'blur(10px)';
+            cardEl.style.zIndex = (1000 - index).toString();
           }
-        });
-      }
+        }
+      });
+    }
+    
+    isAnimating.current = false;
+  }, []);
+
+  // Оптимизированный обработчик скролла с throttling для мобильных устройств
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    
+    // Отменяем предыдущий запрос анимации если он есть
+    if (animationFrameId.current) {
+      cancelAnimationFrame(animationFrameId.current);
+    }
+    
+    // Запланируем обновление анимации на следующий кадр для плавности
+    if (!isAnimating.current) {
+      isAnimating.current = true;
+      animationFrameId.current = requestAnimationFrame(updateAnimation);
+    }
+    
+    lastScrollY.current = currentScrollY;
+  }, [updateAnimation]);
+
+  // Обработчики касаний для улучшения мобильного опыта
+  const handleTouchStart = useCallback((e: TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+    touchVelocity.current = 0;
+    lastTouchTime.current = Date.now();
+  }, []);
+
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    if (touchStartY.current === null) return;
+    
+    const currentTime = Date.now();
+    const deltaTime = currentTime - lastTouchTime.current;
+    const currentY = e.touches[0].clientY;
+    const deltaY = currentY - touchStartY.current;
+    
+    // Вычисляем скорость касания
+    if (deltaTime > 0) {
+      touchVelocity.current = deltaY / deltaTime;
+    }
+    
+    lastTouchTime.current = currentTime;
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    touchStartY.current = null;
+    
+    // Если касание было быстрым, добавляем дополнительную плавность
+    if (Math.abs(touchVelocity.current) > 0.5) {
+      // Используем плавную анимацию для резких движений
+      const smoothAnimation = () => {
+        if (!isAnimating.current) {
+          isAnimating.current = true;
+          requestAnimationFrame(() => {
+            updateAnimation();
+            // Добавляем небольшую задержку для дополнительной плавности
+            setTimeout(() => {
+              if (!isAnimating.current) {
+                requestAnimationFrame(updateAnimation);
+              }
+            }, 16); // ~60fps
+          });
+        }
+      };
+      
+      smoothAnimation();
+    }
+    
+    touchVelocity.current = 0;
+  }, [updateAnimation]);
+
+  useEffect(() => {
+    // Обработчики событий с улучшенными настройками для мобильных устройств
+    const scrollOptions = { 
+      passive: true,
+      capture: false
+    };
+    
+    const touchOptions = {
+      passive: true,
+      capture: false
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Запускаем сразу
+    // Добавляем обработчики
+    window.addEventListener('scroll', handleScroll, scrollOptions);
+    window.addEventListener('touchstart', handleTouchStart, touchOptions);
+    window.addEventListener('touchmove', handleTouchMove, touchOptions);
+    window.addEventListener('touchend', handleTouchEnd, touchOptions);
+    
+    // Запускаем начальное обновление
+    updateAnimation();
 
     return () => {
+      // Очищаем обработчики и анимации
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
+      
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
     };
-  }, []);
+  }, [handleScroll, handleTouchStart, handleTouchMove, handleTouchEnd, updateAnimation]);
 
   return (
     <div 
       ref={containerRef}
       className="relative min-h-[600vh] py-20"
       data-testid="stacked-amenities-container"
+      style={{
+        // Улучшаем производительность скролла на мобильных устройствах
+        willChange: 'transform',
+        transform: 'translateZ(0)', // Включаем аппаратное ускорение
+      }}
     >
       {/* Заголовок секции */}
       <div 
@@ -169,6 +279,10 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         className={`sticky top-0 z-50 bg-white/90 backdrop-blur-sm py-8 transition-opacity duration-500 ${
           isHeaderVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
+        style={{
+          willChange: 'opacity',
+          transform: 'translateZ(0)',
+        }}
       >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-primary font-display">
@@ -187,17 +301,24 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           <div
             key={index}
             ref={el => cardRefs.current[index] = el}
-            className="sticky top-32 w-full h-screen flex items-center justify-center px-4 transition-all duration-700 ease-out"
+            className="sticky top-32 w-full h-screen flex items-center justify-center px-4"
             style={{
               opacity: 0,
-              transform: 'translateY(100px) scale(0.9)',
+              transform: 'translateY(100px) scale(0.9) translateZ(0)', // Комбинируем трансформации
               filter: 'blur(0px)',
+              // Улучшаем производительность анимации
+              willChange: 'transform, opacity, filter',
+              transition: 'none', // Убираем CSS переходы в пользу JS анимации
             }}
             data-testid={`stacked-card-${index}`}
           >
             <div 
               className="w-full max-w-6xl h-[80vh] rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
               onClick={() => onImageClick(amenity.image)}
+              style={{
+                willChange: 'transform',
+                transform: 'translateZ(0)',
+              }}
             >
               {/* Фоновое изображение */}
               <div className="relative w-full h-full">
