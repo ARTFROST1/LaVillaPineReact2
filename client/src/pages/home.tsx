@@ -8,6 +8,7 @@ import DynamicImage from "@/components/ui/dynamic-image";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
+import YandexMap from "@/components/ui/yandex-map";
 import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES, AMENITIES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
@@ -149,7 +150,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-2xl mx-auto">
-                Откройте для себя гостевые дома в стиле лофт
+                Отдых в стиле лофт в Адыгее
               </p>
               {/* Условное отображение: баннер или модуль бронирования */}
               <div className="max-w-3xl lg:max-w-4xl mx-auto mt-6 sm:mt-8">
@@ -243,7 +244,7 @@ export default function Home() {
             {/* От города */}
             <div className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
               <DynamicImage
-                src="/images/amenities/interior.jpg"
+                src="https://img.geliophoto.com/maykop/maykop_21.jpg"
                 fallbackSrc="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
                 alt="До города"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -268,7 +269,7 @@ export default function Home() {
             {/* До гор */}
             <div className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
               <DynamicImage
-                src="/images/amenities/forest.jpg"
+                src="https://cdn.tripster.ru/photos/d4904480-72a5-4f08-982a-b6a049a4c96c.jpg"
                 fallbackSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
                 alt="До гор"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -293,7 +294,7 @@ export default function Home() {
             {/* До спа-комплексов */}
             <div className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 sm:col-span-2 lg:col-span-1">
               <DynamicImage
-                src="/images/amenities/pool.jpg"
+                src="https://s9.stc.all.kpcdn.net/russia/wp-content/uploads/2023/05/termalnye-istochniki-adygei-devushka-v-otkrytom-bassejne.jpg"
                 fallbackSrc="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
                 alt="До спа-комплексов"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -313,6 +314,48 @@ export default function Home() {
                   Минеральные источники рядом
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Наш адрес и карта */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Заголовок */}
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
+                Наше расположение
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                Удобное место для комфортного отдыха в окружении природы
+              </p>
+            </div>
+
+            {/* Адрес */}
+            <div className="bg-gradient-to-br from-neutral/20 to-neutral/10 p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 border border-accent/10 shadow-sm">
+              <div className="flex items-center justify-center space-x-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i className="fas fa-map-marker-alt text-accent text-lg sm:text-xl"></i>
+                </div>
+                <div className="text-center sm:text-left">
+                  <p className="font-medium text-sm sm:text-base text-gray-500 uppercase tracking-wide mb-1">
+                    Адрес
+                  </p>
+                  <p className="text-base sm:text-lg md:text-xl text-gray-800 font-medium">
+                    {SITE_CONFIG.address}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Карта */}
+            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-accent/10">
+              <YandexMap 
+                address={SITE_CONFIG.address}
+                className="w-full h-64 sm:h-80 md:h-96"
+              />
             </div>
           </div>
         </div>
