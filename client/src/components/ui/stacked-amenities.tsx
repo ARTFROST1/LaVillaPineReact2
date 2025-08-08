@@ -10,8 +10,10 @@ interface StackedAmenitiesProps {
 
 export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps) {
   const [activeCards, setActiveCards] = useState<number[]>([]);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,18 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         // Определяем какие карточки должны быть активными
         const totalCards = AMENITIES.length;
         const progressPerCard = 1 / totalCards;
+        
+        // Находим индекс карточки "Удобная Парковка" (последняя карточка)
+        const parkingCardIndex = AMENITIES.findIndex(amenity => amenity.title === "Удобная Парковка");
+        const parkingCardStartProgress = parkingCardIndex * progressPerCard;
+        
+        // Проверяем, начала ли карточка парковки появляться
+        // Когда карточка парковки начинает появляться, скрываем заголовок
+        if (scrollProgress >= parkingCardStartProgress) {
+          setIsHeaderVisible(false);
+        } else {
+          setIsHeaderVisible(true);
+        }
         
         cardRefs.current.forEach((cardEl, index) => {
           if (!cardEl) return;
@@ -128,7 +142,12 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
       data-testid="stacked-amenities-container"
     >
       {/* Заголовок секции */}
-      <div className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm py-8">
+      <div 
+        ref={headerRef}
+        className={`sticky top-0 z-50 bg-white/90 backdrop-blur-sm py-8 transition-opacity duration-500 ${
+          isHeaderVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-primary font-display">
             Что вас ждёт в <br />
