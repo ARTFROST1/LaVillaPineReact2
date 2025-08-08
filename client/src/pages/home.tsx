@@ -175,11 +175,11 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
-              Почему выбирают <br />
+              Что вас ждёт в <br />
               {SITE_CONFIG.name}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-              Две уникальные виллы в стиле лофт с современным дизайном, где комфорт и уют сочетаются с природой
+              Уникальные виллы в стиле лофт с современным дизайном, где комфорт и уют сочетаются с природой
             </p>
           </div>
 
@@ -363,7 +363,7 @@ export default function Home() {
 
       {/* Блок бронирования с фиксированным фоном */}
       <section 
-        className="relative py-20 sm:py-24 md:py-32 bg-fixed bg-cover bg-center"
+        className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-screen bg-fixed bg-cover bg-center flex items-center"
         style={{
           backgroundImage: 'url(/images/amenities/pool.jpg)',
           backgroundAttachment: 'fixed'
