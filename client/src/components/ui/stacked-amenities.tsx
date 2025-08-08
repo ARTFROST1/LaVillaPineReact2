@@ -57,7 +57,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             // cardProgress * 1.5 = полная непрозрачность на 67% появления
             // cardProgress * 1 = полная непрозрачность на 100% появления
             // cardProgress * 3 = полная непрозрачность на 33% появления
-            const opacity = Math.min(1, cardProgress * 1.5);
+            const opacity = Math.min(1, cardProgress * 0.2);
             const scale = 0.8 + cardProgress * 0.2;
             
             cardEl.style.opacity = opacity.toString();
