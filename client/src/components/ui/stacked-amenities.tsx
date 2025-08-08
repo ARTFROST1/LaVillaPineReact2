@@ -45,9 +45,16 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         const parkingCardIndex = AMENITIES.findIndex(amenity => amenity.title === "Удобная Парковка");
         const parkingCardStartProgress = parkingCardIndex * progressPerCard;
         
-        // Проверяем, начала ли карточка парковки появляться
-        // Когда карточка парковки начинает появляться, скрываем заголовок
-        if (scrollProgress >= parkingCardStartProgress) {
+        // НАСТРОЙКА ВРЕМЕНИ СКРЫТИЯ ЗАГОЛОВКА:
+        // Увеличьте это значение, чтобы заголовок исчезал позже
+        // 0 = исчезает сразу когда появляется последняя карточка
+        // 0.5 = исчезает когда последняя карточка наполовину раскрыта
+        // 1 = исчезает только когда последняя карточка полностью раскрыта
+        const HEADER_HIDE_DELAY = 0.7;
+        
+        // Проверяем, начала ли карточка парковки появляться с учетом задержки
+        const hideThreshold = parkingCardStartProgress + (progressPerCard * HEADER_HIDE_DELAY);
+        if (scrollProgress >= hideThreshold) {
           setIsHeaderVisible(false);
         } else {
           setIsHeaderVisible(true);
