@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { AMENITIES } from "@/lib/constants";
 import DynamicImage from "./dynamic-image";
 
+// Настройка момента скрытия заголовка (0.0 - 1.0)
+// 0.0 = скрывать сразу при появлении карточки парковки
+// 0.5 = скрывать когда карточка парковки наполовину появилась
+// 1.0 = скрывать только когда карточка парковки полностью появилась
+const HEADER_HIDE_DELAY = 0.3;
+
 interface StackedAmenitiesProps {
   onImageClick: (imageUrl: string) => void;
 }
