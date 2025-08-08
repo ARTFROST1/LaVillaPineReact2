@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   phone: "+7 (918) 924-00-07",
   email: "lavillapine@yandex.com",
   address:
-    "Кольцевая улица, 4, посёлок Тульский, Майкопский район, Республика Адыгея (Адыгея)",
+    "Республика Адыгея, посёлок Тульский, Кольцевая улица, 4",
   socialLinks: {
     instagram: "https://www.instagram.com/lavillapine/",
     vk: "https://vk.com/lavillapine",
