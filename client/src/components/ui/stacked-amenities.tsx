@@ -89,12 +89,15 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         const isLastCard = index === totalCards - 1;
         
         // Определяем состояние карточки
+        // Базовый z-index: более поздние карточки имеют больший z-index
+        const baseZIndex = 1000 + index;
+        
         if (scrollProgress < cardStartProgress) {
           // Карточка еще не появилась
           cardEl.style.opacity = '0';
           cardEl.style.transform = 'translateY(100vh) scale(0.8) translateZ(0)';
           cardEl.style.filter = 'blur(0px)';
-          cardEl.style.zIndex = '1';
+          cardEl.style.zIndex = baseZIndex.toString();
         } else if (scrollProgress >= cardStartProgress && scrollProgress < cardEndProgress) {
           // Карточка появляется и раскрывается - всегда чёткая
           const cardProgress = (scrollProgress - cardStartProgress) / progressPerCard;
@@ -105,19 +108,19 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           cardEl.style.opacity = opacity.toString();
           cardEl.style.transform = `translateY(${translateY}vh) scale(${scale}) translateZ(0)`;
           cardEl.style.filter = 'blur(0px)'; // Всегда чёткая во время раскрытия
-          cardEl.style.zIndex = (1000 + index).toString();
+          cardEl.style.zIndex = baseZIndex.toString();
         } else if (isLastCard) {
           // Последняя карточка - остается четкой и видимой всегда после полного раскрытия
           cardEl.style.opacity = '1';
           cardEl.style.transform = 'translateY(0px) scale(1) translateZ(0)';
           cardEl.style.filter = 'blur(0px)';
-          cardEl.style.zIndex = (1000 - index).toString();
+          cardEl.style.zIndex = baseZIndex.toString();
         } else if (scrollProgress >= cardEndProgress && scrollProgress < nextCardStartProgress) {
           // Карточка полностью раскрыта и зафиксирована - остается чёткой
           cardEl.style.opacity = '1';
           cardEl.style.transform = 'translateY(0px) scale(1) translateZ(0)';
           cardEl.style.filter = 'blur(0px)'; // Остается чёткой пока следующая не начнет появляться
-          cardEl.style.zIndex = (1000 - index).toString();
+          cardEl.style.zIndex = baseZIndex.toString();
         } else {
           // Следующая карточка начала появляться - эта начинает блюриться, потом исчезает
           const nextCardProgress = (scrollProgress - nextCardStartProgress) / progressPerCard;
@@ -128,14 +131,14 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           
           // hideThreshold - когда карточка полностью скрывается
           // Для предпоследней карточки используем более низкий порог
-          const hideThreshold = 1.0;
+          const hideThreshold = 1.3;
           
           if (nextCardProgress < blurThreshold) {
             // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
             cardEl.style.opacity = '1';
             cardEl.style.transform = 'translateY(0px) scale(1) translateZ(0)';
             cardEl.style.filter = 'blur(0px)';
-            cardEl.style.zIndex = (1000 - index).toString();
+            cardEl.style.zIndex = baseZIndex.toString();
           } else if (nextCardProgress < hideThreshold) {
             // Карточка размывается - между 30% и 70% появления следующей
             const adjustedProgress = (nextCardProgress - blurThreshold) / (hideThreshold - blurThreshold);
@@ -147,13 +150,13 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             cardEl.style.opacity = opacity.toString();
             cardEl.style.transform = `translateY(0px) scale(${scale}) translateZ(0)`;
             cardEl.style.filter = `blur(${blurAmount}px)`;
-            cardEl.style.zIndex = (1000 - index).toString();
+            cardEl.style.zIndex = baseZIndex.toString();
           } else {
             // Карточка полностью скрыта - следующая карточка появилась больше чем на 70%
             cardEl.style.opacity = '0';
             cardEl.style.transform = 'translateY(0px) scale(0.9) translateZ(0)';
             cardEl.style.filter = 'blur(10px)';
-            cardEl.style.zIndex = (1000 - index).toString();
+            cardEl.style.zIndex = baseZIndex.toString();
           }
         }
       });
