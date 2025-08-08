@@ -37,9 +37,11 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           if (!cardEl) return;
 
           const cardStartProgress = index * progressPerCard;
-          const cardFullyVisibleProgress = cardStartProgress + progressPerCard * 0.5; // карточка полностью раскрыта на 50% прогресса
+          const cardFullyVisibleProgress = cardStartProgress + progressPerCard * 0.3; // карточка полностью раскрыта на 30% прогресса
+          const cardStaticEndProgress = cardStartProgress + progressPerCard * 0.7; // карточка остается статичной до 70%
           const nextCardStartProgress = (index + 1) * progressPerCard;
-          const nextCardVisibleProgress = nextCardStartProgress + progressPerCard * 0.3; // следующая карточка начинает быть видной
+          const nextCardBlurStartProgress = nextCardStartProgress + progressPerCard * 0.4; // размытие начинается когда следующая на 40% раскрыта
+          const nextCardFullyVisibleProgress = nextCardStartProgress + progressPerCard * 0.8; // следующая полностью раскрыта на 80%
           
           // Определяем состояние карточки
           if (scrollProgress < cardStartProgress) {
@@ -50,10 +52,10 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             cardEl.style.zIndex = '1';
             cardEl.style.display = 'flex';
           } else if (scrollProgress >= cardStartProgress && scrollProgress < cardFullyVisibleProgress) {
-            // Карточка появляется и раскрывается
-            const cardProgress = (scrollProgress - cardStartProgress) / (progressPerCard * 0.5);
+            // Карточка появляется и раскрывается - плавно выползает
+            const cardProgress = (scrollProgress - cardStartProgress) / (progressPerCard * 0.3);
             const translateY = (1 - cardProgress) * 100;
-            const opacity = Math.min(1, cardProgress * 1.5);
+            const opacity = Math.min(1, cardProgress * 2);
             const scale = 0.8 + cardProgress * 0.2;
             
             cardEl.style.opacity = opacity.toString();
@@ -61,19 +63,26 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             cardEl.style.filter = 'blur(0px)';
             cardEl.style.zIndex = (1000 + index).toString();
             cardEl.style.display = 'flex';
-          } else if (scrollProgress >= cardFullyVisibleProgress && scrollProgress < nextCardStartProgress) {
-            // Карточка полностью видна и зафиксирована
+          } else if (scrollProgress >= cardFullyVisibleProgress && scrollProgress < cardStaticEndProgress) {
+            // Карточка полностью видна и статично зафиксирована - остается чёткой с запасом скрола
             cardEl.style.opacity = '1';
             cardEl.style.transform = 'translateY(0px) scale(1)';
             cardEl.style.filter = 'blur(0px)';
             cardEl.style.zIndex = (1000 + index).toString();
             cardEl.style.display = 'flex';
-          } else if (scrollProgress >= nextCardStartProgress && scrollProgress < nextCardVisibleProgress) {
-            // Следующая карточка начала появляться - текущая начинает блюриться
-            const blurProgress = (scrollProgress - nextCardStartProgress) / (progressPerCard * 0.3);
-            const blurAmount = blurProgress * 6;
-            const opacity = 1 - blurProgress * 0.3;
-            const scale = 1 - blurProgress * 0.05;
+          } else if (scrollProgress >= cardStaticEndProgress && scrollProgress < nextCardBlurStartProgress) {
+            // Следующая карточка начинает выползать, но текущая ещё чёткая
+            cardEl.style.opacity = '1';
+            cardEl.style.transform = 'translateY(0px) scale(1)';
+            cardEl.style.filter = 'blur(0px)';
+            cardEl.style.zIndex = (1000 - index).toString();
+            cardEl.style.display = 'flex';
+          } else if (scrollProgress >= nextCardBlurStartProgress && scrollProgress < nextCardFullyVisibleProgress) {
+            // Следующая карточка накладывается - текущая начинает блюриться постепенно
+            const blurProgress = (scrollProgress - nextCardBlurStartProgress) / (progressPerCard * 0.4);
+            const blurAmount = blurProgress * 8;
+            const opacity = 1 - blurProgress * 0.4;
+            const scale = 1 - blurProgress * 0.03;
             
             cardEl.style.opacity = opacity.toString();
             cardEl.style.transform = `translateY(0px) scale(${scale})`;
@@ -81,10 +90,10 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             cardEl.style.zIndex = (1000 - index).toString();
             cardEl.style.display = 'flex';
           } else {
-            // Следующая карточка полностью закрыла текущую - скрываем
+            // Следующая карточка полностью раскрыта - текущая полностью скрыта
             cardEl.style.opacity = '0';
             cardEl.style.transform = 'translateY(0px) scale(0.9)';
-            cardEl.style.filter = 'blur(10px)';
+            cardEl.style.filter = 'blur(15px)';
             cardEl.style.zIndex = '1';
             cardEl.style.display = 'none';
           }
