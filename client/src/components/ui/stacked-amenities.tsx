@@ -65,15 +65,20 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             cardEl.style.filter = 'blur(0px)'; // Остается чёткой пока следующая не начнет появляться
             cardEl.style.zIndex = (1000 - index).toString();
           } else {
-            // Следующая карточка начала появляться - эта начинает блюриться
+            // Следующая карточка начала появляться - эта начинает блюриться, но с задержкой
             const nextCardProgress = (scrollProgress - nextCardStartProgress) / progressPerCard;
-            const blurAmount = Math.min(8, nextCardProgress * 8);
-            const opacity = Math.max(0.3, 1 - nextCardProgress * 0.7);
-            const scale = Math.max(0.95, 1 - nextCardProgress * 0.05);
+            
+            // Добавляем порог - блюр начинается только когда следующая карточка появилась на 30%
+            const blurThreshold = 0.3;
+            const adjustedProgress = Math.max(0, (nextCardProgress - blurThreshold) / (1 - blurThreshold));
+            
+            const blurAmount = Math.min(8, adjustedProgress * 8);
+            const opacity = Math.max(0.3, 1 - adjustedProgress * 0.7);
+            const scale = Math.max(0.95, 1 - adjustedProgress * 0.05);
             
             cardEl.style.opacity = opacity.toString();
             cardEl.style.transform = `translateY(0px) scale(${scale})`;
-            cardEl.style.filter = `blur(${blurAmount}px)`; // Блюрится только когда следующая карточка появляется
+            cardEl.style.filter = `blur(${blurAmount}px)`; // Блюр начинается только после 30% появления следующей карточки
             cardEl.style.zIndex = (1000 - index).toString();
           }
         });
