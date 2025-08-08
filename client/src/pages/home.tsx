@@ -9,6 +9,7 @@ import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
 import YandexMap from "@/components/ui/yandex-map";
+import StackedAmenities from "@/components/ui/stacked-amenities";
 import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES, AMENITIES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
@@ -170,63 +171,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Preview */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
-              Что вас ждёт в <br />
-              {SITE_CONFIG.name}
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-              Уникальные виллы в стиле лофт с современным дизайном, где комфорт и уют сочетаются с природой
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {AMENITIES.map((amenity, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-accent/10 hover:border-accent/30 cursor-pointer"
-                onClick={() => openGallery(amenity.image)}
-                data-testid={`card-amenity-${index}`}
-              >
-                <div className="relative h-36 sm:h-40 md:h-48 overflow-hidden">
-                  <DynamicImage
-                    src={amenity.image}
-                    fallbackSrc={amenity.fallbackImage}
-                    alt={amenity.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white text-xl sm:text-2xl md:text-3xl">
-                    <i className={amenity.icon}></i>
-                  </div>
-                </div>
-                <div className="p-3 sm:p-4 md:p-6">
-                  <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-primary">
-                    {amenity.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    {amenity.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8 sm:mt-10 md:mt-12">
-            <Link href="/about">
-              <Button
-                size="default"
-                className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg text-sm sm:text-base px-6 sm:px-8 py-2 sm:py-3"
-              >
-                Узнать больше
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Stacked Amenities with Scroll Effect */}
+      <StackedAmenities onImageClick={openGallery} />
 
       {/* Идеальное расположение */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-neutral/30 to-neutral/10">
