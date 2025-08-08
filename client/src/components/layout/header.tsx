@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -8,6 +8,8 @@ import CustomTreeIcon from "@/components/ui/custom-tree-icon";
 export default function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const navigation = [
     { name: "Главная", href: "/" },
@@ -20,8 +22,41 @@ export default function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Отслеживание прокрутки для скрытия/показа Header
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Показываем Header если прокрутили в самый верх
+      if (currentScrollY === 0) {
+        setIsHeaderVisible(true);
+      } 
+      // Скрываем Header если прокручиваем вниз и уже прокрутили больше 100px
+      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHeaderVisible(false);
+        setIsMobileMenuOpen(false); // Закрываем мобильное меню при скрытии Header
+      } 
+      // Показываем Header если прокручиваем вверх
+      else if (currentScrollY < lastScrollY) {
+        setIsHeaderVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header 
+      className={`bg-white dark:bg-gray-900 shadow-sm fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <nav className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
