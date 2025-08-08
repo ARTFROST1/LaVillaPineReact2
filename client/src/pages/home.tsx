@@ -361,6 +361,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Блок бронирования с фиксированным фоном */}
+      <section 
+        className="relative py-20 sm:py-24 md:py-32 bg-fixed bg-cover bg-center"
+        style={{
+          backgroundImage: 'url(/images/amenities/pool.jpg)',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        {/* Темный оверлей для лучшей читаемости */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        
+        {/* Контент */}
+        <div className="relative z-10 container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-display leading-tight">
+              Забронируйте свой идеальный отдых
+            </h2>
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 md:mb-12 opacity-90 leading-relaxed">
+              Окунитесь в атмосферу комфорта и уюта в окружении природы
+            </p>
+            <Link href="/booking">
+              <Button
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-xl hover:shadow-2xl text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 font-medium hover:scale-105 transform"
+              >
+                Забронировать
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Модальное окно галереи */}
       <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
         <DialogContent className="max-w-4xl w-full p-0 overflow-hidden">
