@@ -37,7 +37,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           if (!cardEl) return;
 
           const cardStartProgress = index * progressPerCard;
-          const cardEndProgress = cardStartProgress + progressPerCard * 0.7; // Карточка раскрывается на 70% от своего времени
+          const cardEndProgress = (index + 1) * progressPerCard;
           const nextCardStartProgress = (index + 1) * progressPerCard;
           const isLastCard = index === totalCards - 1;
           
@@ -49,13 +49,13 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             cardEl.style.filter = 'blur(0px)';
             cardEl.style.zIndex = '1';
           } else if (scrollProgress >= cardStartProgress && scrollProgress < cardEndProgress) {
-            // Карточка появляется и раскрывается - всегда чёткая и полностью непрозрачная
+            // Карточка появляется и раскрывается - всегда чёткая
             const cardProgress = (scrollProgress - cardStartProgress) / progressPerCard;
             const translateY = (1 - cardProgress) * 100;
+            const opacity = Math.min(1, cardProgress * 2);
             const scale = 0.8 + cardProgress * 0.2;
             
-            // Карточка всегда полностью непрозрачная во время появления
-            cardEl.style.opacity = '1';
+            cardEl.style.opacity = opacity.toString();
             cardEl.style.transform = `translateY(${translateY}vh) scale(${scale})`;
             cardEl.style.filter = 'blur(0px)'; // Всегда чёткая во время раскрытия
             cardEl.style.zIndex = (1000 + index).toString();
@@ -76,11 +76,13 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             const nextCardProgress = (scrollProgress - nextCardStartProgress) / progressPerCard;
             
             // НАСТРОЙКИ ЭФФЕКТОВ (изменяйте эти значения для настройки анимации):
-            // blurThreshold - когда начинается размытие (0.3 = когда следующая карточка появилась на 30%)
-            const blurThreshold = 0.6;
+            // blurThreshold - когда начинается размытие
+            const blurThreshold = 0.5;
             
-            // hideThreshold - когда карточка полностью скрывается (0.8 = когда следующая карточка появилась на 80%)
-            const hideThreshold = 1.3;
+            // hideThreshold - когда карточка полностью скрывается
+            // Для предпоследней карточки используем более низкий порог
+            const isSecondToLast = index === totalCards - 2;
+            const hideThreshold = isSecondToLast ? 0.4 : 0.8;
             
             if (nextCardProgress < blurThreshold) {
               // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
