@@ -60,7 +60,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             cardEl.style.filter = 'blur(0px)'; // Всегда чёткая во время раскрытия
             cardEl.style.zIndex = (1000 + index).toString();
           } else if (isLastCard) {
-            // Последняя карточка - остается четкой и видимой
+            // Последняя карточка - остается четкой и видимой всегда после полного раскрытия
             cardEl.style.opacity = '1';
             cardEl.style.transform = 'translateY(0px) scale(1)';
             cardEl.style.filter = 'blur(0px)';
@@ -77,10 +77,10 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             
             // НАСТРОЙКИ ЭФФЕКТОВ (изменяйте эти значения для настройки анимации):
             // blurThreshold - когда начинается размытие (0.3 = когда следующая карточка появилась на 30%)
-            const blurThreshold = 0.5;
+            const blurThreshold = 0.6;
             
-            // hideThreshold - когда карточка полностью скрывается (0.7 = когда следующая карточка появилась на 70%)
-            const hideThreshold = 1.2;
+            // hideThreshold - когда карточка полностью скрывается (0.8 = когда следующая карточка появилась на 80%)
+            const hideThreshold = 0.8;
             
             if (nextCardProgress < blurThreshold) {
               // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
