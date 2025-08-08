@@ -276,7 +276,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 
                 {/* Контент карточки */}
-                <div className="absolute inset-0 flex flex-col justify-end p-8 sm:p-12 md:p-16">
+                <div className="absolute inset-0 flex flex-col justify-end p-8 sm:p-12 md:p-16 pb-16 sm:pb-20 md:pb-24">
                   {/* Иконка */}
                   <div className="mb-6">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
