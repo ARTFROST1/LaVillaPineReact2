@@ -2,6 +2,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { AMENITIES } from "@/lib/constants";
+import { useScrollContext } from "@/contexts/scroll-context";
 import DynamicImage from "./dynamic-image";
 
 // Настройка момента скрытия заголовка (0.0 - 1.0)
@@ -23,6 +24,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
   const lastScrollY = useRef(0);
   const animationFrameId = useRef<number | null>(null);
   const isAnimating = useRef(false);
+  const { setIsInAmenitiesSection } = useScrollContext();
 
   // Оптимизированная функция обновления анимации с requestAnimationFrame для плавности
   const updateAnimation = useCallback(() => {
@@ -38,6 +40,9 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
 
     // Начинаем анимацию когда контейнер входит в область видимости
     if (containerTop < viewportHeight && containerTop + containerHeight > 0) {
+      // Пользователь находится в секции достоинств - скрываем Яндекс рейтинг
+      setIsInAmenitiesSection(true);
+      
       // Рассчитываем прогресс скролла более точно
       const scrollableHeight = containerHeight - viewportHeight;
       const scrolled = Math.max(0, viewportHeight - containerTop);
@@ -123,7 +128,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           
           // hideThreshold - когда карточка полностью скрывается
           // Для предпоследней карточки используем более низкий порог
-          const hideThreshold = 0.95;
+          const hideThreshold = 1.0;
           
           if (nextCardProgress < blurThreshold) {
             // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
@@ -152,6 +157,9 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           }
         }
       });
+    } else {
+      // Пользователь вышел из секции достоинств - показываем Яндекс рейтинг обратно
+      setIsInAmenitiesSection(false);
     }
     
     isAnimating.current = false;
