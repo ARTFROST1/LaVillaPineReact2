@@ -8,7 +8,7 @@ import DynamicImage from "@/components/ui/dynamic-image";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
-import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES } from "@/lib/constants";
+import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES, AMENITIES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
 // Типы для HomeReserve
@@ -33,8 +33,11 @@ export default function Home() {
     
     // Если изображение не найдено, ищем по схожему пути
     const fallbackIndex = imageUrl.includes('interior') ? 0 :
+                         imageUrl.includes('sauna') ? 5 :
                          imageUrl.includes('pool') ? 1 :
-                         imageUrl.includes('forest') ? 8 : 0;
+                         imageUrl.includes('forest') ? 2 :
+                         imageUrl.includes('bbq') ? 3 :
+                         imageUrl.includes('parking') ? 4 : 0;
     
     setSelectedImage(imageIndex !== -1 ? imageIndex : fallbackIndex);
     setIsGalleryOpen(true);
@@ -179,89 +182,36 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-            <div 
-              className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer"
-              onClick={() => openGallery('/images/amenities/interior.jpg')}
-              data-testid="card-loft-design"
-            >
-              <div className="relative h-40 sm:h-48 overflow-hidden">
-                <DynamicImage
-                  src="/images/amenities/interior.jpg"
-                  fallbackSrc="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                  alt="Современный дизайн лофт"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
-              </div>
-              <div className="p-4 sm:p-6 md:p-8 text-center">
-                <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
-                  <i className="fas fa-home"></i>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            {AMENITIES.map((amenity, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-accent/10 hover:border-accent/30 cursor-pointer"
+                onClick={() => openGallery(amenity.image)}
+                data-testid={`card-amenity-${index}`}
+              >
+                <div className="relative h-36 sm:h-40 md:h-48 overflow-hidden">
+                  <DynamicImage
+                    src={amenity.image}
+                    fallbackSrc={amenity.fallbackImage}
+                    alt={amenity.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white text-xl sm:text-2xl md:text-3xl">
+                    <i className={amenity.icon}></i>
+                  </div>
                 </div>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4">
-                  Современный лофт дизайн
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600">
-                  Дизайнерский ремонт с индустриальными элементами и современным
-                  комфортом
-                </p>
-              </div>
-            </div>
-
-            <div 
-              className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer"
-              onClick={() => openGallery('/images/amenities/pool.jpg')}
-              data-testid="card-pool-sauna"
-            >
-              <div className="relative h-40 sm:h-48 overflow-hidden">
-                <DynamicImage
-                  src="/images/amenities/pool.jpg"
-                  fallbackSrc="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                  alt="Подогреваемые бассейны"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
-              </div>
-              <div className="p-4 sm:p-6 md:p-8 text-center">
-                <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
-                  <i className="fas fa-swimming-pool"></i>
+                <div className="p-3 sm:p-4 md:p-6">
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-primary">
+                    {amenity.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    {amenity.description}
+                  </p>
                 </div>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4">
-                  Подогреваемые бассейны и сауна
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600">
-                  Частные подогреваемые бассейны и сауны для круглогодичного
-                  отдыха
-                </p>
               </div>
-            </div>
-
-            <div 
-              className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer"
-              onClick={() => openGallery('/images/amenities/forest.jpg')}
-              data-testid="card-forest-surrounding"
-            >
-              <div className="relative h-40 sm:h-48 overflow-hidden">
-                <DynamicImage
-                  src="/images/amenities/forest.jpg"
-                  fallbackSrc="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                  alt="Лесное окружение"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
-              </div>
-              <div className="p-4 sm:p-6 md:p-8 text-center">
-                <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
-                  <i className="fas fa-tree"></i>
-                </div>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4">
-                  Лесное окружение
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600">
-                  Чистая лесная местность с дикими животными и природным ручьем
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
 
           <div className="text-center mt-8 sm:mt-10 md:mt-12">
