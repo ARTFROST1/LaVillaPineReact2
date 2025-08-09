@@ -23,8 +23,10 @@ export function useContrastDetection(elementRef: React.RefObject<HTMLElement>) {
   // Get background color by traversing DOM tree
   const getBackgroundColor = (element: HTMLElement): string => {
     let currentElement: HTMLElement | null = element;
+    let depth = 0;
+    const maxDepth = 10; // Prevent infinite loops
     
-    while (currentElement) {
+    while (currentElement && depth < maxDepth) {
       const computedStyle = window.getComputedStyle(currentElement);
       const backgroundColor = computedStyle.backgroundColor;
       
@@ -34,10 +36,23 @@ export function useContrastDetection(elementRef: React.RefObject<HTMLElement>) {
           backgroundColor !== 'transparent' &&
           backgroundColor !== 'initial' &&
           backgroundColor !== 'inherit') {
-        return backgroundColor;
+        
+        // Parse the alpha value for rgba colors
+        const rgbaMatch = backgroundColor.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/);
+        if (rgbaMatch) {
+          const alpha = parseFloat(rgbaMatch[4]);
+          // Only consider colors with sufficient opacity
+          if (alpha >= 0.1) {
+            return backgroundColor;
+          }
+        } else {
+          // RGB color without alpha
+          return backgroundColor;
+        }
       }
       
       currentElement = currentElement.parentElement;
+      depth++;
     }
     
     return 'rgb(255, 255, 255)'; // Default to white
@@ -116,39 +131,64 @@ export function useContrastDetection(elementRef: React.RefObject<HTMLElement>) {
       const headerElement = elementRef.current;
       const headerRect = headerElement.getBoundingClientRect();
       
-      // Get element at header position
-      headerElement.style.pointerEvents = 'none';
-      const elementBelow = document.elementFromPoint(
-        headerRect.left + headerRect.width / 2,
-        headerRect.top + headerRect.height / 2
-      ) as HTMLElement;
-      headerElement.style.pointerEvents = '';
+      // Sample multiple points across the header for better accuracy
+      const samplePoints = [
+        { x: headerRect.left + headerRect.width * 0.25, y: headerRect.top + headerRect.height * 0.5 },
+        { x: headerRect.left + headerRect.width * 0.5, y: headerRect.top + headerRect.height * 0.5 },
+        { x: headerRect.left + headerRect.width * 0.75, y: headerRect.top + headerRect.height * 0.5 },
+      ];
 
-      if (!elementBelow) {
+      let totalBrightness = 0;
+      let validSamples = 0;
+
+      // Temporarily hide header to sample background
+      headerElement.style.pointerEvents = 'none';
+      headerElement.style.visibility = 'hidden';
+
+      for (const point of samplePoints) {
+        const elementBelow = document.elementFromPoint(point.x, point.y) as HTMLElement;
+        
+        if (elementBelow && elementBelow !== headerElement) {
+          // Get background color from the element
+          let backgroundColor = getBackgroundColor(elementBelow);
+          let backgroundRgb = parseRgbColor(backgroundColor);
+
+          // Check for background image
+          const computedStyle = window.getComputedStyle(elementBelow);
+          const backgroundImage = computedStyle.backgroundImage;
+          
+          if (backgroundImage && backgroundImage !== 'none') {
+            try {
+              backgroundRgb = await getImageAverageColor(elementBelow);
+            } catch (error) {
+              // Use computed background color as fallback
+              console.warn('Image sampling failed, using background color');
+            }
+          }
+
+          // Calculate brightness using YIQ formula
+          const brightness = getYIQBrightness(backgroundRgb[0], backgroundRgb[1], backgroundRgb[2]);
+          totalBrightness += brightness;
+          validSamples++;
+        }
+      }
+
+      // Restore header visibility
+      headerElement.style.pointerEvents = '';
+      headerElement.style.visibility = '';
+
+      if (validSamples === 0) {
         setContrast({ textColor: 'black', isLight: true });
         return;
       }
 
-      // Get background color
-      let backgroundColor = getBackgroundColor(elementBelow);
-      let backgroundRgb = parseRgbColor(backgroundColor);
-
-      // Check for background image
-      const computedStyle = window.getComputedStyle(elementBelow);
-      const backgroundImage = computedStyle.backgroundImage;
-      
-      if (backgroundImage && backgroundImage !== 'none') {
-        try {
-          backgroundRgb = await getImageAverageColor(elementBelow);
-        } catch (error) {
-          console.warn('Image color sampling failed:', error);
-        }
-      }
-
-      // Calculate brightness using YIQ formula
-      const brightness = getYIQBrightness(backgroundRgb[0], backgroundRgb[1], backgroundRgb[2]);
-      const isLight = brightness >= 128;
+      // Average brightness across all sample points
+      const averageBrightness = totalBrightness / validSamples;
+      const isLight = averageBrightness >= 128;
       const textColor = isLight ? 'black' : 'white';
+
+      // Debug logging
+      console.log(`Contrast Detection: brightness=${averageBrightness.toFixed(1)}, samples=${validSamples}, textColor=${textColor}`);
 
       setContrast({ textColor, isLight });
     } catch (error) {
@@ -168,9 +208,15 @@ export function useContrastDetection(elementRef: React.RefObject<HTMLElement>) {
 
     // Update on scroll with throttling
     let scrollTimeout: NodeJS.Timeout;
+    let isScrolling = false;
     const handleScroll = () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(updateContrast, 16); // ~60fps
+      if (!isScrolling) {
+        isScrolling = true;
+        requestAnimationFrame(() => {
+          updateContrast();
+          isScrolling = false;
+        });
+      }
     };
 
     // Update on resize
