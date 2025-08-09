@@ -96,7 +96,8 @@ export default function Header() {
             ))}
             <Link href="/booking" data-testid="link-booking">
               <Button 
-                className="glass-button text-white font-medium"
+                size="sm"
+                className="glass-button text-white text-xs lg:text-sm px-4 lg:px-6 py-2.5 font-medium"
               >
                 Забронировать
               </Button>
