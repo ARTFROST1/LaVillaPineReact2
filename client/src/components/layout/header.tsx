@@ -26,13 +26,9 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const scrollDifference = Math.abs(currentScrollY - lastScrollY);
-      
-      // Игнорируем маленькие изменения прокрутки
-      if (scrollDifference < 5) return;
       
       // Показываем Header если прокрутили в самый верх
-      if (currentScrollY <= 50) {
+      if (currentScrollY === 0) {
         setIsHeaderVisible(true);
       } 
       // Скрываем Header если прокручиваем вниз и уже прокрутили больше 100px
@@ -48,47 +44,34 @@ export default function Header() {
       setLastScrollY(currentScrollY);
     };
 
-    // Добавляем throttling для лучшей производительности
-    let ticking = false;
-    const throttledHandleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
-      window.removeEventListener('scroll', throttledHandleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
 
   return (
     <header 
-      className={`glass-header glass-shimmer-effect fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-        isHeaderVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      className={`bg-white dark:bg-gray-900 shadow-sm fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
       <nav className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 logo-glass-effect">
+          <Link href="/" className="flex items-center space-x-2">
             <CustomTreeIcon className="h-6 w-6 sm:h-8 sm:w-8" />
             <span className="text-lg sm:text-xl md:text-2xl font-bold text-primary font-display">{SITE_CONFIG.name}</span>
           </Link>
           
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`glass-nav-item text-sm lg:text-base text-primary font-medium ${
-                  location === item.href ? "active" : ""
+                className={`text-sm lg:text-base text-primary hover:text-accent transition-colors duration-200 ${
+                  location === item.href ? "text-accent font-semibold" : ""
                 }`}
-                data-testid={`nav-link-${item.name.toLowerCase()}`}
               >
                 {item.name}
               </Link>
@@ -96,8 +79,7 @@ export default function Header() {
             <Link href="/booking">
               <Button 
                 size="sm"
-                className="glass-button text-white font-medium text-xs lg:text-sm px-4 lg:px-6 py-2.5 ml-2"
-                data-testid="button-booking"
+                className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-md text-xs lg:text-sm px-3 lg:px-4 py-2"
               >
                 Забронировать
               </Button>
@@ -109,8 +91,7 @@ export default function Header() {
               variant="ghost"
               size="sm"
               onClick={toggleMobileMenu}
-              className="glass-nav-item text-primary p-2"
-              data-testid="button-mobile-menu"
+              className="text-primary p-2"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -119,26 +100,22 @@ export default function Header() {
         
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden glass-mobile-menu animate-slide-in">
-            <div className="flex flex-col space-y-2">
+          <div className="md:hidden mt-3 pb-3 animate-slide-in">
+            <div className="flex flex-col space-y-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`glass-mobile-item text-primary font-medium ${
+                  className={`text-primary hover:text-accent transition-colors duration-200 ${
                     location === item.href ? "text-accent font-semibold" : ""
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  data-testid={`mobile-nav-${item.name.toLowerCase()}`}
                 >
                   {item.name}
                 </Link>
               ))}
               <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button 
-                  className="glass-button text-white font-medium w-full mt-2"
-                  data-testid="mobile-button-booking"
-                >
+                <Button className="bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-md w-full">
                   Забронировать
                 </Button>
               </Link>
