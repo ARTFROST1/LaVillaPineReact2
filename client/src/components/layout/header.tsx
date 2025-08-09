@@ -15,7 +15,8 @@ export default function Header() {
   // Use dynamic contrast hook
   const { textColor } = useDynamicContrast({
     headerSelector: 'header',
-    threshold: 128
+    threshold: 128,
+    currentPath: location
   });
 
   const navigation = [

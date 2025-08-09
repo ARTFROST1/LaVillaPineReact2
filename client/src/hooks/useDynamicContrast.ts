@@ -4,6 +4,7 @@ interface ContrastHookOptions {
   headerSelector: string;
   contentSelector?: string;
   threshold?: number;
+  currentPath?: string;
 }
 
 interface ContrastState {
@@ -178,8 +179,14 @@ export function useDynamicContrast(options: ContrastHookOptions) {
       return;
     }
 
-    // Initial contrast calculation
-    updateContrast();
+    // Initial contrast calculation with delay to ensure DOM is ready
+    const initialUpdate = () => {
+      setTimeout(() => {
+        updateContrast();
+      }, options.currentPath ? 200 : 100); // Longer delay for page changes
+    };
+    
+    initialUpdate();
 
     // Add scroll listener
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -187,16 +194,20 @@ export function useDynamicContrast(options: ContrastHookOptions) {
     // Also listen for resize events
     window.addEventListener('resize', handleScroll, { passive: true });
     
+    // Listen for page visibility changes (when user navigates back to tab)
+    window.addEventListener('visibilitychange', initialUpdate);
+    
     // Cleanup
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('visibilitychange', initialUpdate);
       
       if (rafIdRef.current) {
         cancelAnimationFrame(rafIdRef.current);
       }
     };
-  }, [options.headerSelector]);
+  }, [options.headerSelector, options.currentPath]);
 
   return contrastState;
 }
