@@ -26,9 +26,13 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+      
+      // Игнорируем маленькие изменения прокрутки
+      if (scrollDifference < 5) return;
       
       // Показываем Header если прокрутили в самый верх
-      if (currentScrollY === 0) {
+      if (currentScrollY <= 50) {
         setIsHeaderVisible(true);
       } 
       // Скрываем Header если прокручиваем вниз и уже прокрутили больше 100px
@@ -44,17 +48,29 @@ export default function Header() {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Добавляем throttling для лучшей производительности
+    let ticking = false;
+    const throttledHandleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
     
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', throttledHandleScroll);
     };
   }, [lastScrollY]);
 
   return (
     <header 
-      className={`glass-header glass-shimmer-effect fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
-        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+      className={`glass-header glass-shimmer-effect fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
+        isHeaderVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
     >
       <nav className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
