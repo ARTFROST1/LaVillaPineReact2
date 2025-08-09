@@ -59,8 +59,9 @@ export default function Header() {
     };
   }, [lastScrollY]);
 
-  // Dynamic text color classes based on background
+  // Dynamic text color classes based on background with transparency for menu items
   const dynamicTextClass = textColor === 'light' ? 'text-white' : 'text-black';
+  const transparentTextClass = textColor === 'light' ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black';
 
   return (
     <header 
@@ -86,7 +87,7 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={`ios-glass-nav-button text-sm lg:text-base transition-colors duration-300 ${
-                  location === item.href ? "active font-semibold text-yellow-500 hover:text-yellow-400" : `${dynamicTextClass}`
+                  location === item.href ? "active font-semibold text-yellow-500 hover:text-yellow-400" : transparentTextClass
                 }`}
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
               >
