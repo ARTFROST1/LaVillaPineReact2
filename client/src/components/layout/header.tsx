@@ -143,16 +143,19 @@ export default function Header() {
                 </div>
               ))}
               <div 
-                className="glass-mobile-item"
+                className="glass-mobile-item booking-item"
                 style={{ 
                   animationDelay: `${navigation.length * 50}ms`,
                   animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
                 }}
               >
-                <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)} data-testid="link-mobile-booking">
-                  <Button className="glass-button text-white w-full font-medium">
-                    Забронировать
-                  </Button>
+                <Link
+                  href="/booking"
+                  className="block transition-all duration-300 font-medium text-base text-white text-center"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  data-testid="link-mobile-booking"
+                >
+                  Забронировать
                 </Link>
               </div>
             </div>
