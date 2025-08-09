@@ -64,8 +64,8 @@ export default function Header() {
 
   return (
     <header 
-      className={`glass-header-light dark:glass-header-dark fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-        isHeaderVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      className={`glass-header-light dark:glass-header-dark fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
       <nav className="container mx-auto px-3 sm:px-4 py-4 sm:py-5">
