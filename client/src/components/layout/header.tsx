@@ -4,20 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import CustomTreeIcon from "@/components/ui/custom-tree-icon";
-import { useDynamicContrast } from "@/hooks/useDynamicContrast";
 
 export default function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  
-  // Use dynamic contrast hook
-  const { textColor } = useDynamicContrast({
-    headerSelector: 'header',
-    threshold: 128,
-    currentPath: location
-  });
 
   const navigation = [
     { name: "Главная", href: "/" },
@@ -59,12 +51,9 @@ export default function Header() {
     };
   }, [lastScrollY]);
 
-  // Dynamic text color classes based on background
-  const dynamicTextClass = textColor === 'light' ? 'text-white' : 'text-black';
-
   return (
     <header 
-      className={`glass-header-light dark:glass-header-dark fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
         isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
@@ -72,10 +61,9 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 group" data-testid="link-home-logo">
             <div className="relative">
-              <CustomTreeIcon className={`h-7 w-7 sm:h-9 sm:w-9 transition-transform duration-300 group-hover:scale-110 ${dynamicTextClass}`} />
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CustomTreeIcon className="h-7 w-7 sm:h-9 sm:w-9 transition-transform duration-300 group-hover:scale-110 text-black" />
             </div>
-            <span className={`text-lg sm:text-xl md:text-2xl font-bold font-display transition-all duration-300 ${dynamicTextClass}`}>
+            <span className="text-lg sm:text-xl md:text-2xl font-bold font-display transition-all duration-300 text-black">
               {SITE_CONFIG.name}
             </span>
           </Link>
@@ -85,8 +73,8 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`ios-glass-nav-button text-sm lg:text-base transition-colors duration-300 ${
-                  location === item.href ? "active font-semibold text-yellow-500 hover:text-yellow-400" : `${dynamicTextClass}`
+                className={`minimal-nav-button text-sm lg:text-base transition-colors duration-300 ${
+                  location === item.href ? "text-accent font-semibold" : "text-black"
                 }`}
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
               >
@@ -95,7 +83,7 @@ export default function Header() {
             ))}
             <Link
               href="/booking"
-              className="ios-glass-booking-button text-xs lg:text-sm font-medium"
+              className="minimal-booking-button text-xs lg:text-sm font-medium"
               data-testid="link-booking"
             >
               Забронировать
@@ -107,7 +95,7 @@ export default function Header() {
               variant="ghost"
               size="default"
               onClick={toggleMobileMenu}
-              className={`glass-nav-item transition-colors duration-300 ${dynamicTextClass}`}
+              className="minimal-mobile-button transition-colors duration-300 text-black"
               data-testid="button-mobile-menu"
               style={{ padding: '12px', minWidth: '44px', width: '44px' }}
             >
@@ -116,41 +104,41 @@ export default function Header() {
           </div>
         </div>
         
-        {/* iOS 26 Liquid Glass Mobile Menu */}
+        {/* Minimal Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden animate-slide">
-            <div className="glass-mobile-menu dark:glass-mobile-menu-dark">
+            <div className="minimal-mobile-menu">
               {navigation.map((item, index) => (
                 <div 
                   key={item.name} 
-                  className={`glass-mobile-item ${location === item.href ? "active" : ""}`}
+                  className="minimal-mobile-item"
                   style={{ 
                     animationDelay: `${index * 50}ms`,
-                    animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
+                    animation: 'slide-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) both'
                   }}
                 >
                   <Link
                     href={item.href}
-                    className={`ios-glass-mobile-nav block transition-all duration-300 font-medium text-base ${
-                      location === item.href ? "font-semibold text-yellow-500" : `${dynamicTextClass}`
+                    className={`minimal-mobile-nav block transition-all duration-300 font-medium text-base ${
+                      location === item.href ? "text-accent font-semibold" : "text-black"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`link-mobile-${item.name.toLowerCase()}`}
                   >
-{item.name}
+                    {item.name}
                   </Link>
                 </div>
               ))}
               <div 
-                className="glass-mobile-item booking-item"
+                className="minimal-mobile-item"
                 style={{ 
                   animationDelay: `${navigation.length * 50}ms`,
-                  animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
+                  animation: 'slide-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) both'
                 }}
               >
                 <Link
                   href="/booking"
-                  className="ios-glass-mobile-booking block transition-all duration-300 font-medium text-base text-center"
+                  className="minimal-mobile-booking block transition-all duration-300 font-medium text-base text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                   data-testid="link-mobile-booking"
                 >
