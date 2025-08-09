@@ -68,6 +68,20 @@ p {
   letter-spacing: 0.005em;
 }
 
+/* Dynamic contrast transitions */
+.dynamic-text-transition {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced visibility for text on varying backgrounds */
+.contrast-shadow-light {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.contrast-shadow-dark {
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+}
+
 .dark {
   --background: hsl(210, 40%, 3%);
   --foreground: hsl(0, 0%, 98%);
