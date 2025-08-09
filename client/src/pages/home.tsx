@@ -175,7 +175,7 @@ export default function Home() {
       <StackedAmenities onImageClick={openGallery} />
 
       {/* Идеальное расположение */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-neutral/30 to-neutral/10">
+      <section className="pt-8 pb-12 sm:pt-10 sm:pb-16 md:pt-12 md:pb-20 bg-gradient-to-br from-neutral/30 to-neutral/10">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">

@@ -303,18 +303,29 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         ))}
       </div>
 
-      {/* Кнопка "Узнать больше" в конце */}
-      <div className="relative z-50 bg-white py-16">
+      {/* Кнопки "Узнать больше" и "Посмотреть галерею" */}
+      <div className="relative z-50 bg-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <Link href="/about">
-            <Button
-              size="lg"
-              className="ios-glass-booking-button text-lg font-medium"
-              data-testid="button-learn-more"
-            >
-              Узнать больше
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+            <Link href="/about">
+              <Button
+                size="lg"
+                className="ios-glass-booking-button text-lg font-medium w-full sm:w-auto"
+                data-testid="button-learn-more"
+              >
+                Узнать больше
+              </Button>
+            </Link>
+            <Link href="/gallery">
+              <Button
+                size="lg"
+                className="liquid-glass-button-secondary text-lg font-medium w-full sm:w-auto"
+                data-testid="button-gallery"
+              >
+                Посмотреть галерею
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
