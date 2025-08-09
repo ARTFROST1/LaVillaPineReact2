@@ -106,7 +106,7 @@ export default function Header() {
           <div className="md:hidden">
             <Button
               variant="ghost"
-              size="lg"
+              size="default"
               onClick={toggleMobileMenu}
               className={`glass-nav-item transition-colors duration-300 ${dynamicTextClass}`}
               data-testid="button-mobile-menu"
