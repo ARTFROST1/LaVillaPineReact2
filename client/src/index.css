@@ -356,10 +356,15 @@ p {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .glass-mobile-menu-dark {
-  /* No background styles needed - individual items have their own glass effect */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .glass-mobile-item {
@@ -691,29 +696,7 @@ p {
   transform: rotate(90deg);
 }
 
-/* Subtle glow effects for better depth */
-.glass-mobile-menu {
-  position: relative;
-}
-
-.glass-mobile-menu::after {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, 
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.1)
-  );
-  border-radius: 22px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.glass-mobile-menu:hover::after {
-  opacity: 1;
-}
+/* Container for mobile menu - no background effects */
 
 /* Smooth scrolling */
 html {
