@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface ContrastResult {
   textColor: 'white' | 'black';
@@ -7,10 +7,56 @@ interface ContrastResult {
 
 export function useContrastDetection(elementRef: React.RefObject<HTMLElement>) {
   const [contrast, setContrast] = useState<ContrastResult>({ textColor: 'black', isLight: true });
+  
+  // Кэширование для предотвращения ненужных пересчетов
+  const lastResultRef = useRef<{
+    luminance: number;
+    textColor: 'white' | 'black';
+    timestamp: number;
+  } | null>(null);
 
-  // YIQ formula for brightness calculation (industry standard)
+  // WCAG compliant luminance calculation (more accurate than YIQ)
+  const getRelativeLuminance = (r: number, g: number, b: number): number => {
+    // Convert RGB to linear color space
+    const toLinear = (colorChannel: number): number => {
+      const c = colorChannel / 255;
+      return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    };
+
+    const rLinear = toLinear(r);
+    const gLinear = toLinear(g);
+    const bLinear = toLinear(b);
+
+    // Calculate relative luminance
+    return 0.2126 * rLinear + 0.7152 * gLinear + 0.0722 * bLinear;
+  };
+
+  // Calculate WCAG contrast ratio between two colors
+  const getContrastRatio = (color1Luminance: number, color2Luminance: number): number => {
+    const lighter = Math.max(color1Luminance, color2Luminance);
+    const darker = Math.min(color1Luminance, color2Luminance);
+    return (lighter + 0.05) / (darker + 0.05);
+  };
+
+  // YIQ formula for brightness calculation (backup method)
   const getYIQBrightness = (r: number, g: number, b: number): number => {
     return (r * 299 + g * 587 + b * 114) / 1000;
+  };
+
+  // Determine optimal text color using WCAG guidelines
+  const getOptimalTextColor = (bgR: number, bgG: number, bgB: number): 'white' | 'black' => {
+    const bgLuminance = getRelativeLuminance(bgR, bgG, bgB);
+    
+    // Luminance for white and black
+    const whiteLuminance = 1.0;
+    const blackLuminance = 0.0;
+    
+    // Calculate contrast ratios
+    const whiteContrast = getContrastRatio(bgLuminance, whiteLuminance);
+    const blackContrast = getContrastRatio(bgLuminance, blackLuminance);
+    
+    // Return the color with better contrast, with WCAG AA minimum (4.5:1)
+    return whiteContrast > blackContrast ? 'white' : 'black';
   };
 
   // Parse RGB color string to values
@@ -166,9 +212,9 @@ export function useContrastDetection(elementRef: React.RefObject<HTMLElement>) {
             }
           }
 
-          // Calculate brightness using YIQ formula
-          const brightness = getYIQBrightness(backgroundRgb[0], backgroundRgb[1], backgroundRgb[2]);
-          totalBrightness += brightness;
+          // Calculate luminance for better accuracy
+          const luminance = getRelativeLuminance(backgroundRgb[0], backgroundRgb[1], backgroundRgb[2]);
+          totalBrightness += luminance;
           validSamples++;
         }
       }
@@ -182,13 +228,39 @@ export function useContrastDetection(elementRef: React.RefObject<HTMLElement>) {
         return;
       }
 
-      // Average brightness across all sample points
-      const averageBrightness = totalBrightness / validSamples;
-      const isLight = averageBrightness >= 128;
-      const textColor = isLight ? 'black' : 'white';
+      // Average luminance across all sample points
+      const averageLuminance = totalBrightness / validSamples;
+      
+      // Проверяем кэш для предотвращения ненужных обновлений
+      const currentTime = performance.now();
+      const CACHE_THRESHOLD = 0.05; // Минимальная разница для обновления
+      const CACHE_TIME_MS = 100; // Минимальное время между обновлениями
+      
+      if (lastResultRef.current) {
+        const luminanceDiff = Math.abs(averageLuminance - lastResultRef.current.luminance);
+        const timeDiff = currentTime - lastResultRef.current.timestamp;
+        
+        // Если изменение незначительное и прошло мало времени, пропускаем обновление
+        if (luminanceDiff < CACHE_THRESHOLD && timeDiff < CACHE_TIME_MS) {
+          return;
+        }
+      }
+      
+      // Determine optimal text color using WCAG standards
+      // Convert luminance back to RGB for the optimal text color function
+      const avgBrightness = averageLuminance * 255;
+      const textColor = getOptimalTextColor(avgBrightness, avgBrightness, avgBrightness);
+      const isLight = averageLuminance > 0.5;
 
-      // Debug logging
-      console.log(`Contrast Detection: brightness=${averageBrightness.toFixed(1)}, samples=${validSamples}, textColor=${textColor}`);
+      // Обновляем кэш
+      lastResultRef.current = {
+        luminance: averageLuminance,
+        textColor,
+        timestamp: currentTime
+      };
+
+      // Debug logging with more detailed information
+      console.log(`Contrast Detection: luminance=${averageLuminance.toFixed(3)}, samples=${validSamples}, textColor=${textColor}`);
 
       setContrast({ textColor, isLight });
     } catch (error) {
@@ -206,12 +278,19 @@ export function useContrastDetection(elementRef: React.RefObject<HTMLElement>) {
     // Initial calculation
     updateContrast();
 
-    // Update on scroll with throttling
+    // Advanced throttling for scroll events with better performance
     let scrollTimeout: NodeJS.Timeout;
     let isScrolling = false;
+    let lastScrollTime = 0;
+    const SCROLL_THROTTLE_MS = 16; // ~60fps for smooth updates
+    
     const handleScroll = () => {
-      if (!isScrolling) {
+      const now = performance.now();
+      
+      if (!isScrolling && (now - lastScrollTime) > SCROLL_THROTTLE_MS) {
         isScrolling = true;
+        lastScrollTime = now;
+        
         requestAnimationFrame(() => {
           updateContrast();
           isScrolling = false;

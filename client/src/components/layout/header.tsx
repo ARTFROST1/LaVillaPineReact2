@@ -57,7 +57,9 @@ export default function Header() {
   return (
     <header 
       ref={headerRef}
-      className={`glass-header-light dark:glass-header-dark fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      className={`${
+        textColor === 'white' ? 'glass-header-dark' : 'glass-header-light'
+      } fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isHeaderVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
     >
@@ -97,7 +99,11 @@ export default function Header() {
             <Link href="/booking" data-testid="link-booking">
               <Button 
                 size="sm"
-                className="glass-button text-white text-xs lg:text-sm px-4 lg:px-6 py-2.5 font-medium"
+                className={`glass-button text-xs lg:text-sm px-4 lg:px-6 py-2.5 font-medium ${
+                  textColor === 'white' 
+                    ? 'text-white' 
+                    : 'text-black'
+                }`}
               >
                 Забронировать
               </Button>
@@ -141,7 +147,11 @@ export default function Header() {
               ))}
               <div className="glass-mobile-item">
                 <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)} data-testid="link-mobile-booking">
-                  <Button className="glass-button text-white w-full font-medium">
+                  <Button className={`glass-button w-full font-medium ${
+                    textColor === 'white' 
+                      ? 'text-white' 
+                      : 'text-black'
+                  }`}>
                     Забронировать
                   </Button>
                 </Link>
