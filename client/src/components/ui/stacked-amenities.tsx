@@ -256,8 +256,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             data-testid={`stacked-card-${index}`}
           >
             <div 
-              className="w-full max-w-6xl h-[80vh] rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
-              onClick={() => onImageClick(amenity.image)}
+              className="w-full max-w-6xl h-[80vh] rounded-3xl overflow-hidden shadow-2xl group"
               style={{
                 willChange: 'transform',
                 transform: 'translateZ(0)',
