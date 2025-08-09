@@ -133,7 +133,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     className={`ios-glass-mobile-nav block transition-all duration-300 font-medium text-base ${
-                      location === item.href ? "font-semibold text-yellow-500" : `${dynamicTextClass}`
+                      location === item.href ? "font-semibold text-yellow-500" : transparentTextClass
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`link-mobile-${item.name.toLowerCase()}`}
