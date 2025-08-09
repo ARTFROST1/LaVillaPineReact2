@@ -176,9 +176,10 @@ p {
   position: relative;
   padding: 12px 20px;
   border-radius: 16px;
-  min-height: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
+  white-space: nowrap;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.1) 0%,
@@ -284,10 +285,11 @@ p {
   color: rgba(0, 0, 0, 0.8);
   border-radius: 16px;
   padding: 12px 20px;
-  min-height: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);

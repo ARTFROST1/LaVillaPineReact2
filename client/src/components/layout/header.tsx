@@ -110,7 +110,7 @@ export default function Header() {
               onClick={toggleMobileMenu}
               className={`glass-nav-item transition-colors duration-300 ${dynamicTextClass}`}
               data-testid="button-mobile-menu"
-              style={{ padding: '12px' }}
+              style={{ padding: '12px', minWidth: '44px', width: '44px' }}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
