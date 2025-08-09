@@ -319,7 +319,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             <Link href="/gallery">
               <Button
                 size="lg"
-                className="liquid-glass-button-secondary text-lg font-medium w-full sm:w-auto"
+                className="liquid-glass-button-secondary text-lg font-medium w-full sm:w-auto text-[#264059]"
                 data-testid="button-gallery"
               >
                 Посмотреть галерею
