@@ -269,14 +269,17 @@ p {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
-  background: transparent;
 }
 
 .glass-mobile-item:hover {
-  background: transparent;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.04)
+  );
+  backdrop-filter: blur(16px);
   transform: translateX(8px) scale(1.02);
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(255, 255, 255, 0.05);
 }
 
@@ -294,7 +297,6 @@ p {
   font-weight: 500;
   letter-spacing: -0.01em;
   transition: all 0.2s ease;
-  
 }
 
 
