@@ -235,9 +235,6 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             Что вас ждёт в <br />
             La Villa Pine
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            Уникальные виллы в стиле лофт
-          </p>
         </div>
       </div>
 
