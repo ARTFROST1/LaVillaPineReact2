@@ -9,7 +9,7 @@ import DynamicImage from "./dynamic-image";
 // 0.0 = скрывать сразу при появлении карточки парковки
 // 0.5 = скрывать когда карточка парковки наполовину появилась
 // 1.0 = скрывать только когда карточка парковки полностью появилась
-const HEADER_HIDE_DELAY = 0.3;
+const HEADER_HIDE_DELAY = -0.9;
 
 interface StackedAmenitiesProps {
   onImageClick: (imageUrl: string) => void;
@@ -131,7 +131,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           
           // hideThreshold - когда карточка полностью скрывается
           // Для предпоследней карточки используем более низкий порог
-          const hideThreshold = 1.3;
+          const hideThreshold = 1.6;
           
           if (nextCardProgress < blurThreshold) {
             // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
@@ -145,7 +145,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             
             const blurAmount = Math.min(8, adjustedProgress * 8);
             const opacity = Math.max(0.3, 1 - adjustedProgress * 0.7);
-            const scale = Math.max(0.95, 1 - adjustedProgress * 0.05);
+            const scale = Math.max(0.85, 1 - adjustedProgress * 0.05);
             
             cardEl.style.opacity = opacity.toString();
             cardEl.style.transform = `translateY(0px) scale(${scale}) translateZ(0)`;
