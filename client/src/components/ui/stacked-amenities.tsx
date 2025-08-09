@@ -309,7 +309,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           <Link href="/about">
             <Button
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-white border-2 border-accent hover:border-accent/90 transition-all duration-300 shadow-lg text-lg px-12 py-4"
+              className="ios-glass-booking-button text-lg font-medium"
               data-testid="button-learn-more"
             >
               Узнать больше

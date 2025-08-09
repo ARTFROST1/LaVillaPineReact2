@@ -327,7 +327,7 @@ export default function Home() {
             <Link href="/booking">
               <Button
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-xl hover:shadow-2xl text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 font-medium hover:scale-105 transform"
+                className="ios-glass-booking-button text-base sm:text-lg font-medium"
               >
                 Забронировать
               </Button>
