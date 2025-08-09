@@ -131,8 +131,8 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
-                    className={`block transition-all duration-300 font-medium text-base ${dynamicTextClass} ${dynamicAccentClass} ${
-                      location === item.href ? "font-semibold" : ""
+                    className={`block transition-all duration-300 font-medium text-base ${
+                      location === item.href ? "font-semibold text-yellow-500" : `${dynamicTextClass} ${dynamicAccentClass}`
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`link-mobile-${item.name.toLowerCase()}`}
