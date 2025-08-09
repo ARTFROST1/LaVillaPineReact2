@@ -119,7 +119,7 @@ export default function Header() {
         
         {/* iOS 26 Liquid Glass Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden animate-slide-in">
+          <div className="md:hidden animate-slide">
             <div className="glass-mobile-menu dark:glass-mobile-menu-dark">
               {navigation.map((item, index) => (
                 <div 
