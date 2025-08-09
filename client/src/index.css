@@ -171,58 +171,171 @@ p {
   box-shadow: none;
 }
 
+/* Desktop Navigation - iOS 26 Liquid Glass Style */
 .glass-nav-item {
   position: relative;
-  padding: 8px 16px;
-  border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.glass-nav-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
-}
-
-.glass-nav-item.active {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 
-    0 6px 20px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.glass-button {
+  padding: 12px 20px;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   background: linear-gradient(135deg, 
-    rgba(255, 198, 41, 0.9) 0%, 
-    rgba(255, 184, 0, 0.95) 100%
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.08) 100%
   );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 
-    0 8px 32px rgba(255, 198, 41, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  position: relative;
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 
-.glass-button:hover {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.2) 0%, 
-    rgba(255, 255, 255, 0.1) 100%
+.glass-nav-item:hover {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.08)
   );
-  color: hsl(45, 80%, 50%);
-  border-color: rgba(255, 198, 41, 0.6);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.25);
   box-shadow: 
-    0 12px 40px rgba(255, 198, 41, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-nav-item.active {
+  background: linear-gradient(135deg,
+    rgba(255, 198, 41, 0.2),
+    rgba(255, 184, 0, 0.15),
+    rgba(255, 198, 41, 0.25)
+  );
+  border-color: rgba(255, 198, 41, 0.4);
+  box-shadow: 
+    0 6px 24px rgba(255, 198, 41, 0.25),
+    0 3px 12px rgba(255, 184, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+    inset 0 -1px 0 rgba(255, 198, 41, 0.3);
+}
+
+/* Dark mode styles for desktop navigation */
+.dark .glass-nav-item {
+  background: linear-gradient(135deg, 
+    rgba(40, 44, 52, 0.15) 0%,
+    rgba(32, 36, 42, 0.12) 50%,
+    rgba(36, 40, 48, 0.18) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dark .glass-nav-item:hover {
+  background: linear-gradient(135deg,
+    rgba(40, 44, 52, 0.25),
+    rgba(32, 36, 42, 0.18)
+  );
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-nav-item.active {
+  background: linear-gradient(135deg,
+    rgba(255, 198, 41, 0.15),
+    rgba(255, 184, 0, 0.1),
+    rgba(255, 198, 41, 0.2)
+  );
+  border-color: rgba(255, 198, 41, 0.3);
+  box-shadow: 
+    0 6px 24px rgba(255, 198, 41, 0.2),
+    0 3px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 198, 41, 0.15);
+}
+
+/* Desktop Booking Button - iOS 26 Liquid Glass Style */
+.glass-button {
+  background: linear-gradient(135deg, 
+    rgba(255, 198, 41, 0.85) 0%,
+    rgba(255, 184, 0, 0.75) 50%,
+    rgba(255, 198, 41, 0.9) 100%
+  );
+  border: 1px solid rgba(255, 198, 41, 0.9);
+  box-shadow: 
+    0 4px 20px rgba(255, 198, 41, 0.4),
+    0 2px 10px rgba(255, 184, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(255, 198, 41, 0.5);
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-button:hover {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.08)
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 198, 41, 0.4);
+  color: #FFC629;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 8px 32px rgba(255, 198, 41, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 198, 41, 0.2);
+  text-shadow: 0 0 8px rgba(255, 198, 41, 0.5);
+}
+
+/* Dark mode styles for desktop booking button */
+.dark .glass-button {
+  background: linear-gradient(135deg, 
+    rgba(255, 198, 41, 0.8) 0%,
+    rgba(255, 184, 0, 0.7) 50%,
+    rgba(255, 198, 41, 0.85) 100%
+  );
+  border: 1px solid rgba(255, 198, 41, 0.85);
+  box-shadow: 
+    0 4px 20px rgba(255, 198, 41, 0.3),
+    0 2px 10px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 198, 41, 0.3);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.dark .glass-button:hover {
+  background: linear-gradient(135deg,
+    rgba(40, 44, 52, 0.15),
+    rgba(32, 36, 42, 0.12),
+    rgba(36, 40, 48, 0.18)
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-color: rgba(255, 198, 41, 0.4);
+  color: #FFC629;
+  box-shadow: 
+    0 8px 32px rgba(255, 198, 41, 0.25),
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 198, 41, 0.15);
+  text-shadow: 0 0 8px rgba(255, 198, 41, 0.6);
 }
 
 
