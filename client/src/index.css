@@ -114,15 +114,6 @@ p {
   .border-neutral {
     border-color: var(--neutral);
   }
-
-  /* Динамические цвета текста для хедера */
-  .dynamic-text {
-    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .dynamic-header-element {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
 }
 
 /* Liquid Glass Effects */

@@ -222,7 +222,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
       {/* Заголовок секции */}
       <div 
         ref={headerRef}
-        className={`sticky top-7 z-50 bg-white/90 backdrop-blur-sm py-8 transition-opacity duration-500 ${
+        className={`sticky top-0 z-50 bg-white/90 backdrop-blur-sm py-8 transition-opacity duration-500 ${
           isHeaderVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         style={{
@@ -236,7 +236,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
             La Villa Pine
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            Уникальные виллы в стиле лофт с современным дизайном
+            Уникальные виллы в стиле лофт с современным дизайном, где комфорт и уют сочетаются с природой
           </p>
         </div>
       </div>
