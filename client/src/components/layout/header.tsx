@@ -61,7 +61,6 @@ export default function Header() {
 
   // Dynamic text color classes based on background
   const dynamicTextClass = textColor === 'light' ? 'text-white' : 'text-black';
-  const dynamicAccentClass = textColor === 'light' ? 'hover:text-yellow-300' : 'hover:text-yellow-600';
 
   return (
     <header 
@@ -76,7 +75,7 @@ export default function Header() {
               <CustomTreeIcon className={`h-7 w-7 sm:h-9 sm:w-9 transition-transform duration-300 group-hover:scale-110 ${dynamicTextClass}`} />
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <span className={`text-lg sm:text-xl md:text-2xl font-bold font-display transition-all duration-300 ${dynamicTextClass} ${dynamicAccentClass}`}>
+            <span className={`text-lg sm:text-xl md:text-2xl font-bold font-display transition-all duration-300 ${dynamicTextClass}`}>
               {SITE_CONFIG.name}
             </span>
           </Link>
@@ -87,7 +86,7 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={`glass-nav-item text-sm lg:text-base transition-colors duration-300 ${
-                  location === item.href ? "active font-semibold text-yellow-500 hover:text-yellow-400" : `${dynamicTextClass} ${dynamicAccentClass}`
+                  location === item.href ? "active font-semibold text-yellow-500 hover:text-yellow-400" : `${dynamicTextClass}`
                 }`}
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
               >
@@ -133,7 +132,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     className={`block transition-all duration-300 font-medium text-base ${
-                      location === item.href ? "font-semibold text-yellow-500" : `${dynamicTextClass} ${dynamicAccentClass}`
+                      location === item.href ? "font-semibold text-yellow-500" : `${dynamicTextClass}`
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`link-mobile-${item.name.toLowerCase()}`}
