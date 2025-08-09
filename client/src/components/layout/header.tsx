@@ -71,7 +71,7 @@ export default function Header() {
     >
       <nav className="container mx-auto px-3 sm:px-4 py-4 sm:py-5">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3 group" data-testid="link-home-logo">
+          <Link href="/" className="glass-nav-item flex items-center space-x-3 group" data-testid="link-home-logo">
             <div className="relative">
               <CustomTreeIcon className={`h-7 w-7 sm:h-9 sm:w-9 transition-transform duration-300 group-hover:scale-110 ${dynamicTextClass}`} />
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

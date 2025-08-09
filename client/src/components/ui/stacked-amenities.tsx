@@ -222,7 +222,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
       {/* Заголовок секции */}
       <div 
         ref={headerRef}
-        className={`sticky top-7 z-50 bg-white/90 backdrop-blur-sm py-8 transition-opacity duration-500 ${
+        className={`sticky top-11 z-40 bg-white/90 backdrop-blur-sm py-8 transition-opacity duration-500 ${
           isHeaderVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         style={{
