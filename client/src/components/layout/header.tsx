@@ -53,7 +53,7 @@ export default function Header() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
+      className={`bg-white shadow-sm fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
         isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
@@ -61,9 +61,9 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 group" data-testid="link-home-logo">
             <div className="relative">
-              <CustomTreeIcon className="h-7 w-7 sm:h-9 sm:w-9 transition-transform duration-300 group-hover:scale-110 text-black" />
+              <CustomTreeIcon className="h-7 w-7 sm:h-9 sm:w-9 text-black transition-transform duration-300 group-hover:scale-110" />
             </div>
-            <span className="text-lg sm:text-xl md:text-2xl font-bold font-display transition-all duration-300 text-black">
+            <span className="text-lg sm:text-xl md:text-2xl font-bold font-display text-black transition-all duration-300">
               {SITE_CONFIG.name}
             </span>
           </Link>
@@ -73,7 +73,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`minimal-nav-button text-sm lg:text-base transition-colors duration-300 ${
+                className={`px-4 py-2 rounded-lg bg-white text-sm lg:text-base font-medium transition-colors duration-300 hover:bg-gray-50 ${
                   location === item.href ? "text-accent font-semibold" : "text-black"
                 }`}
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
@@ -83,7 +83,7 @@ export default function Header() {
             ))}
             <Link
               href="/booking"
-              className="minimal-booking-button text-xs lg:text-sm font-medium"
+              className="px-4 py-2 rounded-lg bg-white text-xs lg:text-sm font-medium text-black transition-colors duration-300 hover:bg-gray-50"
               data-testid="link-booking"
             >
               Забронировать
@@ -95,31 +95,24 @@ export default function Header() {
               variant="ghost"
               size="default"
               onClick={toggleMobileMenu}
-              className="minimal-mobile-button transition-colors duration-300 text-black"
+              className="p-3 rounded-lg bg-white text-black hover:bg-gray-50 transition-colors duration-300"
               data-testid="button-mobile-menu"
-              style={{ padding: '12px', minWidth: '44px', width: '44px' }}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
         
-        {/* Minimal Mobile Menu */}
+        {/* Минималистичное мобильное меню */}
         {isMobileMenuOpen && (
-          <div className="md:hidden animate-slide">
-            <div className="minimal-mobile-menu">
-              {navigation.map((item, index) => (
-                <div 
-                  key={item.name} 
-                  className="minimal-mobile-item"
-                  style={{ 
-                    animationDelay: `${index * 50}ms`,
-                    animation: 'slide-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) both'
-                  }}
-                >
+          <div className="md:hidden">
+            <div className="mt-4 pt-4 border-t border-gray-200 bg-white">
+              <div className="flex flex-col space-y-2">
+                {navigation.map((item) => (
                   <Link
+                    key={item.name}
                     href={item.href}
-                    className={`minimal-mobile-nav block transition-all duration-300 font-medium text-base ${
+                    className={`px-4 py-3 rounded-lg bg-white font-medium text-base transition-colors duration-300 hover:bg-gray-50 ${
                       location === item.href ? "text-accent font-semibold" : "text-black"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -127,18 +120,10 @@ export default function Header() {
                   >
                     {item.name}
                   </Link>
-                </div>
-              ))}
-              <div 
-                className="minimal-mobile-item"
-                style={{ 
-                  animationDelay: `${navigation.length * 50}ms`,
-                  animation: 'slide-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) both'
-                }}
-              >
+                ))}
                 <Link
                   href="/booking"
-                  className="minimal-mobile-booking block transition-all duration-300 font-medium text-base text-center"
+                  className="px-4 py-3 rounded-lg bg-white font-medium text-base text-black transition-colors duration-300 hover:bg-gray-50 text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                   data-testid="link-mobile-booking"
                 >
