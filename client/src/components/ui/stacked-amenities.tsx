@@ -304,7 +304,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
       </div>
 
       {/* Кнопки "Узнать больше" и "Посмотреть галерею" */}
-      <div className="relative z-50 bg-white py-8">
+      <div className="relative z-50 bg-white py-4">
         <div className="container mx-auto px-4 text-center">
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
             <Link href="/about">
