@@ -436,45 +436,38 @@ p {
     inset 0 -1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* iOS-style Mobile Navigation - Exact Desktop Match */
+/* iOS-style Mobile Navigation - Matching Desktop Style */
 .ios-glass-mobile-nav {
-  position: relative;
-  padding: 14px 24px;
-  border-radius: 16px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
   font-weight: 600;
-  font-size: 15px;
   letter-spacing: -0.01em;
+  padding: 16px 24px;
+  border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Exact desktop normal state glassmorphism */
+  /* Exact desktop background */
   background: linear-gradient(135deg,
       rgba(255, 255, 255, 0.08) 0%,
       rgba(255, 255, 255, 0.05) 50%,
       rgba(255, 255, 255, 0.10) 100%);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
-
-  /* Dynamic border that adapts to background */
+  
+  /* Exact desktop border */
   border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
 
-  /* Subtle shadow for normal state */
+  /* Exact desktop shadows */
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.06),
     0 1px 4px rgba(0, 0, 0, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(255, 255, 255, 0.1);
-
+  
   overflow: hidden;
 }
 
-/* iOS-style hover effects - Exact desktop match */
 .ios-glass-mobile-nav:hover {
+  /* Exact desktop hover background */
   background: linear-gradient(135deg,
       rgba(255, 255, 255, 0.35),
       rgba(255, 255, 255, 0.25),
@@ -482,9 +475,11 @@ p {
   backdrop-filter: blur(60px) saturate(220%);
   -webkit-backdrop-filter: blur(60px) saturate(220%);
 
+  /* Exact desktop hover transform */
   transform: translateY(-3px) scale(1.03);
   border-color: var(--border-hover-color, rgba(255, 255, 255, 0.4));
 
+  /* Exact desktop hover shadows */
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.16),
     0 8px 24px rgba(0, 0, 0, 0.12),
@@ -493,13 +488,7 @@ p {
     inset 0 -1px 0 rgba(255, 255, 255, 0.25);
 }
 
-/* Active state with iOS-style press */
-.ios-glass-mobile-nav:active {
-  transform: translateY(-1px) scale(1.01);
-  transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Active navigation state - Exact desktop match */
+/* Mobile active state matching desktop */
 .ios-glass-mobile-nav.active {
   background: linear-gradient(135deg,
       rgba(255, 255, 255, 0.4),
@@ -576,17 +565,19 @@ p {
     inset 0 -1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* Dark mode styles for iOS Mobile Navigation - Exact Desktop Match */
+/* Dark mode styles for mobile navigation - Matching Desktop */
 .dark .ios-glass-mobile-nav {
+  /* Exact desktop dark background */
   background: linear-gradient(135deg,
       rgba(50, 55, 65, 0.4) 0%,
       rgba(40, 45, 55, 0.3) 50%,
       rgba(55, 60, 70, 0.45) 100%);
   backdrop-filter: blur(40px) saturate(200%);
   -webkit-backdrop-filter: blur(40px) saturate(200%);
-
+  
   border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
 
+  /* Exact desktop dark shadows */
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.25),
@@ -596,15 +587,17 @@ p {
 }
 
 .dark .ios-glass-mobile-nav:hover {
+  /* Exact desktop dark hover background */
   background: linear-gradient(135deg,
       rgba(50, 55, 65, 0.5),
       rgba(40, 45, 55, 0.4),
       rgba(55, 60, 70, 0.55));
   backdrop-filter: blur(60px) saturate(220%);
   -webkit-backdrop-filter: blur(60px) saturate(220%);
-
+  
   border-color: var(--border-hover-color, rgba(255, 255, 255, 0.25));
 
+  /* Exact desktop dark hover shadows */
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.45),
     0 8px 24px rgba(0, 0, 0, 0.35),
