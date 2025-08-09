@@ -436,31 +436,38 @@ p {
     inset 0 -1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* iOS-style Mobile Navigation */
+/* iOS-style Mobile Navigation - Matching Desktop Style */
 .ios-glass-mobile-nav {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
   font-weight: 600;
   letter-spacing: -0.01em;
   padding: 16px 24px;
-  border-radius: 20px;
+  border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
+  /* Exact desktop background */
   background: linear-gradient(135deg,
       rgba(255, 255, 255, 0.08) 0%,
       rgba(255, 255, 255, 0.05) 50%,
       rgba(255, 255, 255, 0.10) 100%);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
+  
+  /* Exact desktop border */
   border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
 
+  /* Exact desktop shadows */
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.06),
     0 1px 4px rgba(0, 0, 0, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  
+  overflow: hidden;
 }
 
 .ios-glass-mobile-nav:hover {
+  /* Exact desktop hover background */
   background: linear-gradient(135deg,
       rgba(255, 255, 255, 0.35),
       rgba(255, 255, 255, 0.25),
@@ -468,15 +475,48 @@ p {
   backdrop-filter: blur(60px) saturate(220%);
   -webkit-backdrop-filter: blur(60px) saturate(220%);
 
-  transform: translateY(-2px) scale(1.02);
+  /* Exact desktop hover transform */
+  transform: translateY(-3px) scale(1.03);
   border-color: var(--border-hover-color, rgba(255, 255, 255, 0.4));
 
+  /* Exact desktop hover shadows */
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.16),
     0 8px 24px rgba(0, 0, 0, 0.12),
     0 4px 12px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.7),
     inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Mobile active state matching desktop */
+.ios-glass-mobile-nav.active {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.45));
+  border-color: var(--border-hover-color, rgba(255, 255, 255, 0.5));
+
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.20),
+    0 6px 18px rgba(0, 0, 0, 0.15),
+    0 3px 9px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.dark .ios-glass-mobile-nav.active {
+  background: linear-gradient(135deg,
+      rgba(50, 55, 65, 0.6),
+      rgba(40, 45, 55, 0.5),
+      rgba(55, 60, 70, 0.65));
+  border-color: var(--border-hover-color, rgba(255, 255, 255, 0.3));
+
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.5),
+    0 6px 18px rgba(0, 0, 0, 0.4),
+    0 3px 9px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* iOS-style Mobile Booking Button */
@@ -525,28 +565,39 @@ p {
     inset 0 -1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* Dark mode styles for mobile navigation */
+/* Dark mode styles for mobile navigation - Matching Desktop */
 .dark .ios-glass-mobile-nav {
+  /* Exact desktop dark background */
   background: linear-gradient(135deg,
-      rgba(50, 55, 65, 0.12) 0%,
-      rgba(40, 45, 55, 0.08) 50%,
-      rgba(55, 60, 70, 0.15) 100%);
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.10));
+      rgba(50, 55, 65, 0.4) 0%,
+      rgba(40, 45, 55, 0.3) 50%,
+      rgba(55, 60, 70, 0.45) 100%);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
 
+  /* Exact desktop dark shadows */
   box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
     0 2px 8px rgba(0, 0, 0, 0.15),
-    0 1px 4px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .dark .ios-glass-mobile-nav:hover {
+  /* Exact desktop dark hover background */
   background: linear-gradient(135deg,
       rgba(50, 55, 65, 0.5),
       rgba(40, 45, 55, 0.4),
       rgba(55, 60, 70, 0.55));
+  backdrop-filter: blur(60px) saturate(220%);
+  -webkit-backdrop-filter: blur(60px) saturate(220%);
+  
   border-color: var(--border-hover-color, rgba(255, 255, 255, 0.25));
 
+  /* Exact desktop dark hover shadows */
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.45),
     0 8px 24px rgba(0, 0, 0, 0.35),
