@@ -272,11 +272,8 @@ export default function Home() {
             {/* Заголовок */}
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
-                Наше расположение
+                Наш адрес
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                Удобное место для комфортного отдыха в окружении природы
-              </p>
             </div>
 
             {/* Адрес */}
