@@ -46,18 +46,22 @@ export function useDynamicContrast(options: ContrastHookOptions) {
   const rgbToHex = (rgb: string): string => {
     if (rgb.startsWith('#')) return rgb;
     
+    // Handle rgba values as well
     const values = rgb.match(/\d+/g);
-    if (!values || values.length < 3) return '#ffffff';
+    if (!values || values.length < 3) return '#333333'; // Default to dark
     
-    return '#' + values.slice(0, 3).map(val => {
+    const hex = '#' + values.slice(0, 3).map(val => {
       const hex = parseInt(val).toString(16);
       return hex.length === 1 ? '0' + hex : hex;
     }).join('');
+    
+    // console.log('Converted RGB to hex:', rgb, '->', hex);
+    return hex;
   };
 
   // Get the effective background color under the header
   const getBackgroundColorUnderHeader = (): string => {
-    if (!headerRef.current) return '#ffffff';
+    if (!headerRef.current) return '#333333'; // Default to dark for better contrast
 
     const headerRect = headerRef.current.getBoundingClientRect();
     const centerX = headerRect.left + headerRect.width / 2;
@@ -72,45 +76,80 @@ export function useDynamicContrast(options: ContrastHookOptions) {
     // Restore header pointer events
     headerRef.current.style.pointerEvents = originalPointerEvents;
     
-    if (!elementBehind) return '#ffffff';
+    if (!elementBehind) return '#333333';
 
     // Walk up the DOM tree to find the first non-transparent background
     let currentElement: Element | null = elementBehind;
+    let detectedColor = '';
+    
     while (currentElement && currentElement !== document.body) {
       const computedStyle = window.getComputedStyle(currentElement);
       const bgColor = computedStyle.backgroundColor;
-      
-      // Check if we have a non-transparent background
-      if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
-        return rgbToHex(bgColor);
-      }
-      
-      // Check background image with solid colors
       const bgImage = computedStyle.backgroundImage;
+      
+      // Debug logging (can be removed in production)
+      // console.log('Checking element:', currentElement.tagName, currentElement.className, 'bgColor:', bgColor, 'bgImage:', bgImage);
+      
+      // Check background image first (more specific)
       if (bgImage && bgImage !== 'none') {
-        // For gradients, we'll extract the dominant color (simplified approach)
+        // For images, assume dark background unless it's clearly a light image
+        if (bgImage.includes('url(')) {
+          // console.log('Found background image, assuming dark background');
+          // Most hero images and carousels are typically dark
+          return '#222222';
+        }
+        // For gradients, extract the dominant color
         if (bgImage.includes('gradient')) {
-          const colorMatch = bgImage.match(/rgb\([^)]+\)|#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}/);
+          const colorMatch = bgImage.match(/rgb\([^)]+\)|rgba\([^)]+\)|#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}/);
           if (colorMatch) {
-            return rgbToHex(colorMatch[0]);
+            detectedColor = rgbToHex(colorMatch[0]);
+            // console.log('Detected gradient color:', detectedColor);
+            return detectedColor;
           }
         }
+      }
+      
+      // Check if we have a non-transparent background color
+      if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+        // Check if it's a very light semi-transparent background (like overlays)
+        if (bgColor.includes('rgba') && (bgColor.includes('0.9') || bgColor.includes('0.8'))) {
+          // console.log('Found semi-transparent overlay, checking for background images in hierarchy');
+          // This might be a light overlay on top of an image, check up the hierarchy for images
+          let parentElement = currentElement.parentElement;
+          let depth = 0;
+          while (parentElement && depth < 5) { // Check up to 5 levels up
+            const parentStyle = window.getComputedStyle(parentElement);
+            if (parentStyle.backgroundImage && parentStyle.backgroundImage !== 'none') {
+              // console.log('Found background image in parent hierarchy, assuming dark background');
+              return '#222222';
+            }
+            parentElement = parentElement.parentElement;
+            depth++;
+          }
+        }
+        
+        detectedColor = rgbToHex(bgColor);
+        // console.log('Detected background color:', detectedColor);
+        return detectedColor;
       }
       
       currentElement = currentElement.parentElement;
     }
     
-    return '#ffffff'; // Default to white if no background found
+    // If we reach here, assume dark background for better visibility
+    // console.log('No background found, defaulting to dark');
+    return '#333333';
   };
 
   // Update contrast with performance optimization
   const updateContrast = () => {
     const backgroundColor = getBackgroundColorUnderHeader();
+    const textColor = getContrastColor(backgroundColor);
+    
+    // console.log('Background color detected:', backgroundColor, 'Text color should be:', textColor);
     
     // Only update if color actually changed to avoid unnecessary re-renders
     if (backgroundColor !== lastColorRef.current) {
-      const textColor = getContrastColor(backgroundColor);
-      
       setContrastState({
         textColor,
         backgroundColor
