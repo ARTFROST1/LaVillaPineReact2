@@ -400,6 +400,21 @@ p {
     inset 0 -1px 0 rgba(255, 255, 255, 0.15);
 }
 
+/* Mobile menu active item styles */
+.glass-mobile-item.active a {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.18)
+  );
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 6px 24px rgba(0, 0, 0, 0.15),
+    0 3px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+}
+
 /* Dark mode styles for mobile items */
 .dark .glass-mobile-item a {
   background: linear-gradient(135deg, 
@@ -425,6 +440,20 @@ p {
     0 16px 48px rgba(0, 0, 0, 0.4),
     0 8px 24px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-mobile-item.active a {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 6px 24px rgba(0, 0, 0, 0.4),
+    0 3px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(255, 255, 255, 0.1);
 }
 

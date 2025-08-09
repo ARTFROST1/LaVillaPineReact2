@@ -106,7 +106,7 @@ export default function Header() {
           <div className="md:hidden">
             <Button
               variant="ghost"
-              size="sm"
+              size="lg"
               onClick={toggleMobileMenu}
               className={`glass-hamburger p-3 transition-colors duration-300 ${dynamicTextClass}`}
               data-testid="button-mobile-menu"
@@ -123,7 +123,7 @@ export default function Header() {
               {navigation.map((item, index) => (
                 <div 
                   key={item.name} 
-                  className="glass-mobile-item"
+                  className={`glass-mobile-item ${location === item.href ? "active" : ""}`}
                   style={{ 
                     animationDelay: `${index * 50}ms`,
                     animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
