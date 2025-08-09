@@ -59,9 +59,9 @@ export default function Header() {
     };
   }, [lastScrollY]);
 
-  // Dynamic text color classes based on background with transparency for menu items
+  // Dynamic text color classes based on background - solid colors only
   const dynamicTextClass = textColor === 'light' ? 'text-white' : 'text-black';
-  const transparentTextClass = textColor === 'light' ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black';
+  const transparentTextClass = textColor === 'light' ? 'text-white hover:text-white' : 'text-black hover:text-black';
   
   // Dynamic border color styles based on background
   const dynamicBorderStyle = textColor === 'light' 
