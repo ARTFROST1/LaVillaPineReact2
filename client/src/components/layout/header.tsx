@@ -109,10 +109,10 @@ export default function Header() {
               variant="ghost"
               size="sm"
               onClick={toggleMobileMenu}
-              className={`glass-hamburger p-2 transition-colors duration-300 ${dynamicTextClass}`}
+              className={`glass-hamburger p-3 transition-colors duration-300 ${dynamicTextClass}`}
               data-testid="button-mobile-menu"
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
