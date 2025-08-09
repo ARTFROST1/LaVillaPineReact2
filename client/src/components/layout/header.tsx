@@ -117,28 +117,45 @@ export default function Header() {
           </div>
         </div>
         
-        {/* Mobile Menu */}
+        {/* iOS 26 Liquid Glass Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden animate-slide-in">
             <div className="glass-mobile-menu dark:glass-mobile-menu-dark">
               {navigation.map((item, index) => (
-                <div key={item.name} className="glass-mobile-item">
+                <div 
+                  key={item.name} 
+                  className="glass-mobile-item"
+                  style={{ 
+                    animationDelay: `${index * 50}ms`,
+                    animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
+                  }}
+                >
                   <Link
                     href={item.href}
-                    className={`block transition-colors duration-200 ${dynamicTextClass} ${dynamicAccentClass} ${
+                    className={`block transition-all duration-300 font-medium text-base ${dynamicTextClass} ${dynamicAccentClass} ${
                       location === item.href ? "font-semibold" : ""
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`link-mobile-${item.name.toLowerCase()}`}
                   >
-                    {item.name}
+                    <span className="relative z-10">{item.name}</span>
+                    {location === item.href && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-lg blur-sm"></div>
+                    )}
                   </Link>
                 </div>
               ))}
-              <div className="glass-mobile-item">
+              <div 
+                className="glass-mobile-item"
+                style={{ 
+                  animationDelay: `${navigation.length * 50}ms`,
+                  animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
+                }}
+              >
                 <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)} data-testid="link-mobile-booking">
-                  <Button className="glass-button text-white w-full font-medium">
-                    Забронировать
+                  <Button className="glass-button text-white w-full font-medium relative overflow-hidden group">
+                    <span className="relative z-10">Забронировать</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-yellow-300/30 to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Button>
                 </Link>
               </div>
