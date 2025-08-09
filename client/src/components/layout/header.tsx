@@ -86,8 +86,8 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`glass-nav-item text-sm lg:text-base transition-colors duration-300 ${dynamicTextClass} ${dynamicAccentClass} ${
-                  location === item.href ? "active font-semibold" : ""
+                className={`glass-nav-item text-sm lg:text-base transition-colors duration-300 ${
+                  location === item.href ? "active font-semibold text-yellow-500 hover:text-yellow-400" : `${dynamicTextClass} ${dynamicAccentClass}`
                 }`}
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
               >
