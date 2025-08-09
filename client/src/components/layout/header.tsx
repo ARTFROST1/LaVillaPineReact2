@@ -1,18 +1,15 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import CustomTreeIcon from "@/components/ui/custom-tree-icon";
-import { useContrastDetection } from "@/hooks/useContrastDetection";
 
 export default function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const headerRef = useRef<HTMLElement>(null);
-  const { textColor, isLight } = useContrastDetection(headerRef);
 
   const navigation = [
     { name: "Главная", href: "/" },
@@ -56,10 +53,7 @@ export default function Header() {
 
   return (
     <header 
-      ref={headerRef}
-      className={`${
-        textColor === 'white' ? 'glass-header-dark' : 'glass-header-light'
-      } fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      className={`glass-header-light dark:glass-header-dark fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isHeaderVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
     >
@@ -67,16 +61,10 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 group" data-testid="link-home-logo">
             <div className="relative">
-              <CustomTreeIcon className={`h-7 w-7 sm:h-9 sm:w-9 transition-all duration-300 group-hover:scale-110 ${
-                textColor === 'white' ? 'text-white' : 'text-black'
-              }`} />
+              <CustomTreeIcon className="h-7 w-7 sm:h-9 sm:w-9 text-primary transition-transform duration-300 group-hover:scale-110" />
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <span 
-              className={`text-lg sm:text-xl md:text-2xl font-bold font-display transition-all duration-300 group-hover:text-accent ${
-                textColor === 'white' ? 'text-white' : 'text-black'
-              }`}
-            >
+            <span className="text-lg sm:text-xl md:text-2xl font-bold text-primary font-display transition-all duration-300 group-hover:text-accent">
               {SITE_CONFIG.name}
             </span>
           </Link>
@@ -86,10 +74,8 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`glass-nav-item text-sm lg:text-base hover:text-accent transition-all duration-300 ${
-                  location === item.href 
-                    ? "active text-accent font-semibold" 
-                    : textColor === 'white' ? 'text-white' : 'text-black'
+                className={`glass-nav-item text-sm lg:text-base text-primary hover:text-accent ${
+                  location === item.href ? "active text-accent font-semibold" : ""
                 }`}
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
               >
@@ -99,11 +85,7 @@ export default function Header() {
             <Link href="/booking" data-testid="link-booking">
               <Button 
                 size="sm"
-                className={`glass-button text-xs lg:text-sm px-4 lg:px-6 py-2.5 font-medium ${
-                  textColor === 'white' 
-                    ? 'text-white' 
-                    : 'text-black'
-                }`}
+                className="glass-button text-white text-xs lg:text-sm px-4 lg:px-6 py-2.5 font-medium"
               >
                 Забронировать
               </Button>
@@ -115,9 +97,7 @@ export default function Header() {
               variant="ghost"
               size="sm"
               onClick={toggleMobileMenu}
-              className={`glass-hamburger p-2 transition-all duration-300 ${
-                textColor === 'white' ? 'text-white hover:text-accent' : 'text-black hover:text-accent'
-              }`}
+              className="glass-hamburger text-primary p-2"
               data-testid="button-mobile-menu"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -133,10 +113,8 @@ export default function Header() {
                 <div key={item.name} className="glass-mobile-item">
                   <Link
                     href={item.href}
-                    className={`block hover:text-accent transition-colors duration-200 ${
-                      location === item.href 
-                        ? "text-accent font-semibold" 
-                        : textColor === 'white' ? 'text-white' : 'text-black'
+                    className={`block text-primary hover:text-accent transition-colors duration-200 ${
+                      location === item.href ? "text-accent font-semibold" : ""
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`link-mobile-${item.name.toLowerCase()}`}
@@ -147,11 +125,7 @@ export default function Header() {
               ))}
               <div className="glass-mobile-item">
                 <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)} data-testid="link-mobile-booking">
-                  <Button className={`glass-button w-full font-medium ${
-                    textColor === 'white' 
-                      ? 'text-white' 
-                      : 'text-black'
-                  }`}>
+                  <Button className="glass-button text-white w-full font-medium">
                     Забронировать
                   </Button>
                 </Link>
