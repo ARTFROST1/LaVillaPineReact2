@@ -146,6 +146,7 @@ export default function Header() {
                     className={`ios-glass-mobile-nav block transition-all duration-300 font-medium text-base ${
                       location === item.href ? "font-semibold text-yellow-500" : transparentTextClass
                     }`}
+                    style={dynamicBorderStyle as React.CSSProperties}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`link-mobile-${item.name.toLowerCase()}`}
                   >
