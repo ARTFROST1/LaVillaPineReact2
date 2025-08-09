@@ -366,11 +366,11 @@ p {
   color: rgba(0, 0, 0, 0.9);
 
   box-shadow:
-    0 8px 32px rgba(255, 198, 41, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.12),
     0 4px 16px rgba(0, 0, 0, 0.08),
     0 2px 8px rgba(0, 0, 0, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(255, 198, 41, 0.5);
+    inset 0 -1px 0 rgba(255, 198, 41, 0.3);
 
   overflow: hidden;
 }
@@ -388,13 +388,11 @@ p {
   color: #FFC629;
 
   box-shadow:
-    0 16px 48px rgba(255, 198, 41, 0.4),
+    0 16px 48px rgba(0, 0, 0, 0.15),
     0 8px 24px rgba(0, 0, 0, 0.12),
     0 4px 12px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    inset 0 -1px 0 rgba(255, 198, 41, 0.25);
-
-  text-shadow: 0 0 8px rgba(255, 198, 41, 0.5);
+    inset 0 -1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .ios-glass-booking-button:active {
@@ -412,11 +410,11 @@ p {
   color: rgba(0, 0, 0, 0.9);
 
   box-shadow:
-    0 8px 32px rgba(255, 198, 41, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.20),
     0 4px 16px rgba(0, 0, 0, 0.25),
     0 2px 8px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -1px 0 rgba(255, 198, 41, 0.3);
+    inset 0 -1px 0 rgba(255, 198, 41, 0.2);
 }
 
 .dark .ios-glass-booking-button:hover {
@@ -431,13 +429,11 @@ p {
   color: #FFC629;
 
   box-shadow:
-    0 16px 48px rgba(255, 198, 41, 0.35),
+    0 16px 48px rgba(0, 0, 0, 0.25),
     0 8px 24px rgba(0, 0, 0, 0.35),
     0 4px 12px rgba(0, 0, 0, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(255, 198, 41, 0.15);
-
-  text-shadow: 0 0 8px rgba(255, 198, 41, 0.6);
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* iOS-style Mobile Navigation */
