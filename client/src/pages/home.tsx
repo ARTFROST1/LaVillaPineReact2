@@ -324,14 +324,16 @@ export default function Home() {
             <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 md:mb-12 opacity-90 leading-relaxed">
               Окунитесь в атмосферу комфорта и уюта в окружении природы
             </p>
-            <Link href="/booking">
-              <Button
-                size="lg"
-                className="ios-glass-booking-button text-base sm:text-lg font-medium"
-              >
-                Забронировать
-              </Button>
-            </Link>
+            <div className="flex justify-center">
+              <Link href="/booking">
+                <Button
+                  size="lg"
+                  className="ios-glass-booking-button text-base sm:text-lg font-medium"
+                >
+                  Забронировать
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
