@@ -79,6 +79,25 @@ export function useDynamicContrast(options: ContrastHookOptions) {
     
     if (!elementBehind) return '#333333';
 
+    // Special case: Check if we're in the StackedAmenities section with white header background
+    const amenitiesContainer = document.querySelector('[data-testid="stacked-amenities-container"]');
+    if (amenitiesContainer) {
+      const amenitiesContainerRect = amenitiesContainer.getBoundingClientRect();
+      // Check if header is within the amenities section
+      if (headerRect.top >= amenitiesContainerRect.top && 
+          headerRect.top <= amenitiesContainerRect.top + 400) { // First 400px of amenities section has white background
+        // Additional check: look for the white background element specifically
+        const whiteHeaderElement = amenitiesContainer.querySelector('.bg-white\\/90, .bg-white');
+        if (whiteHeaderElement) {
+          const whiteHeaderRect = whiteHeaderElement.getBoundingClientRect();
+          // If our header overlaps with the white background element, return white
+          if (headerRect.bottom > whiteHeaderRect.top && headerRect.top < whiteHeaderRect.bottom) {
+            return '#ffffff';
+          }
+        }
+      }
+    }
+
     // Walk up the DOM tree to find the first non-transparent background
     let currentElement: Element | null = elementBehind;
     let detectedColor = '';
