@@ -119,12 +119,16 @@ export default function Header() {
         
         {/* iOS 26 Liquid Glass Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden animate-slide-in">
             <div className="glass-mobile-menu dark:glass-mobile-menu-dark">
               {navigation.map((item, index) => (
                 <div 
                   key={item.name} 
                   className={`glass-mobile-item ${location === item.href ? "active" : ""}`}
+                  style={{ 
+                    animationDelay: `${index * 50}ms`,
+                    animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
+                  }}
                 >
                   <Link
                     href={item.href}
@@ -140,6 +144,10 @@ export default function Header() {
               ))}
               <div 
                 className="glass-mobile-item booking-item"
+                style={{ 
+                  animationDelay: `${navigation.length * 50}ms`,
+                  animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
+                }}
               >
                 <Link
                   href="/booking"
