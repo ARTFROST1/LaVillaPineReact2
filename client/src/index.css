@@ -225,8 +225,8 @@ p {
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
 
-  /* Very subtle border for normal state */
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* Dynamic border that adapts to background */
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
 
   /* Subtle shadow for normal state */
   box-shadow:
@@ -249,7 +249,7 @@ p {
   -webkit-backdrop-filter: blur(60px) saturate(220%);
 
   transform: translateY(-3px) scale(1.03);
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: var(--border-hover-color, rgba(255, 255, 255, 0.4));
 
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.16),
@@ -273,7 +273,7 @@ p {
       rgba(255, 255, 255, 0.4),
       rgba(255, 255, 255, 0.3),
       rgba(255, 255, 255, 0.45));
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: var(--border-hover-color, rgba(255, 255, 255, 0.5));
 
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.20),
@@ -451,7 +451,7 @@ p {
       rgba(255, 255, 255, 0.10) 100%);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
 
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.06),
@@ -469,7 +469,7 @@ p {
   -webkit-backdrop-filter: blur(60px) saturate(220%);
 
   transform: translateY(-2px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: var(--border-hover-color, rgba(255, 255, 255, 0.4));
 
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.16),

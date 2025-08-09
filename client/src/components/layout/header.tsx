@@ -62,6 +62,11 @@ export default function Header() {
   // Dynamic text color classes based on background with transparency for menu items
   const dynamicTextClass = textColor === 'light' ? 'text-white' : 'text-black';
   const transparentTextClass = textColor === 'light' ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black';
+  
+  // Dynamic border color styles based on background
+  const dynamicBorderStyle = textColor === 'light' 
+    ? { '--border-color': 'rgba(255, 255, 255, 0.15)', '--border-hover-color': 'rgba(255, 255, 255, 0.4)' }
+    : { '--border-color': 'rgba(0, 0, 0, 0.15)', '--border-hover-color': 'rgba(0, 0, 0, 0.4)' };
 
   return (
     <header 
@@ -81,7 +86,10 @@ export default function Header() {
             </span>
           </Link>
           
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
+          <div 
+            className="hidden md:flex items-center space-x-2 lg:space-x-4" 
+            style={dynamicBorderStyle as React.CSSProperties}
+          >
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -120,7 +128,10 @@ export default function Header() {
         {/* iOS 26 Liquid Glass Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden animate-slide">
-            <div className="glass-mobile-menu dark:glass-mobile-menu-dark">
+            <div 
+              className="glass-mobile-menu dark:glass-mobile-menu-dark"
+              style={dynamicBorderStyle as React.CSSProperties}
+            >
               {navigation.map((item, index) => (
                 <div 
                   key={item.name} 
