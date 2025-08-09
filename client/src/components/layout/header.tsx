@@ -85,7 +85,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`${item.name === "Главная" ? "ios-glass-home-button" : "glass-nav-item"} text-sm lg:text-base transition-colors duration-300 ${
+                className={`ios-glass-nav-button text-sm lg:text-base transition-colors duration-300 ${
                   location === item.href ? "active font-semibold text-yellow-500 hover:text-yellow-400" : `${dynamicTextClass}`
                 }`}
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
@@ -95,7 +95,7 @@ export default function Header() {
             ))}
             <Link
               href="/booking"
-              className="glass-button text-xs lg:text-sm font-medium"
+              className="ios-glass-booking-button text-xs lg:text-sm font-medium"
               data-testid="link-booking"
             >
               Забронировать
@@ -131,7 +131,7 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
-                    className={`block transition-all duration-300 font-medium text-base ${
+                    className={`ios-glass-mobile-nav block transition-all duration-300 font-medium text-base ${
                       location === item.href ? "font-semibold text-yellow-500" : `${dynamicTextClass}`
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -150,7 +150,7 @@ export default function Header() {
               >
                 <Link
                   href="/booking"
-                  className="block transition-all duration-300 font-medium text-base text-white text-center"
+                  className="ios-glass-mobile-booking block transition-all duration-300 font-medium text-base text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                   data-testid="link-mobile-booking"
                 >
