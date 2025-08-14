@@ -70,7 +70,7 @@ export default function Header() {
 
   return (
     <header 
-      className={`glass-header-light dark:glass-header-dark fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
+      className={`loft-header-light dark:loft-header-dark fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
         isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
@@ -94,8 +94,8 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`ios-glass-nav-button text-sm lg:text-base transition-colors duration-300 ${
-                  location === item.href ? "active font-semibold text-yellow-500 hover:text-yellow-400" : transparentTextClass
+                className={`loft-nav-button text-sm lg:text-base transition-colors duration-300 ${
+                  location === item.href ? "active font-semibold" : ""
                 }`}
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
               >
@@ -104,7 +104,7 @@ export default function Header() {
             ))}
             <Link
               href="/booking"
-              className="ios-glass-booking-button text-xs lg:text-sm font-medium"
+              className="loft-booking-button text-xs lg:text-sm font-medium"
               data-testid="link-booking"
             >
               Забронировать
@@ -116,7 +116,7 @@ export default function Header() {
               variant="ghost"
               size="default"
               onClick={toggleMobileMenu}
-              className={`glass-nav-item transition-colors duration-300 ${dynamicTextClass}`}
+              className={`loft-nav-item transition-colors duration-300`}
               data-testid="button-mobile-menu"
               style={{ padding: '12px', minWidth: '44px', width: '44px' }}
             >
@@ -125,47 +125,41 @@ export default function Header() {
           </div>
         </div>
         
-        {/* iOS 26 Liquid Glass Mobile Menu */}
+        {/* Loft Style Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden animate-slide">
-            <div 
-              className="glass-mobile-menu dark:glass-mobile-menu-dark"
-              style={dynamicBorderStyle as React.CSSProperties}
-            >
+            <div className="loft-mobile-menu">
               {navigation.map((item, index) => (
                 <div 
                   key={item.name} 
-                  className={`glass-mobile-item ${location === item.href ? "active" : ""}`}
+                  className={`loft-mobile-item ${location === item.href ? "active" : ""}`}
                   style={{ 
                     animationDelay: `${index * 50}ms`,
-                    animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both',
-                    ...dynamicBorderStyle
+                    animation: 'loft-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
                   } as React.CSSProperties}
                 >
                   <Link
                     href={item.href}
-                    className={`ios-glass-mobile-nav block transition-all duration-300 font-medium text-base ${
-                      location === item.href ? "font-semibold text-yellow-500" : transparentTextClass
+                    className={`loft-mobile-nav block transition-all duration-300 font-medium text-base ${
+                      location === item.href ? "active font-semibold" : ""
                     }`}
-                    style={dynamicBorderStyle as React.CSSProperties}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`link-mobile-${item.name.toLowerCase()}`}
                   >
-{item.name}
+                    {item.name}
                   </Link>
                 </div>
               ))}
               <div 
-                className="glass-mobile-item booking-item"
+                className="loft-mobile-item booking-item"
                 style={{ 
                   animationDelay: `${navigation.length * 50}ms`,
-                  animation: 'liquid-glass-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both',
-                  ...dynamicBorderStyle
+                  animation: 'loft-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
                 } as React.CSSProperties}
               >
                 <Link
                   href="/booking"
-                  className="ios-glass-mobile-booking block transition-all duration-300 font-medium text-base text-center"
+                  className="loft-mobile-booking block transition-all duration-300 font-medium text-base text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                   data-testid="link-mobile-booking"
                 >

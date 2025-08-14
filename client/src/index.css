@@ -135,48 +135,37 @@ p {
   }
 }
 
-/* Liquid Glass Effects */
-.glass-header {
-  background: rgba(245, 235, 220, 0.05);
+/* Loft Style Header */
+.loft-header {
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.6), rgba(50, 42, 35, 0.5));
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(245, 235, 220, 0.1);
+  border-bottom: 1px solid rgba(212, 164, 74, 0.15);
   position: relative;
   overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
-.glass-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(245, 235, 220, 0.1),
-      transparent);
-  animation: glass-shimmer 3s infinite;
+.loft-header-light {
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4), rgba(50, 42, 35, 0.3));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 164, 74, 0.15);
 }
 
-.glass-header-light {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: none;
-  box-shadow: none;
+.loft-header-dark {
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.6), rgba(50, 42, 35, 0.5));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 164, 74, 0.15);
 }
 
-.glass-header-dark {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: none;
-  box-shadow: none;
-}
-
-/* Desktop Navigation - iOS 26 Liquid Glass Style */
-.glass-nav-item {
+/* Loft Style Navigation */
+.loft-nav-item {
   position: relative;
   padding: 12px 20px;
   border-radius: 16px;
@@ -184,25 +173,25 @@ p {
   display: flex;
   align-items: center;
   white-space: nowrap;
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  font-weight: 600;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  background: linear-gradient(135deg,
-      rgba(245, 235, 220, 0.1) 0%,
-      rgba(245, 235, 220, 0.05) 50%,
-      rgba(245, 235, 220, 0.08) 100%);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(245, 235, 220, 0.18);
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 164, 74, 0.15);
   box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.08),
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(245, 235, 220, 0.4),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.1);
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  color: #F2EDE6;
 }
 
-/* Enhanced iOS-style Navigation Buttons */
-.ios-glass-nav-button,
-.ios-glass-home-button {
+/* Loft Style Navigation Buttons */
+.loft-nav-button,
+.loft-home-button {
   position: relative;
   padding: 14px 24px;
   border-radius: 16px;
@@ -211,76 +200,72 @@ p {
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
   font-weight: 600;
   font-size: 15px;
   letter-spacing: -0.01em;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* More subtle glassmorphism for normal state */
-  background: linear-gradient(135deg,
-      rgba(245, 235, 220, 0.08) 0%,
-      rgba(245, 235, 220, 0.05) 50%,
-      rgba(245, 235, 220, 0.10) 100%);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  /* Warm matte background */
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
-  /* Dynamic border that adapts to background */
-  border: 1px solid var(--border-color, rgba(245, 235, 220, 0.15));
+  /* Gold accent border */
+  border: 1px solid rgba(212, 164, 74, 0.15);
+  color: #F2EDE6;
 
-  /* Subtle shadow for normal state */
+  /* Soft shadows for depth */
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.06),
-    0 1px 4px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(245, 235, 220, 0.2),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.1);
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 
   overflow: hidden;
 }
 
-/* iOS-style hover effects */
-.ios-glass-nav-button:hover,
-.ios-glass-home-button:hover {
-  background: linear-gradient(135deg,
-      rgba(245, 235, 220, 0.35),
-      rgba(245, 235, 220, 0.25),
-      rgba(245, 235, 220, 0.40));
-  backdrop-filter: blur(60px) saturate(220%);
-  -webkit-backdrop-filter: blur(60px) saturate(220%);
+/* Loft style hover effects */
+.loft-nav-button:hover,
+.loft-home-button:hover {
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.5), rgba(50, 42, 35, 0.4), rgba(70, 58, 45, 0.55));
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 
-  transform: scale(1.05);
-  border-color: var(--border-hover-color, rgba(245, 235, 220, 0.4));
+  transform: scale(1.04);
+  border-color: rgba(212, 164, 74, 0.3);
+  color: #D4A44A;
+  text-shadow: 0 0 8px rgba(212, 164, 74, 0.5);
 
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.16),
-    0 8px 24px rgba(0, 0, 0, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(245, 235, 220, 0.7),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.25);
+    0 12px 36px rgba(0, 0, 0, 0.4),
+    0 6px 18px rgba(0, 0, 0, 0.3),
+    0 3px 9px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Active state with iOS-style press */
-.ios-glass-nav-button:active,
-.ios-glass-home-button:active {
+/* Active state with loft-style press */
+.loft-nav-button:active,
+.loft-home-button:active {
   transform: scale(1.02);
   transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Active navigation state */
-.ios-glass-nav-button.active,
-.ios-glass-home-button.active {
-  background: linear-gradient(135deg,
-      rgba(245, 235, 220, 0.4),
-      rgba(245, 235, 220, 0.3),
-      rgba(245, 235, 220, 0.45));
-  border-color: var(--border-hover-color, rgba(245, 235, 220, 0.5));
+.loft-nav-button.active,
+.loft-home-button.active {
+  background: linear-gradient(135deg, rgba(212, 164, 74, 0.9) 0%, rgba(192, 144, 60, 0.8) 50%, rgba(212, 164, 74, 0.95) 100%);
+  border-color: rgba(212, 164, 74, 0.6);
+  color: #1A1613;
+  text-shadow: none;
 
   box-shadow:
-    0 12px 36px rgba(0, 0, 0, 0.20),
-    0 6px 18px rgba(0, 0, 0, 0.15),
-    0 3px 9px rgba(0, 0, 0, 0.10),
-    inset 0 1px 0 rgba(245, 235, 220, 0.8),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.3);
+    0 12px 36px rgba(0, 0, 0, 0.35),
+    0 6px 18px rgba(0, 0, 0, 0.25),
+    0 3px 9px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Dark mode styles for iOS Navigation Buttons */
@@ -338,8 +323,8 @@ p {
     inset 0 -1px 0 rgba(245, 235, 220, 0.15);
 }
 
-/* iOS-style Booking Button */
-.ios-glass-booking-button {
+/* Loft Style Booking Button */
+.loft-booking-button {
   position: relative;
   padding: 14px 24px;
   border-radius: 16px;
@@ -348,54 +333,48 @@ p {
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
   font-weight: 600;
   font-size: 15px;
   letter-spacing: -0.01em;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Enhanced glassmorphism with yellow tint */
-  background: linear-gradient(135deg,
-      rgba(255, 198, 41, 0.9) 0%,
-      rgba(255, 184, 0, 0.8) 50%,
-      rgba(255, 198, 41, 0.95) 100%);
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  /* Gold accent gradient background */
+  background: linear-gradient(135deg, rgba(212, 164, 74, 0.9) 0%, rgba(192, 144, 60, 0.8) 50%, rgba(212, 164, 74, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
-  border: 1px solid rgba(255, 198, 41, 0.9);
-  color: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(212, 164, 74, 0.8);
+  color: #1A1613;
 
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.12),
-    0 4px 16px rgba(0, 0, 0, 0.08),
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(245, 235, 220, 0.6),
-    inset 0 -1px 0 rgba(255, 198, 41, 0.3);
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 
   overflow: hidden;
 }
 
-.ios-glass-booking-button:hover {
-  background: linear-gradient(135deg,
-      rgba(245, 235, 220, 0.25),
-      rgba(245, 235, 220, 0.15),
-      rgba(245, 235, 220, 0.30));
-  backdrop-filter: blur(60px) saturate(220%);
-  -webkit-backdrop-filter: blur(60px) saturate(220%);
+.loft-booking-button:hover {
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4), rgba(50, 42, 35, 0.3), rgba(70, 58, 45, 0.45));
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 
-  transform: scale(1.05);
-  border-color: rgba(255, 198, 41, 0.4);
+  transform: scale(1.04);
+  border-color: rgba(212, 164, 74, 0.6);
   color: #D4A44A;
+  text-shadow: 0 0 8px rgba(212, 164, 74, 0.5);
 
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.15),
-    0 8px 24px rgba(0, 0, 0, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(245, 235, 220, 0.7),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.25);
+    0 12px 36px rgba(0, 0, 0, 0.4),
+    0 6px 18px rgba(0, 0, 0, 0.3),
+    0 3px 9px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.ios-glass-booking-button:active {
+.loft-booking-button:active {
   transform: scale(1.02);
   transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -436,73 +415,65 @@ p {
     inset 0 -1px 0 rgba(245, 235, 220, 0.15);
 }
 
-/* iOS-style Mobile Navigation - Matching Desktop Style */
-.ios-glass-mobile-nav {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+/* Loft Style Mobile Navigation */
+.loft-mobile-nav {
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
   font-weight: 600;
   letter-spacing: -0.01em;
   padding: 16px 24px;
   border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Exact desktop background */
-  background: linear-gradient(135deg,
-      rgba(245, 235, 220, 0.08) 0%,
-      rgba(245, 235, 220, 0.05) 50%,
-      rgba(245, 235, 220, 0.10) 100%);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  /* Warm matte background */
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   
-  /* Exact desktop border */
-  border: 1px solid var(--border-color, rgba(245, 235, 220, 0.15));
+  /* Gold accent border */
+  border: 1px solid rgba(212, 164, 74, 0.15);
+  color: #F2EDE6;
 
-  /* Exact desktop shadows */
+  /* Soft shadows for depth */
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.06),
-    0 1px 4px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(245, 235, 220, 0.2),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.1);
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
   
   overflow: hidden;
 }
 
-.ios-glass-mobile-nav:hover {
-  /* Exact desktop hover background */
-  background: linear-gradient(135deg,
-      rgba(245, 235, 220, 0.35),
-      rgba(245, 235, 220, 0.25),
-      rgba(245, 235, 220, 0.40));
-  backdrop-filter: blur(60px) saturate(220%);
-  -webkit-backdrop-filter: blur(60px) saturate(220%);
+.loft-mobile-nav:hover {
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.5), rgba(50, 42, 35, 0.4), rgba(70, 58, 45, 0.55));
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 
-  /* Exact desktop hover transform */
-  transform: scale(1.05);
-  border-color: var(--border-hover-color, rgba(245, 235, 220, 0.4));
+  transform: scale(1.04);
+  border-color: rgba(212, 164, 74, 0.3);
+  color: #D4A44A;
+  text-shadow: 0 0 8px rgba(212, 164, 74, 0.5);
 
-  /* Exact desktop hover shadows */
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.16),
-    0 8px 24px rgba(0, 0, 0, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(245, 235, 220, 0.7),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.25);
+    0 12px 36px rgba(0, 0, 0, 0.4),
+    0 6px 18px rgba(0, 0, 0, 0.3),
+    0 3px 9px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile active state matching desktop */
-.ios-glass-mobile-nav.active {
-  background: linear-gradient(135deg,
-      rgba(245, 235, 220, 0.4),
-      rgba(245, 235, 220, 0.3),
-      rgba(245, 235, 220, 0.45));
-  border-color: var(--border-hover-color, rgba(245, 235, 220, 0.5));
+/* Mobile active state matching loft desktop */
+.loft-mobile-nav.active {
+  background: linear-gradient(135deg, rgba(212, 164, 74, 0.9) 0%, rgba(192, 144, 60, 0.8) 50%, rgba(212, 164, 74, 0.95) 100%);
+  border-color: rgba(212, 164, 74, 0.6);
+  color: #1A1613;
+  text-shadow: none;
 
-  /* Точные тени активного состояния как в десктопной версии */
   box-shadow:
-    0 12px 36px rgba(0, 0, 0, 0.20),
-    0 6px 18px rgba(0, 0, 0, 0.15),
-    0 3px 9px rgba(0, 0, 0, 0.10),
-    inset 0 1px 0 rgba(245, 235, 220, 0.8),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.3);
+    0 12px 36px rgba(0, 0, 0, 0.35),
+    0 6px 18px rgba(0, 0, 0, 0.25),
+    0 3px 9px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .dark .ios-glass-mobile-nav.active {
@@ -521,50 +492,80 @@ p {
     inset 0 -1px 0 rgba(245, 235, 220, 0.15);
 }
 
-/* iOS-style Mobile Booking Button */
-.ios-glass-mobile-booking {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+/* Loft Style Mobile Booking Button */
+.loft-mobile-booking {
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
   font-weight: 600;
   letter-spacing: -0.01em;
   padding: 16px 24px;
   border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  background: linear-gradient(135deg,
-      rgba(255, 198, 41, 0.9) 0%,
-      rgba(255, 184, 0, 0.8) 50%,
-      rgba(255, 198, 41, 0.95) 100%);
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
-  border: 1px solid rgba(255, 198, 41, 0.9);
-  color: rgba(0, 0, 0, 0.9);
+  background: linear-gradient(135deg, rgba(212, 164, 74, 0.9) 0%, rgba(192, 144, 60, 0.8) 50%, rgba(212, 164, 74, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 164, 74, 0.8);
+  color: #1A1613;
 
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.12),
-    0 4px 16px rgba(0, 0, 0, 0.08),
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(245, 235, 220, 0.6),
-    inset 0 -1px 0 rgba(255, 198, 41, 0.3);
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.ios-glass-mobile-booking:hover {
-  background: linear-gradient(135deg,
-      rgba(245, 235, 220, 0.25),
-      rgba(245, 235, 220, 0.15),
-      rgba(245, 235, 220, 0.30));
-  backdrop-filter: blur(60px) saturate(220%);
-  -webkit-backdrop-filter: blur(60px) saturate(220%);
+.loft-mobile-booking:hover {
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4), rgba(50, 42, 35, 0.3), rgba(70, 58, 45, 0.45));
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: rgba(255, 198, 41, 0.4);
+  border-color: rgba(212, 164, 74, 0.6);
   color: #D4A44A;
+  text-shadow: 0 0 8px rgba(212, 164, 74, 0.5);
 
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.15),
-    0 8px 24px rgba(0, 0, 0, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(245, 235, 220, 0.5),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.2);
+    0 12px 36px rgba(0, 0, 0, 0.4),
+    0 6px 18px rgba(0, 0, 0, 0.3),
+    0 3px 9px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Loft Mobile Menu Container and Item Styles */
+.loft-mobile-menu {
+  background: linear-gradient(135deg, rgba(60, 50, 40, 0.6), rgba(50, 42, 35, 0.5));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 164, 74, 0.15);
+  border-radius: 16px;
+  margin-top: 16px;
+  padding: 16px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.loft-mobile-item {
+  margin-bottom: 8px;
+}
+
+.loft-mobile-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Loft appearance animation */
+@keyframes loft-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Dark mode styles for mobile navigation - Matching Desktop */

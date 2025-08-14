@@ -5,7 +5,10 @@ import CustomTreeIcon from "@/components/ui/custom-tree-icon";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-12 pb-20">
+    <footer className="bg-background text-foreground py-12 pb-20 border-t border-border" style={{
+      background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
+      boxShadow: '0 -8px 32px rgba(0, 0, 0, 0.35), 0 -4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+    }}>
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -13,19 +16,19 @@ export default function Footer() {
               <CustomTreeIcon className="h-8 w-8" />
               <span className="text-2xl font-bold font-display">{SITE_CONFIG.name}</span>
             </div>
-            <p className="text-gray-300">{SITE_CONFIG.description}</p>
+            <p className="text-muted-foreground">{SITE_CONFIG.description}</p>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Контакты</h4>
-            <div className="space-y-2 text-gray-300">
+            <div className="space-y-2 text-muted-foreground">
               <p>{SITE_CONFIG.phone}</p>
               <p>{SITE_CONFIG.email}</p>
             </div>
             <div className="flex items-center space-x-4 mt-4">
               <a
                 href={SITE_CONFIG.socialLinks.instagram}
-                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -33,7 +36,7 @@ export default function Footer() {
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.vk}
-                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -41,7 +44,7 @@ export default function Footer() {
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.whatsapp}
-                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -49,7 +52,7 @@ export default function Footer() {
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.telegram}
-                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -57,7 +60,7 @@ export default function Footer() {
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.avito}
-                className="text-gray-300 hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -67,7 +70,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
+        <div className="border-t border-border pt-8 text-center text-muted-foreground">
           <p>&copy; 2025 {SITE_CONFIG.name}. All rights reserved.</p>
         </div>
       </div>
