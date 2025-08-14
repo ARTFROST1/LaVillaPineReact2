@@ -231,7 +231,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         }}
       >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-primary font-display">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-display" style={{ color: '#1A1613' }}>
             Что вас ждёт в <br />
             La Villa Pine
           </h2>

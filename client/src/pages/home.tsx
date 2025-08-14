@@ -178,10 +178,10 @@ export default function Home() {
       <section className="pt-4 pb-12 sm:pt-6 sm:pb-16 md:pt-8 md:pb-20 bg-gradient-to-br from-neutral/30 to-neutral/10">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 font-display" style={{ color: '#1A1613' }}>
               Идеальное расположение
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed" style={{ color: '#4A4A4A' }}>
               Всего 20 минут до города и 30 минут до гор — комфортное путешествие как для любителей городской жизни, так и для почитателей природы
             </p>
           </div>
@@ -271,7 +271,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             {/* Заголовок */}
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 font-display" style={{ color: '#1A1613' }}>
                 Наш адрес
               </h2>
             </div>
@@ -283,10 +283,10 @@ export default function Home() {
                   <i className="fas fa-map-marker-alt text-accent text-lg sm:text-xl"></i>
                 </div>
                 <div className="text-center sm:text-left">
-                  <p className="font-medium text-sm sm:text-base text-gray-500 uppercase tracking-wide mb-1">
+                  <p className="font-medium text-sm sm:text-base uppercase tracking-wide mb-1" style={{ color: '#6B6B6B' }}>
                     Адрес
                   </p>
-                  <p className="text-base sm:text-lg md:text-xl text-gray-800 font-medium">
+                  <p className="text-base sm:text-lg md:text-xl font-medium" style={{ color: '#1A1613' }}>
                     {SITE_CONFIG.address}
                   </p>
                 </div>
