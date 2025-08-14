@@ -175,13 +175,20 @@ export default function Home() {
       <StackedAmenities onImageClick={openGallery} />
 
       {/* Идеальное расположение */}
-      <section className="pt-4 pb-12 sm:pt-6 sm:pb-16 md:pt-8 md:pb-20 bg-gradient-to-br from-neutral/30 to-neutral/10">
+      <section className="pt-4 pb-12 sm:pt-6 sm:pb-16 md:pt-8 md:pb-20" style={{
+        background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderTop: '1px solid rgba(212, 164, 74, 0.15)',
+        borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+      }}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-foreground font-display">
               Идеальное расположение
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
               Всего 20 минут до города и 30 минут до гор — комфортное путешествие как для любителей городской жизни, так и для почитателей природы
             </p>
           </div>
@@ -206,7 +213,7 @@ export default function Home() {
                 <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
                   20 минут
                 </p>
-                <p className="text-xs sm:text-sm text-gray-200 mt-1 sm:mt-2">
+                <p className="text-xs sm:text-sm text-muted-foreground/80 mt-1 sm:mt-2">
                   Удобный доступ к городской инфраструктуре
                 </p>
               </div>
@@ -231,7 +238,7 @@ export default function Home() {
                 <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
                   30 минут
                 </p>
-                <p className="text-xs sm:text-sm text-gray-200 mt-1 sm:mt-2">
+                <p className="text-xs sm:text-sm text-muted-foreground/80 mt-1 sm:mt-2">
                   Горные пейзажи и свежий воздух
                 </p>
               </div>
@@ -256,7 +263,7 @@ export default function Home() {
                 <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
                   2 минуты
                 </p>
-                <p className="text-xs sm:text-sm text-gray-200 mt-1 sm:mt-2">
+                <p className="text-xs sm:text-sm text-muted-foreground/80 mt-1 sm:mt-2">
                   Минеральные источники рядом
                 </p>
               </div>
@@ -266,27 +273,42 @@ export default function Home() {
       </section>
 
       {/* Наш адрес и карта */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20" style={{
+        background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderTop: '1px solid rgba(212, 164, 74, 0.15)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+      }}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Заголовок */}
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-foreground font-display">
                 Наш адрес
               </h2>
             </div>
 
             {/* Адрес */}
-            <div className="bg-gradient-to-br from-neutral/20 to-neutral/10 p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 border border-accent/10 shadow-sm">
+            <div className="p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 shadow-sm" style={{
+              background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.5), rgba(50, 42, 35, 0.4))',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(212, 164, 74, 0.2)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+            }}>
               <div className="flex items-center justify-center space-x-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <i className="fas fa-map-marker-alt text-accent text-lg sm:text-xl"></i>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center flex-shrink-0" style={{
+                  background: 'rgba(212, 164, 74, 0.2)',
+                  border: '1px solid rgba(212, 164, 74, 0.3)'
+                }}>
+                  <i className="fas fa-map-marker-alt text-lg sm:text-xl" style={{ color: '#D4A44A' }}></i>
                 </div>
                 <div className="text-center sm:text-left">
-                  <p className="font-medium text-sm sm:text-base text-gray-500 uppercase tracking-wide mb-1">
+                  <p className="font-medium text-sm sm:text-base text-muted-foreground uppercase tracking-wide mb-1">
                     Адрес
                   </p>
-                  <p className="text-base sm:text-lg md:text-xl text-gray-800 font-medium">
+                  <p className="text-base sm:text-lg md:text-xl text-foreground font-medium">
                     {SITE_CONFIG.address}
                   </p>
                 </div>
@@ -294,7 +316,10 @@ export default function Home() {
             </div>
 
             {/* Карта */}
-            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-accent/10">
+            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg" style={{
+              border: '1px solid rgba(212, 164, 74, 0.2)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25)'
+            }}>
               <YandexMap 
                 address={SITE_CONFIG.address}
                 className="w-full h-64 sm:h-80 md:h-96"

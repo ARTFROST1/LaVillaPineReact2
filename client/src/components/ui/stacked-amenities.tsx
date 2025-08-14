@@ -222,16 +222,21 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
       {/* Заголовок секции */}
       <div 
         ref={headerRef}
-        className={`sticky top-12 z-40 bg-white/90 backdrop-blur-sm py-8 transition-opacity duration-500 ${
+        className={`sticky top-12 z-40 py-8 transition-opacity duration-500 ${
           isHeaderVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         style={{
+          background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
           willChange: 'opacity',
           transform: 'translateZ(0)',
         }}
       >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-primary font-display">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-foreground font-display">
             Что вас ждёт в <br />
             La Villa Pine
           </h2>
