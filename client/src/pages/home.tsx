@@ -174,6 +174,83 @@ export default function Home() {
       {/* Stacked Amenities with Scroll Effect */}
       <StackedAmenities onImageClick={openGallery} />
 
+      {/* Галерея карусель */}
+      <section className="py-12 sm:py-16 md:py-20" style={{
+        background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderTop: '1px solid rgba(212, 164, 74, 0.15)',
+        borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+      }}>
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-foreground font-display">
+              Наша галерея
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Погрузитесь в атмосферу La Villa Pine через наши фотографии
+            </p>
+          </div>
+
+          {/* Горизонтальная карусель */}
+          <div className="relative">
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex space-x-4 sm:space-x-6 pb-4">
+                {GALLERY_IMAGES.map((image, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-72 sm:w-80 h-48 sm:h-56 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+                    onClick={() => {
+                      const imageIndex = GALLERY_IMAGES.findIndex(img => img.url === image.url);
+                      setSelectedImage(imageIndex !== -1 ? imageIndex : 0);
+                      setIsGalleryOpen(true);
+                    }}
+                    data-testid={`gallery-card-${index}`}
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.5), rgba(50, 42, 35, 0.4))',
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
+                      border: '1px solid rgba(212, 164, 74, 0.2)',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                    }}
+                  >
+                    <div className="relative w-full h-full">
+                      <DynamicImage
+                        src={image.url}
+                        fallbackSrc={image.fallbackUrl || image.url}
+                        alt={image.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/40 transition-all duration-300"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                        <h3 className="text-white text-sm sm:text-base font-medium leading-tight">
+                          {image.alt}
+                        </h3>
+                      </div>
+                      {/* Увеличительное стекло иконка при hover */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                          <i className="fas fa-search-plus text-white text-xl"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Индикатор прокрутки */}
+            <div className="flex justify-center mt-6">
+              <div className="text-muted-foreground text-sm">
+                <i className="fas fa-arrows-alt-h mr-2"></i>
+                Прокрутите для просмотра всех фотографий
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Идеальное расположение */}
       <section className="pt-4 pb-12 sm:pt-6 sm:pb-16 md:pt-8 md:pb-20" style={{
         background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',

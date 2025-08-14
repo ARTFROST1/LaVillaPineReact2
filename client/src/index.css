@@ -73,6 +73,16 @@ p {
   letter-spacing: 0.005em;
 }
 
+/* Скрытие скроллбара для горизонтальной карусели */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, and Opera */
+}
+
 /* Dynamic contrast transitions */
 .dynamic-text-transition {
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
