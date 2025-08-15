@@ -24,7 +24,7 @@ export default function Contacts() {
           backgroundImage: 'url(/images/amenities/forest.jpg)'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
       <div className="relative z-10 py-20">
         <div className="container mx-auto px-4">
