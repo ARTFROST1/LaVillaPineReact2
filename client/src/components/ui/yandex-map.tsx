@@ -96,7 +96,7 @@ export default function YandexMap({
           },
           {
             preset: "islands#redDotIcon",
-            iconColor: "#E6B319", // жёлтый цвет метки
+            iconColor: "#D4A44A", // жёлтый цвет метки
           },
         );
 
