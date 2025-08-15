@@ -52,28 +52,25 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
       const totalCards = AMENITIES.length;
       const progressPerCard = 1 / totalCards;
       
-      // Проверяем, доскроллил ли пользователь до блока "Идеальное расположение"
-      // Ищем элемент с заголовком "Идеальное расположение"
-      const locationSection = document.evaluate("//h2[contains(text(), 'Идеальное расположение')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue as HTMLElement;
+      // Проверяем, доскроллил ли пользователь до блока "Наша галерея"
+      // Ищем элемент с заголовком "Наша галерея"
+      const gallerySection = document.evaluate("//h2[contains(text(), 'Наша галерея')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue as HTMLElement;
       
-      if (locationSection) {
-        const locationRect = locationSection.getBoundingClientRect();
-        const locationTop = locationRect.top;
+      if (gallerySection) {
+        const galleryRect = gallerySection.getBoundingClientRect();
+        const galleryTop = galleryRect.top;
         
-        // Заголовок исчезает когда блок "Идеальное расположение" входит в область видимости
-        // Настройте значение 0.8 для изменения момента исчезновения заголовка
-        if (locationTop <= viewportHeight * 0.8) {
+        // Заголовок исчезает когда блок "Наша галерея" входит в область видимости
+        // Настройте значение 0.9 для изменения момента исчезновения заголовка
+        if (galleryTop <= viewportHeight * 0.9) {
           setIsHeaderVisible(false);
         } else {
           setIsHeaderVisible(true);
         }
       } else {
-        // Если блок не найден, используем старую логику как fallback
-        const parkingCardIndex = AMENITIES.findIndex(amenity => amenity.title === "Удобная Парковка");
-        const parkingCardStartProgress = parkingCardIndex * progressPerCard;
-        const hideThreshold = parkingCardStartProgress + (progressPerCard * 0.9);
-        
-        if (scrollProgress >= hideThreshold) {
+        // Если блок не найден, используем прогресс скролла как fallback
+        // Заголовок исчезает после прохождения 85% контента достоинств
+        if (scrollProgress >= 0.85) {
           setIsHeaderVisible(false);
         } else {
           setIsHeaderVisible(true);
@@ -219,9 +216,16 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         overscrollBehavior: 'contain',
       }}
     >
-      {/* Заголовок секции */}
-      <div>
-        <div className="container mx-auto px-4 text-center">
+      {/* Заголовок секции с параллакс эффектом */}
+      <div 
+        ref={headerRef}
+        className={`sticky top-16 z-50 transition-opacity duration-500 ${isHeaderVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{
+          willChange: 'transform, opacity',
+          transform: 'translateZ(0)', // Аппаратное ускорение
+        }}
+      >
+        <div className="container mx-auto px-4 text-center py-8 backdrop-blur-sm bg-background/80 rounded-xl mx-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-foreground font-display">
             Что вас ждёт в <br />
             La Villa Pine
