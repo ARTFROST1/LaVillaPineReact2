@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useDynamicContrast } from "@/hooks/useDynamicContrast";
-import logoImage from "@assets/logo_image.jpg";
+import logoImage from "@public/images/icons/logo.png";
 
 export default function Header() {
   const [location] = useLocation();
