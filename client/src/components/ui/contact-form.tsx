@@ -63,51 +63,55 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
-        <Label htmlFor="name" className="text-gray-700 text-sm font-medium">Имя</Label>
+        <Label htmlFor="name" className="text-foreground text-sm font-medium">Имя</Label>
         <Input
           id="name"
           type="text"
           placeholder="Ваше имя"
           className="mt-2"
+          data-testid="input-name"
           {...register("name")}
         />
         {errors.name && (
-          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+          <p className="text-destructive text-sm mt-1">{errors.name.message}</p>
         )}
       </div>
       
       <div>
-        <Label htmlFor="phone" className="text-gray-700 text-sm font-medium">Номер телефона</Label>
+        <Label htmlFor="phone" className="text-foreground text-sm font-medium">Номер телефона</Label>
         <Input
           id="phone"
           type="tel"
           placeholder="+7 (XXX) XXX-XX-XX"
           className="mt-2"
+          data-testid="input-phone"
           {...register("phone")}
         />
         {errors.phone && (
-          <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+          <p className="text-destructive text-sm mt-1">{errors.phone.message}</p>
         )}
       </div>
       
       <div>
-        <Label htmlFor="message" className="text-gray-700 text-sm font-medium">Сообщение</Label>
+        <Label htmlFor="message" className="text-foreground text-sm font-medium">Сообщение</Label>
         <Textarea
           id="message"
           rows={4}
           placeholder="Ваше сообщение"
           className="mt-2 resize-none"
+          data-testid="textarea-message"
           {...register("message")}
         />
         {errors.message && (
-          <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+          <p className="text-destructive text-sm mt-1">{errors.message.message}</p>
         )}
       </div>
       
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-accent hover:bg-white/20 hover:backdrop-blur-sm hover:text-accent text-white border-2 border-accent hover:border-white transition-all duration-300 shadow-lg"
+        className="w-full loft-booking-button text-primary-foreground font-display font-semibold text-base"
+        data-testid="button-submit-contact"
       >
         {isSubmitting ? (
           <>
