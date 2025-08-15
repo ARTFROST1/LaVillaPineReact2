@@ -3,8 +3,8 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
-import CustomTreeIcon from "@/components/ui/custom-tree-icon";
 import { useDynamicContrast } from "@/hooks/useDynamicContrast";
+import logoImage from "@assets/logo_image.jpg";
 
 export default function Header() {
   const [location] = useLocation();
@@ -76,14 +76,15 @@ export default function Header() {
     >
       <nav className="container mx-auto px-3 sm:px-4 py-4 sm:py-5">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3 group" data-testid="link-home-logo">
+          <Link href="/" className="flex items-center group" data-testid="link-home-logo">
             <div className="relative">
-              <CustomTreeIcon className={`h-7 w-7 sm:h-9 sm:w-9 transition-transform duration-300 group-hover:scale-110 ${dynamicTextClass}`} />
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <img 
+                src={logoImage} 
+                alt={SITE_CONFIG.name}
+                className="h-8 w-auto sm:h-10 md:h-12 transition-transform duration-300 group-hover:scale-110 object-contain"
+              />
+              <div className="absolute inset-0 bg-primary/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <span className={`text-lg sm:text-xl md:text-2xl font-bold font-display transition-all duration-300 ${dynamicTextClass}`}>
-              {SITE_CONFIG.name}
-            </span>
           </Link>
           
           <div 
