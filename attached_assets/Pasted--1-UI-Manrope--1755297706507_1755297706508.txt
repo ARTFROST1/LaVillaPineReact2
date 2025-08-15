@@ -1,0 +1,166 @@
+Рекомендованные шрифты (идеальная пара)
+
+1) Заголовки / UI / кнопки — Manrope
+
+Почему: геометричный, аккуратно округлённые формы, визуально рифмуется с буквами логотипа и “тёплым лофтом” (не холодный техно).
+
+Диапазон: 300–800 (variable).
+
+Где: h1–h4, навигация, CTA-кнопки, цены/цифры в карточках.
+
+2) Основной текст / подписи — Inter
+
+Почему: эталон читаемости на экране, отличная кириллица, прекрасно дружит с Manrope и не спорит с фотографиями.
+
+Диапазон: 300–700.
+
+Где: абзацы, описания, long-read, формы.
+
+Альтернатива “чуть мягче и плотнее” для заголовков: Rubik (тоже с кириллицей, чуть более «квадратно-округлый» характер). Можно заменить Manrope на Rubik, если захочется более «приземлённой» пластики.
+
+Цвет и типографика (под твой лофт)
+
+Базовый текст: #F2EDE6 (тёплый беж)
+
+Второстепенный текст: #AFA296
+
+Фон: #1A1613
+
+Акцент золото/латунь: #D4A44A
+
+Тёмный графит для UI: #26201B
+
+Иерархия и размеры
+
+Используй responsive-шкалу с clamp() — так заголовки выглядят статусно на больших фото.
+
+h1 (Manrope 800): clamp(34px, 4vw, 56px) / -0.01em
+
+h2 (Manrope 700): clamp(28px, 3vw, 40px) / -0.005em
+
+h3 (Manrope 700): clamp(22px, 2.2vw, 28px)
+
+Текст абзаца (Inter 400): clamp(16px, 1.2vw, 18px) / line-height: 1.6
+
+Навигация/кнопки (Manrope 600): 14–16px, letter-spacing: 0.04em, UPPERCASE
+
+Цифры (цены, метрики): font-variant-numeric: tabular-nums; (в Inter и Manrope табличные цифры есть)
+
+Подключение и готовые стили
+
+Вставь эти теги в <head> (Google Fonts, с кириллицей и swap):
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+
+И добавь в твой CSS (или Tailwind конфиг) — сразу готовые правила и стеки:
+
+:root{
+  --font-display: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-text: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  /* Цвета под твой лофт */
+  --bg: #1A1613;
+  --fg: #F2EDE6;
+  --fg-muted: #AFA296;
+  --graphite: #26201B;
+  --gold: #D4A44A;
+  --wood: #8C6B4A;
+}
+
+/* Базовые правила */
+html, body{
+  color: var(--fg);
+  background: var(--bg);
+  font-family: var(--font-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern","liga","clig","calt";
+}
+
+/* Иерархия заголовков */
+h1, .h1{ font-family: var(--font-display); font-weight: 800; letter-spacing:-0.01em; line-height:1.12; font-size: clamp(34px,4vw,56px); }
+h2, .h2{ font-family: var(--font-display); font-weight: 700; letter-spacing:-0.005em; line-height:1.18; font-size: clamp(28px,3vw,40px); }
+h3, .h3{ font-family: var(--font-display); font-weight: 700; line-height:1.2; font-size: clamp(22px,2.2vw,28px); }
+
+p{ font-size: clamp(16px,1.2vw,18px); line-height: 1.6; color: var(--fg); }
+.muted{ color: var(--fg-muted); }
+
+/* Навигация/кнопки */
+.nav, .btn{
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* Кнопка — тёплый лофт */
+.btn-primary{
+  color: #1A1613;
+  background: linear-gradient(135deg, rgba(212,164,74,.95) 0%, rgba(192,144,60,.9) 60%, rgba(212,164,74,.98) 100%);
+  border: 1px solid rgba(212,164,74,.35);
+  border-radius: 16px;
+  padding: 12px 18px;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.12);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.btn-primary:hover{
+  transform: translateY(-1px) scale(1.02);
+  filter: brightness(1.03);
+  box-shadow:
+    0 12px 36px rgba(0,0,0,.45),
+    0 0 0 3px rgba(212,164,74,.15);
+}
+
+/* Кнопка вторичная (матовый графит с тёплой подсветкой) */
+.btn-secondary{
+  color: var(--fg);
+  background:
+    linear-gradient(135deg, rgba(60,50,40,.35), rgba(50,42,35,.30));
+  border: 1px solid rgba(138,110,82,.25);
+  border-radius: 16px;
+  padding: 12px 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.35);
+}
+.btn-secondary:hover{
+  box-shadow: 0 10px 28px rgba(0,0,0,.45);
+  border-color: rgba(212,164,74,.35);
+}
+
+/* Шапка сайта */
+.header{
+  background: linear-gradient(135deg, rgba(60,50,40,.60), rgba(50,42,35,.50));
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212,164,74,.15);
+}
+.header .nav-link{
+  color: var(--fg);
+  text-decoration: none;
+  padding: 10px 14px;
+}
+.header .nav-link:hover{ color: var(--gold); }
+
+/* Цены/цифры — ровная сетка */
+.price, .stat{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+Где какой шрифт использовать на твоём сайте
+
+Лого (как есть): изображение/вектор, шрифтом его не заменяем. В интерфейсе повторяем настроение через Manrope 800 (герои, большие заголовки).
+
+Hero-заголовки и секции (“Спа-дом с бассейном”, “La Villa Pine”): Manrope 800/700.
+
+Навигация и кнопки: Manrope 600, uppercase, межбуквие 0.04em.
+
+Абзацы, описания номеров, условия бронирования: Inter 400/500.
+
+Цены, площади, время заезда/выезда, счётчики: Manrope 700, font-variant-numeric: tabular-nums.
+
+Подписи к фото, второстепенные тексты: Inter 400, цвет #AFA296.
