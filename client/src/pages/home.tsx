@@ -181,7 +181,7 @@ export default function Home() {
         WebkitBackdropFilter: 'blur(20px)',
         borderTop: '1px solid rgba(212, 164, 74, 0.15)',
         borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 -8px 32px rgba(0, 0, 0, 0.25), 0 8px 32px rgba(0, 0, 0, 0.25)'
       }}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
@@ -251,6 +251,65 @@ export default function Home() {
         </div>
       </section>
 
+      
+
+      {/* Наш адрес и карта */}
+      <section className="py-12 sm:py-16 md:py-20" style={{
+        background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderTop: '1px solid rgba(212, 164, 74, 0.15)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+      }}>
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Заголовок */}
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-foreground font-display">
+                Наш адрес
+              </h2>
+            </div>
+
+            {/* Адрес */}
+            <div className="p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 shadow-sm" style={{
+              background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.5), rgba(50, 42, 35, 0.4))',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(212, 164, 74, 0.2)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+            }}>
+              <div className="flex items-center justify-center space-x-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center flex-shrink-0" style={{
+                  background: 'rgba(212, 164, 74, 0.2)',
+                  border: '1px solid rgba(212, 164, 74, 0.3)'
+                }}>
+                  <i className="fas fa-map-marker-alt text-lg sm:text-xl" style={{ color: '#D4A44A' }}></i>
+                </div>
+                <div className="text-center sm:text-left">
+                  <p className="font-medium text-sm sm:text-base text-muted-foreground uppercase tracking-wide mb-1">
+                    Адрес
+                  </p>
+                  <p className="text-base sm:text-lg md:text-xl text-foreground font-medium">
+                    {SITE_CONFIG.address}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Карта */}
+            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg" style={{
+              border: '1px solid rgba(212, 164, 74, 0.2)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25)'
+            }}>
+              <YandexMap 
+                address={SITE_CONFIG.address}
+                className="w-full h-64 sm:h-80 md:h-96"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Идеальное расположение */}
       <section className="pt-4 pb-12 sm:pt-6 sm:pb-16 md:pt-8 md:pb-20" style={{
         background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
@@ -258,7 +317,7 @@ export default function Home() {
         WebkitBackdropFilter: 'blur(20px)',
         borderTop: '1px solid rgba(212, 164, 74, 0.15)',
         borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 -8px 32px rgba(0, 0, 0, 0.25), 0 8px 32px rgba(0, 0, 0, 0.25)'
       }}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
@@ -344,63 +403,6 @@ export default function Home() {
                   Минеральные источники рядом
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Наш адрес и карта */}
-      <section className="py-12 sm:py-16 md:py-20" style={{
-        background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '1px solid rgba(212, 164, 74, 0.15)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-      }}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            {/* Заголовок */}
-            <div className="text-center mb-10 sm:mb-12 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-foreground font-display">
-                Наш адрес
-              </h2>
-            </div>
-
-            {/* Адрес */}
-            <div className="p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 shadow-sm" style={{
-              background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.5), rgba(50, 42, 35, 0.4))',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(212, 164, 74, 0.2)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-            }}>
-              <div className="flex items-center justify-center space-x-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center flex-shrink-0" style={{
-                  background: 'rgba(212, 164, 74, 0.2)',
-                  border: '1px solid rgba(212, 164, 74, 0.3)'
-                }}>
-                  <i className="fas fa-map-marker-alt text-lg sm:text-xl" style={{ color: '#D4A44A' }}></i>
-                </div>
-                <div className="text-center sm:text-left">
-                  <p className="font-medium text-sm sm:text-base text-muted-foreground uppercase tracking-wide mb-1">
-                    Адрес
-                  </p>
-                  <p className="text-base sm:text-lg md:text-xl text-foreground font-medium">
-                    {SITE_CONFIG.address}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Карта */}
-            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg" style={{
-              border: '1px solid rgba(212, 164, 74, 0.2)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25)'
-            }}>
-              <YandexMap 
-                address={SITE_CONFIG.address}
-                className="w-full h-64 sm:h-80 md:h-96"
-              />
             </div>
           </div>
         </div>
