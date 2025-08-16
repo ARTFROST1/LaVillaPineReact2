@@ -26,11 +26,12 @@ export default function Home() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   
-  // Состояние для автопрокрутки галереи
-  const [galleryScrollPosition, setGalleryScrollPosition] = useState(0);
+  // Состояние для карусели галереи
+  const [currentGallerySlide, setCurrentGallerySlide] = useState(0);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const [userInteracted, setUserInteracted] = useState(false);
   const [galleryRef, setGalleryRef] = useState<HTMLDivElement | null>(null);
+  const [showArrows, setShowArrows] = useState(false);
 
   // Функции для управления галереей
   const openGallery = (imageUrl: string) => {
@@ -68,32 +69,30 @@ export default function Home() {
     }
   };
 
-  // Логика автопрокрутки галереи
+  // Навигация карусели
+  const nextGallerySlide = () => {
+    setUserInteracted(true);
+    setCurrentGallerySlide((prev) => (prev + 1) % GALLERY_IMAGES.length);
+  };
+
+  const prevGallerySlide = () => {
+    setUserInteracted(true);
+    setCurrentGallerySlide((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+  };
+
+  // Логика автопрокрутки карусели
   useEffect(() => {
     let autoScrollInterval: NodeJS.Timeout;
     let inactivityTimeout: NodeJS.Timeout;
 
     const startAutoScroll = () => {
-      if (!galleryRef || !isAutoScrolling) return;
+      if (!isAutoScrolling || userInteracted) return;
       
       autoScrollInterval = setInterval(() => {
-        if (galleryRef && !userInteracted) {
-          const maxScroll = galleryRef.scrollWidth - galleryRef.clientWidth;
-          const currentScroll = galleryRef.scrollLeft;
-          const scrollStep = 120; // Медленная прокрутка
-          
-          if (currentScroll >= maxScroll) {
-            // Если достигли конца, возвращаемся в начало
-            galleryRef.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            // Прокручиваем вперед
-            galleryRef.scrollTo({ 
-              left: currentScroll + scrollStep, 
-              behavior: 'smooth' 
-            });
-          }
+        if (!userInteracted) {
+          setCurrentGallerySlide((prev) => (prev + 1) % GALLERY_IMAGES.length);
         }
-      }, 3000); // Прокрутка каждые 3 секунды
+      }, 4000); // Смена слайда каждые 4 секунды
     };
 
     const stopAutoScroll = () => {
@@ -106,7 +105,6 @@ export default function Home() {
       setUserInteracted(true);
       stopAutoScroll();
       
-      // Очистить предыдущий таймер бездействия
       if (inactivityTimeout) {
         clearTimeout(inactivityTimeout);
       }
@@ -114,17 +112,11 @@ export default function Home() {
       // Возобновить автопрокрутку через 15 секунд бездействия
       inactivityTimeout = setTimeout(() => {
         setUserInteracted(false);
-        startAutoScroll();
       }, 15000);
     };
 
-    if (galleryRef && isAutoScrolling) {
+    if (isAutoScrolling && !userInteracted) {
       startAutoScroll();
-      
-      // Добавить обработчики событий для отслеживания взаимодействий пользователя
-      galleryRef.addEventListener('scroll', handleUserInteraction);
-      galleryRef.addEventListener('touchstart', handleUserInteraction);
-      galleryRef.addEventListener('mousedown', handleUserInteraction);
     }
 
     return () => {
@@ -132,13 +124,48 @@ export default function Home() {
       if (inactivityTimeout) {
         clearTimeout(inactivityTimeout);
       }
-      if (galleryRef) {
-        galleryRef.removeEventListener('scroll', handleUserInteraction);
-        galleryRef.removeEventListener('touchstart', handleUserInteraction);
-        galleryRef.removeEventListener('mousedown', handleUserInteraction);
+    };
+  }, [isAutoScrolling, userInteracted]);
+
+  // Обработка касаний для мобильных устройств
+  useEffect(() => {
+    if (!galleryRef) return;
+
+    let startX = 0;
+    let startY = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      setUserInteracted(true);
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const diffX = startX - endX;
+      const diffY = startY - endY;
+
+      // Проверяем что это горизонтальный свайп
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          nextGallerySlide();
+        } else {
+          prevGallerySlide();
+        }
       }
     };
-  }, [galleryRef, isAutoScrolling, userInteracted]);
+
+    galleryRef.addEventListener('touchstart', handleTouchStart);
+    galleryRef.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      if (galleryRef) {
+        galleryRef.removeEventListener('touchstart', handleTouchStart);
+        galleryRef.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, [galleryRef]);
 
   // Компонент для отображения изображения с fallback
   const GalleryImageComponent = ({ src, fallbackSrc, alt, className }: { 
@@ -253,14 +280,19 @@ export default function Home() {
       <StackedAmenities onImageClick={openGallery} />
 
       {/* Галерея карусель */}
-      <section className="py-12 sm:py-16 md:py-20" style={{
-        background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '1px solid rgba(212, 164, 74, 0.15)',
-        borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 -8px 32px rgba(0, 0, 0, 0.25), 0 8px 32px rgba(0, 0, 0, 0.25)'
-      }}>
+      <section 
+        className="relative py-12 sm:py-16 md:py-20 group"
+        style={{
+          background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderTop: '1px solid rgba(212, 164, 74, 0.15)',
+          borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 -8px 32px rgba(0, 0, 0, 0.25), 0 8px 32px rgba(0, 0, 0, 0.25)'
+        }}
+        onMouseEnter={() => setShowArrows(true)}
+        onMouseLeave={() => setShowArrows(false)}
+      >
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground font-display">
@@ -268,19 +300,21 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Горизонтальная карусель */}
+          {/* Карусель карточек */}
           <div 
             ref={setGalleryRef}
-            className="overflow-x-auto scrollbar-hide"
+            className="relative overflow-hidden rounded-3xl"
           >
-            <div className="flex space-x-6 pb-4">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentGallerySlide * 100}%)` }}
+            >
               {GALLERY_IMAGES.map((image, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-96 h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+                  className="w-full flex-shrink-0 h-96 relative cursor-pointer"
                   onClick={() => {
-                    const imageIndex = GALLERY_IMAGES.findIndex(img => img.url === image.url);
-                    setSelectedImage(imageIndex !== -1 ? imageIndex : 0);
+                    setSelectedImage(index);
                     setIsGalleryOpen(true);
                   }}
                   data-testid={`gallery-card-${index}`}
@@ -289,11 +323,51 @@ export default function Home() {
                     src={image.url}
                     fallbackSrc={image.fallbackUrl || image.url}
                     alt={image.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Навигационные стрелки (только для десктопа) */}
+          {showArrows && (
+            <>
+              <button
+                onClick={prevGallerySlide}
+                className="hidden md:flex absolute left-8 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-sm rounded-full items-center justify-center text-white hover:bg-black/60 transition-all duration-300 z-10"
+                data-testid="gallery-prev-button"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={nextGallerySlide}
+                className="hidden md:flex absolute right-8 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-sm rounded-full items-center justify-center text-white hover:bg-black/60 transition-all duration-300 z-10"
+                data-testid="gallery-next-button"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </>
+          )}
+
+          {/* Индикаторы слайдов */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {GALLERY_IMAGES.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setUserInteracted(true);
+                  setCurrentGallerySlide(index);
+                }}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentGallerySlide 
+                    ? 'bg-accent scale-125' 
+                    : 'bg-white/40 hover:bg-white/60'
+                }`}
+                data-testid={`gallery-indicator-${index}`}
+              />
+            ))}
           </div>
         </div>
       </section>
