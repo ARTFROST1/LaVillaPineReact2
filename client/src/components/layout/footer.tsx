@@ -1,7 +1,9 @@
 import { Link } from "wouter";
 import { SITE_CONFIG } from "@/lib/constants";
 import AvitoIcon from "@/components/ui/avito-icon";
-import CustomTreeIcon from "@/components/ui/custom-tree-icon";
+
+// Logo from public directory
+const logoImage = "/images/icons/logo.png";
 
 export default function Footer() {
   return (
@@ -12,9 +14,12 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <CustomTreeIcon className="h-8 w-8" />
-              <span className="text-2xl font-bold font-display">{SITE_CONFIG.name}</span>
+            <div className="flex items-center group mb-4">
+              <img 
+                src={logoImage} 
+                alt={SITE_CONFIG.name}
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-110 object-contain"
+              />
             </div>
             <p className="text-muted-foreground">{SITE_CONFIG.description}</p>
           </div>
