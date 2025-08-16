@@ -82,7 +82,7 @@ export default function Header() {
               <img 
                 src={logoImage} 
                 alt={SITE_CONFIG.name}
-                className="h-12 w-auto sm:h-10 md:h-12 transition-transform duration-300 group-hover:scale-110 object-contain"
+                className="h-14 w-auto sm:h-10 md:h-12 transition-transform duration-300 group-hover:scale-110 object-contain"
               />
               <div className="absolute inset-0 bg-primary/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
