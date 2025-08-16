@@ -25,6 +25,12 @@ declare global {
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  
+  // Состояние для автопрокрутки галереи
+  const [galleryScrollPosition, setGalleryScrollPosition] = useState(0);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [userInteracted, setUserInteracted] = useState(false);
+  const [galleryRef, setGalleryRef] = useState<HTMLDivElement | null>(null);
 
   // Функции для управления галереей
   const openGallery = (imageUrl: string) => {
@@ -61,6 +67,78 @@ export default function Home() {
       setSelectedImage((selectedImage - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
     }
   };
+
+  // Логика автопрокрутки галереи
+  useEffect(() => {
+    let autoScrollInterval: NodeJS.Timeout;
+    let inactivityTimeout: NodeJS.Timeout;
+
+    const startAutoScroll = () => {
+      if (!galleryRef || !isAutoScrolling) return;
+      
+      autoScrollInterval = setInterval(() => {
+        if (galleryRef && !userInteracted) {
+          const maxScroll = galleryRef.scrollWidth - galleryRef.clientWidth;
+          const currentScroll = galleryRef.scrollLeft;
+          const scrollStep = 120; // Медленная прокрутка
+          
+          if (currentScroll >= maxScroll) {
+            // Если достигли конца, возвращаемся в начало
+            galleryRef.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            // Прокручиваем вперед
+            galleryRef.scrollTo({ 
+              left: currentScroll + scrollStep, 
+              behavior: 'smooth' 
+            });
+          }
+        }
+      }, 3000); // Прокрутка каждые 3 секунды
+    };
+
+    const stopAutoScroll = () => {
+      if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+      }
+    };
+
+    const handleUserInteraction = () => {
+      setUserInteracted(true);
+      stopAutoScroll();
+      
+      // Очистить предыдущий таймер бездействия
+      if (inactivityTimeout) {
+        clearTimeout(inactivityTimeout);
+      }
+      
+      // Возобновить автопрокрутку через 15 секунд бездействия
+      inactivityTimeout = setTimeout(() => {
+        setUserInteracted(false);
+        startAutoScroll();
+      }, 15000);
+    };
+
+    if (galleryRef && isAutoScrolling) {
+      startAutoScroll();
+      
+      // Добавить обработчики событий для отслеживания взаимодействий пользователя
+      galleryRef.addEventListener('scroll', handleUserInteraction);
+      galleryRef.addEventListener('touchstart', handleUserInteraction);
+      galleryRef.addEventListener('mousedown', handleUserInteraction);
+    }
+
+    return () => {
+      stopAutoScroll();
+      if (inactivityTimeout) {
+        clearTimeout(inactivityTimeout);
+      }
+      if (galleryRef) {
+        galleryRef.removeEventListener('scroll', handleUserInteraction);
+        galleryRef.removeEventListener('touchstart', handleUserInteraction);
+        galleryRef.removeEventListener('mousedown', handleUserInteraction);
+      }
+    };
+  }, [galleryRef, isAutoScrolling, userInteracted]);
 
   // Компонент для отображения изображения с fallback
   const GalleryImageComponent = ({ src, fallbackSrc, alt, className }: { 
@@ -191,7 +269,10 @@ export default function Home() {
           </div>
 
           {/* Горизонтальная карусель */}
-          <div className="overflow-x-auto scrollbar-hide">
+          <div 
+            ref={setGalleryRef}
+            className="overflow-x-auto scrollbar-hide"
+          >
             <div className="flex space-x-6 pb-4">
               {GALLERY_IMAGES.map((image, index) => (
                 <div
