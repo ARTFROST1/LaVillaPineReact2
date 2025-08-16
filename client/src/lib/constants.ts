@@ -4,8 +4,7 @@ export const SITE_CONFIG = {
     "Два гостевых дома в стиле лофт с саунами, подогреваемыми бассейнами и лесными окрестностями",
   phone: "+7 (918) 924-00-07",
   email: "lavillapine@yandex.com",
-  address:
-    "Республика Адыгея, посёлок Тульский, Кольцевая улица, 4",
+  address: "Республика Адыгея, посёлок Тульский, Кольцевая улица, 4",
   socialLinks: {
     instagram: "https://www.instagram.com/lavillapine/",
     vk: "https://vk.com/lavillapine",
@@ -60,84 +59,99 @@ export const FEATURE_GALLERIES = {
   loftDesign: [
     {
       url: "/images/amenities/interior.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Современный лофт интерьер - гостиная"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Современный лофт интерьер - гостиная",
     },
     {
       url: "/images/rooms/room-1.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Лофт спальня - современный дизайн"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лофт спальня - современный дизайн",
     },
     {
       url: "/images/rooms/room-2.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Лофт кухня с индустриальными элементами"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лофт кухня с индустриальными элементами",
     },
     {
       url: "/images/gallery/gallery-1.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Лофт интерьер - детали дизайна"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лофт интерьер - детали дизайна",
     },
     {
       url: "/images/gallery/gallery-2.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Современная ванная комната в стиле лофт"
-    }
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Современная ванная комната в стиле лофт",
+    },
   ],
   poolSauna: [
     {
       url: "/images/amenities/pool.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Подогреваемый бассейн - общий вид"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Подогреваемый бассейн - общий вид",
     },
     {
       url: "/images/amenities/sauna.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Сауна с RGB-подсветкой"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Сауна с RGB-подсветкой",
     },
     {
       url: "/images/gallery/gallery-3.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Бассейн вечером - атмосферное освещение"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Бассейн вечером - атмосферное освещение",
     },
     {
       url: "/images/gallery/gallery-7.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Сауна - интерьер и отделка"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Сауна - интерьер и отделка",
     },
     {
       url: "/images/gallery/gallery-11.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Зона отдыха у бассейна"
-    }
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Зона отдыха у бассейна",
+    },
   ],
   forestSurrounding: [
     {
       url: "/images/amenities/forest.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Лесное окружение - природный пейзаж"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лесное окружение - природный пейзаж",
     },
     {
       url: "/images/gallery/gallery-9.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Лесная тропа рядом с домом"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Лесная тропа рядом с домом",
     },
     {
       url: "/images/gallery/gallery-13.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Вид на лес с террасы"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Вид на лес с террасы",
     },
     {
       url: "/images/gallery/gallery-15.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Дикая природа - утренний лес"
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Дикая природа - утренний лес",
     },
     {
       url: "/images/amenities/bbq.jpg",
-      fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Мангальная зона в лесу"
-    }
-  ]
+      fallbackUrl:
+        "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      alt: "Мангальная зона в лесу",
+    },
+  ],
 };
 
 export const GALLERY_IMAGES = [
@@ -301,7 +315,7 @@ export const AMENITIES = [
     icon: "fas fa-home",
     title: "Дизайн Лофт",
     description:
-      "Интерьер в лофт-стиле с акцентами из металла, кирпича и дерева смотрится стильно, но не перегруженно. Всё подобрано со вкусом, без лишнего: просто, понятно, красиво.",
+      "Интерьер продуман до деталей: натуральное дерево, кирпич, камень и металлические акценты создают стильную атмосферу. Всё выглядит дорого, современно и уютно — без лишнего.",
     image: "/images/amenities/interior.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -310,7 +324,7 @@ export const AMENITIES = [
     icon: "fas fa-hot-tub",
     title: "Финская Сауна",
     description:
-      "Сауна прямо в доме — с подсветкой, как вы захотите. Меняйте цвет и создавайте нужное настроение: от спокойного и тёплого до яркого и бодрящего. Настоящая спа-атмосфера дома.",
+      "Расслабьтесь в сауне прямо в доме. Настройте свет под настроение: спокойный вечер, бодрящий день или романтическая атмосфера. Настоящий spa-опыт без выхода из дома.",
     image: "/images/amenities/sauna.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -319,7 +333,7 @@ export const AMENITIES = [
     icon: "fas fa-swimming-pool",
     title: "Подогреваемый Бассейн",
     description:
-      "Большой тёплый бассейн доступен в любое время года. Днём — расслабляющий отдых на солнце, вечером — вода с подсветкой и вид на лес. Атмосфера, в которую хочется возвращаться.",
+      "Тёплый бассейн доступен круглый год. Утро на солнце, вечер с подсветкой и видом на лес — каждый момент становится особенным.",
     image: "/images/amenities/pool.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -328,7 +342,7 @@ export const AMENITIES = [
     icon: "fas fa-tree",
     title: "Лесная Локация",
     description:
-      "Живописный сосновый лес в паре шагов от дома. Здесь обитают белки и поют птицы, а рядом течёт мелодичный ручей — лучшего места для утренней прогулки не найти.",
+      "Сосны, ручей, пение птиц и белки рядом. Утренние прогулки и спокойствие природы — всего в нескольких шагах от дома.",
     image: "/images/amenities/forest.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -337,7 +351,7 @@ export const AMENITIES = [
     icon: "fas fa-fire",
     title: "Мангальные Зоны",
     description:
-      "Стильные мангальные зоны с удобной мебелью и подсветкой для вечернего отдыха. Идеально для уютных посиделок с друзьями или семьёй на свежем воздухе.",
+      "Стильные зоны для барбекю с удобной мебелью и подсветкой. Идеально для уютного вечера с семьёй или друзьями.",
     image: "/images/amenities/bbq.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1574906519174-daa3b7a6de14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -346,7 +360,7 @@ export const AMENITIES = [
     icon: "fas fa-car",
     title: "Удобная Парковка",
     description:
-      "Просторная парковка с навесом прямо у дома — удобно, безопасно и всегда под рукой, не нужно искать место или переживать за машину.",
+      "Просторная парковка с навесом прямо у дома — удобно, безопасно и всегда под рукой.",
     image: "/images/amenities/parking.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",

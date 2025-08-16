@@ -325,7 +325,7 @@ export default function Home() {
               Идеальное расположение
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Всего 20 минут до города и 30 минут до гор — комфортное путешествие как для любителей городской жизни, так и для почитателей природы
+              Всего 20 минут до города и 30 минут до гор — сочетание удобства и природы для любого типа отдыха.
             </p>
           </div>
 
@@ -375,7 +375,7 @@ export default function Home() {
                   30 минут
                 </p>
                 <p className="text-xs sm:text-sm text-muted-foreground/80 mt-1 sm:mt-2">
-                  Горные пейзажи и свежий воздух
+                  Живописные пейзажи и свежий воздух
                 </p>
               </div>
             </div>
