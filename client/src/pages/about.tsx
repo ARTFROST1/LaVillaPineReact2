@@ -5,7 +5,7 @@ import { SEO_PAGES } from "@/lib/seo-constants";
 
 export default function About() {
   return (
-    <div className="py-12 sm:py-16 md:py-20 bg-white">
+    <div className="pt-24 pb-12 sm:pb-16 md:pb-20 bg-white">
       <PageMeta
         title={SEO_PAGES.about.title}
         description={SEO_PAGES.about.description}

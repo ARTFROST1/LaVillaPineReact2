@@ -18,7 +18,7 @@ export default function Footer() {
               <img 
                 src={logoImage} 
                 alt={SITE_CONFIG.name}
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-110 object-contain"
+                className="h-14 w-auto transition-transform duration-300 group-hover:scale-110 object-contain"
               />
             </div>
             <p className="text-muted-foreground">{SITE_CONFIG.description}</p>

@@ -65,7 +65,7 @@ export default function Booking() {
   }, []);
 
   return (
-    <div className="py-20 relative">
+    <div className="pt-24 pb-20 relative">
       <PageMeta
         title={SEO_PAGES.booking.title}
         description={SEO_PAGES.booking.description}

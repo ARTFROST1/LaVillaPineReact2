@@ -5,7 +5,7 @@ import { SEO_PAGES } from "@/lib/seo-constants";
 
 export default function Gallery() {
   return (
-    <div className="py-20 bg-secondary">
+    <div className="pt-24 pb-20 bg-secondary">
       <PageMeta
         title={SEO_PAGES.gallery.title}
         description={SEO_PAGES.gallery.description}
