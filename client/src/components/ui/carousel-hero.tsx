@@ -54,18 +54,7 @@ export default function CarouselHero({
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
       ))}
-      
-      {/* Dots Navigation */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-1.5 sm:space-x-2 z-30">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? "bg-white opacity-100 scale-125" : "bg-white opacity-60"
-            }`}
-          />
-        ))}
-      </div>
+
     </div>
   );
 }
