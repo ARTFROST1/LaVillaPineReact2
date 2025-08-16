@@ -12,8 +12,6 @@ import YandexMap from "@/components/ui/yandex-map";
 import StackedAmenities from "@/components/ui/stacked-amenities";
 import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES, AMENITIES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
-import { useDynamicContrast } from "@/hooks/useDynamicContrast";
-import DynamicLogo from "@/components/ui/dynamic-logo";
 
 // Типы для HomeReserve
 declare global {
@@ -27,13 +25,6 @@ declare global {
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  
-  // Dynamic contrast hook for logo color adaptation
-  const { textColor } = useDynamicContrast({
-    headerSelector: '.hero-section',
-    threshold: 128,
-    currentPath: '/'
-  });
 
   // Функции для управления галереей
   const openGallery = (imageUrl: string) => {
@@ -143,7 +134,7 @@ export default function Home() {
         canonical="https://lavillapine.onrender.com/"
       />
       {/* Hero Section */}
-      <section className="relative w-full h-screen overflow-hidden hero-section">
+      <section className="relative w-full h-screen overflow-hidden">
         {/* Full width carousel background */}
         <div className="absolute inset-0 w-full h-full">
           <CarouselHero images={HERO_IMAGES} />
@@ -154,15 +145,11 @@ export default function Home() {
           <div className="container mx-auto px-3 sm:px-4">
             <div className="max-w-3xl lg:max-w-4xl mx-auto text-center text-white">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-2xl font-display">
-                Добро пожаловать в
+                Добро пожаловать в <br />
+                <span className="text-accent drop-shadow-lg">
+                  {SITE_CONFIG.name}
+                </span>
               </h1>
-              <div className="flex justify-center mb-4 sm:mb-6">
-                <DynamicLogo 
-                  className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto max-w-lg" 
-                  selector=".hero-section"
-                  currentPath="/"
-                />
-              </div>
               <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-2xl mx-auto">
                 Отдых в стиле лофт в Адыгее
               </p>
