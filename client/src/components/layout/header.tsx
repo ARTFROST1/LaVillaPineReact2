@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useDynamicContrast } from "@/hooks/useDynamicContrast";
+import { SiInstagram, SiTelegram } from "react-icons/si";
 // Logo from public directory
 const logoImage = "/images/icons/logo.png";
 
@@ -88,32 +89,92 @@ export default function Header() {
             </div>
           </Link>
           
-          <div 
-            className="hidden md:flex items-center space-x-2 lg:space-x-4" 
-            style={dynamicBorderStyle as React.CSSProperties}
-          >
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`loft-nav-button text-sm lg:text-base transition-colors duration-300 ${
-                  location === item.href ? "active font-semibold" : ""
-                }`}
-                data-testid={`link-nav-${item.name.toLowerCase()}`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Link
-              href="/booking"
-              className="loft-booking-button text-xs lg:text-sm font-medium"
-              data-testid="link-booking"
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-6">
+            {/* Navigation */}
+            <div 
+              className="flex items-center space-x-2 lg:space-x-4" 
+              style={dynamicBorderStyle as React.CSSProperties}
             >
-              Забронировать
-            </Link>
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`loft-nav-button text-sm lg:text-base transition-colors duration-300 ${
+                    location === item.href ? "active font-semibold" : ""
+                  }`}
+                  data-testid={`link-nav-${item.name.toLowerCase()}`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <Link
+                href="/booking"
+                className="loft-booking-button text-xs lg:text-sm font-medium"
+                data-testid="link-booking"
+              >
+                Забронировать
+              </Link>
+            </div>
+
+            {/* Contact Info & Social - Desktop */}
+            <div className="hidden lg:flex items-center space-x-4 border-l border-opacity-20 pl-4" style={{ borderColor: textColor === 'light' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)' }}>
+              <a 
+                href={`tel:${SITE_CONFIG.phone}`}
+                className={`flex items-center space-x-2 ${transparentTextClass} hover:opacity-80 transition-opacity`}
+                data-testid="link-phone"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="text-sm font-medium">{SITE_CONFIG.phone}</span>
+              </a>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center space-x-3">
+              <a
+                href={SITE_CONFIG.socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${transparentTextClass} hover:opacity-80 transition-opacity`}
+                data-testid="link-instagram"
+              >
+                <SiInstagram className="h-5 w-5" />
+              </a>
+              <a
+                href={SITE_CONFIG.socialLinks.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${transparentTextClass} hover:opacity-80 transition-opacity`}
+                data-testid="link-telegram"
+              >
+                <SiTelegram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
           
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            {/* Social Icons - Mobile */}
+            <div className="flex items-center space-x-3">
+              <a
+                href={SITE_CONFIG.socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${transparentTextClass} hover:opacity-80 transition-opacity`}
+                data-testid="link-mobile-instagram"
+              >
+                <SiInstagram className="h-5 w-5" />
+              </a>
+              <a
+                href={SITE_CONFIG.socialLinks.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${transparentTextClass} hover:opacity-80 transition-opacity`}
+                data-testid="link-mobile-telegram"
+              >
+                <SiTelegram className="h-5 w-5" />
+              </a>
+            </div>
+
+            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="default"
@@ -157,6 +218,25 @@ export default function Header() {
             >
               Забронировать
             </Link>
+
+            {/* Phone Number - Mobile Menu */}
+            <div 
+              className="mt-4 pt-4 border-t border-opacity-20"
+              style={{ 
+                borderColor: textColor === 'light' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)',
+                animationDelay: `${(navigation.length + 1) * 50}ms`,
+                animation: 'loft-appear 0.4s ease-out both'
+              } as React.CSSProperties}
+            >
+              <a 
+                href={`tel:${SITE_CONFIG.phone}`}
+                className={`flex items-center space-x-3 ${transparentTextClass} hover:opacity-80 transition-opacity py-2`}
+                data-testid="link-mobile-phone"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="text-base font-medium">{SITE_CONFIG.phone}</span>
+              </a>
+            </div>
           </div>
         )}
       </nav>
