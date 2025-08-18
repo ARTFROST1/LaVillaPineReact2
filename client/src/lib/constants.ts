@@ -18,7 +18,7 @@ export const SITE_CONFIG = {
 
   // Контроль отображения пометки о Необходимости связаться для бронирования
   // Для отключения пометки измените на false
-  showBookingDateNotice: true, // Показывать пометку !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  showBookingDateNotice: false, // Показывать пометку !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 };
 
 export const HERO_IMAGES = [
@@ -315,7 +315,7 @@ export const AMENITIES = [
     icon: "fas fa-home",
     title: "Дизайн Лофт",
     description:
-      "Интерьер продуман до деталей: натуральное дерево, кирпич, камень и металлические акценты создают стильную атмосферу. Всё выглядит дорого, современно и уютно — без лишнего.",
+      "Современно и уютно",
     image: "/images/amenities/interior.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -324,7 +324,7 @@ export const AMENITIES = [
     icon: "fas fa-hot-tub",
     title: "Финская Сауна",
     description:
-      "Расслабьтесь в сауне прямо в доме. Настройте свет под настроение: спокойный вечер, бодрящий день или романтическая атмосфера. Настоящий spa-опыт без выхода из дома.",
+      "Расслабьтесь в сауне прямо в доме",
     image: "/images/amenities/sauna.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -333,7 +333,7 @@ export const AMENITIES = [
     icon: "fas fa-swimming-pool",
     title: "Подогреваемый Бассейн",
     description:
-      "Тёплый бассейн доступен круглый год. Утро на солнце, вечер с подсветкой и видом на лес — каждый момент становится особенным.",
+      "с подсветкой и видом на лес",
     image: "/images/amenities/pool.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -342,7 +342,7 @@ export const AMENITIES = [
     icon: "fas fa-tree",
     title: "Лесная Локация",
     description:
-      "Сосны, ручей, пение птиц и белки рядом. Утренние прогулки и спокойствие природы — всего в нескольких шагах от дома.",
+      "всего в нескольких шагах от дома.",
     image: "/images/amenities/forest.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -351,7 +351,7 @@ export const AMENITIES = [
     icon: "fas fa-fire",
     title: "Мангальные Зоны",
     description:
-      "Стильные зоны для барбекю с удобной мебелью и подсветкой. Идеально для уютного вечера с семьёй или друзьями.",
+      "с удобной мебелью и подсветкой",
     image: "/images/amenities/bbq.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1574906519174-daa3b7a6de14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -360,7 +360,7 @@ export const AMENITIES = [
     icon: "fas fa-car",
     title: "Удобная Парковка",
     description:
-      "Просторная парковка с навесом прямо у дома — удобно, безопасно и всегда под рукой.",
+      "с навесом прямо у дома",
     image: "/images/amenities/parking.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",

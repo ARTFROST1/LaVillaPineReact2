@@ -15,7 +15,9 @@ interface StackedAmenitiesProps {
   onImageClick: (imageUrl: string) => void;
 }
 
-export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps) {
+export default function StackedAmenities({
+  onImageClick,
+}: StackedAmenitiesProps) {
   const [activeCards, setActiveCards] = useState<number[]>([]);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -29,10 +31,13 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
   // Функция обновления прогресса скролла
   const updateScrollProgress = useCallback(() => {
     const scrolled = document.documentElement.scrollTop;
-    const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const maxHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
     const progress = (scrolled / maxHeight) * 100;
-    
-    const progressElement = document.querySelector('.scroll-progress') as HTMLElement;
+
+    const progressElement = document.querySelector(
+      ".scroll-progress",
+    ) as HTMLElement;
     if (progressElement) {
       progressElement.style.height = `${Math.min(progress, 100)}%`;
     }
@@ -54,7 +59,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
     if (containerTop < viewportHeight && containerTop + containerHeight > 0) {
       // Пользователь находится в секции достоинств - скрываем Яндекс рейтинг
       setIsInAmenitiesSection(true);
-      
+
       // Рассчитываем прогресс скролла более точно
       const scrollableHeight = containerHeight - viewportHeight;
       const scrolled = Math.max(0, viewportHeight - containerTop);
@@ -63,15 +68,21 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
       // Определяем какие карточки должны быть активными
       const totalCards = AMENITIES.length;
       const progressPerCard = 1 / totalCards;
-      
+
       // Проверяем, доскроллил ли пользователь до блока "Наша галерея"
       // Ищем элемент с заголовком "Наша галерея"
-      const gallerySection = document.evaluate("//h2[contains(text(), 'Наша галерея')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue as HTMLElement;
-      
+      const gallerySection = document.evaluate(
+        "//h2[contains(text(), 'Наша галерея')]",
+        document,
+        null,
+        XPathResult.FIRST_ORDERED_NODE_TYPE,
+        null,
+      ).singleNodeValue as HTMLElement;
+
       if (gallerySection) {
         const galleryRect = gallerySection.getBoundingClientRect();
         const galleryTop = galleryRect.top;
-        
+
         // Заголовок исчезает когда блок "Наша галерея" входит в область видимости
         // Настройте значение 0.9 для изменения момента исчезновения заголовка
         if (galleryTop <= viewportHeight * 0.9) {
@@ -88,7 +99,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
           setIsHeaderVisible(true);
         }
       }
-      
+
       cardRefs.current.forEach((cardEl, index) => {
         if (!cardEl) return;
 
@@ -96,75 +107,85 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         const cardEndProgress = (index + 1) * progressPerCard;
         const nextCardStartProgress = (index + 1) * progressPerCard;
         const isLastCard = index === totalCards - 1;
-        
+
         // Определяем состояние карточки
         // Базовый z-index: более поздние карточки имеют больший z-index
         const baseZIndex = 1000 + index;
-        
+
         if (scrollProgress < cardStartProgress) {
           // Карточка еще не появилась
-          cardEl.style.opacity = '0';
-          cardEl.style.transform = 'translateY(100vh) scale(0.8) translateZ(0)';
-          cardEl.style.filter = 'blur(0px)';
+          cardEl.style.opacity = "0";
+          cardEl.style.transform = "translateY(100vh) scale(0.8) translateZ(0)";
+          cardEl.style.filter = "blur(0px)";
           cardEl.style.zIndex = baseZIndex.toString();
-        } else if (scrollProgress >= cardStartProgress && scrollProgress < cardEndProgress) {
+        } else if (
+          scrollProgress >= cardStartProgress &&
+          scrollProgress < cardEndProgress
+        ) {
           // Карточка появляется и раскрывается - всегда чёткая
-          const cardProgress = (scrollProgress - cardStartProgress) / progressPerCard;
+          const cardProgress =
+            (scrollProgress - cardStartProgress) / progressPerCard;
           const translateY = (1 - cardProgress) * 100;
           const opacity = Math.min(1, cardProgress * 2);
           const scale = 0.8 + cardProgress * 0.2;
-          
+
           cardEl.style.opacity = opacity.toString();
           cardEl.style.transform = `translateY(${translateY}vh) scale(${scale}) translateZ(0)`;
-          cardEl.style.filter = 'blur(0px)'; // Всегда чёткая во время раскрытия
+          cardEl.style.filter = "blur(0px)"; // Всегда чёткая во время раскрытия
           cardEl.style.zIndex = baseZIndex.toString();
         } else if (isLastCard) {
           // Последняя карточка - остается четкой и видимой всегда после полного раскрытия
-          cardEl.style.opacity = '1';
-          cardEl.style.transform = 'translateY(0px) scale(1) translateZ(0)';
-          cardEl.style.filter = 'blur(0px)';
+          cardEl.style.opacity = "1";
+          cardEl.style.transform = "translateY(0px) scale(1) translateZ(0)";
+          cardEl.style.filter = "blur(0px)";
           cardEl.style.zIndex = baseZIndex.toString();
-        } else if (scrollProgress >= cardEndProgress && scrollProgress < nextCardStartProgress) {
+        } else if (
+          scrollProgress >= cardEndProgress &&
+          scrollProgress < nextCardStartProgress
+        ) {
           // Карточка полностью раскрыта и зафиксирована - остается чёткой
-          cardEl.style.opacity = '1';
-          cardEl.style.transform = 'translateY(0px) scale(1) translateZ(0)';
-          cardEl.style.filter = 'blur(0px)'; // Остается чёткой пока следующая не начнет появляться
+          cardEl.style.opacity = "1";
+          cardEl.style.transform = "translateY(0px) scale(1) translateZ(0)";
+          cardEl.style.filter = "blur(0px)"; // Остается чёткой пока следующая не начнет появляться
           cardEl.style.zIndex = baseZIndex.toString();
         } else {
           // Следующая карточка начала появляться - эта начинает блюриться, потом исчезает
-          const nextCardProgress = (scrollProgress - nextCardStartProgress) / progressPerCard;
-          
+          const nextCardProgress =
+            (scrollProgress - nextCardStartProgress) / progressPerCard;
+
           // НАСТРОЙКИ ЭФФЕКТОВ (изменяйте эти значения для настройки анимации):
           // blurThreshold - когда начинается размытие
           const blurThreshold = 0.8;
-          
+
           // hideThreshold - когда карточка полностью скрывается
           // Для предпоследней карточки используем более низкий порог
           const hideThreshold = 1.6;
-          
+
           if (nextCardProgress < blurThreshold) {
             // Карточка еще четкая - следующая карточка появилась меньше чем на 30%
-            cardEl.style.opacity = '1';
-            cardEl.style.transform = 'translateY(0px) scale(1) translateZ(0)';
-            cardEl.style.filter = 'blur(0px)';
+            cardEl.style.opacity = "1";
+            cardEl.style.transform = "translateY(0px) scale(1) translateZ(0)";
+            cardEl.style.filter = "blur(0px)";
             cardEl.style.zIndex = baseZIndex.toString();
           } else if (nextCardProgress < hideThreshold) {
             // Карточка размывается - между 30% и 70% появления следующей
-            const adjustedProgress = (nextCardProgress - blurThreshold) / (hideThreshold - blurThreshold);
-            
+            const adjustedProgress =
+              (nextCardProgress - blurThreshold) /
+              (hideThreshold - blurThreshold);
+
             const blurAmount = Math.min(8, adjustedProgress * 8);
             const opacity = Math.max(0.3, 1 - adjustedProgress * 0.7);
             const scale = Math.max(0.85, 1 - adjustedProgress * 0.05);
-            
+
             cardEl.style.opacity = opacity.toString();
             cardEl.style.transform = `translateY(0px) scale(${scale}) translateZ(0)`;
             cardEl.style.filter = `blur(${blurAmount}px)`;
             cardEl.style.zIndex = baseZIndex.toString();
           } else {
             // Карточка полностью скрыта - следующая карточка появилась больше чем на 70%
-            cardEl.style.opacity = '0';
-            cardEl.style.transform = 'translateY(0px) scale(0.9) translateZ(0)';
-            cardEl.style.filter = 'blur(10px)';
+            cardEl.style.opacity = "0";
+            cardEl.style.transform = "translateY(0px) scale(0.9) translateZ(0)";
+            cardEl.style.filter = "blur(10px)";
             cardEl.style.zIndex = baseZIndex.toString();
           }
         }
@@ -173,7 +194,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
       // Пользователь вышел из секции достоинств - показываем Яндекс рейтинг обратно
       setIsInAmenitiesSection(false);
     }
-    
+
     isAnimating.current = false;
   }, []);
 
@@ -183,7 +204,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
     if (animationFrameId.current) {
       cancelAnimationFrame(animationFrameId.current);
     }
-    
+
     // Запланируем обновление анимации на следующий кадр для плавности
     if (!isAnimating.current) {
       isAnimating.current = true;
@@ -196,22 +217,22 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
 
   useEffect(() => {
     // Обработчики событий с улучшенными настройками для плавности
-    const scrollOptions = { 
+    const scrollOptions = {
       passive: true,
-      capture: false
+      capture: false,
     };
 
     // Добавляем обработчик скролла
-    window.addEventListener('scroll', handleScroll, scrollOptions);
-    
+    window.addEventListener("scroll", handleScroll, scrollOptions);
+
     // Запускаем начальное обновление
     updateAnimation();
     updateScrollProgress();
 
     return () => {
       // Очищаем обработчики и анимации
-      window.removeEventListener('scroll', handleScroll);
-      
+      window.removeEventListener("scroll", handleScroll);
+
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
@@ -219,31 +240,32 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
   }, [handleScroll, updateAnimation]);
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="relative min-h-[600vh] py-20"
       data-testid="stacked-amenities-container"
       style={{
         // Улучшаем производительность скролла на мобильных устройствах
-        willChange: 'transform',
-        transform: 'translateZ(0)', // Включаем аппаратное ускорение
+        willChange: "transform",
+        transform: "translateZ(0)", // Включаем аппаратное ускорение
         // Добавляем специальные CSS свойства для мобильных устройств
-        WebkitOverflowScrolling: 'touch',
-        overscrollBehavior: 'contain',
+        WebkitOverflowScrolling: "touch",
+        overscrollBehavior: "contain",
       }}
     >
       {/* Заголовок секции с параллакс эффектом */}
-      <div 
+      <div
         ref={headerRef}
-        className={`sticky top-16 z-50 transition-opacity duration-500 ${isHeaderVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`sticky top-16 z-50 transition-opacity duration-500 ${isHeaderVisible ? "opacity-100" : "opacity-0"}`}
         style={{
-          willChange: 'transform, opacity',
-          transform: 'translateZ(0)', // Аппаратное ускорение
+          willChange: "transform, opacity",
+          transform: "translateZ(0)", // Аппаратное ускорение
         }}
       >
         <div className="container mx-auto px-4 text-center py-8 backdrop-blur-sm bg-background/80 rounded-xl mx-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-foreground font-display">
-            Что вас ждёт в <br />
+            Откройте для себя
+            <br />
             La Villa Pine
           </h2>
         </div>
@@ -254,23 +276,23 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
         {AMENITIES.map((amenity, index) => (
           <div
             key={index}
-            ref={el => cardRefs.current[index] = el}
+            ref={(el) => (cardRefs.current[index] = el)}
             className="sticky top-32 w-full h-screen flex items-center justify-center px-4"
             style={{
               opacity: 0,
-              transform: 'translateY(100px) scale(0.9) translateZ(0)', // Комбинируем трансформации
-              filter: 'blur(0px)',
+              transform: "translateY(100px) scale(0.9) translateZ(0)", // Комбинируем трансформации
+              filter: "blur(0px)",
               // Улучшаем производительность анимации
-              willChange: 'transform, opacity, filter',
-              transition: 'none', // Убираем CSS переходы в пользу JS анимации
+              willChange: "transform, opacity, filter",
+              transition: "none", // Убираем CSS переходы в пользу JS анимации
             }}
             data-testid={`stacked-card-${index}`}
           >
-            <div 
+            <div
               className="w-full max-w-6xl h-[80vh] rounded-3xl overflow-hidden shadow-2xl group"
               style={{
-                willChange: 'transform',
-                transform: 'translateZ(0)',
+                willChange: "transform",
+                transform: "translateZ(0)",
               }}
             >
               {/* Фоновое изображение */}
@@ -281,40 +303,55 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
                   alt={amenity.title}
                   className="w-full h-full object-cover"
                 />
+
+                {/* Градиентный оверлей для читаемости текста */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
                 
-                {/* Градиентный оверлей */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                
+                {/* Дополнительный оверлей для нижней части */}
+                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
+
                 {/* Контент карточки */}
-                <div className="absolute inset-0 flex flex-col justify-center p-8 sm:p-12 md:p-16">
-                  {/* Заголовок - поднят выше */}
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 font-display">
-                    {amenity.title}
-                  </h3>
-                  
-                  {/* Описание */}
-                  <p className="text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed max-w-4xl mb-8">
-                    {amenity.description}
-                  </p>
-                  
-                  {/* Декоративная линия */}
-                  <div className="w-24 h-1 bg-white/30 rounded-full"></div>
+                <div className="absolute inset-0 flex flex-col justify-end p-8 sm:p-12 md:p-16">
+                  <div className="space-y-4 sm:space-y-6">
+                    {/* Заголовок */}
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-display leading-tight">
+                      {amenity.title}
+                    </h3>
+
+                    {/* Описание */}
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-3xl">
+                      {amenity.description}
+                    </p>
+
+                    {/* Кнопка для просмотра галереи */}
+                    <div className="pt-4">
+                      <button
+                        onClick={() => onImageClick(amenity.image)}
+                        className="inline-flex items-center space-x-3 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(212, 164, 74, 0.9) 0%, rgba(212, 164, 74, 0.7) 100%)',
+                          border: '1px solid rgba(212, 164, 74, 0.3)',
+                          color: 'white'
+                        }}
+                        data-testid={`amenity-gallery-button-${index}`}
+                      >
+                        <span>Смотреть фото</span>
+                        <svg 
+                          className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         ))}
-        
-        {/* Scroll Indicator - Modern UI Pattern */}
-        <div className="scroll-indicator-container">
-          <div className="scroll-indicator">
-            <div className="scroll-progress"></div>
-          </div>
-          <div className="scroll-hint">
-            <div className="scroll-hint-text">Прокрути чтобы изучить удобства</div>
-            <div className="scroll-hint-arrow">↓</div>
-          </div>
-        </div>
       </div>
     </div>
   );
