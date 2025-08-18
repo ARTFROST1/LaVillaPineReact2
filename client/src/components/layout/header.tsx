@@ -25,6 +25,7 @@ export default function Header() {
     { name: "Главная", href: "/" },
     { name: "О нас", href: "/about" },
     { name: "Галерея", href: "/gallery" },
+    { name: "Правила", href: "/rules" },
     { name: "Контакты", href: "/contacts" },
   ];
 
