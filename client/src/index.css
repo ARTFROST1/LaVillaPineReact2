@@ -675,26 +675,57 @@ p {
 
 /* Loft Mobile Menu Container and Item Styles */
 .loft-mobile-menu {
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.6), rgba(50, 42, 35, 0.5));
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 60%, transparent), 
+    color-mix(in srgb, var(--graphite) 50%, transparent)
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 164, 74, 0.15);
+  border: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
   border-radius: 16px;
   margin-top: 16px;
   padding: 16px;
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 15%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .loft-mobile-item {
   margin-bottom: 8px;
+  padding: 4px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--wood) 20%, transparent), 
+    color-mix(in srgb, var(--bg) 15%, transparent)
+  );
+  border: 1px solid color-mix(in srgb, var(--gold) 10%, transparent);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .loft-mobile-item:last-child {
   margin-bottom: 0;
+}
+
+.loft-mobile-item:hover {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--wood) 30%, transparent), 
+    color-mix(in srgb, var(--gold) 20%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--gold) 25%, transparent);
+  transform: scale(1.02);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 10%, transparent);
+}
+
+.loft-mobile-item.active {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--gold) 25%, transparent), 
+    color-mix(in srgb, var(--wood) 30%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--gold) 40%, transparent);
 }
 
 /* Loft appearance animation */
@@ -709,25 +740,76 @@ p {
   }
 }
 
-/* Dark mode styles for mobile navigation - Matching Desktop */
-.dark .ios-glass-mobile-nav {
-  /* Exact desktop dark background */
+/* Dark mode styles for mobile navigation - Using palette */
+.dark .loft-mobile-menu {
   background: linear-gradient(135deg,
-      rgba(60, 50, 40, 0.4) 0%,
-      rgba(40, 45, 55, 0.3) 50%,
-      rgba(55, 60, 70, 0.45) 100%);
+    color-mix(in srgb, var(--bg) 70%, transparent),
+    color-mix(in srgb, var(--graphite) 60%, transparent)
+  );
   backdrop-filter: blur(40px) saturate(200%);
   -webkit-backdrop-filter: blur(40px) saturate(200%);
   
-  border: 1px solid var(--border-color, rgba(245, 235, 220, 0.15));
+  border: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
 
-  /* Exact desktop dark shadows */
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.25),
     0 2px 8px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(245, 235, 220, 0.2),
-    inset 0 -1px 0 rgba(245, 235, 220, 0.08);
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 20%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--fg) 8%, transparent);
+}
+
+.dark .loft-mobile-item {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--wood) 25%, transparent), 
+    color-mix(in srgb, var(--bg) 20%, transparent)
+  );
+  border: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
+}
+
+.dark .loft-mobile-item:hover {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--wood) 35%, transparent), 
+    color-mix(in srgb, var(--gold) 25%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--gold) 30%, transparent);
+}
+
+/* Special styling for booking item in mobile menu */
+.loft-mobile-item.booking-item {
+  margin-top: 12px;
+  padding: 8px 4px;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--gold) 20%, transparent), 
+    color-mix(in srgb, var(--wood) 25%, transparent)
+  );
+  border: 2px solid color-mix(in srgb, var(--gold) 25%, transparent);
+  border-radius: 16px;
+}
+
+.loft-mobile-item.booking-item:hover {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--gold) 30%, transparent), 
+    color-mix(in srgb, var(--wood) 35%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+  transform: scale(1.05);
+}
+
+.dark .loft-mobile-item.booking-item {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--gold) 25%, transparent), 
+    color-mix(in srgb, var(--wood) 30%, transparent)
+  );
+  border: 2px solid color-mix(in srgb, var(--gold) 30%, transparent);
+}
+
+.dark .loft-mobile-item.booking-item:hover {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--gold) 35%, transparent), 
+    color-mix(in srgb, var(--wood) 40%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--gold) 45%, transparent);
 }
 
 .dark .ios-glass-mobile-nav:hover {
