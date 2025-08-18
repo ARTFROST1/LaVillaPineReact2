@@ -5,7 +5,7 @@ import { SEO_PAGES } from "@/lib/seo-constants";
 
 export default function About() {
   return (
-    <div className="pt-24 pb-12 sm:pb-16 md:pb-20 bg-white">
+    <div className="pt-24 pb-12 sm:pb-16 md:pb-20 bg-background text-foreground">
       <PageMeta
         title={SEO_PAGES.about.title}
         description={SEO_PAGES.about.description}
@@ -20,14 +20,14 @@ export default function About() {
           <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
             О нас
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
+          <p className="text-base sm:text-lg text-foreground/80 leading-relaxed mb-6 sm:mb-8">
             Наши лофт-дома сделаны так, чтобы вам сразу чувствовалось: это место
             особенное. Здесь чёткие линии и объёмные элементы создают стильный и
             иютный интерьер. Мы используем дерево, камень, металл и стекло — всё
             это вместе выглядит минималистично но с душой: оно словно дышит и
             приглушённо шепчет «релакс»
           </p>
-          <div className="bg-gradient-to-br from-neutral/50 to-neutral/30 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-left max-w-2xl lg:max-w-3xl mx-auto border border-accent/20 shadow-lg">
+          <div className="bg-card/50 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-left max-w-2xl lg:max-w-3xl mx-auto border border-border shadow-xl">
             <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-display">
               Премиум комфорт
             </h2>
@@ -36,7 +36,7 @@ export default function About() {
                 <h3 className="font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 text-base sm:text-lg">
                   Внутри дома:
                 </h3>
-                <ul className="space-y-1 text-gray-600">
+                <ul className="space-y-1 text-foreground/70">
                   <li>• Три спальни с качественными матрасами</li>
                   <li>• Два стильных санузла со стеклом и хромом</li>
                   <li>• Холл-кухня с большим обеденным столом</li>
@@ -49,7 +49,7 @@ export default function About() {
                 <h3 className="font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 text-base sm:text-lg">
                   На территории:
                 </h3>
-                <ul className="space-y-1 text-gray-600">
+                <ul className="space-y-1 text-foreground/70">
                   <li>• Собственный подогреваемый бассейн</li>
                   <li>• Газон премиум-класса как зелёный ковёр</li>
                   <li>• Мангал-зоны с подсветкой для вечернего огня</li>
@@ -63,7 +63,7 @@ export default function About() {
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12 md:mb-16">
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+          <div className="bg-card/40 backdrop-blur-md rounded-xl sm:rounded-2xl border border-border hover:border-border/50 transition-all duration-300 overflow-hidden group shadow-xl hover:shadow-2xl">
             <div className="relative h-40 sm:h-48 overflow-hidden">
               <DynamicImage
                 src="/images/amenities/interior.jpg"
@@ -73,21 +73,21 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
             </div>
-            <div className="p-4 sm:p-6 md:p-8 text-center">
+            <div className="p-4 sm:p-6 md:p-8 text-center bg-card/20">
               <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
                 <i className="fas fa-home"></i>
               </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4 text-foreground">
                 Современный лофт дизайн
               </h3>
-              <p className="text-sm sm:text-base text-gray-600">
+              <p className="text-sm sm:text-base text-foreground/70">
                 Дизайнерский ремонт с индустриальными элементами и современным
                 комфортом
               </p>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+          <div className="bg-card/40 backdrop-blur-md rounded-xl sm:rounded-2xl border border-border hover:border-border/50 transition-all duration-300 overflow-hidden group shadow-xl hover:shadow-2xl">
             <div className="relative h-40 sm:h-48 overflow-hidden">
               <DynamicImage
                 src="/images/amenities/pool.jpg"
@@ -97,21 +97,21 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
             </div>
-            <div className="p-4 sm:p-6 md:p-8 text-center">
+            <div className="p-4 sm:p-6 md:p-8 text-center bg-card/20">
               <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
                 <i className="fas fa-swimming-pool"></i>
               </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4 text-foreground">
                 Подогреваемые бассейны и сауна
               </h3>
-              <p className="text-sm sm:text-base text-gray-600">
+              <p className="text-sm sm:text-base text-foreground/70">
                 Частные подогреваемые бассейны и сауны для круглогодичного
                 отдыха
               </p>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+          <div className="bg-card/40 backdrop-blur-md rounded-xl sm:rounded-2xl border border-border hover:border-border/50 transition-all duration-300 overflow-hidden group shadow-xl hover:shadow-2xl">
             <div className="relative h-40 sm:h-48 overflow-hidden">
               <DynamicImage
                 src="/images/amenities/forest.jpg"
@@ -121,14 +121,14 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
             </div>
-            <div className="p-4 sm:p-6 md:p-8 text-center">
+            <div className="p-4 sm:p-6 md:p-8 text-center bg-card/20">
               <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
                 <i className="fas fa-tree"></i>
               </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4 text-foreground">
                 Лесное окружение
               </h3>
-              <p className="text-sm sm:text-base text-gray-600">
+              <p className="text-sm sm:text-base text-foreground/70">
                 Чистая лесная местность с дикими животными и природным ручьем
               </p>
             </div>
@@ -143,12 +143,12 @@ export default function About() {
             <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Премиум сервис
             </h3>
-            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
+            <p className="text-base sm:text-lg text-foreground/80 mb-4 sm:mb-6">
               Уютная зона приёма гостей с заботливым администратором — всё как в
               высококлассном отеле, только куда уютнее. От заселения до
               рекомендаций по досугу — мы заботимся о каждом госте
             </p>
-            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-600">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-foreground/70">
               <li className="flex items-center">
                 <i className="fas fa-check text-accent mr-2 sm:mr-3 text-sm sm:text-base"></i>
                 Профессиональный ресепшен с администратором
