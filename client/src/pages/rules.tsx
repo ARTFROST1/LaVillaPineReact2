@@ -14,7 +14,6 @@ export default function Rules() {
         ogImage={SEO_PAGES.rules.ogImage}
         canonical="https://lavillapine.onrender.com/rules"
       />
-      
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed"
@@ -24,7 +23,6 @@ export default function Rules() {
       >
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
-      
       <div className="relative z-10 pt-24 pb-20">
         <div className="container mx-auto px-4">
           {/* Header */}
@@ -138,9 +136,7 @@ export default function Rules() {
                       <div className="font-bold text-primary">Предоплата: 10 000₽</div>
                       <div className="text-sm">Для подтверждения брони</div>
                     </div>
-                    <div className="text-sm text-foreground/90">
-                      Оплата при заезде наличными или банковской картой
-                    </div>
+                    <div className="text-sm text-foreground/90">Оплата при заезде наличными</div>
                   </div>
                 </div>
               </div>
