@@ -107,7 +107,7 @@ export default function Header() {
               ))}
               <Link
                 href="/booking"
-                className="loft-booking-button text-xs lg:text-sm font-medium"
+                className="loft-booking-button text-xs lg:text-sm font-medium text-[#f2ede6]"
                 data-testid="link-booking"
               >
                 Забронировать
