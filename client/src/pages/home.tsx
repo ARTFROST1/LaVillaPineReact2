@@ -739,7 +739,7 @@ export default function Home() {
               <Link href="/booking">
                 <Button
                   size="lg"
-                  className="loft-booking-button text-base sm:text-lg font-medium"
+                  className="loft-booking-button text-base sm:text-lg font-medium text-[#ffffff]"
                 >
                   Забронировать
                 </Button>
