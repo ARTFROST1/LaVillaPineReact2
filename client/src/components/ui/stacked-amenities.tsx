@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { AMENITIES } from "@/lib/constants";
 import { useScrollContext } from "@/contexts/scroll-context";
 import DynamicImage from "./dynamic-image";
+import { ChevronDown } from "lucide-react";
 
 // Настройка момента скрытия заголовка (0.0 - 1.0)
 // 0.0 = скрывать сразу при появлении карточки парковки
@@ -20,6 +21,7 @@ export default function StackedAmenities({
 }: StackedAmenitiesProps) {
   const [activeCards, setActiveCards] = useState<number[]>([]);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [scrollHintOpacity, setScrollHintOpacity] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -68,6 +70,11 @@ export default function StackedAmenities({
       // Определяем какие карточки должны быть активными
       const totalCards = AMENITIES.length;
       const progressPerCard = 1 / totalCards;
+
+      // Рассчитываем прозрачность подсказки скролла
+      // Подсказка исчезает в первые 20% скролла контейнера
+      const hintFadeProgress = Math.min(1, scrollProgress / 0.2);
+      setScrollHintOpacity(Math.max(0, 1 - hintFadeProgress));
 
       // Проверяем, доскроллил ли пользователь до блока "Наша галерея"
       // Ищем элемент с заголовком "Наша галерея"
@@ -242,7 +249,7 @@ export default function StackedAmenities({
   return (
     <div
       ref={containerRef}
-      className="relative min-h-[480vh] py-20"
+      className="relative min-h-[380vh] py-20"
       data-testid="stacked-amenities-container"
       style={{
         // Улучшаем производительность скролла на мобильных устройствах
@@ -268,6 +275,27 @@ export default function StackedAmenities({
             <br />
             La Villa Pine
           </h2>
+        </div>
+      </div>
+
+      {/* Подсказка для скролла */}
+      <div
+        className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-opacity duration-300"
+        style={{
+          opacity: scrollHintOpacity,
+          pointerEvents: scrollHintOpacity > 0 ? 'auto' : 'none'
+        }}
+        data-testid="scroll-hint"
+      >
+        <div className="flex flex-col items-center space-y-2 px-6 py-4 rounded-full backdrop-blur-md bg-black/20 border border-white/20">
+          <span className="text-white text-sm font-medium">Прокрутите вниз</span>
+          <ChevronDown 
+            className="w-5 h-5 text-white animate-bounce" 
+            style={{
+              animationDuration: '2s',
+              animationIterationCount: 'infinite'
+            }}
+          />
         </div>
       </div>
 
