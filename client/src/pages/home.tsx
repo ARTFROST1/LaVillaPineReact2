@@ -402,7 +402,7 @@ export default function Home() {
 
             {/* Адрес */}
             <div className="p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 shadow-sm" style={{
-              background: '#5A5955',
+              background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
               backdropFilter: 'blur(10px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(212, 164, 74, 0.2)',
