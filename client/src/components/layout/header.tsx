@@ -129,46 +129,34 @@ export default function Header() {
         
         {/* Loft Style Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden animate-slide">
-            <div className="loft-mobile-menu">
-              {navigation.map((item, index) => (
-                <div 
-                  key={item.name} 
-                  className={`loft-mobile-item ${location === item.href ? "active" : ""}`}
-                  style={{ 
-                    animationDelay: `${index * 50}ms`,
-                    animation: 'loft-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
-                  } as React.CSSProperties}
-                >
-                  <Link
-                    href={item.href}
-                    className={`loft-mobile-nav block transition-all duration-300 font-medium text-base ${
-                      location === item.href ? "active font-semibold" : ""
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    data-testid={`link-mobile-${item.name.toLowerCase()}`}
-                  >
-                    {item.name}
-                  </Link>
-                </div>
-              ))}
-              <div 
-                className="loft-mobile-item booking-item"
+          <div className="md:hidden flex flex-col gap-2 mt-4 animate-slide">
+            {navigation.map((item, index) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`loft-nav-button ${location === item.href ? "active" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                data-testid={`link-mobile-${item.name.toLowerCase()}`}
                 style={{ 
-                  animationDelay: `${navigation.length * 50}ms`,
-                  animation: 'loft-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
+                  animationDelay: `${index * 50}ms`,
+                  animation: 'loft-appear 0.4s ease-out both'
                 } as React.CSSProperties}
               >
-                <Link
-                  href="/booking"
-                  className="loft-mobile-booking block transition-all duration-300 font-medium text-base text-center"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  data-testid="link-mobile-booking"
-                >
-                  Забронировать
-                </Link>
-              </div>
-            </div>
+                {item.name}
+              </Link>
+            ))}
+            <Link
+              href="/booking"
+              className="loft-booking-button mt-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+              data-testid="link-mobile-booking"
+              style={{ 
+                animationDelay: `${navigation.length * 50}ms`,
+                animation: 'loft-appear 0.4s ease-out both'
+              } as React.CSSProperties}
+            >
+              Забронировать
+            </Link>
           </div>
         )}
       </nav>

@@ -474,34 +474,7 @@ p {
     inset 0 -1px 0 rgba(245, 235, 220, 0.15);
 }
 
-/* Loft Style Mobile Navigation */
-.loft-mobile-nav {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: -0.005em;
-  padding: 14px 0;
-  border-radius: 0;
-  transition: all 0.25s ease-out;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--wood) 15%, transparent);
-  color: var(--fg);
-  text-decoration: none;
-}
 
-.loft-mobile-nav:hover {
-  background: color-mix(in srgb, var(--wood) 8%, transparent);
-  color: var(--fg);
-  padding-left: 8px;
-}
-
-/* Mobile active state matching loft desktop */
-.loft-mobile-nav.active {
-  color: var(--gold);
-  font-weight: 600;
-  background: color-mix(in srgb, var(--gold) 8%, transparent);
-}
 
 .dark .ios-glass-mobile-nav.active {
   background: linear-gradient(135deg,
@@ -517,47 +490,6 @@ p {
     0 3px 9px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(245, 235, 220, 0.35),
     inset 0 -1px 0 rgba(245, 235, 220, 0.15);
-}
-
-/* Loft Style Mobile Booking Button */
-.loft-mobile-booking {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: -0.005em;
-  padding: 16px 24px;
-  border-radius: 8px;
-  margin-top: 8px;
-  transition: all 0.25s ease-out;
-  background: var(--gold);
-  border: 1px solid var(--gold);
-  color: var(--background);
-  text-decoration: none;
-}
-
-.loft-mobile-booking:hover {
-  background: color-mix(in srgb, var(--gold) 90%, var(--wood));
-  color: var(--background);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--gold) 25%, transparent);
-}
-
-/* Loft Mobile Menu Container and Item Styles */
-.loft-mobile-menu {
-  background: color-mix(in srgb, var(--bg) 98%, transparent);
-  border: 1px solid color-mix(in srgb, var(--wood) 20%, transparent);
-  border-radius: 12px;
-  margin-top: 12px;
-  padding: 16px;
-  box-shadow: 0 2px 8px color-mix(in srgb, var(--background) 15%, transparent);
-}
-
-.loft-mobile-item {
-  margin-bottom: 4px;
-}
-
-.loft-mobile-item:last-child {
-  margin-bottom: 0;
 }
 
 /* Loft appearance animation */
