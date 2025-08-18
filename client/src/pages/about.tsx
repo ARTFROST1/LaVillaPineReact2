@@ -1,18 +1,24 @@
-// import { AMENITIES } from "@/lib/constants"; // Больше не используется
 import DynamicImage from "@/components/ui/dynamic-image";
 import PageMeta from "@/components/seo/PageMeta";
 import { SEO_PAGES } from "@/lib/seo-constants";
+import {
+  Home,
+  MapPin,
+  Building,
+  Waves,
+  TreePine,
+  Lightbulb,
+  Utensils,
+  Bed,
+  Car,
+  Flame,
+  Crown,
+  Users,
+} from "lucide-react";
 
 export default function About() {
   return (
-    <div className="pt-32 pb-12 sm:pb-16 md:pb-20 text-foreground" style={{
-        background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '1px solid rgba(212, 164, 74, 0.15)',
-        borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 -8px 32px rgba(0, 0, 0, 0.25), 0 8px 32px rgba(0, 0, 0, 0.25)'
-      }}>
+    <div className="relative min-h-screen">
       <PageMeta
         title={SEO_PAGES.about.title}
         description={SEO_PAGES.about.description}
@@ -22,165 +28,350 @@ export default function About() {
         ogImage={SEO_PAGES.about.ogImage}
         canonical="https://lavillapine.onrender.com/about"
       />
-      <div className="container mx-auto px-3 sm:px-4">
-        <div className="max-w-3xl lg:max-w-4xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-primary font-display">
-            О нас
-          </h1>
-          <p className="text-base sm:text-lg text-foreground/80 leading-relaxed mb-6 sm:mb-8">
-            Наши лофт-дома сделаны так, чтобы вам сразу чувствовалось: это место
-            особенное. Здесь чёткие линии и объёмные элементы создают стильный и
-            иютный интерьер. Мы используем дерево, камень, металл и стекло — всё
-            это вместе выглядит минималистично но с душой: оно словно дышит и
-            приглушённо шепчет «релакс»
-          </p>
-          <div className="bg-card/50 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-left max-w-2xl lg:max-w-3xl mx-auto border border-border shadow-xl">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-display">
-              Премиум комфорт
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 text-sm sm:text-base">
-              <div>
-                <h3 className="font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 text-base sm:text-lg">
-                  Внутри дома:
-                </h3>
-                <ul className="space-y-1 text-foreground/70">
-                  <li>• Три спальни с качественными матрасами</li>
-                  <li>• Два стильных санузла со стеклом и хромом</li>
-                  <li>• Холл-кухня с большим обеденным столом</li>
-                  <li>• Финская сауна с кастомной подсветкой</li>
-                  <li>• Халаты и тапочки для мгновенного релакса</li>
-                  <li>• Качественная посуда и техника</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 text-base sm:text-lg">
-                  На территории:
-                </h3>
-                <ul className="space-y-1 text-foreground/70">
-                  <li>• Собственный подогреваемый бассейн</li>
-                  <li>• Газон премиум-класса как зелёный ковёр</li>
-                  <li>• Мангал-зоны с подсветкой для вечернего огня</li>
-                  <li>• Просторная парковка прямо у дома</li>
-                  <li>• Живописный лес в нескольких шагах</li>
-                  <li>• Мелодичный ручей для утренних прогулок</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12 md:mb-16">
-          <div className="bg-card/40 backdrop-blur-md rounded-xl sm:rounded-2xl border border-border hover:border-border/50 transition-all duration-300 overflow-hidden group shadow-xl hover:shadow-2xl">
-            <div className="relative h-40 sm:h-48 overflow-hidden">
-              <DynamicImage
-                src="/images/amenities/interior.jpg"
-                fallbackSrc="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Современный дизайн лофт"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
-            </div>
-            <div className="p-4 sm:p-6 md:p-8 text-center bg-card/20">
-              <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
-                <i className="fas fa-home"></i>
-              </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4 text-foreground">
-                Современный лофт дизайн
-              </h3>
-              <p className="text-sm sm:text-base text-foreground/70">
-                Дизайнерский ремонт с индустриальными элементами и современным
-                комфортом
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-card/40 backdrop-blur-md rounded-xl sm:rounded-2xl border border-border hover:border-border/50 transition-all duration-300 overflow-hidden group shadow-xl hover:shadow-2xl">
-            <div className="relative h-40 sm:h-48 overflow-hidden">
-              <DynamicImage
-                src="/images/amenities/pool.jpg"
-                fallbackSrc="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Подогреваемые бассейны"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
-            </div>
-            <div className="p-4 sm:p-6 md:p-8 text-center bg-card/20">
-              <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
-                <i className="fas fa-swimming-pool"></i>
-              </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4 text-foreground">
-                Подогреваемые бассейны и сауна
-              </h3>
-              <p className="text-sm sm:text-base text-foreground/70">
-                Частные подогреваемые бассейны и сауны для круглогодичного
-                отдыха
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-card/40 backdrop-blur-md rounded-xl sm:rounded-2xl border border-border hover:border-border/50 transition-all duration-300 overflow-hidden group shadow-xl hover:shadow-2xl">
-            <div className="relative h-40 sm:h-48 overflow-hidden">
-              <DynamicImage
-                src="/images/amenities/forest.jpg"
-                fallbackSrc="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="Лесное окружение"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"></div>
-            </div>
-            <div className="p-4 sm:p-6 md:p-8 text-center bg-card/20">
-              <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
-                <i className="fas fa-tree"></i>
-              </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4 text-foreground">
-                Лесное окружение
-              </h3>
-              <p className="text-sm sm:text-base text-foreground/70">
-                Чистая лесная местность с дикими животными и природным ручьем
-              </p>
-            </div>
-          </div>
-        </div>
-
-
-
-        {/* Сервис и комфорт */}
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-10 sm:mb-12 md:mb-16">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Премиум сервис
-            </h3>
-            <p className="text-base sm:text-lg text-foreground/80 mb-4 sm:mb-6">
-              Уютная зона приёма гостей с заботливым администратором — всё как в
-              высококлассном отеле, только куда уютнее. От заселения до
-              рекомендаций по досугу — мы заботимся о каждом госте
+      {/* Background image with overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{
+          backgroundImage: 'url(/images/amenities/interior.jpg)'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+      <div className="relative z-10 pt-32 pb-20">
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold font-display">О La Villa Pine</h1>
+            <p className="text-lg font-light text-foreground/90">
+              Два эксклюзивных дома с бассейнами в курортной зоне Адыгеи — сделано не для сдачи, а для себя
             </p>
-            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-foreground/70">
-              <li className="flex items-center">
-                <i className="fas fa-check text-accent mr-2 sm:mr-3 text-sm sm:text-base"></i>
-                Профессиональный ресепшен с администратором
-              </li>
-              <li className="flex items-center">
-                <i className="fas fa-check text-accent mr-2 sm:mr-3 text-sm sm:text-base"></i>
-                Круглосуточная поддержка гостей
-              </li>
-              <li className="flex items-center">
-                <i className="fas fa-check text-accent mr-2 sm:mr-3 text-sm sm:text-base"></i>
-                Все необходимое премиум-класса
-              </li>
-              <li className="flex items-center">
-                <i className="fas fa-check text-accent mr-2 sm:mr-3 text-sm sm:text-base"></i>
-                Гостиничный сервис в частном доме
-              </li>
-            </ul>
           </div>
-          <div>
-            <DynamicImage
-              src="/images/amenities/interior.jpg"
-              fallbackSrc="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-              alt="Премиум интерьер La Villa Pine"
-              className="rounded-lg sm:rounded-xl shadow-lg w-full h-auto"
-            />
+
+          {/* Quick info widgets */}
+          <div className="max-w-6xl mx-auto mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              <div
+                className="p-4 rounded-xl text-center transition-all duration-300 hover:transform hover:scale-105"
+                style={{
+                  background: "rgba(212, 164, 74, 0.15)",
+                  border: "1px solid rgba(212, 164, 74, 0.3)",
+                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.2)",
+                }}
+              >
+                <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
+                <div className="text-primary font-bold">Адыгея</div>
+                <div className="text-sm text-foreground/80">
+                  пос. Тульский
+                </div>
+              </div>
+              <div
+                className="p-4 rounded-xl text-center transition-all duration-300 hover:transform hover:scale-105"
+                style={{
+                  background: "rgba(212, 164, 74, 0.15)",
+                  border: "1px solid rgba(212, 164, 74, 0.3)",
+                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.2)",
+                }}
+              >
+                <Home className="w-8 h-8 text-primary mx-auto mb-2" />
+                <div className="text-primary font-bold">2 дома</div>
+                <div className="text-sm text-foreground/80">
+                  + ресепшен
+                </div>
+              </div>
+              <div
+                className="p-4 rounded-xl text-center transition-all duration-300 hover:transform hover:scale-105"
+                style={{
+                  background: "rgba(212, 164, 74, 0.15)",
+                  border: "1px solid rgba(212, 164, 74, 0.3)",
+                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.2)",
+                }}
+              >
+                <Waves className="w-8 h-8 text-primary mx-auto mb-2" />
+                <div className="text-primary font-bold">6×4 м</div>
+                <div className="text-sm text-foreground/80">
+                  Подогрев бассейна
+                </div>
+              </div>
+              <div
+                className="p-4 rounded-xl text-center transition-all duration-300 hover:transform hover:scale-105"
+                style={{
+                  background: "rgba(212, 164, 74, 0.15)",
+                  border: "1px solid rgba(212, 164, 74, 0.3)",
+                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.2)",
+                }}
+              >
+                <Users className="w-8 h-8 text-primary mx-auto mb-2" />
+                <div className="text-primary font-bold">До 8 гостей</div>
+                <div className="text-sm text-foreground/80">
+                  Каждый дом
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Content blocks */}
+          <div className="max-w-4xl mx-auto space-y-12">
+            {/* 1. Расположение */}
+            <section
+              className="p-8 rounded-2xl transition-all duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(212, 164, 74, 0.15)",
+                boxShadow:
+                  "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+              }}
+            >
+              <div className="flex items-center mb-6">
+                <MapPin className="w-8 h-8 text-primary mr-3" />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                  Курортное расположение
+                </h2>
+              </div>
+              <div className="space-y-4 text-foreground">
+                <p className="text-lg">
+                  Расположены в посёлке Тульский (ул. Кольцевая, 4) между Майкопом и Лаго-Наки — 
+                  в самом сердце курортной зоны Адыгеи с множеством активностей и достопримечательностей.
+                </p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="p-4 rounded-lg bg-black/20">
+                    <strong>Рядом с нами:</strong>
+                    <p className="mt-2">
+                      Курортные отели, туристические маршруты, активные развлечения,
+                      горные тропы и природные достопримечательности
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-lg bg-black/20">
+                    <strong>Уникальность:</strong>
+                    <p className="mt-2">
+                      В отличие от других объектов, наши дома построены без экономии —
+                      качество материалов и исполнения на уровне собственного жилья
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 2. Архитектура и строительство */}
+            <section
+              className="p-8 rounded-2xl transition-all duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(212, 164, 74, 0.15)",
+                boxShadow:
+                  "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+              }}
+            >
+              <div className="flex items-center mb-6">
+                <Building className="w-8 h-8 text-primary mr-3" />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                  Премиальная архитектура
+                </h2>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-primary">
+                    Внешняя отделка
+                  </h3>
+                  <ul className="space-y-2 text-foreground">
+                    <li>• Царский обожженный кирпич</li>
+                    <li>• Крыша из металлочерепицы</li>
+                    <li>• Алюминиевые окна премиум-класса</li>
+                    <li>• Огромные окна в пол (6-метровые раздвижки)</li>
+                    <li>• Гибкий неон по периметру крыши</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-primary">
+                    Особенности проекта
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
+                      <div className="font-bold text-primary">
+                        Два зеркальных дома
+                      </div>
+                      <div className="text-sm">Идентичные по планировке и отделке</div>
+                    </div>
+                    <div className="text-sm text-foreground/90">
+                      + отдельный домик-ресепшен с администраторской стойкой
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 3. Интерьер и отделка */}
+            <section
+              className="p-8 rounded-2xl transition-all duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(212, 164, 74, 0.15)",
+                boxShadow:
+                  "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+              }}
+            >
+              <div className="flex items-center mb-6">
+                <Crown className="w-8 h-8 text-primary mr-3" />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                  Роскошные интерьеры
+                </h2>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-primary flex items-center">
+                    <Bed className="w-5 h-5 mr-2" />
+                    Спальни
+                  </h3>
+                  <ul className="space-y-2 text-foreground text-sm">
+                    <li>• Качественные матрасы</li>
+                    <li>• Кирпичные стены</li>
+                    <li>• Элементы из настоящего дерева</li>
+                    <li>• Бетонные детали</li>
+                    <li>• LED-подсветка по периметру</li>
+                    <li>• Телевизор в каждой спальне</li>
+                    <li>• Минималистичные картины</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-primary flex items-center">
+                    <Utensils className="w-5 h-5 mr-2" />
+                    Кухня-холл
+                  </h3>
+                  <ul className="space-y-2 text-foreground text-sm">
+                    <li>• Обеденный стол из слэба</li>
+                    <li>• Холодильник премиум-класса</li>
+                    <li>• Индукционная плита</li>
+                    <li>• Посудомоечная машина</li>
+                    <li>• Микроволновая печь</li>
+                    <li>• Чайник и вся посуда</li>
+                    <li>• Большой телевизор</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-primary flex items-center">
+                    <Lightbulb className="w-5 h-5 mr-2" />
+                    Санузлы и сауна
+                  </h3>
+                  <ul className="space-y-2 text-foreground text-sm">
+                    <li>• Унитазы-инсталляции</li>
+                    <li>• Хромированные смесители</li>
+                    <li>• Дорогая керамическая плитка</li>
+                    <li>• Финская сауна из липы</li>
+                    <li>• RGB-подсветка в сауне</li>
+                    <li>• Рельефная штукатурка</li>
+                    <li>• Двери из натурального дерева</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* 4. Территория и бассейн */}
+            <section
+              className="p-8 rounded-2xl transition-all duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(212, 164, 74, 0.15)",
+                boxShadow:
+                  "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+              }}
+            >
+              <div className="flex items-center mb-6">
+                <Waves className="w-8 h-8 text-primary mr-3" />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                  Бассейн и территория
+                </h2>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-primary">
+                    Бассейн премиум-класса
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
+                      <div className="font-bold text-primary">
+                        Размеры: 6×4 метра
+                      </div>
+                      <div className="text-sm">С подогревом воды круглый год</div>
+                    </div>
+                    <ul className="space-y-2 text-foreground text-sm">
+                      <li>• Бортик из натурального камня</li>
+                      <li>• Большая терраса из лиственницы</li>
+                      <li>• Потолок террасы из дерева</li>
+                      <li>• Стильный ландшафтный дизайн</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-primary">
+                    Благоустройство
+                  </h3>
+                  <ul className="space-y-2 text-foreground">
+                    <li>• Весь двор из уличной плитки</li>
+                    <li>• Настоящий газон с автополивом</li>
+                    <li>• Кирпичный мангал со столешницей</li>
+                    <li>• Мойка для удобства готовки</li>
+                    <li>• Неоновая подсветка крыши</li>
+                    <li>• Профессиональный ландшафт</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* 5. Философия проекта */}
+            <section
+              className="p-8 rounded-2xl transition-all duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(212, 164, 74, 0.15)",
+                boxShadow:
+                  "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+              }}
+            >
+              <div className="flex items-center mb-6">
+                <TreePine className="w-8 h-8 text-primary mr-3" />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                  Сделано для себя
+                </h2>
+              </div>
+              <div className="space-y-6">
+                <p className="text-lg text-foreground leading-relaxed">
+                  Самое важное — эти дома построены не для сдачи, а как собственное жилье. 
+                  На них не экономили ни копейки. Каждая деталь, каждый материал выбирались 
+                  с мыслью о долговечности и комфорте.
+                </p>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="text-center p-4 rounded-lg bg-black/20">
+                    <Crown className="w-8 h-8 text-primary mx-auto mb-2" />
+                    <div className="font-bold text-primary">Премиум материалы</div>
+                    <div className="text-sm text-foreground/80">Без компромиссов</div>
+                  </div>
+                  <div className="text-center p-4 rounded-lg bg-black/20">
+                    <Lightbulb className="w-8 h-8 text-primary mx-auto mb-2" />
+                    <div className="font-bold text-primary">Невероятная атмосфера</div>
+                    <div className="text-sm text-foreground/80">Ночная подсветка</div>
+                  </div>
+                  <div className="text-center p-4 rounded-lg bg-black/20">
+                    <Car className="w-8 h-8 text-primary mx-auto mb-2" />
+                    <div className="font-bold text-primary">Полный комфорт</div>
+                    <div className="text-sm text-foreground/80">Продумано всё</div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
