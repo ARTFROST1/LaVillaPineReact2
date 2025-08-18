@@ -622,9 +622,7 @@ export default function Home() {
                 <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
                   20 минут
                 </p>
-                <p className="text-xs sm:text-sm text-muted-foreground/80 mt-1 sm:mt-2">
-                  Удобный доступ к городской инфраструктуре
-                </p>
+                <p className="text-xs sm:text-sm text-muted-foreground/80 mt-1 sm:mt-2"> недалеко от города Майкоп</p>
               </div>
             </div>
 
