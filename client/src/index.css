@@ -281,22 +281,12 @@ p {
 }
 
 .loft-header-light {
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--bg) 40%, transparent), 
-    color-mix(in srgb, var(--wood) 30%, transparent)
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: transparent;
   border-bottom: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
 }
 
 .loft-header-dark {
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--bg) 60%, transparent), 
-    color-mix(in srgb, var(--graphite) 50%, transparent)
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: transparent;
   border-bottom: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
 }
 
