@@ -21,7 +21,7 @@ export default function Footer() {
                 className="h-14 w-auto transition-transform duration-300 group-hover:scale-110 object-contain"
               />
             </div>
-            <p className="text-muted-foreground">{SITE_CONFIG.description}</p>
+            <p className="text-[#e4e5e8]">{SITE_CONFIG.description}</p>
           </div>
 
           <div>
