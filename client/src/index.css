@@ -264,31 +264,40 @@ p {
 
 /* Loft Style Header */
 .loft-header {
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.6), rgba(50, 42, 35, 0.5));
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 60%, transparent), 
+    color-mix(in srgb, var(--graphite) 50%, transparent)
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212, 164, 74, 0.15);
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
   position: relative;
   overflow: hidden;
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 15%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .loft-header-light {
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4), rgba(50, 42, 35, 0.3));
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 40%, transparent), 
+    color-mix(in srgb, var(--wood) 30%, transparent)
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212, 164, 74, 0.15);
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
 }
 
 .loft-header-dark {
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.6), rgba(50, 42, 35, 0.5));
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 60%, transparent), 
+    color-mix(in srgb, var(--graphite) 50%, transparent)
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212, 164, 74, 0.15);
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
 }
 
 /* Loft Style Navigation */
@@ -306,14 +315,18 @@ p {
   text-transform: uppercase;
   font-size: 14px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%);
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 40%, transparent) 0%, 
+    color-mix(in srgb, var(--wood) 30%, transparent) 50%, 
+    color-mix(in srgb, var(--graphite) 45%, transparent) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 164, 74, 0.15);
+  border: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 15%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
   color: var(--fg);
@@ -330,26 +343,30 @@ p {
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 15px;
   letter-spacing: -0.01em;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Warm matte background */
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%);
+  /* Warm matte background using palette variables */
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 40%, transparent) 0%, 
+    color-mix(in srgb, var(--wood) 30%, transparent) 50%, 
+    color-mix(in srgb, var(--graphite) 45%, transparent) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
   /* Gold accent border */
-  border: 1px solid rgba(212, 164, 74, 0.15);
-  color: #F2EDE6;
+  border: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
+  color: var(--fg);
 
   /* Soft shadows for depth */
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 15%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 
   overflow: hidden;
@@ -358,20 +375,24 @@ p {
 /* Loft style hover effects */
 .loft-nav-button:hover,
 .loft-home-button:hover {
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.5), rgba(50, 42, 35, 0.4), rgba(70, 58, 45, 0.55));
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 50%, transparent), 
+    color-mix(in srgb, var(--wood) 40%, transparent), 
+    color-mix(in srgb, var(--graphite) 55%, transparent)
+  );
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: rgba(212, 164, 74, 0.3);
-  color: #D4A44A;
-  text-shadow: 0 0 8px rgba(212, 164, 74, 0.5);
+  border-color: color-mix(in srgb, var(--gold) 30%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.4),
     0 6px 18px rgba(0, 0, 0, 0.3),
     0 3px 9px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 20%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -385,8 +406,8 @@ p {
 /* Active navigation state */
 .loft-nav-button.active,
 .loft-home-button.active {
-  color: #D4A44A;
-  text-shadow: 0 0 8px rgba(212, 164, 74, 0.4);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 40%, transparent);
 }
 
 /* Dark mode styles for iOS Navigation Buttons */
@@ -454,44 +475,52 @@ p {
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 15px;
   letter-spacing: -0.01em;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Gold accent gradient background */
-  background: linear-gradient(135deg, rgba(212, 164, 74, 0.9) 0%, rgba(192, 144, 60, 0.8) 50%, rgba(212, 164, 74, 0.95) 100%);
+  /* Gold accent gradient background using palette */
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--gold) 90%, transparent) 0%, 
+    color-mix(in srgb, var(--wood) 80%, transparent) 50%, 
+    color-mix(in srgb, var(--gold) 95%, transparent) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
-  border: 1px solid rgba(212, 164, 74, 0.8);
-  color: #1A1613;
+  border: 1px solid color-mix(in srgb, var(--gold) 80%, transparent);
+  color: var(--graphite);
 
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 30%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 
   overflow: hidden;
 }
 
 .loft-booking-button:hover {
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4), rgba(50, 42, 35, 0.3), rgba(70, 58, 45, 0.45));
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 40%, transparent), 
+    color-mix(in srgb, var(--wood) 30%, transparent), 
+    color-mix(in srgb, var(--graphite) 45%, transparent)
+  );
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: rgba(212, 164, 74, 0.6);
-  color: #D4A44A;
-  text-shadow: 0 0 8px rgba(212, 164, 74, 0.5);
+  border-color: color-mix(in srgb, var(--gold) 60%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.4),
     0 6px 18px rgba(0, 0, 0, 0.3),
     0 3px 9px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 20%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -538,54 +567,62 @@ p {
 
 /* Loft Style Mobile Navigation */
 .loft-mobile-nav {
-  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.01em;
   padding: 16px 24px;
   border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Warm matte background */
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%);
+  /* Warm matte background using palette */
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 40%, transparent) 0%, 
+    color-mix(in srgb, var(--wood) 30%, transparent) 50%, 
+    color-mix(in srgb, var(--graphite) 45%, transparent) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   
-  /* Gold accent border */
-  border: 1px solid rgba(212, 164, 74, 0.15);
-  color: #F2EDE6;
+  /* Gold accent border using palette */
+  border: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
+  color: var(--fg);
 
   /* Soft shadows for depth */
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 15%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05);
   
   overflow: hidden;
 }
 
 .loft-mobile-nav:hover {
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.5), rgba(50, 42, 35, 0.4), rgba(70, 58, 45, 0.55));
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 50%, transparent), 
+    color-mix(in srgb, var(--wood) 40%, transparent), 
+    color-mix(in srgb, var(--graphite) 55%, transparent)
+  );
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: rgba(212, 164, 74, 0.3);
-  color: #D4A44A;
-  text-shadow: 0 0 8px rgba(212, 164, 74, 0.5);
+  border-color: color-mix(in srgb, var(--gold) 30%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.4),
     0 6px 18px rgba(0, 0, 0, 0.3),
     0 3px 9px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 20%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile active state matching loft desktop */
 .loft-mobile-nav.active {
-  color: #D4A44A;
-  text-shadow: 0 0 8px rgba(212, 164, 74, 0.4);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 40%, transparent);
 }
 
 .dark .ios-glass-mobile-nav.active {
@@ -606,41 +643,49 @@ p {
 
 /* Loft Style Mobile Booking Button */
 .loft-mobile-booking {
-  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.01em;
   padding: 16px 24px;
   border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  background: linear-gradient(135deg, rgba(212, 164, 74, 0.9) 0%, rgba(192, 144, 60, 0.8) 50%, rgba(212, 164, 74, 0.95) 100%);
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--gold) 90%, transparent) 0%, 
+    color-mix(in srgb, var(--wood) 80%, transparent) 50%, 
+    color-mix(in srgb, var(--gold) 95%, transparent) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 164, 74, 0.8);
-  color: #1A1613;
+  border: 1px solid color-mix(in srgb, var(--gold) 80%, transparent);
+  color: var(--graphite);
 
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 30%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .loft-mobile-booking:hover {
-  background: linear-gradient(135deg, rgba(60, 50, 40, 0.4), rgba(50, 42, 35, 0.3), rgba(70, 58, 45, 0.45));
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 40%, transparent), 
+    color-mix(in srgb, var(--wood) 30%, transparent), 
+    color-mix(in srgb, var(--graphite) 45%, transparent)
+  );
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: rgba(212, 164, 74, 0.6);
-  color: #D4A44A;
-  text-shadow: 0 0 8px rgba(212, 164, 74, 0.5);
+  border-color: color-mix(in srgb, var(--gold) 60%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.4),
     0 6px 18px rgba(0, 0, 0, 0.3),
     0 3px 9px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 20%, transparent),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
