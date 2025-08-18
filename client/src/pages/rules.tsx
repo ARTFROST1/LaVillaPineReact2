@@ -125,7 +125,6 @@ export default function Rules() {
                   <ul className="space-y-2 text-foreground">
                     <li>• Телефон: +7‑918‑924‑00‑07</li>
                     <li>• WhatsApp / Telegram</li>
-                    <li>• Электронная почта</li>
                     <li>• Официальный сайт комплекса</li>
                   </ul>
                 </div>
