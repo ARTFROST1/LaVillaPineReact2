@@ -410,8 +410,8 @@ export default function Home() {
             }}>
               <div className="flex items-center justify-center space-x-4">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center flex-shrink-0" style={{
-                  background: 'rgba(212, 164, 74, 0.2)',
-                  border: '1px solid rgba(212, 164, 74, 0.3)'
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
                 }}>
                   <i className="fas fa-map-marker-alt text-lg sm:text-xl" style={{ color: '#D4A44A' }}></i>
                 </div>
