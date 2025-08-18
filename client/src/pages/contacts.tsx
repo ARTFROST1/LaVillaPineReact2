@@ -138,7 +138,7 @@ export default function Contacts() {
                   <AvitoIcon className="w-6 h-6 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
                 </a>
               </div>
-              <p className="text-sm text-muted-foreground mt-6 text-center font-light">
+              <p className="text-sm mt-6 text-center font-light text-[#ffffff]">
                 Подписывайтесь на наши страницы, чтобы быть в курсе новостей и специальных предложений
               </p>
             </div>
