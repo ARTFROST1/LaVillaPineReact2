@@ -31,7 +31,7 @@ export default function Contacts() {
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h1 className="text-4xl md:text-5xl mb-6 text-primary font-bold font-display">Наши контакты</h1>
-            <p className="text-lg text-muted-foreground font-light">
+            <p className="text-lg font-light text-[#ede8e2]">
               Свяжитесь с нами удобным способ чтобы забронировать или задать вопрос
             </p>
           </div>

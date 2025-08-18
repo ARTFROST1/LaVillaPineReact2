@@ -393,8 +393,8 @@ export default function Home() {
 
             {/* Адрес */}
             <div className="p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 shadow-sm" style={{
-              background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.5), rgba(50, 42, 35, 0.4))',
-              backdropFilter: 'blur(20px)',
+              background: '#5A5955',
+              backdropFilter: 'blur(10px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(212, 164, 74, 0.2)',
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
