@@ -10,12 +10,12 @@
   --font-text: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 
   /* Цвета лофт */
-  --bg: #1A1613;
-  --fg: #F2EDE6;
-  --fg-muted: #AFA296;
-  --graphite: #26201B;
-  --gold: #D4A44A;
-  --wood: #8C6B4A;
+  --bg: #6c706e;
+  --fg: #e4e5e8;
+  --fg-muted: #e9d3bf;
+  --graphite: ##23221d;
+  --gold: #4c8404;
+  --wood: #b68f66;
 
   /* Системные цвета */
   --background: #1A1613;
