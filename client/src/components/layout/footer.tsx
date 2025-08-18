@@ -27,22 +27,22 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-primary">Навигация</h4>
             <div className="space-y-2">
-              <Link href="/" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+              <Link href="/" className="block text-white hover:text-white transition-colors duration-200">
                 Главная
               </Link>
-              <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+              <Link href="/about" className="block text-white hover:text-white transition-colors duration-200">
                 О нас
               </Link>
-              <Link href="/gallery" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+              <Link href="/gallery" className="block text-white hover:text-white transition-colors duration-200">
                 Галерея
               </Link>
-              <Link href="/booking" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+              <Link href="/booking" className="block text-white hover:text-white transition-colors duration-200">
                 Бронирование
               </Link>
-              <Link href="/contacts" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+              <Link href="/contacts" className="block text-white hover:text-white transition-colors duration-200">
                 Контакты
               </Link>
-              <Link href="/rules" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+              <Link href="/rules" className="block text-white hover:text-white transition-colors duration-200">
                 Правила проживания
               </Link>
             </div>
