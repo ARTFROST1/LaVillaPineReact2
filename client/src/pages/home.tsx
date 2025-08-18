@@ -356,7 +356,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Stacked Amenities with Scroll Effect */}
       <section style={{
         background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
@@ -368,7 +367,6 @@ export default function Home() {
       }}>
         <StackedAmenities onImageClick={openGallery} />
       </section>
-
       {/* Галерея карусель */}
       <section 
         ref={gallerySectionRef}
@@ -501,9 +499,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      
-
       {/* Наш адрес и карта */}
       <section className="py-12 sm:py-16 md:py-20" style={{
         background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
@@ -523,7 +518,7 @@ export default function Home() {
             </div>
 
             {/* Адрес */}
-            <div className="p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 shadow-sm" style={{
+            <div className="p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 shadow-sm bg-[#383834]" style={{
               background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
               backdropFilter: 'blur(10px)',
               WebkitBackdropFilter: 'blur(20px)',
@@ -561,7 +556,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Идеальное расположение */}
       <section 
         ref={locationSectionRef}
@@ -714,7 +708,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Блок бронирования с фиксированным фоном */}
       <section 
         className="relative h-[90vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-screen bg-fixed bg-cover bg-center flex items-center"
@@ -748,7 +741,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Модальное окно галереи */}
       <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
         <DialogContent className="max-w-4xl w-full p-0 overflow-hidden">
