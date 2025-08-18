@@ -206,7 +206,7 @@ export default function Header() {
             ))}
             <Link
               href="/booking"
-              className="loft-booking-button mt-2"
+              className="loft-booking-button mt-2 text-[#f8f8f8]"
               onClick={() => setIsMobileMenuOpen(false)}
               data-testid="link-mobile-booking"
               style={{ 
