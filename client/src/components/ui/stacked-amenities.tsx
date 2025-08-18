@@ -278,27 +278,6 @@ export default function StackedAmenities({
         </div>
       </div>
 
-      {/* Подсказка для скролла */}
-      <div
-        className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-opacity duration-300"
-        style={{
-          opacity: scrollHintOpacity,
-          pointerEvents: scrollHintOpacity > 0 ? 'auto' : 'none'
-        }}
-        data-testid="scroll-hint"
-      >
-        <div className="flex flex-col items-center space-y-2 px-6 py-4 rounded-full backdrop-blur-md bg-black/20 border border-white/20">
-          <span className="text-white text-sm font-medium">Прокрутите вниз</span>
-          <ChevronDown 
-            className="w-5 h-5 text-white animate-bounce" 
-            style={{
-              animationDuration: '2s',
-              animationIterationCount: 'infinite'
-            }}
-          />
-        </div>
-      </div>
-
       {/* Стопка карточек */}
       <div className="relative">
         {AMENITIES.map((amenity, index) => (
@@ -337,6 +316,29 @@ export default function StackedAmenities({
                 
                 {/* Дополнительный оверлей для нижней части */}
                 <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+                {/* Подсказка для скролла (только для первой карточки) */}
+                {index === 0 && (
+                  <div
+                    className="absolute top-8 left-1/2 transform -translate-x-1/2 z-10 transition-opacity duration-300"
+                    style={{
+                      opacity: scrollHintOpacity,
+                      pointerEvents: scrollHintOpacity > 0 ? 'auto' : 'none'
+                    }}
+                    data-testid="scroll-hint"
+                  >
+                    <div className="flex flex-col items-center space-y-2 px-6 py-4 rounded-full backdrop-blur-md bg-black/20 border border-white/20">
+                      <span className="text-white text-sm font-medium">Прокрутите вниз</span>
+                      <ChevronDown 
+                        className="w-5 h-5 text-white animate-bounce" 
+                        style={{
+                          animationDuration: '2s',
+                          animationIterationCount: 'infinite'
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
 
                 {/* Контент карточки */}
                 <div className="absolute inset-0 flex flex-col justify-end p-8 sm:p-12 md:p-16">
