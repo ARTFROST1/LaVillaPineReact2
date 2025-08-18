@@ -32,7 +32,7 @@ export default function Rules() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage: "url(/images/amenities/forest.jpg)",
+          backgroundImage: "url(/images/og-image-final.jpg)",
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
