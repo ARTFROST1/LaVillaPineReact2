@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -32,6 +32,11 @@ export default function Home() {
   const [userInteracted, setUserInteracted] = useState(false);
   const [galleryRef, setGalleryRef] = useState<HTMLDivElement | null>(null);
   const [showArrows, setShowArrows] = useState(false);
+  
+  // Состояние для анимации галереи при скролле
+  const [isGalleryVisible, setIsGalleryVisible] = useState(false);
+  const [galleryAnimationProgress, setGalleryAnimationProgress] = useState(0);
+  const gallerySectionRef = useRef<HTMLElement | null>(null);
 
   // Функции для управления галереей
   const openGallery = (imageUrl: string) => {
@@ -167,6 +172,49 @@ export default function Home() {
     };
   }, [galleryRef]);
 
+  // Функция для отслеживания анимации галереи при скролле
+  const updateGalleryAnimation = useCallback(() => {
+    if (!gallerySectionRef.current) return;
+
+    const rect = gallerySectionRef.current.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const sectionTop = rect.top;
+    const sectionHeight = rect.height;
+
+    // Секция считается видимой, когда она входит в нижнюю треть экрана
+    const isVisible = sectionTop < windowHeight * 0.8;
+    
+    if (isVisible && !isGalleryVisible) {
+      setIsGalleryVisible(true);
+    }
+
+    // Рассчитываем прогресс анимации на основе позиции секции
+    if (isVisible) {
+      const scrollProgress = Math.max(0, Math.min(1, 
+        (windowHeight * 0.8 - sectionTop) / (windowHeight * 0.5)
+      ));
+      setGalleryAnimationProgress(scrollProgress);
+    }
+  }, [isGalleryVisible]);
+
+  // useEffect для отслеживания скролла и анимации галереи
+  useEffect(() => {
+    const handleScroll = () => {
+      requestAnimationFrame(updateGalleryAnimation);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    
+    // Первоначальная проверка
+    updateGalleryAnimation();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [updateGalleryAnimation]);
+
   // Компонент для отображения изображения с fallback
   const GalleryImageComponent = ({ src, fallbackSrc, alt, className }: { 
     src: string; 
@@ -290,19 +338,30 @@ export default function Home() {
 
       {/* Галерея карусель */}
       <section 
+        ref={gallerySectionRef}
         className="relative py-12 sm:py-16 md:py-20 group"
         style={{
           background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           borderTop: '1px solid rgba(212, 164, 74, 0.15)',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+          transform: `translateY(${isGalleryVisible ? 0 : 60}px)`,
+          opacity: isGalleryVisible ? 1 : 0,
+          transition: 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease-out'
         }}
         onMouseEnter={() => setShowArrows(true)}
         onMouseLeave={() => setShowArrows(false)}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div 
+            className="text-center mb-12"
+            style={{
+              transform: `translateY(${isGalleryVisible ? 0 : 40}px)`,
+              opacity: isGalleryVisible ? 1 : 0,
+              transition: 'transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, opacity 0.9s ease-out 0.2s'
+            }}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground font-display">
               Наша галерея
             </h2>
@@ -312,6 +371,11 @@ export default function Home() {
           <div 
             ref={setGalleryRef}
             className="relative overflow-hidden rounded-3xl"
+            style={{
+              transform: `translateY(${isGalleryVisible ? 0 : 30}px) scale(${isGalleryVisible ? 1 : 0.95})`,
+              opacity: isGalleryVisible ? 1 : 0,
+              transition: 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s, opacity 1s ease-out 0.4s'
+            }}
           >
             <div 
               className="flex transition-transform duration-500 ease-in-out"
@@ -326,6 +390,10 @@ export default function Home() {
                     setIsGalleryOpen(true);
                   }}
                   data-testid={`gallery-card-${index}`}
+                  style={{
+                    transform: isGalleryVisible ? 'scale(1)' : 'scale(0.9)',
+                    transition: `transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${0.6 + index * 0.1}s`
+                  }}
                 >
                   <DynamicImage
                     src={image.url}
@@ -340,11 +408,16 @@ export default function Home() {
           </div>
 
           {/* Навигационные стрелки (только для десктопа) */}
-          {showArrows && (
+          {showArrows && isGalleryVisible && (
             <>
               <button
                 onClick={prevGallerySlide}
                 className="hidden md:flex absolute left-8 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-sm rounded-full items-center justify-center text-white hover:bg-black/60 transition-all duration-300 z-10"
+                style={{
+                  transform: `translateX(${isGalleryVisible ? '0' : '-20px'}) translateY(-50%)`,
+                  opacity: isGalleryVisible ? 1 : 0,
+                  transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s, opacity 0.6s ease-out 0.8s'
+                }}
                 data-testid="gallery-prev-button"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -352,6 +425,11 @@ export default function Home() {
               <button
                 onClick={nextGallerySlide}
                 className="hidden md:flex absolute right-8 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-sm rounded-full items-center justify-center text-white hover:bg-black/60 transition-all duration-300 z-10"
+                style={{
+                  transform: `translateX(${isGalleryVisible ? '0' : '20px'}) translateY(-50%)`,
+                  opacity: isGalleryVisible ? 1 : 0,
+                  transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s, opacity 0.6s ease-out 0.8s'
+                }}
                 data-testid="gallery-next-button"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -360,7 +438,14 @@ export default function Home() {
           )}
 
           {/* Индикаторы слайдов */}
-          <div className="flex justify-center mt-6 space-x-2">
+          <div 
+            className="flex justify-center mt-6 space-x-2"
+            style={{
+              transform: `translateY(${isGalleryVisible ? 0 : 20}px)`,
+              opacity: isGalleryVisible ? 1 : 0,
+              transition: 'transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s, opacity 0.7s ease-out 1s'
+            }}
+          >
             {GALLERY_IMAGES.map((_, index) => (
               <button
                 key={index}
@@ -373,6 +458,10 @@ export default function Home() {
                     ? 'bg-accent scale-125' 
                     : 'bg-white/40 hover:bg-white/60'
                 }`}
+                style={{
+                  transform: isGalleryVisible ? 'scale(1)' : 'scale(0)',
+                  transition: `transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${1.2 + index * 0.05}s`
+                }}
                 data-testid={`gallery-indicator-${index}`}
               />
             ))}
