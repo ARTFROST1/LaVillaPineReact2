@@ -659,9 +659,7 @@ export default function Home() {
                 <p className="text-sm sm:text-base md:text-lg font-medium opacity-90">
                   30 минут
                 </p>
-                <p className="text-xs sm:text-sm text-muted-foreground/80 mt-1 sm:mt-2">
-                  Живописные пейзажи и свежий воздух
-                </p>
+                <p className="text-xs sm:text-sm text-muted-foreground/80 mt-1 sm:mt-2">Менее часа до курорта Лаго-Наки</p>
               </div>
             </div>
 
