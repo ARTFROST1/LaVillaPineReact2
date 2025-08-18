@@ -107,42 +107,7 @@ export default function Rules() {
               </div>
             </section>
 
-            {/* 2. Бронирование и оплата */}
-            <section className="p-8 rounded-2xl transition-all duration-300" style={{
-              background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(212, 164, 74, 0.15)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-            }}>
-              <div className="flex items-center mb-6">
-                <Users className="w-8 h-8 text-primary mr-3" />
-                <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">Бронирование и оплата</h2>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-primary">Способы бронирования</h3>
-                  <ul className="space-y-2 text-foreground">
-                    <li>• Телефон: +7‑918‑924‑00‑07</li>
-                    <li>• WhatsApp / Telegram</li>
-                    <li>• Электронная почта</li>
-                    <li>• Официальный сайт комплекса</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-primary">Условия оплаты</h3>
-                  <div className="space-y-3">
-                    <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
-                      <div className="font-bold text-primary">Предоплата: 10 000₽</div>
-                      <div className="text-sm">Для подтверждения брони</div>
-                    </div>
-                    <div className="text-sm text-foreground/90">Оплата при заезде наличными</div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* 3. Заезд и выезд */}
+            {/* 2. Заезд и выезд */}
             <section className="p-8 rounded-2xl transition-all duration-300" style={{
               background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
               backdropFilter: 'blur(20px)',
