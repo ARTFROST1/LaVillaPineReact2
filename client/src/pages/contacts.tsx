@@ -26,7 +26,7 @@ export default function Contacts() {
       >
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
-      <div className="relative z-10 pt-24 pb-20">
+      <div className="relative z-10 pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">

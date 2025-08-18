@@ -5,7 +5,7 @@ import { SEO_PAGES } from "@/lib/seo-constants";
 
 export default function About() {
   return (
-    <div className="pt-24 pb-12 sm:pb-16 md:pb-20 text-foreground" style={{
+    <div className="pt-32 pb-12 sm:pb-16 md:pb-20 text-foreground" style={{
         background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
