@@ -13,6 +13,7 @@ import About from "@/pages/about";
 import Gallery from "@/pages/gallery";
 import Contacts from "@/pages/contacts";
 import Booking from "@/pages/booking";
+import Rules from "@/pages/rules";
 import Admin from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
@@ -29,6 +30,7 @@ function Router() {
           <Route path="/gallery" component={Gallery} />
           <Route path="/contacts" component={Contacts} />
           <Route path="/booking" component={Booking} />
+          <Route path="/rules" component={Rules} />
           <Route path="/admin" component={Admin} />
           <Route component={NotFound} />
         </Switch>

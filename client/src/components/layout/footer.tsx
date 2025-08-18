@@ -21,11 +21,35 @@ export default function Footer() {
                 className="h-14 w-auto transition-transform duration-300 group-hover:scale-110 object-contain"
               />
             </div>
-            <p className="text-[#e4e5e8]">{SITE_CONFIG.description}</p>
+            <p className="text-foreground/80">{SITE_CONFIG.description}</p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Контакты</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary">Навигация</h4>
+            <div className="space-y-2">
+              <Link href="/" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+                Главная
+              </Link>
+              <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+                О нас
+              </Link>
+              <Link href="/gallery" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+                Галерея
+              </Link>
+              <Link href="/booking" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+                Бронирование
+              </Link>
+              <Link href="/contacts" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+                Контакты
+              </Link>
+              <Link href="/rules" className="block text-muted-foreground hover:text-primary transition-colors duration-200">
+                Правила проживания
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-primary">Контакты</h4>
             <div className="space-y-2 text-muted-foreground">
               <p>{SITE_CONFIG.phone}</p>
               <p>{SITE_CONFIG.email}</p>
@@ -33,41 +57,46 @@ export default function Footer() {
             <div className="flex items-center space-x-4 mt-4">
               <a
                 href={SITE_CONFIG.socialLinks.instagram}
-                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Instagram"
               >
                 <i className="fab fa-instagram text-xl"></i>
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.vk}
-                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="VKontakte"
               >
                 <i className="fab fa-vk text-xl"></i>
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.whatsapp}
-                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="WhatsApp"
               >
                 <i className="fab fa-whatsapp text-xl"></i>
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.telegram}
-                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Telegram"
               >
                 <i className="fab fa-telegram text-xl"></i>
               </a>
               <a
                 href={SITE_CONFIG.socialLinks.avito}
-                className="text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Avito"
               >
                 <AvitoIcon className="text-xl" />
               </a>
@@ -76,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-muted-foreground">
-          <p>&copy; 2025 {SITE_CONFIG.name}. All rights reserved.</p>
+          <p>&copy; 2025 {SITE_CONFIG.name}. Все права защищены.</p>
         </div>
       </div>
     </footer>
