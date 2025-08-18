@@ -242,7 +242,7 @@ export default function StackedAmenities({
   return (
     <div
       ref={containerRef}
-      className="relative min-h-[600vh] py-20"
+      className="relative min-h-[480vh] py-20"
       data-testid="stacked-amenities-container"
       style={{
         // Улучшаем производительность скролла на мобильных устройствах
