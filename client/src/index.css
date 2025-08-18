@@ -14,7 +14,7 @@
   --fg: #e4e5e8;
   --fg-muted: #e9d3bf;
   --graphite: ##23221d;
-  --gold: #4c8404;
+  --gold: #D4A44A;
   --wood: #b68f66;
 
   /* Системные цвета */
@@ -481,12 +481,8 @@ p {
   letter-spacing: -0.01em;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Gold accent gradient background using palette */
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--gold) 90%, transparent) 0%, 
-    color-mix(in srgb, var(--wood) 80%, transparent) 50%, 
-    color-mix(in srgb, var(--gold) 95%, transparent) 100%
-  );
+  /* Solid gold background using palette */
+  background: var(--gold);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
@@ -503,17 +499,13 @@ p {
 }
 
 .loft-booking-button:hover {
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--bg) 40%, transparent), 
-    color-mix(in srgb, var(--wood) 30%, transparent), 
-    color-mix(in srgb, var(--graphite) 45%, transparent)
-  );
+  background: var(--wood);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: color-mix(in srgb, var(--gold) 60%, transparent);
-  color: var(--gold);
+  border-color: var(--gold);
+  color: var(--fg);
   text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
@@ -650,11 +642,7 @@ p {
   border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--gold) 90%, transparent) 0%, 
-    color-mix(in srgb, var(--wood) 80%, transparent) 50%, 
-    color-mix(in srgb, var(--gold) 95%, transparent) 100%
-  );
+  background: var(--gold);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid color-mix(in srgb, var(--gold) 80%, transparent);
@@ -668,17 +656,13 @@ p {
 }
 
 .loft-mobile-booking:hover {
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--bg) 40%, transparent), 
-    color-mix(in srgb, var(--wood) 30%, transparent), 
-    color-mix(in srgb, var(--graphite) 45%, transparent)
-  );
+  background: var(--wood);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: color-mix(in srgb, var(--gold) 60%, transparent);
-  color: var(--gold);
+  border-color: var(--gold);
+  color: var(--fg);
   text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
