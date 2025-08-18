@@ -280,7 +280,7 @@ export default function StackedAmenities({
 
       {/* Подсказка для скролла */}
       <div
-        className="relative z-40 flex justify-center mb-20"
+        className="relative z-40 flex justify-center mb-0"
         style={{
           opacity: scrollHintOpacity,
           pointerEvents: scrollHintOpacity > 0 ? 'auto' : 'none',
@@ -288,8 +288,8 @@ export default function StackedAmenities({
         }}
         data-testid="scroll-hint"
       >
-        <div className="flex flex-col items-center space-y-2 px-6 py-4 rounded-full backdrop-blur-md bg-black/20 border border-white/20">
-          <span className="text-white text-sm font-medium">Прокрутите вниз</span>
+        <div className="flex flex-col items-center space-y-2 px-6 py-4 rounded-2xl backdrop-blur-md bg-black/20 border border-white/20">
+          <span className="text-white text-sm font-medium">Листайте вниз</span>
           <ChevronDown 
             className="w-5 h-5 text-white animate-bounce" 
             style={{
