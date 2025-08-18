@@ -322,30 +322,6 @@ export default function StackedAmenities({
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-3xl">
                       {amenity.description}
                     </p>
-
-                    {/* Кнопка для просмотра галереи */}
-                    <div className="pt-4">
-                      <button
-                        onClick={() => onImageClick(amenity.image)}
-                        className="inline-flex items-center space-x-3 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                        style={{
-                          background: 'linear-gradient(135deg, rgba(212, 164, 74, 0.9) 0%, rgba(212, 164, 74, 0.7) 100%)',
-                          border: '1px solid rgba(212, 164, 74, 0.3)',
-                          color: 'white'
-                        }}
-                        data-testid={`amenity-gallery-button-${index}`}
-                      >
-                        <span>Смотреть фото</span>
-                        <svg 
-                          className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
