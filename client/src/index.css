@@ -24,7 +24,7 @@
   --muted-foreground: #D4A44A;
   --popover: #5a5955;
   --popover-foreground: #F2EDE6;
-  --card: #333330;
+  --card: #363531;
   --card-foreground: #F2EDE6;
   --border: rgba(175, 162, 150, 0.2);
   --input: #26201B;
@@ -221,7 +221,7 @@ p {
   --muted-foreground: #AFA296;
   --popover: #26201B;
   --popover-foreground: #F2EDE6;
-  --card: #26201B;
+  --card: #3a3936;
   --card-foreground: #F2EDE6;
   --border: rgba(175, 162, 150, 0.2);
   --input: #26201B;
