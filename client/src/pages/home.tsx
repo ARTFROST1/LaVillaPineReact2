@@ -37,6 +37,11 @@ export default function Home() {
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
   const [galleryAnimationProgress, setGalleryAnimationProgress] = useState(0);
   const gallerySectionRef = useRef<HTMLElement | null>(null);
+  
+  // Состояние для анимации секции "Идеальное расположение"
+  const [isLocationVisible, setIsLocationVisible] = useState(false);
+  const [locationAnimationProgress, setLocationAnimationProgress] = useState(0);
+  const locationSectionRef = useRef<HTMLElement | null>(null);
 
   // Функции для управления галереей
   const openGallery = (imageUrl: string) => {
@@ -197,10 +202,37 @@ export default function Home() {
     }
   }, [isGalleryVisible]);
 
+  // Функция для отслеживания анимации секции "Идеальное расположение"
+  const updateLocationAnimation = useCallback(() => {
+    if (!locationSectionRef.current) return;
+
+    const rect = locationSectionRef.current.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const sectionTop = rect.top;
+
+    // Секция считается видимой, когда она входит в нижние 75% экрана
+    const isVisible = sectionTop < windowHeight * 0.75;
+    
+    if (isVisible && !isLocationVisible) {
+      setIsLocationVisible(true);
+    }
+
+    // Рассчитываем прогресс анимации
+    if (isVisible) {
+      const scrollProgress = Math.max(0, Math.min(1, 
+        (windowHeight * 0.75 - sectionTop) / (windowHeight * 0.4)
+      ));
+      setLocationAnimationProgress(scrollProgress);
+    }
+  }, [isLocationVisible]);
+
   // useEffect для отслеживания скролла и анимации галереи
   useEffect(() => {
     const handleScroll = () => {
-      requestAnimationFrame(updateGalleryAnimation);
+      requestAnimationFrame(() => {
+        updateGalleryAnimation();
+        updateLocationAnimation();
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -208,12 +240,13 @@ export default function Home() {
     
     // Первоначальная проверка
     updateGalleryAnimation();
+    updateLocationAnimation();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [updateGalleryAnimation]);
+  }, [updateGalleryAnimation, updateLocationAnimation]);
 
   // Компонент для отображения изображения с fallback
   const GalleryImageComponent = ({ src, fallbackSrc, alt, className }: { 
@@ -530,15 +563,29 @@ export default function Home() {
       </section>
 
       {/* Идеальное расположение */}
-      <section className="pt-4 pb-12 sm:pt-6 sm:pb-16 md:pt-8 md:pb-20" style={{
-        background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '1px solid rgba(212, 164, 74, 0.15)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-      }}>
+      <section 
+        ref={locationSectionRef}
+        className="pt-4 pb-12 sm:pt-6 sm:pb-16 md:pt-8 md:pb-20" 
+        style={{
+          background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderTop: '1px solid rgba(212, 164, 74, 0.15)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+          transform: `translateY(${isLocationVisible ? 0 : 40}px)`,
+          opacity: isLocationVisible ? 1 : 0,
+          transition: 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease-out'
+        }}
+      >
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
+          <div 
+            className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16"
+            style={{
+              transform: `translateY(${isLocationVisible ? 0 : 30}px)`,
+              opacity: isLocationVisible ? 1 : 0,
+              transition: 'transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, opacity 0.9s ease-out 0.2s'
+            }}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-foreground font-display">
               Идеальное расположение
             </h2>
@@ -549,7 +596,14 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* От города */}
-            <div className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <div 
+              className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+              style={{
+                transform: `translateY(${isLocationVisible ? 0 : 60}px) rotateY(${isLocationVisible ? 0 : 10}deg)`,
+                opacity: isLocationVisible ? 1 : 0,
+                transition: 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s, opacity 1s ease-out 0.4s'
+              }}
+            >
               <DynamicImage
                 src="https://img.geliophoto.com/maykop/maykop_21.jpg"
                 fallbackSrc="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
@@ -557,7 +611,14 @@ export default function Home() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white">
+              <div 
+                className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white"
+                style={{
+                  transform: `translateY(${isLocationVisible ? 0 : 20}px)`,
+                  opacity: isLocationVisible ? 1 : 0,
+                  transition: 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s, opacity 0.8s ease-out 0.8s'
+                }}
+              >
                 <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3">
                   <i className="fas fa-city"></i>
                 </div>
@@ -574,7 +635,14 @@ export default function Home() {
             </div>
 
             {/* До гор */}
-            <div className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <div 
+              className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+              style={{
+                transform: `translateY(${isLocationVisible ? 0 : 60}px) scale(${isLocationVisible ? 1 : 0.9})`,
+                opacity: isLocationVisible ? 1 : 0,
+                transition: 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s, opacity 1s ease-out 0.6s'
+              }}
+            >
               <DynamicImage
                 src="https://cdn.tripster.ru/photos/d4904480-72a5-4f08-982a-b6a049a4c96c.jpg"
                 fallbackSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
@@ -582,7 +650,14 @@ export default function Home() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white">
+              <div 
+                className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white"
+                style={{
+                  transform: `translateY(${isLocationVisible ? 0 : 20}px)`,
+                  opacity: isLocationVisible ? 1 : 0,
+                  transition: 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s, opacity 0.8s ease-out 1s'
+                }}
+              >
                 <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3">
                   <i className="fas fa-mountain"></i>
                 </div>
@@ -599,7 +674,14 @@ export default function Home() {
             </div>
 
             {/* До спа-комплексов */}
-            <div className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 sm:col-span-2 lg:col-span-1">
+            <div 
+              className="relative h-64 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 sm:col-span-2 lg:col-span-1"
+              style={{
+                transform: `translateY(${isLocationVisible ? 0 : 60}px) rotateY(${isLocationVisible ? 0 : -10}deg)`,
+                opacity: isLocationVisible ? 1 : 0,
+                transition: 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s, opacity 1s ease-out 0.8s'
+              }}
+            >
               <DynamicImage
                 src="https://s9.stc.all.kpcdn.net/russia/wp-content/uploads/2023/05/termalnye-istochniki-adygei-devushka-v-otkrytom-bassejne.jpg"
                 fallbackSrc="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
@@ -607,7 +689,14 @@ export default function Home() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white">
+              <div 
+                className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white"
+                style={{
+                  transform: `translateY(${isLocationVisible ? 0 : 20}px)`,
+                  opacity: isLocationVisible ? 1 : 0,
+                  transition: 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s, opacity 0.8s ease-out 1.2s'
+                }}
+              >
                 <div className="text-accent text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3">
                   <i className="fas fa-spa"></i>
                 </div>
