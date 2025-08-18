@@ -26,6 +26,18 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
   const isAnimating = useRef(false);
   const { setIsInAmenitiesSection } = useScrollContext();
 
+  // Функция обновления прогресса скролла
+  const updateScrollProgress = useCallback(() => {
+    const scrolled = document.documentElement.scrollTop;
+    const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrolled / maxHeight) * 100;
+    
+    const progressElement = document.querySelector('.scroll-progress') as HTMLElement;
+    if (progressElement) {
+      progressElement.style.height = `${Math.min(progress, 100)}%`;
+    }
+  }, []);
+
   // Оптимизированная функция обновления анимации с requestAnimationFrame для плавности
   const updateAnimation = useCallback(() => {
     if (!containerRef.current) {
@@ -175,7 +187,10 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
     // Запланируем обновление анимации на следующий кадр для плавности
     if (!isAnimating.current) {
       isAnimating.current = true;
-      animationFrameId.current = requestAnimationFrame(updateAnimation);
+      animationFrameId.current = requestAnimationFrame(() => {
+        updateAnimation();
+        updateScrollProgress();
+      });
     }
   }, [updateAnimation]);
 
@@ -191,6 +206,7 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
     
     // Запускаем начальное обновление
     updateAnimation();
+    updateScrollProgress();
 
     return () => {
       // Очищаем обработчики и анимации
@@ -270,31 +286,35 @@ export default function StackedAmenities({ onImageClick }: StackedAmenitiesProps
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 
                 {/* Контент карточки */}
-                <div className="absolute inset-0 flex flex-col justify-end p-8 sm:p-12 md:p-16 pb-16 sm:pb-20 md:pb-24">
-                  {/* Иконка */}
-                  <div className="mb-6">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                      <i className={`${amenity.icon} text-white text-2xl sm:text-3xl`}></i>
-                    </div>
-                  </div>
-                  
-                  {/* Заголовок */}
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 font-display">
+                <div className="absolute inset-0 flex flex-col justify-center p-8 sm:p-12 md:p-16">
+                  {/* Заголовок - поднят выше */}
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 font-display">
                     {amenity.title}
                   </h3>
                   
                   {/* Описание */}
-                  <p className="text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed max-w-4xl">
+                  <p className="text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed max-w-4xl mb-8">
                     {amenity.description}
                   </p>
                   
                   {/* Декоративная линия */}
-                  <div className="w-24 h-1 bg-transparent rounded-full mt-8"></div>
+                  <div className="w-24 h-1 bg-white/30 rounded-full"></div>
                 </div>
               </div>
             </div>
           </div>
         ))}
+        
+        {/* Scroll Indicator - Modern UI Pattern */}
+        <div className="scroll-indicator-container">
+          <div className="scroll-indicator">
+            <div className="scroll-progress"></div>
+          </div>
+          <div className="scroll-hint">
+            <div className="scroll-hint-text">Прокрути чтобы изучить удобства</div>
+            <div className="scroll-hint-arrow">↓</div>
+          </div>
+        </div>
       </div>
     </div>
   );
