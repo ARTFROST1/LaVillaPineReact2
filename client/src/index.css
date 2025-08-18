@@ -13,12 +13,9 @@
   --bg: #6c706e;
   --fg: #e4e5e8;
   --fg-muted: #e9d3bf;
-  --graphite: #23221d;
-  --gold: #D4A44A;
+  --graphite: ##23221d;
+  --gold: #4c8404;
   --wood: #b68f66;
-  --light-grey: #e4e5e8;
-  --medium-grey: #6c706e;
-  --warm-grey: #b7b2a9;
 
   /* Системные цвета */
   --background: #1A1613;
@@ -285,22 +282,22 @@ p {
 
 .loft-header-light {
   background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--medium-grey) 40%, transparent), 
-    color-mix(in srgb, var(--warm-grey) 30%, transparent)
+    color-mix(in srgb, var(--bg) 40%, transparent), 
+    color-mix(in srgb, var(--wood) 30%, transparent)
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid color-mix(in srgb, var(--warm-grey) 20%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
 }
 
 .loft-header-dark {
   background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--medium-grey) 60%, transparent), 
+    color-mix(in srgb, var(--bg) 60%, transparent), 
     color-mix(in srgb, var(--graphite) 50%, transparent)
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid color-mix(in srgb, var(--warm-grey) 20%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
 }
 
 /* Loft Style Navigation */
@@ -352,18 +349,18 @@ p {
   letter-spacing: -0.01em;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Серый матовый фон */
+  /* Warm matte background using palette variables */
   background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--medium-grey) 40%, transparent) 0%, 
-    color-mix(in srgb, var(--warm-grey) 30%, transparent) 50%, 
+    color-mix(in srgb, var(--bg) 40%, transparent) 0%, 
+    color-mix(in srgb, var(--wood) 30%, transparent) 50%, 
     color-mix(in srgb, var(--graphite) 45%, transparent) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
-  /* Серая рамка */
-  border: 1px solid color-mix(in srgb, var(--warm-grey) 15%, transparent);
-  color: var(--light-grey);
+  /* Gold accent border */
+  border: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
+  color: var(--fg);
 
   /* Soft shadows for depth */
   box-shadow:
@@ -375,21 +372,21 @@ p {
   overflow: hidden;
 }
 
-/* Серый hover эффект */
+/* Loft style hover effects */
 .loft-nav-button:hover,
 .loft-home-button:hover {
   background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--medium-grey) 50%, transparent), 
-    color-mix(in srgb, var(--warm-grey) 40%, transparent), 
+    color-mix(in srgb, var(--bg) 50%, transparent), 
+    color-mix(in srgb, var(--wood) 40%, transparent), 
     color-mix(in srgb, var(--graphite) 55%, transparent)
   );
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: color-mix(in srgb, var(--light-grey) 30%, transparent);
-  color: var(--light-grey);
-  text-shadow: 0 0 8px color-mix(in srgb, var(--light-grey) 30%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 30%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.4),
@@ -406,11 +403,11 @@ p {
   transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Активное состояние навигации */
+/* Active navigation state */
 .loft-nav-button.active,
 .loft-home-button.active {
-  color: var(--light-grey);
-  text-shadow: 0 0 8px color-mix(in srgb, var(--light-grey) 40%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 40%, transparent);
 }
 
 /* Dark mode styles for iOS Navigation Buttons */
@@ -484,12 +481,16 @@ p {
   letter-spacing: -0.01em;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Серый фон без градиента */
-  background: var(--warm-grey);
+  /* Gold accent gradient background using palette */
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--gold) 90%, transparent) 0%, 
+    color-mix(in srgb, var(--wood) 80%, transparent) 50%, 
+    color-mix(in srgb, var(--gold) 95%, transparent) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
-  border: 1px solid color-mix(in srgb, var(--medium-grey) 50%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 80%, transparent);
   color: var(--graphite);
 
   box-shadow:
@@ -502,14 +503,18 @@ p {
 }
 
 .loft-booking-button:hover {
-  background: var(--medium-grey);
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 40%, transparent), 
+    color-mix(in srgb, var(--wood) 30%, transparent), 
+    color-mix(in srgb, var(--graphite) 45%, transparent)
+  );
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: color-mix(in srgb, var(--light-grey) 60%, transparent);
-  color: var(--light-grey);
-  text-shadow: 0 0 8px color-mix(in srgb, var(--light-grey) 30%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 60%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.4),
@@ -569,18 +574,18 @@ p {
   border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Серый матовый фон */
+  /* Warm matte background using palette */
   background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--medium-grey) 40%, transparent) 0%, 
-    color-mix(in srgb, var(--warm-grey) 30%, transparent) 50%, 
+    color-mix(in srgb, var(--bg) 40%, transparent) 0%, 
+    color-mix(in srgb, var(--wood) 30%, transparent) 50%, 
     color-mix(in srgb, var(--graphite) 45%, transparent) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   
-  /* Серая рамка */
-  border: 1px solid color-mix(in srgb, var(--warm-grey) 15%, transparent);
-  color: var(--light-grey);
+  /* Gold accent border using palette */
+  border: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
+  color: var(--fg);
 
   /* Soft shadows for depth */
   box-shadow:
@@ -594,17 +599,17 @@ p {
 
 .loft-mobile-nav:hover {
   background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--medium-grey) 50%, transparent), 
-    color-mix(in srgb, var(--warm-grey) 40%, transparent), 
+    color-mix(in srgb, var(--bg) 50%, transparent), 
+    color-mix(in srgb, var(--wood) 40%, transparent), 
     color-mix(in srgb, var(--graphite) 55%, transparent)
   );
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: color-mix(in srgb, var(--light-grey) 30%, transparent);
-  color: var(--light-grey);
-  text-shadow: 0 0 8px color-mix(in srgb, var(--light-grey) 30%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 30%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.4),
@@ -614,10 +619,10 @@ p {
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Активное состояние мобильной навигации */
+/* Mobile active state matching loft desktop */
 .loft-mobile-nav.active {
-  color: var(--light-grey);
-  text-shadow: 0 0 8px color-mix(in srgb, var(--light-grey) 40%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 40%, transparent);
 }
 
 .dark .ios-glass-mobile-nav.active {
@@ -645,10 +650,14 @@ p {
   border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  background: var(--warm-grey);
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--gold) 90%, transparent) 0%, 
+    color-mix(in srgb, var(--wood) 80%, transparent) 50%, 
+    color-mix(in srgb, var(--gold) 95%, transparent) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid color-mix(in srgb, var(--medium-grey) 50%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 80%, transparent);
   color: var(--graphite);
 
   box-shadow:
@@ -659,14 +668,18 @@ p {
 }
 
 .loft-mobile-booking:hover {
-  background: var(--medium-grey);
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--bg) 40%, transparent), 
+    color-mix(in srgb, var(--wood) 30%, transparent), 
+    color-mix(in srgb, var(--graphite) 45%, transparent)
+  );
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 
   transform: scale(1.04);
-  border-color: color-mix(in srgb, var(--light-grey) 60%, transparent);
-  color: var(--light-grey);
-  text-shadow: 0 0 8px color-mix(in srgb, var(--light-grey) 30%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 60%, transparent);
+  color: var(--gold);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold) 50%, transparent);
 
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.4),
