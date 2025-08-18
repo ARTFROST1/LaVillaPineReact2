@@ -61,14 +61,12 @@ export default function Header() {
     };
   }, [lastScrollY]);
 
-  // Dynamic text color classes based on background - solid colors only
-  const dynamicTextClass = textColor === 'light' ? 'text-white' : 'text-black';
-  const transparentTextClass = textColor === 'light' ? 'text-white hover:text-white' : 'text-black hover:text-black';
+  // Fixed white text for all elements
+  const fixedTextClass = 'text-white';
+  const transparentTextClass = 'text-white hover:text-white';
   
-  // Dynamic border color styles based on background
-  const dynamicBorderStyle = textColor === 'light' 
-    ? { '--border-color': 'rgba(255, 255, 255, 0.15)', '--border-hover-color': 'rgba(255, 255, 255, 0.4)' }
-    : { '--border-color': 'rgba(0, 0, 0, 0.15)', '--border-hover-color': 'rgba(0, 0, 0, 0.4)' };
+  // Fixed white border styles
+  const dynamicBorderStyle = { '--border-color': 'rgba(255, 255, 255, 0.15)', '--border-hover-color': 'rgba(255, 255, 255, 0.4)' };
 
   return (
     <header 
@@ -117,7 +115,7 @@ export default function Header() {
             </div>
 
             {/* Contact Info & Social - Desktop */}
-            <div className="hidden lg:flex items-center space-x-4 border-l border-opacity-20 pl-4" style={{ borderColor: textColor === 'light' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)' }}>
+            <div className="hidden lg:flex items-center space-x-4 border-l border-opacity-20 pl-4" style={{ borderColor: 'rgba(255,255,255,0.2)' }}>
               <a 
                 href={`tel:${SITE_CONFIG.phone}`}
                 className={`flex items-center space-x-2 ${transparentTextClass} hover:opacity-80 transition-opacity`}
@@ -223,7 +221,7 @@ export default function Header() {
             <div 
               className="mt-4 pt-4 border-t border-opacity-20"
               style={{ 
-                borderColor: textColor === 'light' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)',
+                borderColor: 'rgba(255,255,255,0.2)',
                 animationDelay: `${(navigation.length + 1) * 50}ms`,
                 animation: 'loft-appear 0.4s ease-out both'
               } as React.CSSProperties}
