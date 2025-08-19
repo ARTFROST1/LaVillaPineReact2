@@ -68,9 +68,6 @@ export default function Contacts() {
               >
                 <Phone className="w-8 h-8 text-primary mx-auto mb-3" />
                 <div className="text-primary font-bold text-lg mb-1">Телефон</div>
-                <div className="text-sm text-foreground/80 mb-2">
-                  Звоните с 9:00 до 21:00
-                </div>
                 <a href={`tel:${SITE_CONFIG.phone}`} className="text-foreground font-semibold hover:text-primary transition-colors">
                   {SITE_CONFIG.phone}
                 </a>
@@ -88,9 +85,6 @@ export default function Contacts() {
               >
                 <Mail className="w-8 h-8 text-primary mx-auto mb-3" />
                 <div className="text-primary font-bold text-lg mb-1">Email</div>
-                <div className="text-sm text-foreground/80 mb-2">
-                  Ответим в течение часа
-                </div>
                 <a href={`mailto:${SITE_CONFIG.email}`} className="text-foreground font-semibold hover:text-primary transition-colors">
                   {SITE_CONFIG.email}
                 </a>
@@ -108,9 +102,6 @@ export default function Contacts() {
               >
                 <MapPin className="w-8 h-8 text-primary mx-auto mb-3" />
                 <div className="text-primary font-bold text-lg mb-1">Адрес</div>
-                <div className="text-sm text-foreground/80 mb-2">
-                  Курортная зона Адыгеи
-                </div>
                 <div className="text-foreground font-semibold text-sm">
                   {SITE_CONFIG.address}
                 </div>
