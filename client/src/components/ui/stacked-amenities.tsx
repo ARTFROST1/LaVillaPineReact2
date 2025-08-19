@@ -306,7 +306,7 @@ export default function StackedAmenities({
           <div
             key={index}
             ref={(el) => (cardRefs.current[index] = el)}
-            className="sticky top-32 w-full h-screen flex items-end justify-center px-4 pb-16"
+            className="sticky top-32 w-full h-screen flex items-end justify-center px-4 pb-4"
             style={{
               opacity: 0,
               transform: "translateY(100px) scale(0.9) translateZ(0)", // Комбинируем трансформации
