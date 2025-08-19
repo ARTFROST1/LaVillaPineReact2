@@ -299,12 +299,13 @@ export default function About() {
                 </h3>
                 <ul className="space-y-2 text-foreground text-sm">
                   <li>• Обеденный стол из слэба</li>
-                  <li>• Холодильник премиум-класса</li>
+                  <li>• Холодильник</li>
                   <li>• Индукционная плита</li>
                   <li>• Посудомоечная машина</li>
                   <li>• Микроволновая печь</li>
                   <li>• Чайник и вся посуда</li>
                   <li>• Большой телевизор</li>
+                  <li>• Раскладывающийся диван</li>
                 </ul>
               </div>
               <div className="p-6 rounded-xl" style={{
@@ -319,9 +320,8 @@ export default function About() {
                 <ul className="space-y-2 text-foreground text-sm">
                   <li>• Унитазы-инсталляции</li>
                   <li>• Хромированные смесители</li>
-                  <li>• Дорогая керамическая плитка</li>
-                  <li>• Финская сауна из липы</li>
-                  <li>• RGB-подсветка в сауне</li>
+                  <li>• Качественная керамическая плитка</li>
+                  <li>• Финская сауна с RGB-подсветкой</li>
                   <li>• Рельефная штукатурка</li>
                   <li>• Двери из натурального дерева</li>
                 </ul>
@@ -370,15 +370,15 @@ export default function About() {
                   </h3>
                   <div className="p-4 rounded-lg bg-primary/10 border border-primary/20 mb-4">
                     <div className="font-bold text-primary">
-                      Размеры: 6×4 метра
+                      Размер: 6×4 метра
                     </div>
                     <div className="text-sm text-foreground/80">С подогревом воды круглый год</div>
                   </div>
                   <ul className="space-y-2 text-foreground text-sm">
                     <li>• Бортик из натурального камня</li>
                     <li>• Большая терраса из лиственницы</li>
-                    <li>• Потолок террасы из дерева</li>
-                    <li>• Стильный ландшафтный дизайн</li>
+                    <li>• тёплый круглый год</li>
+                    <li>• Ночная подсветка</li>
                   </ul>
                 </div>
                 <div className="p-6 rounded-xl" style={{
@@ -426,7 +426,7 @@ export default function About() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-foreground font-display">
-                Сделано для себя
+                Сделано для с любовью
               </h2>
             </div>
             
@@ -442,8 +442,7 @@ export default function About() {
               </div>
               <div className="space-y-6 order-1 lg:order-2">
                 <p className="text-lg text-foreground leading-relaxed">
-                  Самое важное — эти дома построены не для сдачи, а как собственное жилье. 
-                  На них не экономили ни копейки. Каждая деталь, каждый материал выбирались 
+                  Каждая деталь, каждый материал выбирались 
                   с мыслью о долговечности и комфорте.
                 </p>
                 <div className="grid gap-4">
