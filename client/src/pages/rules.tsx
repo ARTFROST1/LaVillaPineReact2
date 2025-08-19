@@ -135,7 +135,7 @@ export default function Rules() {
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, rgba(26, 22, 19, 0.95) 0%, rgba(35, 29, 24, 0.92) 50%, rgba(26, 22, 19, 0.95) 100%)',
+            background: 'transparent',
           }}
         ></div>
         
