@@ -244,21 +244,7 @@ export default function About() {
                       <li>• Гибкий неон по периметру крыши</li>
                     </ul>
                   </div>
-                  <div className="p-6 rounded-xl" style={{
-                    background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(212, 164, 74, 0.2)'
-                  }}>
-                    <div className="p-4 rounded-lg bg-primary/10 border border-primary/20 mb-3">
-                      <div className="font-bold text-primary">
-                        Два зеркальных дома
-                      </div>
-                      <div className="text-sm text-foreground/80">Идентичные по планировке и отделке</div>
-                    </div>
-                    <p className="text-sm text-foreground/90">
-                      + отдельный домик-ресепшен с администраторской стойкой
-                    </p>
-                  </div>
+                  
                 </div>
               </div>
             </div>
