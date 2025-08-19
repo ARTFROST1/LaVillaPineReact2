@@ -318,7 +318,7 @@ export default function StackedAmenities({
             data-testid={`stacked-card-${index}`}
           >
             <div
-              className="w-full max-w-6xl h-[65vh] rounded-3xl overflow-hidden shadow-2xl group"
+              className="w-full max-w-6xl h-[50vh] rounded-3xl overflow-hidden shadow-2xl group"
               style={{
                 willChange: "transform",
                 transform: "translateZ(0)",
