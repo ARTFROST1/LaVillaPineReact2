@@ -379,7 +379,7 @@ export default function Home() {
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
           transform: `translateY(${isGalleryVisible ? 0 : 60}px)`,
           opacity: isGalleryVisible ? 1 : 0,
-          transition: 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease-out'
+          transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease-out'
         }}
         onMouseEnter={() => setShowArrows(true)}
         onMouseLeave={() => setShowArrows(false)}
@@ -390,7 +390,7 @@ export default function Home() {
             style={{
               transform: `translateY(${isGalleryVisible ? 0 : 40}px)`,
               opacity: isGalleryVisible ? 1 : 0,
-              transition: 'transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, opacity 0.9s ease-out 0.2s'
+              transition: 'transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s, opacity 0.45s ease-out 0.1s'
             }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground font-display">
@@ -405,11 +405,11 @@ export default function Home() {
             style={{
               transform: `translateY(${isGalleryVisible ? 0 : 30}px) scale(${isGalleryVisible ? 1 : 0.95})`,
               opacity: isGalleryVisible ? 1 : 0,
-              transition: 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s, opacity 1s ease-out 0.4s'
+              transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, opacity 0.5s ease-out 0.2s'
             }}
           >
             <div 
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(-${currentGallerySlide * 100}%)` }}
             >
               {GALLERY_IMAGES.map((image, index) => (
@@ -423,7 +423,7 @@ export default function Home() {
                   data-testid={`gallery-card-${index}`}
                   style={{
                     transform: isGalleryVisible ? 'scale(1)' : 'scale(0.9)',
-                    transition: `transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${0.6 + index * 0.1}s`
+                    transition: `transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${0.3 + index * 0.05}s`
                   }}
                 >
                   <DynamicImage
@@ -447,7 +447,7 @@ export default function Home() {
                 style={{
                   transform: `translateX(${isGalleryVisible ? '0' : '-20px'}) translateY(-50%)`,
                   opacity: isGalleryVisible ? 1 : 0,
-                  transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s, opacity 0.6s ease-out 0.8s'
+                  transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s, opacity 0.3s ease-out 0.4s'
                 }}
                 data-testid="gallery-prev-button"
               >
@@ -459,7 +459,7 @@ export default function Home() {
                 style={{
                   transform: `translateX(${isGalleryVisible ? '0' : '20px'}) translateY(-50%)`,
                   opacity: isGalleryVisible ? 1 : 0,
-                  transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s, opacity 0.6s ease-out 0.8s'
+                  transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s, opacity 0.3s ease-out 0.4s'
                 }}
                 data-testid="gallery-next-button"
               >
@@ -474,7 +474,7 @@ export default function Home() {
             style={{
               transform: `translateY(${isGalleryVisible ? 0 : 20}px)`,
               opacity: isGalleryVisible ? 1 : 0,
-              transition: 'transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s, opacity 0.7s ease-out 1s'
+              transition: 'transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, opacity 0.35s ease-out 0.5s'
             }}
           >
             {GALLERY_IMAGES.map((_, index) => (
@@ -491,7 +491,7 @@ export default function Home() {
                 }`}
                 style={{
                   transform: isGalleryVisible ? 'scale(1)' : 'scale(0)',
-                  transition: `transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${1.2 + index * 0.05}s`
+                  transition: `transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${0.6 + index * 0.025}s`
                 }}
                 data-testid={`gallery-indicator-${index}`}
               />
