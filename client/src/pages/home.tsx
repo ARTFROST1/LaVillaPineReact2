@@ -332,7 +332,7 @@ export default function Home() {
             <div className="max-w-3xl lg:max-w-4xl mx-auto text-center text-white">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-2xl font-display">
                 Добро пожаловать в <br />
-                <span className="text-accent drop-shadow-lg">
+                <span className="text-accent drop-shadow-lg font-brand">
                   {SITE_CONFIG.name}
                 </span>
               </h1>

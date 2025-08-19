@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;600;700;800&display=swap');
 
+/* Подключение пользовательского шрифта ROCKET WILDNESS */
+@font-face {
+  font-family: 'ROCKET WILDNESS';
+  src: url('/fonts/rocket-wildness.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,6 +17,7 @@
   /* Шрифты */
   --font-display: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --font-text: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-brand: "ROCKET WILDNESS", "Manrope", system-ui, sans-serif;
 
   /* Цвета лофт */
   --bg: #6c706e;
@@ -259,6 +269,13 @@ p {
 
   .border-neutral {
     border-color: var(--neutral);
+  }
+
+  /* Специальный класс для заголовка бренда */
+  .font-brand {
+    font-family: var(--font-brand);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
   }
 }
 
