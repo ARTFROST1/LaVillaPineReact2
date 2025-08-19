@@ -30,7 +30,7 @@ export default function About() {
       />
       
       {/* Hero Section - similar to home page */}
-      <section className="relative w-full h-screen overflow-hidden">
+      <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden">
         {/* Background image with overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
