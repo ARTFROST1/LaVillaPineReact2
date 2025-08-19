@@ -92,7 +92,7 @@ export default function StackedAmenities({
 
         // Заголовок исчезает когда блок "Наша галерея" входит в область видимости
         // Настройте значение 0.9 для изменения момента исчезновения заголовка
-        if (galleryTop <= viewportHeight * 0.9) {
+        if (galleryTop <= viewportHeight * 1.2) {
           setIsHeaderVisible(false);
         } else {
           setIsHeaderVisible(true);
@@ -306,7 +306,7 @@ export default function StackedAmenities({
           <div
             key={index}
             ref={(el) => (cardRefs.current[index] = el)}
-            className="sticky top-32 w-full h-screen flex items-end justify-center px-4 pb-4"
+            className="sticky top-32 w-full h-screen flex items-end justify-center px-4 pb-56"
             style={{
               opacity: 0,
               transform: "translateY(100px) scale(0.9) translateZ(0)", // Комбинируем трансформации

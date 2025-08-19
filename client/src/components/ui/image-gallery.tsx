@@ -82,10 +82,10 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
               src={image.url}
               fallbackSrc={image.fallbackUrl || image.url}
               alt={image.alt}
-              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-150"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-              <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-150 flex items-center justify-center">
+              <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-150">
                 <i className="fas fa-expand text-2xl"></i>
               </div>
             </div>
