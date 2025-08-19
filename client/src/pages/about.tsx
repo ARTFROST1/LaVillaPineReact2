@@ -28,7 +28,6 @@ export default function About() {
         ogImage={SEO_PAGES.about.ogImage}
         canonical="https://lavillapine.onrender.com/about"
       />
-      
       {/* Hero Section - similar to home page */}
       <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden">
         {/* Background image with overlay */}
@@ -46,19 +45,15 @@ export default function About() {
           <div className="container mx-auto px-3 sm:px-4">
             <div className="max-w-3xl lg:max-w-4xl mx-auto text-center text-white">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-2xl font-display">
-                О проекте <br />
-                <span className="text-accent drop-shadow-lg">
-                  La Villa Pine
-                </span>
+                О нас <br />
               </h1>
               <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-2xl mx-auto">
-                Два эксклюзивных дома с бассейнами в курортной зоне Адыгеи — сделано не для сдачи, а для себя
+                Два эксклюзивных дома с бассейнами в курортной зоне Адыгеи
               </p>
             </div>
           </div>
         </div>
       </section>
-
       {/* Quick info widgets section - like home page */}
       <section style={{
         background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
@@ -135,7 +130,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* Content sections following home page patterns */}
       {/* 1. Location Section with Image */}
       <section className="py-12 sm:py-16 md:py-20" style={{
@@ -204,7 +198,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* 2. Architecture Section */}
       <section className="py-12 sm:py-16 md:py-20" style={{
         background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
@@ -244,7 +237,7 @@ export default function About() {
                       Внешняя отделка
                     </h3>
                     <ul className="space-y-2 text-foreground">
-                      <li>• Царский обожженный кирпич</li>
+                      <li>• Обожженный кирпич</li>
                       <li>• Крыша из металлочерепицы</li>
                       <li>• Алюминиевые окна премиум-класса</li>
                       <li>• Огромные окна в пол (6-метровые раздвижки)</li>
@@ -272,7 +265,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* 3. Interior Section */}
       <section className="py-12 sm:py-16 md:py-20" style={{
         background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
@@ -362,7 +354,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* 4. Pool Section */}
       <section className="py-12 sm:py-16 md:py-20" style={{
         background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
@@ -436,7 +427,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* 5. Philosophy Section */}
       <section className="py-12 sm:py-16 md:py-20" style={{
         background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
