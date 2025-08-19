@@ -330,12 +330,13 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="container mx-auto px-3 sm:px-4">
             <div className="max-w-3xl lg:max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-2xl font-display">
-                Добро пожаловать в <br />
-                <span className="text-accent drop-shadow-lg font-brand text-[45px] font-extrabold">
-                  {SITE_CONFIG.name}
-                </span>
-              </h1>
+              <div className="mb-4 sm:mb-6">
+                <img 
+                  src="/images/icons/logo.png" 
+                  alt="La Villa Pine"
+                  className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full h-auto drop-shadow-2xl"
+                />
+              </div>
               <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-2xl mx-auto">
                 Отдых в стиле лофт в Адыгее
               </p>
