@@ -31,50 +31,33 @@ export function CookieConsent() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex-1">
-            <p className="text-sm text-gray-700 dark:text-gray-300">
-              Мы используем файлы cookie, чтобы обеспечить вам наилучший опыт использования нашего веб-сайта. 
-              Для получения дополнительной информации прочтите наше{" "}
-              <Link href="/consent" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">
-                Согласие на обработку и передачу персональных данных
-              </Link>{" "}
-              и{" "}
-              <Link href="/privacy-policy" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">
-                Политику конфиденциальности
-              </Link>.
-            </p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              onClick={handleAccept}
-              className="bg-green-600 hover:bg-green-700 text-white"
-              size="sm"
-              data-testid="button-accept-cookies"
-            >
-              Принять
-            </Button>
-            <Button
-              onClick={handleDecline}
-              variant="outline"
-              size="sm"
-              data-testid="button-decline-cookies"
-            >
-              Отклонить
-            </Button>
-            <Button
-              onClick={handleDecline}
-              variant="ghost"
-              size="sm"
-              className="p-1"
-              data-testid="button-close-cookies"
-            >
-              <X className="h-4 w-4" />
-            </Button>
-          </div>
+    <div className="fixed bottom-4 right-4 z-40 max-w-sm bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4">
+      <div className="space-y-3">
+        <div className="flex items-start justify-between gap-2">
+          <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
+            Мы используем cookie для улучшения работы сайта.{" "}
+            <Link href="/privacy-policy" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">
+              Подробнее
+            </Link>
+          </p>
+          <Button
+            onClick={handleDecline}
+            variant="ghost"
+            size="sm"
+            className="p-0 h-5 w-5 flex-shrink-0"
+            data-testid="button-close-cookies"
+          >
+            <X className="h-3 w-3" />
+          </Button>
         </div>
+        <Button
+          onClick={handleAccept}
+          className="w-full bg-green-600 hover:bg-green-700 text-white text-xs py-2"
+          size="sm"
+          data-testid="button-accept-cookies"
+        >
+          Принять
+        </Button>
       </div>
     </div>
   );
