@@ -15,7 +15,10 @@ import Contacts from "@/pages/contacts";
 import Booking from "@/pages/booking";
 import Rules from "@/pages/rules";
 import Admin from "@/pages/admin";
+import { PrivacyPolicy } from "@/pages/privacy-policy";
+import { Consent } from "@/pages/consent";
 import NotFound from "@/pages/not-found";
+import { CookieConsent } from "@/components/ui/cookie-consent";
 
 function Router() {
   useScrollToTop();
@@ -32,6 +35,8 @@ function Router() {
           <Route path="/booking" component={Booking} />
           <Route path="/rules" component={Rules} />
           <Route path="/admin" component={Admin} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/consent" component={Consent} />
           <Route component={NotFound} />
         </Switch>
       </main>
@@ -47,6 +52,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <CookieConsent />
           <YandexReviews />
         </TooltipProvider>
       </ScrollProvider>
