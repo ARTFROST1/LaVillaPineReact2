@@ -36,7 +36,7 @@ export function CookieConsent() {
         <div className="flex items-start justify-between gap-2">
           <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
             Мы используем cookie для улучшения работы сайта.{" "}
-            <Link href="/privacy-policy" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">
+            <Link href="/legal-documents" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">
               Подробнее
             </Link>
           </p>

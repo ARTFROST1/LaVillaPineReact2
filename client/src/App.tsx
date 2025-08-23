@@ -17,6 +17,7 @@ import Rules from "@/pages/rules";
 import Admin from "@/pages/admin";
 import { PrivacyPolicy } from "@/pages/privacy-policy";
 import { Consent } from "@/pages/consent";
+import { LegalDocuments } from "@/pages/legal-documents";
 import NotFound from "@/pages/not-found";
 import { CookieConsent } from "@/components/ui/cookie-consent";
 
@@ -37,6 +38,7 @@ function Router() {
           <Route path="/admin" component={Admin} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/consent" component={Consent} />
+          <Route path="/legal-documents" component={LegalDocuments} />
           <Route component={NotFound} />
         </Switch>
       </main>
