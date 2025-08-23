@@ -9,7 +9,7 @@ export function PrivacyPolicy() {
         keywords="политика конфиденциальности, персональные данные, защита данных, La Villa Pine"
       />
       
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl">
         <h1 className="text-3xl font-bold mb-8 text-center">Политика конфиденциальности La Villa Pine</h1>
         
         <div className="prose prose-lg max-w-none dark:prose-invert">

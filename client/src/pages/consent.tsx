@@ -9,7 +9,7 @@ export function Consent() {
         keywords="согласие на обработку данных, персональные данные, бронирование, La Villa Pine"
       />
       
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 pt-24 max-w-4xl">
         <h1 className="text-3xl font-bold mb-8 text-center">Согласие на обработку и передачу персональных данных</h1>
         
         <div className="prose prose-lg max-w-none dark:prose-invert">

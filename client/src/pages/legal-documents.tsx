@@ -12,7 +12,7 @@ export function LegalDocuments() {
         keywords="правовая информация, политика конфиденциальности, согласие на обработку данных, правила проживания"
       />
       
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-stone-100 dark:from-stone-900 dark:to-stone-800 py-12">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-stone-100 dark:from-stone-900 dark:to-stone-800 py-12 pt-24">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-stone-800 dark:text-stone-200 mb-4">
