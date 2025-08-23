@@ -43,6 +43,9 @@ export default function Home() {
   const [locationAnimationProgress, setLocationAnimationProgress] = useState(0);
   const locationSectionRef = useRef<HTMLElement | null>(null);
 
+  // Состояние для анимации логотипа
+  const [isLogoVisible, setIsLogoVisible] = useState(false);
+
   // Функции для управления галереей
   const openGallery = (imageUrl: string) => {
     // Найти индекс изображения в основной галерее по URL
@@ -278,6 +281,15 @@ export default function Home() {
     );
   };
 
+  // useEffect для анимации логотипа с задержкой
+  useEffect(() => {
+    const logoTimer = setTimeout(() => {
+      setIsLogoVisible(true);
+    }, 1000); // 1 секунда задержки
+
+    return () => clearTimeout(logoTimer);
+  }, []);
+
   useEffect(() => {
     // Загружаем модуль бронирования только если баннер отключен
     if (!SITE_CONFIG.showComingSoonBanner) {
@@ -334,7 +346,11 @@ export default function Home() {
                 <img 
                   src="/images/icons/logo.png" 
                   alt="La Villa Pine"
-                  className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full h-auto drop-shadow-2xl"
+                  className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full h-auto drop-shadow-2xl transition-all duration-1000 ease-out"
+                  style={{
+                    opacity: isLogoVisible ? 1 : 0,
+                    transform: isLogoVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
+                  }}
                 />
               </div>
               <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-2xl mx-auto">
