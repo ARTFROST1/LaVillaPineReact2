@@ -45,6 +45,9 @@ export default function Home() {
 
   // Состояние для анимации логотипа
   const [isLogoVisible, setIsLogoVisible] = useState(false);
+  
+  // Состояние для анимации формы бронирования
+  const [isBookingFormVisible, setIsBookingFormVisible] = useState(false);
 
   // Функции для управления галереей
   const openGallery = (imageUrl: string) => {
@@ -281,19 +284,27 @@ export default function Home() {
     );
   };
 
-  // useEffect для анимации логотипа с задержкой
+  // useEffect для анимации логотипа и формы бронирования с задержкой
   useEffect(() => {
     const logoTimer = setTimeout(() => {
       setIsLogoVisible(true);
     }, 1000); // 1 секунда задержки
 
-    return () => clearTimeout(logoTimer);
+    const bookingTimer = setTimeout(() => {
+      setIsBookingFormVisible(true);
+    }, 1000); // 1 секунда задержки
+
+    return () => {
+      clearTimeout(logoTimer);
+      clearTimeout(bookingTimer);
+    };
   }, []);
 
   useEffect(() => {
-    // Загружаем модуль бронирования только если баннер отключен
+    // Загружаем модуль бронирования сразу при загрузке страницы (независимо от баннера)
+    // Это позволяет маскировать время загрузки анимацией
     if (!SITE_CONFIG.showComingSoonBanner) {
-      // Динамически загружаем скрипт HomeReserve
+      // Динамически загружаем скрипт HomeReserve сразу
       const script = document.createElement("script");
       script.type = "module";
       script.src = "https://homereserve.ru/widget.js";
@@ -353,15 +364,26 @@ export default function Home() {
                   }}
                 />
               </div>
-              <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-2xl mx-auto">
-                Отдых в стиле лофт в Адыгее
-              </p>
               {/* Условное отображение: баннер или модуль бронирования */}
               <div className="max-w-3xl lg:max-w-4xl mx-auto mt-6 sm:mt-8">
                 {SITE_CONFIG.showComingSoonBanner ? (
-                  <ComingSoonBanner variant="home" />
+                  <div
+                    className="transition-all duration-1000 ease-out"
+                    style={{
+                      opacity: isBookingFormVisible ? 1 : 0,
+                      transform: isBookingFormVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
+                    }}
+                  >
+                    <ComingSoonBanner variant="home" />
+                  </div>
                 ) : (
-                  <div className="space-y-4">
+                  <div 
+                    className="space-y-4 transition-all duration-1000 ease-out"
+                    style={{
+                      opacity: isBookingFormVisible ? 1 : 0,
+                      transform: isBookingFormVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
+                    }}
+                  >
                     <div id="hr-widget"></div>
                     {SITE_CONFIG.showBookingDateNotice && (
                       <BookingDateNotice variant="home" />
