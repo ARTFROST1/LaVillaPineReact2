@@ -130,7 +130,7 @@ export function useDynamicContrast(options: ContrastHookOptions) {
         if (bgColor.includes('rgba') && (bgColor.includes('0.9') || bgColor.includes('0.8'))) {
           // console.log('Found semi-transparent overlay, checking for background images in hierarchy');
           // This might be a light overlay on top of an image, check up the hierarchy for images
-          let parentElement = currentElement.parentElement;
+          let parentElement = currentElement?.parentElement;
           let depth = 0;
           while (parentElement && depth < 5) { // Check up to 5 levels up
             const parentStyle = window.getComputedStyle(parentElement);
@@ -138,7 +138,7 @@ export function useDynamicContrast(options: ContrastHookOptions) {
               // console.log('Found background image in parent hierarchy, assuming dark background');
               return '#222222';
             }
-            parentElement = parentElement.parentElement;
+            parentElement = parentElement?.parentElement;
             depth++;
           }
         }
@@ -148,7 +148,7 @@ export function useDynamicContrast(options: ContrastHookOptions) {
         return detectedColor;
       }
       
-      currentElement = currentElement.parentElement;
+      currentElement = currentElement?.parentElement;
     }
     
     // If we reach here, assume dark background for better visibility
