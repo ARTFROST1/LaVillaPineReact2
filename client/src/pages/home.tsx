@@ -357,10 +357,9 @@ export default function Home() {
                 <img 
                   src="/images/icons/logo.png" 
                   alt="La Villa Pine"
-                  className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full h-auto drop-shadow-2xl transition-all duration-1000 ease-out"
+                  className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full h-auto drop-shadow-2xl transition-opacity duration-1000 ease-out"
                   style={{
                     opacity: isLogoVisible ? 1 : 0,
-                    transform: isLogoVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
                   }}
                 />
               </div>
@@ -368,20 +367,18 @@ export default function Home() {
               <div className="max-w-3xl lg:max-w-4xl mx-auto mt-6 sm:mt-8">
                 {SITE_CONFIG.showComingSoonBanner ? (
                   <div
-                    className="transition-all duration-1000 ease-out"
+                    className="transition-opacity duration-1000 ease-out"
                     style={{
                       opacity: isBookingFormVisible ? 1 : 0,
-                      transform: isBookingFormVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
                     }}
                   >
                     <ComingSoonBanner variant="home" />
                   </div>
                 ) : (
                   <div 
-                    className="space-y-4 transition-all duration-1000 ease-out"
+                    className="space-y-4 transition-opacity duration-1000 ease-out"
                     style={{
                       opacity: isBookingFormVisible ? 1 : 0,
-                      transform: isBookingFormVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
                     }}
                   >
                     <div id="hr-widget"></div>
