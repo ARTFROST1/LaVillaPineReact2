@@ -549,7 +549,7 @@ export default function Home() {
             {/* Заголовок */}
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-foreground font-display">
-                Наш адрес
+                Где мы находимся
               </h2>
             </div>
 
@@ -763,7 +763,7 @@ export default function Home() {
               <Link href="/booking">
                 <Button
                   size="lg"
-                  className="loft-booking-button text-base sm:text-lg font-medium text-[#ffffff]"
+                  className="loft-booking-button text-base sm:text-lg font-medium text-white"
                 >
                   Забронировать
                 </Button>
