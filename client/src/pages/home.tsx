@@ -742,10 +742,9 @@ export default function Home() {
       </section>
       {/* Блок бронирования с фиксированным фоном */}
       <section 
-        className="relative h-[90vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-screen bg-fixed bg-cover bg-center flex items-center"
+        className="relative h-[90vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-screen bg-cover bg-center flex items-center md:bg-fixed booking-section-bg"
         style={{
-          backgroundImage: 'url(/images/amenities/pool.jpg)',
-          backgroundAttachment: 'fixed'
+          backgroundImage: 'url(/images/amenities/pool.jpg)'
         }}
       >
         {/* Темный оверлей для лучшей читаемости */}

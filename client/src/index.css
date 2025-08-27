@@ -61,6 +61,19 @@ html, body {
   font-feature-settings: "kern","liga","clig","calt";
 }
 
+/* Исправление параллакс эффекта на мобильных устройствах */
+.booking-section-bg {
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .booking-section-bg {
+    background-attachment: fixed;
+  }
+}
+
 /* Иерархия заголовков */
 h1, .h1 { 
   font-family: var(--font-display); 
