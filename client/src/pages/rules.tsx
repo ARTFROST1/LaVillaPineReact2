@@ -78,7 +78,7 @@ export default function Rules() {
                 data-testid="checkin-widget"
               >
                 <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-primary font-bold">15:00 - 11:00</div>
+                <div className="text-primary font-bold">15:00 - 12:00</div>
                 <div className="text-sm text-foreground/80">Заезд - Выезд</div>
               </div>
               <div
@@ -92,7 +92,7 @@ export default function Rules() {
               >
                 <Volume2 className="w-8 h-8 text-primary mx-auto mb-2" />
                 <div className="text-primary font-bold">22:00 - 08:00</div>
-                <div className="text-sm text-foreground/80">Тихий час</div>
+                <div className="text-sm text-foreground/80">Тихое время</div>
               </div>
               <div
                 className="p-4 rounded-xl text-center transition-all duration-300 hover:transform hover:scale-105"
@@ -213,8 +213,8 @@ export default function Rules() {
                     </h3>
                     <ul className="space-y-2 text-foreground">
                       <li>• Телефон: +7‑918‑924‑00‑07</li>
-                      <li>• WhatsApp / Telegram</li>
-                      <li>• Avito</li>
+                      <li>• WhatsApp / Telegram по тому же номеру</li>
+                      <li>• Avito, Суточно.ру, и другие площадки</li>
                       <li>• Официальный сайт комплекса</li>
                     </ul>
                   </div>
@@ -269,7 +269,7 @@ export default function Rules() {
                   </div>
                   <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
                     <div className="text-3xl font-bold text-primary mb-2">
-                      11:00
+                      12:00
                     </div>
                     <div className="text-lg font-semibold mb-2">Время выезда</div>
                     <div className="text-sm text-foreground/80">
@@ -282,7 +282,7 @@ export default function Rules() {
                     </h4>
                     <div className="text-sm text-foreground space-y-1">
                       <div>Ранний заезд (до 15:00)</div>
-                      <div>Поздний выезд (после 11:00)</div>
+                      <div>Поздний выезд (после 12:00)</div>
                       <div className="font-bold">
                         Задержка до 4 часов: 50% стоимости
                       </div>
@@ -316,9 +316,6 @@ export default function Rules() {
                 </div>
                 <div className="space-y-6">
                   <div className="p-6 rounded-xl bg-primary/10 border border-primary/20">
-                    <h3 className="text-xl font-semibold mb-4 text-primary">
-                      Время тишины: 22:00 - 08:00
-                    </h3>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <h4 className="font-semibold text-red-400 mb-2">
@@ -340,6 +337,9 @@ export default function Rules() {
                           <li>• Спокойные беседы</li>
                           <li>• Тихие активности</li>
                         </ul>
+                        <h3 className="text-xl font-semibold mb-4 text-primary">
+                          Время тишины: 22:00 - 08:00
+                        </h3>
                       </div>
                     </div>
                   </div>
