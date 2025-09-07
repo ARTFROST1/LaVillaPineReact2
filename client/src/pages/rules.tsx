@@ -337,6 +337,8 @@ export default function Rules() {
                           <li>• Спокойные беседы</li>
                           <li>• Тихие активности</li>
                         </ul>
+
+
                         <h3 className="text-xl font-semibold mb-4 text-primary">
                           Время тишины: 22:00 - 08:00
                         </h3>
