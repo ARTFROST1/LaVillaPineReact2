@@ -52,6 +52,12 @@ export const HERO_IMAGES = [
       "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
     alt: "La Villa Pine - Лесная локация",
   },
+  {
+    url: "/images/carousel/carousel-6.jpg",
+    fallbackUrl:
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
+    alt: "La Villa Pine - ночь",
+  },
 ];
 
 // Галереи изображений для карточек на главной странице
