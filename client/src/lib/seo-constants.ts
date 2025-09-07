@@ -47,6 +47,11 @@ export const SEO_PAGES = {
     ogTitle: "Правила проживания La Villa Pine",
     ogDescription: "Правила и условия проживания в наших роскошных лофт-домах. Время заезда, использование удобств и политика отмены бронирования.",
     ogImage: "https://lavillapine.onrender.com/images/og-image.jpg?v=2025071101"
+  },
+  admin: {
+    title: "Администрирование",
+    description: "Админ панель",
+    robots: "noindex, nofollow"
   }
 } as const;
 

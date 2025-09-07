@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Allow: /favicon.ico
 Allow: /images/
+Disallow: /admin
 
 Sitemap: https://lavillapine.onrender.com/sitemap.xml
