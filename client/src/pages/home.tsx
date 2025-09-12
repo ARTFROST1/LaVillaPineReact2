@@ -739,7 +739,7 @@ export default function Home() {
       <section 
         className="relative h-[90vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-screen bg-cover bg-center flex items-center md:bg-fixed booking-section-bg"
         style={{
-          backgroundImage: 'url(/images/amenities/pool.jpg)'
+          backgroundImage: 'url(/images/gallery/30.jpg)'
         }}
       >
         {/* Темный оверлей для лучшей читаемости */}
@@ -751,9 +751,6 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-display leading-tight">
               Забронируйте свой идеальный отдых
             </h2>
-            <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 md:mb-12 opacity-90 leading-relaxed">
-              Окунитесь в атмосферу комфорта и уюта в окружении природы
-            </p>
             <div className="flex justify-center">
               <Link href="/booking">
                 <Button
