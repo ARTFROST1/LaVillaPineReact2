@@ -30,12 +30,12 @@ export default function Rules() {
       />
       
       {/* Hero Section - similar to home and about pages */}
-      <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden">
+      <section className="relative w-full h-screen min-h-[500px] overflow-hidden">
         {/* Background image with overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: 'url(/images/og-image-final.jpg)'
+            backgroundImage: 'url(/images/gallery/13.jpg)'
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>

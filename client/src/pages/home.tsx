@@ -18,6 +18,7 @@ declare global {
   interface Window {
     homereserve?: {
       initWidgetSearch: (config: { token: string; tag: string }) => void;
+      initWidgetList: (config: { token: string; tag: string }) => void;
     };
   }
 }
@@ -737,7 +738,7 @@ export default function Home() {
       </section>
       {/* Блок бронирования с фиксированным фоном */}
       <section 
-        className="relative h-[90vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-screen bg-cover bg-center flex items-center md:bg-fixed booking-section-bg"
+        className="relative w-full h-screen md:h-[80vh] lg:h-[90vh] xl:h-screen bg-cover bg-center flex items-center md:bg-fixed booking-section-bg"
         style={{
           backgroundImage: 'url(/images/gallery/30.jpg)'
         }}

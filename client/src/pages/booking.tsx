@@ -7,14 +7,7 @@ import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
-// Global type declaration for HomeReserve widget
-declare global {
-  interface Window {
-    homereserve?: {
-      initWidgetList: (config: { token: string; tag: string }) => void;
-    };
-  }
-}
+// HomeReserve types defined in home.tsx
 
 export default function Booking() {
   useEffect(() => {
@@ -79,7 +72,7 @@ export default function Booking() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url(/images/rooms/room-1.jpg)",
+          backgroundImage: "url(/images/gallery/25.jpg)",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
@@ -112,9 +105,9 @@ export default function Booking() {
 
               {/* Contact buttons section */}
               <div className="max-w-2xl mx-auto">
-                <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/10">
+                <div className="backdrop-blur-md rounded-xl shadow-2xl p-8 bg-white/90">
                   <div className="text-center">
-                    <p className="mb-4 text-white">
+                    <p className="mb-4 text-gray-800">
                      Свяжитесь с нами прямо сейчас:
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">

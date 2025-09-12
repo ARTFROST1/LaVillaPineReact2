@@ -29,12 +29,12 @@ export default function About() {
         canonical="https://lavillapine.onrender.com/about"
       />
       {/* Hero Section - similar to home page */}
-      <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden">
+      <section className="relative w-full h-screen min-h-[500px] overflow-hidden">
         {/* Background image with overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: 'url(/images/amenities/interior.jpg)'
+            backgroundImage: 'url(/images/gallery/1.jpg)'
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
@@ -48,7 +48,7 @@ export default function About() {
                 О нас <br />
               </h1>
               <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-2xl mx-auto">
-                Два эксклюзивных дома с бассейнами в курортной зоне Адыгеи
+                Две эксклюзивные виллы с бассейнами в курортной зоне Адыгеи
               </p>
             </div>
           </div>
@@ -91,9 +91,9 @@ export default function About() {
                 data-testid="houses-widget"
               >
                 <Home className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-primary font-bold">2 дома</div>
+                <div className="text-primary font-bold">140 м2</div>
                 <div className="text-sm text-foreground/80">
-                  + ресепшен
+                  + терраса
                 </div>
               </div>
               <div
@@ -108,7 +108,7 @@ export default function About() {
                 <Waves className="w-8 h-8 text-primary mx-auto mb-2" />
                 <div className="text-primary font-bold">6×4 м</div>
                 <div className="text-sm text-foreground/80">
-                  Подогрев бассейна
+                  Бассейн
                 </div>
               </div>
               <div
@@ -187,7 +187,7 @@ export default function About() {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <DynamicImage
-                  src="/images/amenities/forest.jpg"
+                  src="https://img.magput.ru/pics/large/298ab593-162c-445b-a14d-59d589a78316.jpg"
                   fallbackSrc="@assets/image_1754745434193.png"
                   alt="Курортная зона Адыгеи"
                   className="w-full h-80 lg:h-96 object-cover"
@@ -218,7 +218,7 @@ export default function About() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1">
                 <DynamicImage
-                  src="/images/amenities/interior.jpg"
+                  src="/images/gallery/19.jpg"
                   fallbackSrc="@assets/image_1754745546084.png"
                   alt="Архитектура La Villa Pine"
                   className="w-full h-80 lg:h-96 object-cover"
@@ -330,7 +330,7 @@ export default function About() {
             
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <DynamicImage
-                src="/images/amenities/sauna.jpg"
+                src="/images/gallery/27.jpg"
                 fallbackSrc="@assets/IMG_2671_1752328359167.JPG"
                 alt="Интерьеры La Villa Pine"
                 className="w-full h-64 md:h-80 object-cover"
@@ -402,7 +402,7 @@ export default function About() {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <DynamicImage
-                  src="/images/amenities/pool.jpg"
+                  src="/images/gallery/5.jpg"
                   fallbackSrc="@assets/IMG_5648 (2)_1752148510483.JPEG"
                   alt="Бассейн La Villa Pine"
                   className="w-full h-80 lg:h-96 object-cover"
@@ -433,7 +433,7 @@ export default function About() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1">
                 <DynamicImage
-                  src="/images/amenities/bbq.jpg"
+                  src="/images/gallery/37.jpg"
                   fallbackSrc="@assets/image_1752087177825.png"
                   alt="Философия La Villa Pine"
                   className="w-full h-80 lg:h-96 object-cover"
