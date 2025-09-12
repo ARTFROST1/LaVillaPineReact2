@@ -32,6 +32,7 @@ export default function Home() {
   const [userInteracted, setUserInteracted] = useState(false);
   const [galleryRef, setGalleryRef] = useState<HTMLDivElement | null>(null);
   const [showArrows, setShowArrows] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   
   // Состояние для анимации галереи при скролле
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
@@ -85,15 +86,30 @@ export default function Home() {
     }
   };
 
+  // Отслеживание размера экрана
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   // Навигация карусели
   const nextGallerySlide = () => {
     setUserInteracted(true);
-    setCurrentGallerySlide((prev) => (prev + 1) % GALLERY_IMAGES.length);
+    const step = isDesktop ? 3 : 1; // На десктопе сдвигаем на 3 изображения
+    const maxSlide = isDesktop ? Math.max(0, GALLERY_IMAGES.length - 3) : GALLERY_IMAGES.length - 1;
+    setCurrentGallerySlide((prev) => Math.min(prev + step, maxSlide));
   };
 
   const prevGallerySlide = () => {
     setUserInteracted(true);
-    setCurrentGallerySlide((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+    const step = isDesktop ? 3 : 1; // На десктопе сдвигаем на 3 изображения
+    setCurrentGallerySlide((prev) => Math.max(prev - step, 0));
   };
 
   // Логика автопрокрутки карусели
@@ -106,7 +122,11 @@ export default function Home() {
       
       autoScrollInterval = setInterval(() => {
         if (!userInteracted) {
-          setCurrentGallerySlide((prev) => (prev + 1) % GALLERY_IMAGES.length);
+          setCurrentGallerySlide((prev) => {
+            const step = isDesktop ? 3 : 1;
+            const maxSlide = isDesktop ? Math.max(0, GALLERY_IMAGES.length - 3) : GALLERY_IMAGES.length - 1;
+            return prev >= maxSlide ? 0 : prev + step;
+          });
         }
       }, 4000); // Смена слайда каждые 4 секунды
     };
@@ -446,12 +466,14 @@ export default function Home() {
           >
             <div 
               className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentGallerySlide * 100}%)` }}
+              style={{ 
+                transform: `translateX(-${currentGallerySlide * (isDesktop ? 33.333 : 100)}%)`
+              }}
             >
               {GALLERY_IMAGES.map((image, index) => (
                 <div
                   key={index}
-                  className="w-full flex-shrink-0 h-96 relative cursor-pointer"
+                  className="w-full lg:w-1/3 flex-shrink-0 h-96 relative cursor-pointer lg:px-2"
                   onClick={() => {
                     setSelectedImage(index);
                     setIsGalleryOpen(true);
@@ -462,13 +484,15 @@ export default function Home() {
                     transition: `transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${0.3 + index * 0.05}s`
                   }}
                 >
-                  <DynamicImage
-                    src={image.url}
-                    fallbackSrc={image.fallbackUrl || image.url}
-                    alt={image.alt}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                  <div className="h-full lg:rounded-2xl overflow-hidden">
+                    <DynamicImage
+                      src={image.url}
+                      fallbackSrc={image.fallbackUrl || image.url}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent lg:rounded-2xl"></div>
+                  </div>
                 </div>
               ))}
             </div>
