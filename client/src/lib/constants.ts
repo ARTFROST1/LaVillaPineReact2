@@ -23,41 +23,43 @@ export const SITE_CONFIG = {
 
 export const HERO_IMAGES = [
   {
-    url: "/images/carousel/carousel-1.jpg",
+    url: "/images/carousel/1.jpg",
     fallbackUrl:
       "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
     alt: "La Villa Pine - Главный вид",
   },
   {
-    url: "/images/carousel/carousel-2.jpg",
+    url: "/images/carousel/6.jpg",
+    fallbackUrl:
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
+    alt: "La Villa Pine - Холл",
+  },
+  {
+    url: "/images/carousel/2.jpg",
     fallbackUrl:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
-    alt: "La Villa Pine - Лофт интерьер",
+    alt: "La Villa Pine - Вид с террасы",
   },
   {
-    url: "/images/carousel/carousel-3.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
-    alt: "La Villa Pine - Приватная сауна",
-  },
-  {
-    url: "/images/carousel/carousel-4.jpg",
+    url: "/images/carousel/4.jpg",
     fallbackUrl:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
-    alt: "La Villa Pine - Бассейн",
+    alt: "La Villa Pine - Спальня",
   },
   {
-    url: "/images/carousel/carousel-5.jpg",
+    url: "/images/carousel/3.jpg",
     fallbackUrl:
-      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
-    alt: "La Villa Pine - Лесная локация",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
+    alt: "La Villa Pine - вид сбоку",
   },
+  
   {
-    url: "/images/carousel/carousel-6.jpg",
+    url: "/images/carousel/5.jpg",
     fallbackUrl:
       "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080",
-    alt: "La Villa Pine - ночь",
+    alt: "La Villa Pine - Сауна",
   },
+  
 ];
 
 // Галереи изображений для карточек на главной странице
@@ -161,158 +163,205 @@ export const FEATURE_GALLERIES = {
 };
 
 export const GALLERY_IMAGES = [
-  // Галерея фотографий
   {
-    url: "/images/gallery/gallery-1.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Экстерьер",
+    url: "/images/gallery/1.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 1",
   },
   {
-    url: "/images/gallery/gallery-2.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Гостиная",
+    url: "/images/gallery/2.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 2",
   },
   {
-    url: "/images/gallery/gallery-3.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Сауна",
+    url: "/images/gallery/3.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 3",
   },
   {
-    url: "/images/gallery/gallery-4.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Кухня",
+    url: "/images/gallery/4.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 4",
   },
   {
-    url: "/images/gallery/gallery-5.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Спальня",
+    url: "/images/gallery/5.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 5",
   },
   {
-    url: "/images/gallery/gallery-6.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Ванная комната",
+    url: "/images/gallery/6.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 6",
   },
   {
-    url: "/images/amenities/sauna.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Сауна",
+    url: "/images/gallery/7.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 7",
   },
   {
-    url: "/images/gallery/gallery-8.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Детали",
+    url: "/images/gallery/8.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 8",
   },
   {
-    url: "/images/gallery/gallery-9.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Экстерьер",
+    url: "/images/gallery/9.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 9",
   },
   {
-    url: "/images/gallery/gallery-10.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Интерьер",
+    url: "/images/gallery/10.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 10",
   },
   {
-    url: "/images/gallery/gallery-11.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Детали",
+    url: "/images/gallery/11.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 11",
   },
   {
-    url: "/images/gallery/gallery-12.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Интерьер",
-  },
-  // Фотографии комнат
-  {
-    url: "/images/rooms/room-1.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Номер 1",
+    url: "/images/gallery/12.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 12",
   },
   {
-    url: "/images/rooms/room-2.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Номер 2",
+    url: "/images/gallery/13.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 13",
   },
   {
-    url: "/images/rooms/room-3.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Номер 3",
+    url: "/images/gallery/14.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 14",
   },
   {
-    url: "/images/gallery/gallery-13.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Новое фото",
+    url: "/images/gallery/15.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 15",
   },
   {
-    url: "/images/gallery/gallery-14.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Санузел",
+    url: "/images/gallery/16.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 16",
   },
   {
-    url: "/images/gallery/gallery-15.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Душева",
+    url: "/images/gallery/17.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 17",
   },
   {
-    url: "/images/gallery/gallery-16.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Интерьер",
-  },
-  // Удобства
-  {
-    url: "/images/gallery/gallery-7.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Интерьер",
+    url: "/images/gallery/18.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 18",
   },
   {
-    url: "/images/amenities/pool.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Бассейн",
+    url: "/images/gallery/19.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 19",
   },
   {
-    url: "/images/amenities/forest.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Лес",
+    url: "/images/gallery/20.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 20",
   },
   {
-    url: "/images/amenities/bbq.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Мангал",
+    url: "/images/gallery/21.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 21",
   },
   {
-    url: "/images/amenities/interior.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Интерьер",
+    url: "/images/gallery/22.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 22",
   },
   {
-    url: "/images/amenities/parking.jpg",
-    fallbackUrl:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "La Villa Pine - Парковка",
+    url: "/images/gallery/23.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 23",
+  },
+  {
+    url: "/images/gallery/24.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 24",
+  },
+  {
+    url: "/images/gallery/25.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 25",
+  },
+  {
+    url: "/images/gallery/26.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 26",
+  },
+  {
+    url: "/images/gallery/27.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 27",
+  },
+  {
+    url: "/images/gallery/28.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 28",
+  },
+  {
+    url: "/images/gallery/29.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 29",
+  },
+  {
+    url: "/images/gallery/30.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 30",
+  },
+  {
+    url: "/images/gallery/31.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 31",
+  },
+  {
+    url: "/images/gallery/32.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 32",
+  },
+  {
+    url: "/images/gallery/33.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 33",
+  },
+  {
+    url: "/images/gallery/34.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 34",
+  },
+  {
+    url: "/images/gallery/35.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 35",
+  },
+  {
+    url: "/images/gallery/36.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 36",
+  },
+  {
+    url: "/images/gallery/37.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 37",
+  },
+  {
+    url: "/images/gallery/38.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 38",
+  },
+  {
+    url: "/images/gallery/39.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 39",
+  },
+  {
+    url: "/images/gallery/40.jpg",
+    fallbackUrl: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    alt: "La Villa Pine - Фото 40",
   },
 ];
 
@@ -322,53 +371,45 @@ export const AMENITIES = [
     title: "Дизайн Лофт",
     description:
       "Современно и уютно",
-    image: "/images/amenities/interior.jpg",
+    image: "/images/amenities/1.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-  },
-  {
-    icon: "fas fa-hot-tub",
-    title: "Финская Сауна",
-    description:
-      "Расслабьтесь в сауне прямо в доме",
-    image: "/images/amenities/sauna.jpg",
-    fallbackImage:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
     icon: "fas fa-swimming-pool",
     title: "Подогреваемый Бассейн",
     description:
       "с подсветкой и видом на лес",
-    image: "/images/amenities/pool.jpg",
+    image: "/images/amenities/2.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
-    icon: "fas fa-tree",
-    title: "Лесная Локация",
+    icon: "fas fa-hot-tub",
+    title: "Финская Сауна",
     description:
-      "всего в нескольких шагах от дома.",
-    image: "/images/amenities/forest.jpg",
+      "Расслабьтесь в сауне прямо в доме",
+    image: "/images/amenities/3.jpg",
     fallbackImage:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
     icon: "fas fa-fire",
     title: "Мангальные Зоны",
     description:
       "с удобной мебелью и подсветкой",
-    image: "/images/amenities/bbq.jpg",
+    image: "/images/amenities/4.jpg",
     fallbackImage:
       "https://images.unsplash.com/photo-1574906519174-daa3b7a6de14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
   {
-    icon: "fas fa-car",
-    title: "Удобная Парковка",
+    icon: "fas fa-tree",
+    title: "Лесная Локация",
     description:
-      "с навесом прямо у дома",
-    image: "/images/amenities/parking.jpg",
+      "всего в нескольких шагах от дома.",
+    image: "/images/amenities/5.jpg",
     fallbackImage:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
   },
+  
 ];
