@@ -504,35 +504,6 @@ export default function Home() {
             </>
           )}
 
-          {/* Индикаторы слайдов */}
-          <div 
-            className="flex justify-center mt-6 space-x-2"
-            style={{
-              transform: `translateY(${isGalleryVisible ? 0 : 20}px)`,
-              opacity: isGalleryVisible ? 1 : 0,
-              transition: 'transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, opacity 0.35s ease-out 0.5s'
-            }}
-          >
-            {GALLERY_IMAGES.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setUserInteracted(true);
-                  setCurrentGallerySlide(index);
-                }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentGallerySlide 
-                    ? 'bg-accent scale-125' 
-                    : 'bg-white/40 hover:bg-white/60'
-                }`}
-                style={{
-                  transform: isGalleryVisible ? 'scale(1)' : 'scale(0)',
-                  transition: `transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${0.6 + index * 0.025}s`
-                }}
-                data-testid={`gallery-indicator-${index}`}
-              />
-            ))}
-          </div>
         </div>
       </section>
       {/* Наш адрес и карта */}
