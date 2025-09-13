@@ -337,7 +337,12 @@ export default function StackedAmenities({
                   fallbackSrc={amenity.fallbackImage}
                   alt={amenity.title}
                   className="w-full h-full object-cover"
-                  priority={index === 0 || index === currentActiveCard || index === currentActiveCard + 1} // Первое, текущее и следующее изображение загружаются с приоритетом
+                  priority={
+                    index === 0 || // Первое изображение всегда загружается с приоритетом
+                    index === currentActiveCard || // Текущая карточка
+                    (index === currentActiveCard + 1 && index < AMENITIES.length) || // Следующая карточка (если она существует)
+                    index === AMENITIES.length - 1 // Последняя карточка всегда загружается с приоритетом для плавного завершения
+                  }
                 />
 
                 {/* Градиентный оверлей для читаемости текста */}

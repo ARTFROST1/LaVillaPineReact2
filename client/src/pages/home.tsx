@@ -526,9 +526,13 @@ export default function Home() {
                       priority={
                         index < 3 || // Первые 3 изображения всегда загружаются с приоритетом для начального отображения
                         (isDesktop ? 
-                          (index >= currentGallerySlide && index < currentGallerySlide + 4) : // На десктопе загружаем текущие 3 + следующий
-                          (index === currentGallerySlide || index === currentGallerySlide + 1) // На мобильном текущий + следующий
-                        )
+                          // На десктопе загружаем видимые 3 + следующие 2 для плавной прокрутки
+                          (index >= currentGallerySlide && index < Math.min(currentGallerySlide + 5, GALLERY_IMAGES.length)) :
+                          // На мобильном загружаем текущий + следующий + предыдущий для плавной навигации
+                          (index >= Math.max(0, currentGallerySlide - 1) && index <= Math.min(currentGallerySlide + 1, GALLERY_IMAGES.length - 1))
+                        ) ||
+                        // Всегда загружаем последние 3 элемента для плавного завершения
+                        index >= GALLERY_IMAGES.length - 3
                       }
                       data-testid={`gallery-image-${index}`}
                     />
