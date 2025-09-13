@@ -20,6 +20,7 @@ export default function StackedAmenities({
   onImageClick,
 }: StackedAmenitiesProps) {
   const [activeCards, setActiveCards] = useState<number[]>([]);
+  const [currentActiveCard, setCurrentActiveCard] = useState<number>(0);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [scrollHintOpacity, setScrollHintOpacity] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -70,6 +71,11 @@ export default function StackedAmenities({
       // Определяем какие карточки должны быть активными
       const totalCards = AMENITIES.length;
       const progressPerCard = 1 / totalCards;
+
+      // Определяем текущую активную карточку для оптимизации lazy loading
+      const activeCardIndex = Math.floor(scrollProgress * totalCards);
+      const clampedActiveCard = Math.min(Math.max(0, activeCardIndex), totalCards - 1);
+      setCurrentActiveCard(clampedActiveCard);
 
       // Рассчитываем прозрачность подсказки скролла
       // Подсказка исчезает в первые 20% скролла контейнера
@@ -331,7 +337,7 @@ export default function StackedAmenities({
                   fallbackSrc={amenity.fallbackImage}
                   alt={amenity.title}
                   className="w-full h-full object-cover"
-                  priority={index === 0} // Первое изображение удобств загружается с приоритетом
+                  priority={index === 0 || index === currentActiveCard || index === currentActiveCard + 1} // Первое, текущее и следующее изображение загружаются с приоритетом
                 />
 
                 {/* Градиентный оверлей для читаемости текста */}

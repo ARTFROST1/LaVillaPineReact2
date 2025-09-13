@@ -523,7 +523,13 @@ export default function Home() {
                       fallbackSrc={image.fallbackUrl || image.url}
                       alt={image.alt}
                       className="w-full h-full object-cover"
-                      priority={index < 3} // Первые 3 изображения загружаются с приоритетом
+                      priority={
+                        index < 3 || // Первые 3 изображения всегда загружаются с приоритетом для начального отображения
+                        (isDesktop ? 
+                          (index >= currentGallerySlide && index < currentGallerySlide + 4) : // На десктопе загружаем текущие 3 + следующий
+                          (index === currentGallerySlide || index === currentGallerySlide + 1) // На мобильном текущий + следующий
+                        )
+                      }
                       data-testid={`gallery-image-${index}`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent lg:rounded-2xl"></div>
