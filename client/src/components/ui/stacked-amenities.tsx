@@ -331,6 +331,7 @@ export default function StackedAmenities({
                   fallbackSrc={amenity.fallbackImage}
                   alt={amenity.title}
                   className="w-full h-full object-cover"
+                  priority={index === 0} // Первое изображение удобств загружается с приоритетом
                 />
 
                 {/* Градиентный оверлей для читаемости текста */}

@@ -72,7 +72,7 @@ export default function Booking() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url(/images/gallery/25.jpg)",
+          backgroundImage: "url(/images/gallery/25.webp)"
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>

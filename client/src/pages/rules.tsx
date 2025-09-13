@@ -35,7 +35,7 @@ export default function Rules() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: 'url(/images/gallery/13.jpg)'
+            backgroundImage: 'url(/images/gallery/13.webp)'
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>

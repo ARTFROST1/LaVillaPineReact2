@@ -491,6 +491,8 @@ export default function Home() {
                       fallbackSrc={image.fallbackUrl || image.url}
                       alt={image.alt}
                       className="w-full h-full object-cover"
+                      priority={index < 3} // Первые 3 изображения загружаются с приоритетом
+                      data-testid={`gallery-image-${index}`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent lg:rounded-2xl"></div>
                   </div>
@@ -635,6 +637,7 @@ export default function Home() {
                 fallbackSrc="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
                 alt="До города"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                priority={true} // Критическое изображение для первого экрана
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
               <div 
@@ -740,7 +743,7 @@ export default function Home() {
       <section 
         className="relative w-full h-screen md:h-[80vh] lg:h-[90vh] xl:h-screen bg-cover bg-center flex items-center md:bg-fixed booking-section-bg"
         style={{
-          backgroundImage: 'url(/images/gallery/30.jpg)'
+          backgroundImage: 'url(/images/gallery/30.webp)'
         }}
       >
         {/* Темный оверлей для лучшей читаемости */}

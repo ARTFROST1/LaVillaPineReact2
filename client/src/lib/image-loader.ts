@@ -10,7 +10,7 @@ export interface ImageItem {
 export function loadImagesFromFolder(
   folderPath: string,
   altPrefix: string = '',
-  extensions: string[] = ['jpg', 'jpeg', 'png', 'webp']
+  extensions: string[] = ['webp', 'jpg', 'jpeg', 'png']
 ): ImageItem[] {
   const images: ImageItem[] = [];
   
@@ -20,7 +20,7 @@ export function loadImagesFromFolder(
   for (let i = 1; i <= 50; i++) {
     for (const ext of extensions) {
       try {
-        const filename = `${folderPath}-${i}.${ext}`;
+        const filename = `${i}.${ext}`;
         const url = `/images/${folderPath}/${filename}`;
         
         // Добавляем изображение в массив
@@ -43,22 +43,15 @@ export function loadImagesFromFolder(
 export function loadCarouselImages(): ImageItem[] {
   const images: ImageItem[] = [];
   
-  // Предопределенные имена файлов для карусели
-  const carouselFiles = [
-    'carousel-1.jpg',
-    'carousel-2.jpg', 
-    'carousel-3.jpg',
-    'carousel-4.jpg',
-    'carousel-5.jpg'
-  ];
-  
-  carouselFiles.forEach((filename, index) => {
+  // Реальные имена файлов для карусели (1.jpg - 6.jpg)
+  for (let i = 1; i <= 6; i++) {
+    const filename = `${i}.jpg`;
     images.push({
       url: `/images/carousel/${filename}`,
-      alt: `La Villa Pine - Фото ${index + 1}`,
+      alt: `La Villa Pine - Фото ${i}`,
       filename
     });
-  });
+  }
   
   return images;
 }
@@ -67,24 +60,35 @@ export function loadCarouselImages(): ImageItem[] {
 export function loadGalleryImages(): ImageItem[] {
   const images: ImageItem[] = [];
   
-  // Загружаем изображения из всех папок для галереи
-  const folders = ['carousel', 'gallery', 'amenities', 'rooms'];
+  // Gallery folder: 1.webp - 40.webp
+  for (let i = 1; i <= 40; i++) {
+    const filename = `${i}.webp`;
+    images.push({
+      url: `/images/gallery/${filename}`,
+      alt: `La Villa Pine - Галерея ${i}`,
+      filename
+    });
+  }
   
-  folders.forEach(folder => {
-    // Предопределенные имена файлов для каждой папки
-    for (let i = 1; i <= 20; i++) {
-      const extensions = ['jpg', 'jpeg', 'png', 'webp'];
-      
-      extensions.forEach(ext => {
-        const filename = `${folder}-${i}.${ext}`;
-        images.push({
-          url: `/images/${folder}/${filename}`,
-          alt: `La Villa Pine - ${folder} ${i}`,
-          filename
-        });
-      });
-    }
-  });
+  // Carousel folder: 1.jpg - 6.jpg
+  for (let i = 1; i <= 6; i++) {
+    const filename = `${i}.jpg`;
+    images.push({
+      url: `/images/carousel/${filename}`,
+      alt: `La Villa Pine - Карусель ${i}`,
+      filename
+    });
+  }
+  
+  // Amenities folder: 1.jpg - 5.jpg
+  for (let i = 1; i <= 5; i++) {
+    const filename = `${i}.jpg`;
+    images.push({
+      url: `/images/amenities/${filename}`,
+      alt: `La Villa Pine - Удобства ${i}`,
+      filename
+    });
+  }
   
   return images;
 }
@@ -93,25 +97,23 @@ export function loadGalleryImages(): ImageItem[] {
 export function loadAmenitiesImages(): ImageItem[] {
   const images: ImageItem[] = [];
   
-  const amenityFiles = [
-    { filename: 'sauna.jpg', alt: 'Приватная сауна' },
-    { filename: 'pool.jpg', alt: 'Подогреваемый бассейн' },
-    { filename: 'forest.jpg', alt: 'Лесная локация' },
-    { filename: 'interior.jpg', alt: 'Дизайнерские интерьеры' },
-    { filename: 'amenities-1.jpg', alt: 'Удобства' },
-    { filename: 'amenities-2.jpg', alt: 'Удобства' },
-    { filename: 'amenities-3.jpg', alt: 'Удобства' },
-    { filename: 'amenities-4.jpg', alt: 'Удобства' },
-    { filename: 'amenities-5.jpg', alt: 'Удобства' }
+  // Реальные файлы удобств (1.jpg - 5.jpg)
+  const amenityNames = [
+    'Приватная сауна',
+    'Подогреваемый бассейн', 
+    'Лесная локация',
+    'Дизайнерские интерьеры',
+    'Премиальные удобства'
   ];
   
-  amenityFiles.forEach(({ filename, alt }) => {
+  for (let i = 1; i <= 5; i++) {
+    const filename = `${i}.jpg`;
     images.push({
       url: `/images/amenities/${filename}`,
-      alt,
+      alt: amenityNames[i - 1] || `Удобства ${i}`,
       filename
     });
-  });
+  }
   
   return images;
 }

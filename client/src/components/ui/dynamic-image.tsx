@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import LazyImage from './lazy-image';
 
 interface DynamicImageProps {
   src: string;
@@ -6,51 +6,29 @@ interface DynamicImageProps {
   alt: string;
   className?: string;
   style?: React.CSSProperties;
+  priority?: boolean; // Для критических изображений
+  'data-testid'?: string;
 }
 
-// Компонент для автоматического переключения между реальными и fallback изображениями
+// Компонент для автоматического переключения между реальными и fallback изображениями с поддержкой lazy loading
 export default function DynamicImage({ 
   src, 
   fallbackSrc, 
   alt, 
   className = "", 
-  style 
+  style,
+  priority = false,
+  'data-testid': testId
 }: DynamicImageProps) {
-  const [currentSrc, setCurrentSrc] = useState(src);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const img = new Image();
-    
-    img.onload = () => {
-      setCurrentSrc(src);
-      setIsLoading(false);
-    };
-    
-    img.onerror = () => {
-      setCurrentSrc(fallbackSrc);
-      setIsLoading(false);
-    };
-    
-    img.src = src;
-  }, [src, fallbackSrc]);
-
   return (
-    <div className={`relative ${className}`} style={style}>
-      {isLoading && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse rounded"></div>
-      )}
-      <img
-        src={currentSrc}
-        alt={alt}
-        className={`w-full h-full object-cover ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
-        onLoad={() => setIsLoading(false)}
-        onError={() => {
-          if (currentSrc !== fallbackSrc) {
-            setCurrentSrc(fallbackSrc);
-          }
-        }}
-      />
-    </div>
+    <LazyImage
+      src={src}
+      fallbackSrc={fallbackSrc}
+      alt={alt}
+      className={className}
+      style={style}
+      priority={priority}
+      data-testid={testId}
+    />
   );
 }

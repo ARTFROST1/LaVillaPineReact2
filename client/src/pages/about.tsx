@@ -34,7 +34,7 @@ export default function About() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: 'url(/images/gallery/1.jpg)'
+            backgroundImage: 'url(/images/gallery/1.webp)'
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
@@ -191,6 +191,7 @@ export default function About() {
                   fallbackSrc="@assets/image_1754745434193.png"
                   alt="Курортная зона Адыгеи"
                   className="w-full h-80 lg:h-96 object-cover"
+                  priority={true} // Критическое изображение для первого экрана about страницы
                   data-testid="location-image"
                 />
               </div>
@@ -218,7 +219,7 @@ export default function About() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1">
                 <DynamicImage
-                  src="/images/gallery/19.jpg"
+                  src="/images/gallery/19.webp"
                   fallbackSrc="@assets/image_1754745546084.png"
                   alt="Архитектура La Villa Pine"
                   className="w-full h-80 lg:h-96 object-cover"
@@ -330,7 +331,7 @@ export default function About() {
             
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <DynamicImage
-                src="/images/gallery/27.jpg"
+                src="/images/gallery/27.webp"
                 fallbackSrc="@assets/IMG_2671_1752328359167.JPG"
                 alt="Интерьеры La Villa Pine"
                 className="w-full h-64 md:h-80 object-cover"
@@ -402,7 +403,7 @@ export default function About() {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <DynamicImage
-                  src="/images/gallery/5.jpg"
+                  src="/images/gallery/5.webp"
                   fallbackSrc="@assets/IMG_5648 (2)_1752148510483.JPEG"
                   alt="Бассейн La Villa Pine"
                   className="w-full h-80 lg:h-96 object-cover"
@@ -433,7 +434,7 @@ export default function About() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1">
                 <DynamicImage
-                  src="/images/gallery/37.jpg"
+                  src="/images/gallery/37.webp"
                   fallbackSrc="@assets/image_1752087177825.png"
                   alt="Философия La Villa Pine"
                   className="w-full h-80 lg:h-96 object-cover"

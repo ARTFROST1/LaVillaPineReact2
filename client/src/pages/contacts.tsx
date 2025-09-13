@@ -24,7 +24,7 @@ export default function Contacts() {
         <div 
           className="absolute inset-0 bg-cover bg-bottom"
           style={{
-            backgroundImage: 'url(/images/gallery/10.jpg)'
+            backgroundImage: 'url(/images/gallery/10.webp)'
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
