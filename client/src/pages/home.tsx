@@ -524,15 +524,13 @@ export default function Home() {
                       alt={image.alt}
                       className="w-full h-full object-cover"
                       priority={
-                        index < 3 || // Первые 3 изображения всегда загружаются с приоритетом для начального отображения
+                        index === 0 || // Первое изображение для быстрой инициализации
                         (isDesktop ? 
-                          // На десктопе загружаем видимые 3 + следующие 2 для плавной прокрутки
-                          (index >= currentGallerySlide && index < Math.min(currentGallerySlide + 5, GALLERY_IMAGES.length)) :
-                          // На мобильном загружаем текущий + следующий + предыдущий для плавной навигации
-                          (index >= Math.max(0, currentGallerySlide - 1) && index <= Math.min(currentGallerySlide + 1, GALLERY_IMAGES.length - 1))
-                        ) ||
-                        // Всегда загружаем последние 3 элемента для плавного завершения
-                        index >= GALLERY_IMAGES.length - 3
+                          // На десктопе видимы 3 изображения (currentGallerySlide, +1, +2) + загружаем следующий (+3)
+                          (index >= currentGallerySlide && index <= currentGallerySlide + 3 && index < GALLERY_IMAGES.length) :
+                          // На мобильном видимо 1 изображение (currentGallerySlide) + загружаем следующий (+1)
+                          (index >= currentGallerySlide && index <= currentGallerySlide + 1 && index < GALLERY_IMAGES.length)
+                        )
                       }
                       data-testid={`gallery-image-${index}`}
                     />
