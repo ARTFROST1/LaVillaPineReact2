@@ -170,35 +170,66 @@ export default function Home() {
 
     let startX = 0;
     let startY = 0;
+    let isHorizontalSwipe = false;
+    let isTouchActive = false;
 
     const handleTouchStart = (e: TouchEvent) => {
       setUserInteracted(true);
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
+      isHorizontalSwipe = false;
+      isTouchActive = true;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isTouchActive) return;
+
+      const currentX = e.touches[0].clientX;
+      const currentY = e.touches[0].clientY;
+      const diffX = Math.abs(currentX - startX);
+      const diffY = Math.abs(currentY - startY);
+
+      // Определяем направление свайпа только один раз
+      if (!isHorizontalSwipe && (diffX > 10 || diffY > 10)) {
+        isHorizontalSwipe = diffX > diffY;
+      }
+
+      // Если это горизонтальный свайп, предотвращаем вертикальный скролл
+      if (isHorizontalSwipe && diffX > 10) {
+        e.preventDefault();
+      }
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
+      if (!isTouchActive) return;
+
       const endX = e.changedTouches[0].clientX;
       const endY = e.changedTouches[0].clientY;
       const diffX = startX - endX;
       const diffY = startY - endY;
 
-      // Проверяем что это горизонтальный свайп
-      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+      // Выполняем навигацию только для горизонтального свайпа
+      if (isHorizontalSwipe && Math.abs(diffX) > 50) {
         if (diffX > 0) {
           nextGallerySlide();
         } else {
           prevGallerySlide();
         }
       }
+
+      isTouchActive = false;
+      isHorizontalSwipe = false;
     };
 
-    galleryRef.addEventListener('touchstart', handleTouchStart);
-    galleryRef.addEventListener('touchend', handleTouchEnd);
+    // Добавляем обработчики с { passive: false } для возможности preventDefault
+    galleryRef.addEventListener('touchstart', handleTouchStart, { passive: true });
+    galleryRef.addEventListener('touchmove', handleTouchMove, { passive: false });
+    galleryRef.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
       if (galleryRef) {
         galleryRef.removeEventListener('touchstart', handleTouchStart);
+        galleryRef.removeEventListener('touchmove', handleTouchMove);
         galleryRef.removeEventListener('touchend', handleTouchEnd);
       }
     };
@@ -462,7 +493,8 @@ export default function Home() {
             style={{
               transform: `translateY(${isGalleryVisible ? 0 : 30}px) scale(${isGalleryVisible ? 1 : 0.95})`,
               opacity: isGalleryVisible ? 1 : 0,
-              transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, opacity 0.5s ease-out 0.2s'
+              transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, opacity 0.5s ease-out 0.2s',
+              touchAction: 'pan-x pinch-zoom' // Разрешаем только горизонтальный панорамирование и зум
             }}
           >
             <div 
