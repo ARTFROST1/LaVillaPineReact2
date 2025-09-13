@@ -524,13 +524,11 @@ export default function Home() {
                       alt={image.alt}
                       className="w-full h-full object-cover"
                       priority={
-                        index === 0 || // Первое изображение для быстрой инициализации
-                        (isDesktop ? 
-                          // На десктопе видимы 3 изображения (currentGallerySlide, +1, +2) + загружаем следующий (+3)
-                          (index >= currentGallerySlide && index <= currentGallerySlide + 3 && index < GALLERY_IMAGES.length) :
-                          // На мобильном видимо 1 изображение (currentGallerySlide) + загружаем следующий (+1)
-                          (index >= currentGallerySlide && index <= currentGallerySlide + 1 && index < GALLERY_IMAGES.length)
-                        )
+                        // Простая и эффективная логика: загружаем первые 5 изображений для быстрого старта
+                        // + широкое окно вокруг текущего слайда для покрытия автопрокрутки
+                        index < 5 || 
+                        (index >= Math.max(0, currentGallerySlide - 2) && 
+                         index <= Math.min(GALLERY_IMAGES.length - 1, currentGallerySlide + 6))
                       }
                       data-testid={`gallery-image-${index}`}
                     />
