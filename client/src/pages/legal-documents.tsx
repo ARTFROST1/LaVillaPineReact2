@@ -17,7 +17,7 @@ export function LegalDocuments() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: 'url(/images/amenities/interior.jpg)'
+            backgroundImage: 'url(/images/amenities/1.webp)'
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>

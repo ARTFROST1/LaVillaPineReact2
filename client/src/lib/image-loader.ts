@@ -43,9 +43,9 @@ export function loadImagesFromFolder(
 export function loadCarouselImages(): ImageItem[] {
   const images: ImageItem[] = [];
   
-  // Реальные имена файлов для карусели (1.jpg - 6.jpg)
+  // Реальные имена файлов для карусели (1.webp - 6.webp)
   for (let i = 1; i <= 6; i++) {
-    const filename = `${i}.jpg`;
+    const filename = `${i}.webp`;
     images.push({
       url: `/images/carousel/${filename}`,
       alt: `La Villa Pine - Фото ${i}`,
@@ -70,9 +70,9 @@ export function loadGalleryImages(): ImageItem[] {
     });
   }
   
-  // Carousel folder: 1.jpg - 6.jpg
+  // Carousel folder: 1.webp - 6.webp
   for (let i = 1; i <= 6; i++) {
-    const filename = `${i}.jpg`;
+    const filename = `${i}.webp`;
     images.push({
       url: `/images/carousel/${filename}`,
       alt: `La Villa Pine - Карусель ${i}`,
@@ -80,9 +80,9 @@ export function loadGalleryImages(): ImageItem[] {
     });
   }
   
-  // Amenities folder: 1.jpg - 5.jpg
+  // Amenities folder: 1.webp - 5.webp
   for (let i = 1; i <= 5; i++) {
-    const filename = `${i}.jpg`;
+    const filename = `${i}.webp`;
     images.push({
       url: `/images/amenities/${filename}`,
       alt: `La Villa Pine - Удобства ${i}`,
@@ -97,7 +97,7 @@ export function loadGalleryImages(): ImageItem[] {
 export function loadAmenitiesImages(): ImageItem[] {
   const images: ImageItem[] = [];
   
-  // Реальные файлы удобств (1.jpg - 5.jpg)
+  // Реальные файлы удобств (1.webp - 5.webp)
   const amenityNames = [
     'Приватная сауна',
     'Подогреваемый бассейн', 
@@ -107,7 +107,7 @@ export function loadAmenitiesImages(): ImageItem[] {
   ];
   
   for (let i = 1; i <= 5; i++) {
-    const filename = `${i}.jpg`;
+    const filename = `${i}.webp`;
     images.push({
       url: `/images/amenities/${filename}`,
       alt: amenityNames[i - 1] || `Удобства ${i}`,
