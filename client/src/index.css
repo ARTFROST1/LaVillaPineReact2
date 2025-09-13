@@ -61,16 +61,16 @@ html, body {
   font-feature-settings: "kern","liga","clig","calt";
 }
 
-/* Мобильные viewport единицы для правильного отображения */
-.mobile-viewport-height {
-  min-height: 100svh;
-  height: 100dvh;
+/* Исправление параллакс эффекта на мобильных устройствах */
+.booking-section-bg {
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center;
 }
 
-@supports not (height: 100svh) {
-  .mobile-viewport-height {
-    min-height: 100vh;
-    height: 100vh;
+@media (min-width: 768px) {
+  .booking-section-bg {
+    background-attachment: fixed;
   }
 }
 

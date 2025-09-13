@@ -10,7 +10,6 @@ import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
 import YandexMap from "@/components/ui/yandex-map";
 import StackedAmenities from "@/components/ui/stacked-amenities";
-import { ParallaxSection } from "@/components/ui/parallax-section";
 import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES, AMENITIES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
@@ -772,15 +771,15 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Блок бронирования с параллакс эффектом */}
-      <ParallaxSection
-        backgroundImage="/images/gallery/30.webp"
-        className="w-full h-screen md:h-[80vh] lg:h-[90vh] xl:h-screen flex items-center"
-        parallaxSpeed={0.3}
-        mobileBackgroundPosition="center 30%"
+      {/* Блок бронирования с фиксированным фоном */}
+      <section 
+        className="relative w-full h-screen md:h-[80vh] lg:h-[90vh] xl:h-screen bg-cover bg-center flex items-center md:bg-fixed booking-section-bg"
+        style={{
+          backgroundImage: 'url(/images/gallery/30.webp)'
+        }}
       >
         {/* Темный оверлей для лучшей читаемости */}
-        <div className="absolute inset-0 bg-black/60 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
         
         {/* Контент */}
         <div className="relative z-10 container mx-auto px-4">
@@ -793,7 +792,6 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="loft-booking-button text-base sm:text-lg font-medium text-white"
-                  data-testid="button-booking"
                 >
                   Забронировать
                 </Button>
@@ -801,7 +799,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </ParallaxSection>
+      </section>
       {/* Модальное окно галереи */}
       <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
         <DialogContent className="max-w-4xl w-full p-0 overflow-hidden">
