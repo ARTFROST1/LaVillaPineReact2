@@ -523,13 +523,7 @@ export default function Home() {
                       fallbackSrc={image.fallbackUrl || image.url}
                       alt={image.alt}
                       className="w-full h-full object-cover"
-                      priority={
-                        // Простая и эффективная логика: загружаем первые 5 изображений для быстрого старта
-                        // + широкое окно вокруг текущего слайда для покрытия автопрокрутки
-                        index < 5 || 
-                        (index >= Math.max(0, currentGallerySlide - 2) && 
-                         index <= Math.min(GALLERY_IMAGES.length - 1, currentGallerySlide + 6))
-                      }
+                      priority={false} // Обычный lazy loading без приоритета
                       data-testid={`gallery-image-${index}`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent lg:rounded-2xl"></div>
