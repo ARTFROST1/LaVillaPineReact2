@@ -32,7 +32,7 @@ export default function About() {
       <section className="relative w-full h-screen min-h-[500px] overflow-hidden">
         {/* Background image with overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-cover bg-center lg:bg-fixed"
           style={{
             backgroundImage: 'url(/images/gallery/1.webp)'
           }}
