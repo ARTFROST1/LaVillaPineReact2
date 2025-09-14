@@ -892,7 +892,7 @@ export default function Rules() {
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
                       <div className="text-3xl font-bold text-green-400 mb-2">
-                        За 7+ дней
+                        За 14+ дней
                       </div>
                       <div className="text-lg font-semibold mb-2">
                         100% возврат
@@ -903,7 +903,7 @@ export default function Rules() {
                     </div>
                     <div className="text-center p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
                       <div className="text-3xl font-bold text-amber-400 mb-2">
-                        За 3-6 дней
+                        За 3-14 дней
                       </div>
                       <div className="text-lg font-semibold mb-2">
                         50% возврат

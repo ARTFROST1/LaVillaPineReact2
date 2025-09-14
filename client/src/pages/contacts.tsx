@@ -125,19 +125,19 @@ export default function Contacts() {
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
             }}>
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary font-display text-center">Наше расположение</h2>
-              <p className="text-center text-foreground/80 mb-8 max-w-2xl mx-auto">
+              <p className="text-center text-foreground/80 mb-1 max-w-2xl mx-auto">
                 Мы находимся в живописной курортной зоне Адыгеи, в окружении гор и лесов
               </p>
-              <div className="rounded-xl overflow-hidden" style={{
-                border: '1px solid rgba(212, 164, 74, 0.2)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25)'
-              }}>
-                <YandexMap 
-                  address={SITE_CONFIG.address}
-                  className="w-full h-80"
-                />
-              </div>
             </section>
+            <div className="rounded-xl overflow-hidden" style={{
+              border: '1px solid rgba(212, 164, 74, 0.2)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25)'
+            }}>
+              <YandexMap 
+                address={SITE_CONFIG.address}
+                className="w-full h-80"
+              />
+            </div>
             
             {/* Social Media Section */}
             <section className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]" style={{
@@ -148,7 +148,7 @@ export default function Contacts() {
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.05)'
             }}>
               <h2 className="text-2xl md:text-3xl font-bold mb-8 text-primary font-display text-center">Мы в социальных сетях</h2>
-              <div className="flex justify-center flex-wrap gap-6">
+              <div className="flex justify-center flex-wrap gap-5">
                 <a 
                   href={SITE_CONFIG.socialLinks.instagram} 
                   className="group w-16 h-16 rounded-2xl transition-all duration-300 flex items-center justify-center hover:shadow-lg hover:-translate-y-1 hover:scale-105"
