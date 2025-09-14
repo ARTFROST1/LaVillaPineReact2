@@ -212,7 +212,6 @@ export default function About() {
                   data-testid="architecture-image"
                 />
               </div>
-              
               <div className="space-y-6 order-1 lg:order-2">
                 <div className="grid gap-6">
                   <div className="p-6 rounded-xl" style={{
@@ -232,23 +231,22 @@ export default function About() {
                       <li>• Гибкий неон по периметру крыши</li>
                     </ul>
                   </div>
+                  <div className="p-6 rounded-xl" style={{
+                    background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(212, 164, 74, 0.2)'
+                  }}>
+                    <h3 className="font-bold text-primary mb-2 flex items-center">
+                      <Crown className="w-5 h-5 mr-2" />
+                      Уникальность
+                    </h3>
+                    <p className="text-foreground">
+                      В отличие от других объектов, наши дома построены без экономии —
+                      качество материалов и исполнения на уровне собственного жилья
+                    </p>
+                  </div>
                   
                 </div>
-              </div>
-
-              <div className="p-6 rounded-xl" style={{
-                background: 'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(212, 164, 74, 0.2)'
-              }}>
-                <h3 className="font-bold text-primary mb-2 flex items-center">
-                  <Crown className="w-5 h-5 mr-2" />
-                  Уникальность
-                </h3>
-                <p className="text-foreground">
-                  В отличие от других объектов, наши дома построены без экономии —
-                  качество материалов и исполнения на уровне собственного жилья
-                </p>
               </div>
             </div>
           </div>
