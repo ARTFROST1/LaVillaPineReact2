@@ -1,12 +1,12 @@
 // SEO константы для всех страниц сайта
 export const SEO_PAGES = {
   home: {
-    title: "Лофт гостевые дома в Адыгее | Аренда дома с бассейном",
+    title: "Главная - La Villa Pine. Лофт гостевые дома в Адыгее | Аренда дома с бассейном",
     description: "Забронируйте стильный лофт-дом с подогреваемым бассейном и сауной в Адыгее. Премиальный отдых в природном окружении. ",
     keywords: "аренда дома в Адыгее, гостевой дом с бассейном, лофт дом аренда, премиальный отдых Адыгея, дом в горах аренда, отдых выходные Адыгея, снять дом с сауной ",
     ogTitle: "La Villa Pine - премиальные гостевые дома в Адыгее",
     ogDescription: "Стильные лофт-дома с подогреваемыми бассейнами, саунами и современным дизайном. Идеальное место для отдыха в красивом лесном окружении.",
-    ogImage: "https://lavillapine.onrender.com/images/og-image.jpg?v=2025071101"
+    ogImage: "https://lavillapine.onrender.com/images/og-preview.jpg"
   },
   about: {
     title: "О нас - La Villa Pine | Гостевые дома в стиле лофт в Адыгее",
@@ -14,7 +14,7 @@ export const SEO_PAGES = {
     keywords: "La Villa Pine история, дизайн лофт дома, премиум интерьер, современный гостевой дом, роскошное размещение Адыгея, элитная недвижимость аренда",
     ogTitle: "О La Villa Pine - роскошные гостевые дома в стиле лофт",
     ogDescription: "Премиальные лофт-дома с тремя спальнями, саунами и подогреваемыми бассейнами. Современный дизайн в гармонии с природой.",
-    ogImage: "https://lavillapine.onrender.com/images/og-image.jpg?v=2025071101"
+    ogImage: "https://lavillapine.onrender.com/images/og-preview.jpg"
   },
   gallery: {
     title: "Галерея - La Villa Pine | Фото интерьеров и территории гостевых домов",
@@ -22,7 +22,7 @@ export const SEO_PAGES = {
     keywords: "фото лофт дома, интерьер гостевого дома, фото бассейна, фото сауны Адыгея, галерея премиум дома, дизайн интерьера лофт",
     ogTitle: "Галерея La Villa Pine - фото роскошных лофт-домов",
     ogDescription: "Исследуйте наши прекрасные гостевые дома через фотогалерею. Интерьеры, бассейны, сауны и потрясающее природное окружение.",
-    ogImage: "https://lavillapine.onrender.com/images/og-image.jpg?v=2025071101"
+    ogImage: "https://lavillapine.onrender.com/images/og-preview.jpg"
   },
   contacts: {
     title: "Контакты - La Villa Pine | Бронирование и связь с гостевыми домами в Адыгее",
@@ -30,7 +30,7 @@ export const SEO_PAGES = {
     keywords: "контакты La Villa Pine, бронирование дома Адыгея, телефон гостевого дома, адрес лофт дома, как добраться Адыгея",
     ogTitle: "Контакты La Villa Pine - бронирование и связь",
     ogDescription: "Свяжитесь с нами для бронирования роскошного лофт-дома в Адыгее. Быстрый ответ и профессиональное обслуживание.",
-    ogImage: "https://lavillapine.onrender.com/images/og-image.jpg?v=2025071101"
+    ogImage: "https://lavillapine.onrender.com/images/og-preview.jpg"
   },
   booking: {
     title: "Бронирование - La Villa Pine | Онлайн резервация лофт-домов в Адыгее",
@@ -38,7 +38,7 @@ export const SEO_PAGES = {
     keywords: "бронирование дома Адыгея онлайн, резервация лофт дома, забронировать гостевой дом, доступные даты аренда, онлайн бронирование премиум дома",
     ogTitle: "Бронирование La Villa Pine - резервация лофт-домов",
     ogDescription: "Забронируйте свой идеальный отдых в роскошных лофт-домах онлайн. Проверьте доступность и резервируйте даты прямо сейчас.",
-    ogImage: "https://lavillapine.onrender.com/images/og-image.jpg?v=2025071101"
+    ogImage: "https://lavillapine.onrender.com/images/og-preview.jpg"
   },
   rules: {
     title: "Правила проживания - La Villa Pine | Условия размещения в гостевых домах",
@@ -46,7 +46,7 @@ export const SEO_PAGES = {
     keywords: "правила проживания La Villa Pine, условия размещения, правила гостевого дома, заезд выезд время, отмена бронирования условия",
     ogTitle: "Правила проживания La Villa Pine",
     ogDescription: "Правила и условия проживания в наших роскошных лофт-домах. Время заезда, использование удобств и политика отмены бронирования.",
-    ogImage: "https://lavillapine.onrender.com/images/og-image.jpg?v=2025071101"
+    ogImage: "https://lavillapine.onrender.com/images/og-preview.jpg"
   },
   admin: {
     title: "Администрирование",

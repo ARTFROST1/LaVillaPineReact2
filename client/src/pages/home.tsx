@@ -616,7 +616,7 @@ export default function Home() {
             }}>
               <YandexMap 
                 address={SITE_CONFIG.address}
-                className="w-full h-64 sm:h-80 md:h-96"
+                className="w-full h-74 sm:h-80 md:h-96"
               />
             </div>
           </div>

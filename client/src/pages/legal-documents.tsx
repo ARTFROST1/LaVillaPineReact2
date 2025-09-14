@@ -15,7 +15,7 @@ export function LegalDocuments() {
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-cover bg-center lg:bg-fixed"
           style={{
             backgroundImage: 'url(/images/amenities/1.webp)'
           }}

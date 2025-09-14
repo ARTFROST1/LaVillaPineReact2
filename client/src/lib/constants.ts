@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "La Villa Pine",
   description:
-    "Гостевой дом в стиле лофт с саунами, бассейнами и лесным окружением",
+    "Вилла в стиле лофт с саунами, бассейнами и лесным окружением",
   phone: "+7 (918) 924-00-07",
   email: "lavillapine@yandex.com",
   address: "Республика Адыгея, посёлок Тульский, Кольцевая улица, 4",
@@ -388,7 +388,7 @@ export const AMENITIES = [
     icon: "fas fa-hot-tub",
     title: "Финская Сауна",
     description:
-      "Расслабьтесь в сауне прямо в доме",
+      "прямо в доме",
     image: "/images/amenities/3.webp",
     fallbackImage:
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -406,7 +406,7 @@ export const AMENITIES = [
     icon: "fas fa-tree",
     title: "Лесная Локация",
     description:
-      "всего в нескольких шагах от дома.",
+      "всего в нескольких шагах от дома",
     image: "/images/amenities/5.webp",
     fallbackImage:
       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
