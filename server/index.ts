@@ -47,6 +47,42 @@ app.use((req, res, next) => {
     throw err;
   });
 
+  // Список валидных клиентских роутов из App.tsx  
+  const VALID_CLIENT_ROUTES = [
+    '/',
+    '/about', 
+    '/gallery',
+    '/contacts',
+    '/booking',
+    '/rules',
+    '/admin',
+    '/privacy-policy',
+    '/consent',
+    '/legal-documents'
+  ];
+
+  // Middleware для проверки 404 - должен быть ДО setupVite/serveStatic
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    // Пропускаем API роуты и статические файлы
+    if (req.path.startsWith('/api') || 
+        req.path.startsWith('/images') || 
+        req.path.startsWith('/fonts') ||
+        req.path.match(/\.(js|css|ico|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot|txt|xml|json)$/)) {
+      return next();
+    }
+
+    // Убираем query параметры и хэши для проверки роута
+    const cleanPath = req.path.split('?')[0].split('#')[0];
+    
+    // Если роут невалидный, возвращаем 404
+    if (!VALID_CLIENT_ROUTES.includes(cleanPath)) {
+      return res.status(404).json({ error: "Page not found" });
+    }
+    
+    // Роут валидный, пропускаем дальше в Vite/serveStatic
+    next();
+  });
+
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
