@@ -63,11 +63,13 @@ app.use((req, res, next) => {
 
   // Middleware для проверки 404 - должен быть ДО setupVite/serveStatic
   app.use((req: Request, res: Response, next: NextFunction) => {
-    // Пропускаем API роуты и статические файлы
+    // Пропускаем API роуты, статические файлы и служебные файлы Vite
     if (req.path.startsWith('/api') || 
         req.path.startsWith('/images') || 
         req.path.startsWith('/fonts') ||
-        req.path.match(/\.(js|css|ico|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot|txt|xml|json)$/)) {
+        req.path.startsWith('/@') ||           // Vite служебные файлы (@react-refresh, @vite/client)
+        req.path.startsWith('/src') ||         // Vite модули (/src/main.tsx)
+        req.path.match(/\.(js|css|ico|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot|txt|xml|json|webmanifest)$/)) {
       return next();
     }
 
