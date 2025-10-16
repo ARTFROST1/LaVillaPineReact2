@@ -14,7 +14,21 @@ import {
   Flame,
   Home,
   Phone,
+  HelpCircle,
+  MapPin,
+  ShoppingBag,
+  ChefHat,
+  ClipboardCheck,
+  Package,
+  AlertCircle,
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Link } from "wouter";
 
 export default function Rules() {
   return (
@@ -991,7 +1005,323 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 16. Контактная информация */}
+              {/* 16. Часто задаваемые вопросы (FAQ) */}
+              <section
+                className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(212, 164, 74, 0.15)",
+                  boxShadow:
+                    "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+                }}
+                data-testid="faq-section"
+              >
+                <div className="flex items-center mb-6">
+                  <HelpCircle className="w-8 h-8 text-primary mr-3" />
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                    Часто задаваемые вопросы
+                  </h2>
+                </div>
+                
+                <Accordion type="single" collapsible className="space-y-4">
+                  {/* Что входит в стоимость */}
+                  <AccordionItem value="item-1" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-whats-included">
+                      <div className="flex items-center gap-3">
+                        <Package className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold text-primary">Что входит в стоимость проживания?</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <ul className="space-y-2 mt-2">
+                        <li>✓ Высокоскоростной Wi-Fi</li>
+                        <li>✓ Постельное белье и полотенца</li>
+                        <li>✓ Тапочки, халаты и средства гигиены</li>
+                        <li>✓ Использование бассейна и сауны</li>
+                        <li>✓ Парковка на территории</li>
+                        <li>✓ Уборка по запросу</li>
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Что взять с собой */}
+                  <AccordionItem value="item-2" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-what-to-bring">
+                      <div className="flex items-center gap-3">
+                        <ShoppingBag className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold text-primary">Что взять с собой?</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <div className="space-y-3 mt-2">
+                        <div>
+                          <h4 className="font-semibold mb-2">Основное:</h4>
+                          <ul className="space-y-1 text-sm">
+                            <li>• Документы (паспорт, свидетельства о рождении детей)</li>
+                            <li>• Личные средства гигиены</li>
+                            <li>• Купальные принадлежности (шапочка для бассейна)</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Продукты:</h4>
+                          <p className="text-sm">Если планируете готовить самостоятельно, возьмите продукты с собой или закажите доставку</p>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Как добраться */}
+                  <AccordionItem value="item-3" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-how-to-get">
+                      <div className="flex items-center gap-3">
+                        <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold text-primary">Как добраться до комплекса?</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <div className="space-y-3 mt-2">
+                        <div>
+                          <h4 className="font-semibold mb-2">GPS-координаты для навигатора:</h4>
+                          <p className="text-sm font-mono bg-background/20 p-2 rounded">44.496212, 40.165310</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Расположение:</h4>
+                          <ul className="space-y-1 text-sm">
+                            <li>• 20 минут от Майкопа</li>
+                            <li>• 30 минут до гор</li>
+                            <li>• Поселок Тульский, Республика Адыгея</li>
+                          </ul>
+                        </div>
+                        <Link href="/map">
+                          <button className="mt-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary rounded-lg transition-colors text-sm" data-testid="button-view-map">
+                            Посмотреть на карте
+                          </button>
+                        </Link>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Магазины и аптеки */}
+                  <AccordionItem value="item-4" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-shops-pharmacies">
+                      <div className="flex items-center gap-3">
+                        <ShoppingBag className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold text-primary">Ближайшие магазины и аптеки</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <div className="space-y-3 mt-2">
+                        <div>
+                          <h4 className="font-semibold mb-2">В поселке Тульский:</h4>
+                          <ul className="space-y-1 text-sm">
+                            <li>• Продуктовые магазины (ул. Первомайская, ул. Ленина)</li>
+                            <li>• Аптеки в центре поселка</li>
+                            <li>• Местный рынок с фермерскими продуктами</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Рядом с комплексом:</h4>
+                          <ul className="space-y-1 text-sm">
+                            <li>• Кофейня (2 минуты пешком)</li>
+                            <li>• Ресторан "Пхали-Хинкали" (доставка доступна)</li>
+                          </ul>
+                        </div>
+                        <p className="text-sm text-foreground/70 mt-2">
+                          💡 Рекомендуем использовать 2ГИС или Яндекс.Карты для поиска актуальных адресов и часов работы
+                        </p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Можно ли готовить */}
+                  <AccordionItem value="item-5" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-cooking">
+                      <div className="flex items-center gap-3">
+                        <ChefHat className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold text-primary">Можно ли готовить свою еду?</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <div className="space-y-2 mt-2">
+                        <p>Да! В каждом доме есть полностью оборудованная кухня:</p>
+                        <ul className="space-y-1 text-sm">
+                          <li>✓ Плита и духовка</li>
+                          <li>✓ Микроволновая печь</li>
+                          <li>✓ Чайник</li>
+                          <li>✓ Вся необходимая посуда и кухонные приборы</li>
+                          <li>✓ Холодильник</li>
+                        </ul>
+                        <p className="text-sm mt-3">Пожалуйста, соблюдайте чистоту и не оставляйте плиту без присмотра.</p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Правила перед выездом */}
+                  <AccordionItem value="item-6" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-checkout-rules">
+                      <div className="flex items-center gap-3">
+                        <ClipboardCheck className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold text-primary">Что нужно сделать перед выездом?</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <div className="space-y-3 mt-2">
+                        <div>
+                          <h4 className="font-semibold mb-2">Желательно:</h4>
+                          <ul className="space-y-1 text-sm">
+                            <li>• Помыть посуду</li>
+                            <li>• Вынести мусор в отведенное место</li>
+                            <li>• Провести базовую уборку</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Обязательно:</h4>
+                          <ul className="space-y-1 text-sm">
+                            <li>• Сложить постельное белье отдельно</li>
+                            <li>• Передать ключи администратору</li>
+                            <li>• Отключить все электроприборы</li>
+                            <li>• Закрыть окна</li>
+                          </ul>
+                        </div>
+                        <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+                          <p className="text-sm">💡 Расчетный час: до 11:00</p>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Дополнительные услуги */}
+                  <AccordionItem value="item-7" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-additional-services">
+                      <div className="flex items-center gap-3">
+                        <Package className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold text-primary">Какие дополнительные услуги доступны?</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <div className="space-y-3 mt-2">
+                        <ul className="space-y-2">
+                          <li className="p-3 bg-background/10 rounded-lg">
+                            <h4 className="font-semibold mb-1">Доставка еды</h4>
+                            <p className="text-sm">Из ресторана "Пхали-Хинкали" прямо к вам</p>
+                          </li>
+                          <li className="p-3 bg-background/10 rounded-lg">
+                            <h4 className="font-semibold mb-1">Дополнительная уборка</h4>
+                            <p className="text-sm">По запросу за дополнительную плату</p>
+                          </li>
+                          <li className="p-3 bg-background/10 rounded-lg">
+                            <h4 className="font-semibold mb-1">Ранний заезд / Поздний выезд</h4>
+                            <p className="text-sm">При наличии свободных мест (уточняйте стоимость)</p>
+                          </li>
+                        </ul>
+                        <p className="text-sm text-foreground/70 mt-3">
+                          Все услуги необходимо заранее согласовывать с администратором
+                        </p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Экстренные контакты */}
+                  <AccordionItem value="item-8" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-emergency-contacts">
+                      <div className="flex items-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
+                        <span className="font-semibold text-primary">Экстренные контакты и помощь</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <div className="space-y-3 mt-2">
+                        <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+                          <h4 className="font-semibold text-red-400 mb-2">🚨 Экстренные службы:</h4>
+                          <ul className="space-y-1 text-sm">
+                            <li>• Служба спасения: <strong>112</strong></li>
+                            <li>• Скорая помощь: <strong>103</strong></li>
+                            <li>• Пожарная служба: <strong>101</strong></li>
+                          </ul>
+                        </div>
+                        <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
+                          <h4 className="font-semibold text-amber-400 mb-2">При поломке или проблемах:</h4>
+                          <p className="text-sm">
+                            Немедленно свяжитесь с администратором:<br />
+                            <strong className="text-primary">+7‑918‑924‑00‑07</strong>
+                          </p>
+                        </div>
+                        <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+                          <h4 className="font-semibold text-blue-400 mb-2">Ближайшая больница:</h4>
+                          <p className="text-sm">
+                            Майкопская городская больница (20 мин от комплекса)<br />
+                            Для уточнения адреса обратитесь к администратору
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Безопасно ли в лесу */}
+                  <AccordionItem value="item-9" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-forest-safety">
+                      <div className="flex items-center gap-3">
+                        <TreePine className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold text-primary">Безопасно ли в лесу?</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <div className="space-y-3 mt-2">
+                        <p>Да, территория безопасна при соблюдении правил:</p>
+                        <div>
+                          <h4 className="font-semibold mb-2 text-green-400">✓ Безопасно:</h4>
+                          <ul className="space-y-1 text-sm">
+                            <li>• Прогулки по видимым тропам</li>
+                            <li>• Посещение в светлое время суток</li>
+                            <li>• В сопровождении (не в одиночку)</li>
+                            <li>• После уведомления администратора</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2 text-amber-400">⚠️ Обитатели леса:</h4>
+                          <p className="text-sm">Белки, птицы и другая мелкая фауна. Опасных животных в ближайшей зоне нет.</p>
+                        </div>
+                        <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
+                          <p className="text-sm font-semibold">
+                            Дети могут гулять только под присмотром взрослых!
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Мобильная связь */}
+                  <AccordionItem value="item-10" className="border border-primary/20 rounded-lg px-6 bg-background/5">
+                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-mobile-internet">
+                      <div className="flex items-center gap-3">
+                        <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold text-primary">Работает ли мобильная связь и интернет?</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-foreground/90 pb-4">
+                      <div className="space-y-3 mt-2">
+                        <div>
+                          <h4 className="font-semibold mb-2">Мобильная связь:</h4>
+                          <p className="text-sm">Хорошее покрытие основных операторов (МТС, Билайн, Мегафон, Теле2)</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Интернет:</h4>
+                          <ul className="space-y-1 text-sm">
+                            <li>✓ Высокоскоростной Wi-Fi по всей территории комплекса</li>
+                            <li>✓ Стабильное соединение</li>
+                            <li>✓ Достаточно для работы и видеозвонков</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </section>
+
+              {/* 17. Контактная информация */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
