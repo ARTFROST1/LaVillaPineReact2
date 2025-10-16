@@ -186,7 +186,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 2. Бронирование и оплата */}
+              {/* 2. Количество гостей */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -198,10 +198,64 @@ export default function Rules() {
                   boxShadow:
                     "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
                 }}
-                data-testid="booking-payment-section"
+                data-testid="guest-capacity-section"
               >
                 <div className="flex items-center mb-6">
                   <Users className="w-8 h-8 text-primary mr-3" />
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                    Количество гостей
+                  </h2>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="p-6 rounded-xl bg-primary/10 border border-primary/20">
+                    <h3 className="text-xl font-semibold mb-4 text-primary">
+                      Основные спальные места
+                    </h3>
+                    <div className="text-center">
+                      <div className="text-4xl font-bold text-primary mb-2">6</div>
+                      <div className="text-foreground/80">человек</div>
+                    </div>
+                  </div>
+                  <div className="p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-amber-300">
+                      Дополнительные места
+                    </h3>
+                    <div className="space-y-3 text-foreground">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-amber-300 mb-2">+2</div>
+                        <div className="text-sm">Максимально 2 доп. места</div>
+                      </div>
+                      <div className="p-3 rounded-lg bg-amber-500/20 text-center">
+                        <div className="font-bold text-amber-200">+2 500₽ в сутки</div>
+                        <div className="text-sm">с человека</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-center">
+                  <h4 className="font-semibold text-red-300 mb-2">
+                    Максимальная вместимость
+                  </h4>
+                  <p className="text-lg font-bold text-red-400">8 человек</p>
+                </div>
+              </section>
+
+              {/* 3. Бронирование и оплата */}
+              <section
+                className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(212, 164, 74, 0.15)",
+                  boxShadow:
+                    "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+                }}
+                data-testid="booking-payment-section"
+              >
+                <div className="flex items-center mb-6">
+                  <Utensils className="w-8 h-8 text-primary mr-3" />
                   <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
                     Бронирование и оплата
                   </h2>
@@ -225,24 +279,37 @@ export default function Rules() {
                     <div className="space-y-3">
                       <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
                         <div className="font-bold text-primary">
-                          Предоплата: 10 000₽
+                          Предоплата: 50%
                         </div>
-                        <div className="text-sm">Для подтверждения брони</div>
+                        <div className="text-sm">от стоимости проживания</div>
                       </div>
                       <div className="text-sm text-foreground/90">
-                        Оплата при заезде наличными
+                        Остаток оплаты при заезде наличными
                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                  <h4 className="font-semibold text-blue-300 mb-2">
+                    📅 Условия бронирования по дням
+                  </h4>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <span className="font-semibold">Пн-Чт:</span> Можно бронировать посуточно
+                    </div>
+                    <div>
+                      <span className="font-semibold">Пт-Вс:</span> Минимум 2 суток
                     </div>
                   </div>
                 </div>
               </section>
 
-              {/* 3. Заезд и выезд */}
+              {/* 4. Заезд и выезд */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -294,12 +361,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 4. Поведение гостей и тишина */}
+              {/* 5. Поведение гостей и тишина */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -357,12 +424,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 5. Курение и алкоголь */}
+              {/* 6. Курение и алкоголь */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -424,12 +491,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 6. Использование бассейна и сауны */}
+              {/* 7. Использование бассейна и сауны */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -503,12 +570,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 7. Ответственность за детей */}
+              {/* 8. Ответственность за детей */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -560,12 +627,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 8. Мангальная зона */}
+              {/* 9. Мангальная зона */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -615,12 +682,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 9. Посещение лесной территории */}
+              {/* 10. Посещение лесной территории */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -674,12 +741,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 10. Парковка */}
+              {/* 11. Парковка */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -720,12 +787,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 11. Животные */}
+              {/* 12. Животные */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -751,12 +818,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 12. Повреждение имущества и штрафы */}
+              {/* 13. Повреждение имущества и штрафы */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -814,12 +881,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 13. Пожарная безопасность */}
+              {/* 14. Пожарная безопасность */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -871,12 +938,12 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 14. Отмена бронирования */}
+              {/* 15. Отмена бронирования */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -888,35 +955,24 @@ export default function Rules() {
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary font-display">
                   Условия отмены бронирования
                 </h2>
-                <div className="space-y-4">
-                  <div className="grid md:grid-cols-3 gap-4">
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
                     <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
-                      <div className="text-3xl font-bold text-green-400 mb-2">
+                      <div className="text-4xl font-bold text-green-400 mb-3">
                         За 14+ дней
                       </div>
-                      <div className="text-lg font-semibold mb-2">
-                        100% возврат
+                      <div className="text-xl font-semibold mb-2 text-green-300">
+                        Возврат предоплаты
                       </div>
                       <div className="text-sm text-foreground/80">
                         Полный возврат предоплаты
                       </div>
                     </div>
-                    <div className="text-center p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
-                      <div className="text-3xl font-bold text-amber-400 mb-2">
-                        За 3-14 дней
-                      </div>
-                      <div className="text-lg font-semibold mb-2">
-                        50% возврат
-                      </div>
-                      <div className="text-sm text-foreground/80">
-                        Частичный возврат предоплаты
-                      </div>
-                    </div>
                     <div className="text-center p-6 rounded-xl bg-red-500/10 border border-red-500/20">
-                      <div className="text-3xl font-bold text-red-400 mb-2">
-                        Менее 3 дней
+                      <div className="text-4xl font-bold text-red-400 mb-3">
+                        Менее 14 дней
                       </div>
-                      <div className="text-lg font-semibold mb-2">
+                      <div className="text-xl font-semibold mb-2 text-red-300">
                         Без возврата
                       </div>
                       <div className="text-sm text-foreground/80">
@@ -924,15 +980,23 @@ export default function Rules() {
                       </div>
                     </div>
                   </div>
+                  <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/20">
+                    <h4 className="font-semibold text-amber-300 mb-2 text-center">
+                      ⚠️ Обратите внимание
+                    </h4>
+                    <p className="text-sm text-center text-foreground/90">
+                      В праздничные периоды условия отмены могут отличаться. Уточняйте при бронировании.
+                    </p>
+                  </div>
                 </div>
               </section>
 
-              {/* 15. Контактная информация */}
+              {/* 16. Контактная информация */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
