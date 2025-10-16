@@ -3,7 +3,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 import AvitoIcon from "@/components/ui/avito-icon";
 
 // Logo from public directory
-const logoImage = "/images/icons/logo.png";
+const logoImage = "/images/icons/logo.webp";
 
 export default function Footer() {
   return (

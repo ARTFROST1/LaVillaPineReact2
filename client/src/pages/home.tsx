@@ -407,7 +407,7 @@ export default function Home() {
             <div className="max-w-3xl lg:max-w-4xl mx-auto text-center text-white">
               <div className="mb-4 sm:mb-6">
                 <img 
-                  src="/images/icons/logo.png" 
+                  src="/images/icons/logo.webp" 
                   alt="La Villa Pine"
                   className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full h-auto drop-shadow-2xl transition-opacity duration-1000 ease-out"
                   style={{

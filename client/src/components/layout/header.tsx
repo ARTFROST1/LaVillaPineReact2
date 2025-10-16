@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { useDynamicContrast } from "@/hooks/useDynamicContrast";
 import { SiInstagram, SiTelegram } from "react-icons/si";
 // Logo from public directory
-const logoImage = "/images/icons/logo.png";
+const logoImage = "/images/icons/logo.webp";
 
 export default function Header() {
   const [location] = useLocation();
