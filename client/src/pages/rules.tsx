@@ -42,19 +42,19 @@ export default function Rules() {
         ogImage={SEO_PAGES.rules.ogImage}
         canonical="https://lavillapine.onrender.com/rules"
       />
-      
+
       {/* Hero Section - similar to home and about pages */}
       <section className="relative w-full h-screen min-h-[500px] overflow-hidden">
         {/* Background image with overlay */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center lg:bg-fixed"
           style={{
-            backgroundImage: 'url(/images/gallery/13.webp)'
+            backgroundImage: "url(/images/gallery/13.webp)",
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
-        
+
         {/* Hero content */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="container mx-auto px-3 sm:px-4">
@@ -71,14 +71,19 @@ export default function Rules() {
       </section>
 
       {/* Quick info widgets section - like home page */}
-      <section style={{
-        background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '1px solid rgba(212, 164, 74, 0.15)',
-        borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-      }} className="py-12 sm:py-16 md:py-20">
+      <section
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          borderTop: "1px solid rgba(212, 164, 74, 0.15)",
+          borderBottom: "1px solid rgba(212, 164, 74, 0.15)",
+          boxShadow:
+            "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+        }}
+        className="py-12 sm:py-16 md:py-20"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -146,13 +151,13 @@ export default function Rules() {
       {/* Main Content with Background */}
       <div className="relative">
         {/* Background overlay for content sections */}
-        <div 
+        <div
           className="absolute inset-0"
           style={{
-            background: 'transparent',
+            background: "transparent",
           }}
         ></div>
-        
+
         <div className="relative z-10 py-12 sm:py-16 md:py-20">
           <div className="container mx-auto px-4">
             {/* Content blocks */}
@@ -179,8 +184,9 @@ export default function Rules() {
                 </div>
                 <div className="space-y-4 text-foreground">
                   <p className="text-lg">
-                    Гостевой комплекс «La Villa Pine» предназначен для временного
-                    проживания гостей. Режим работы комплекса – круглосуточный.
+                    Гостевой комплекс «La Villa Pine» предназначен для
+                    временного проживания гостей. Режим работы комплекса –
+                    круглосуточный.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="p-4 rounded-lg bg-black/20">
@@ -226,7 +232,9 @@ export default function Rules() {
                       Основные спальные места
                     </h3>
                     <div className="text-center">
-                      <div className="text-4xl font-bold text-primary mb-2">6</div>
+                      <div className="text-4xl font-bold text-primary mb-2">
+                        6
+                      </div>
                       <div className="text-foreground/80">человек</div>
                     </div>
                   </div>
@@ -236,11 +244,15 @@ export default function Rules() {
                     </h3>
                     <div className="space-y-3 text-foreground">
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-amber-300 mb-2">+2</div>
+                        <div className="text-3xl font-bold text-amber-300 mb-2">
+                          +2
+                        </div>
                         <div className="text-sm">Максимально 2 доп. места</div>
                       </div>
                       <div className="p-3 rounded-lg bg-amber-500/20 text-center">
-                        <div className="font-bold text-amber-200">+2 500₽ в сутки</div>
+                        <div className="font-bold text-amber-200">
+                          +2 500₽ в сутки
+                        </div>
                         <div className="text-sm">с человека</div>
                       </div>
                     </div>
@@ -309,10 +321,12 @@ export default function Rules() {
                   </h4>
                   <div className="grid md:grid-cols-2 gap-4 text-sm">
                     <div>
-                      <span className="font-semibold">Пн-Чт:</span> Можно бронировать посуточно
+                      <span className="font-semibold">Пн-Чт:</span> Можно
+                      бронировать посуточно
                     </div>
                     <div>
-                      <span className="font-semibold">Пт-Вс:</span> Минимум 2 суток
+                      <span className="font-semibold">Пт-Вс:</span> Минимум 2
+                      суток
                     </div>
                   </div>
                 </div>
@@ -343,7 +357,9 @@ export default function Rules() {
                     <div className="text-3xl font-bold text-primary mb-2">
                       15:00
                     </div>
-                    <div className="text-lg font-semibold mb-2">Время заезда</div>
+                    <div className="text-lg font-semibold mb-2">
+                      Время заезда
+                    </div>
                     <div className="text-sm text-foreground/80">
                       Стандартное время
                     </div>
@@ -352,7 +368,9 @@ export default function Rules() {
                     <div className="text-3xl font-bold text-primary mb-2">
                       12:00
                     </div>
-                    <div className="text-lg font-semibold mb-2">Время выезда</div>
+                    <div className="text-lg font-semibold mb-2">
+                      Время выезда
+                    </div>
                     <div className="text-sm text-foreground/80">
                       До указанного времени
                     </div>
@@ -419,7 +437,6 @@ export default function Rules() {
                           <li>• Тихие активности</li>
                         </ul>
 
-
                         <h3 className="text-xl font-semibold mb-4 text-primary">
                           Время тишины: 22:00 - 08:00
                         </h3>
@@ -431,8 +448,8 @@ export default function Rules() {
                       ⚠️ Штрафы за нарушения
                     </h4>
                     <p className="text-sm">
-                      За нарушение правил поведения может быть применен штраф или
-                      досрочное выселение без возврата средств.
+                      За нарушение правил поведения может быть применен штраф
+                      или досрочное выселение без возврата средств.
                     </p>
                   </div>
                 </div>
@@ -886,7 +903,8 @@ export default function Rules() {
                             <strong>предупреждение/штраф</strong>
                           </li>
                           <li>
-                            • Несанкционированные гости: <strong>доплата</strong>
+                            • Несанкционированные гости:{" "}
+                            <strong>доплата</strong>
                           </li>
                         </ul>
                       </div>
@@ -999,7 +1017,8 @@ export default function Rules() {
                       ⚠️ Обратите внимание
                     </h4>
                     <p className="text-sm text-center text-foreground/90">
-                      В праздничные периоды условия отмены могут отличаться. Уточняйте при бронировании.
+                      В праздничные периоды условия отмены могут отличаться.
+                      Уточняйте при бронировании.
                     </p>
                   </div>
                 </div>
@@ -1025,14 +1044,22 @@ export default function Rules() {
                     Часто задаваемые вопросы
                   </h2>
                 </div>
-                
+
                 <Accordion type="single" collapsible className="space-y-4">
                   {/* Что входит в стоимость */}
-                  <AccordionItem value="item-1" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-whats-included">
+                  <AccordionItem
+                    value="item-1"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-whats-included"
+                    >
                       <div className="flex items-center gap-3">
                         <Package className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold text-primary">Что входит в стоимость проживания?</span>
+                        <span className="font-semibold text-primary">
+                          Что входит в стоимость проживания?
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
@@ -1048,11 +1075,19 @@ export default function Rules() {
                   </AccordionItem>
 
                   {/* Что взять с собой */}
-                  <AccordionItem value="item-2" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-what-to-bring">
+                  <AccordionItem
+                    value="item-2"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-what-to-bring"
+                    >
                       <div className="flex items-center gap-3">
                         <ShoppingBag className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold text-primary">Что взять с собой?</span>
+                        <span className="font-semibold text-primary">
+                          Что взять с собой?
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
@@ -1060,43 +1095,72 @@ export default function Rules() {
                         <div>
                           <h4 className="font-semibold mb-2">Основное:</h4>
                           <ul className="space-y-1 text-sm">
-                            <li>• Документы (паспорт, свидетельства о рождении детей)</li>
+                            <li>
+                              • Документы (паспорт, свидетельства о рождении
+                              детей)
+                            </li>
                             <li>• Личные средства гигиены</li>
-                            <li>• Купальные принадлежности (шапочка для бассейна)</li>
+                            <li>• Купальные принадлежности </li>
                           </ul>
                         </div>
                         <div>
                           <h4 className="font-semibold mb-2">Продукты:</h4>
-                          <p className="text-sm">Если планируете готовить самостоятельно, возьмите продукты с собой или закажите доставку</p>
+                          <p className="text-sm">
+                            Если планируете готовить самостоятельно, возьмите
+                            продукты с собой или закажите доставку
+                          </p>
                         </div>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
 
                   {/* Как добраться */}
-                  <AccordionItem value="item-3" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-how-to-get">
+                  <AccordionItem
+                    value="item-3"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-how-to-get"
+                    >
                       <div className="flex items-center gap-3">
                         <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold text-primary">Как добраться до комплекса?</span>
+                        <span className="font-semibold text-primary">
+                          Как добраться до комплекса?
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
                       <div className="space-y-3 mt-2">
                         <div>
-                          <h4 className="font-semibold mb-2">GPS-координаты для навигатора:</h4>
-                          <p className="text-sm font-mono bg-background/20 p-2 rounded">44.496212, 40.165310</p>
+                          <p className="text-sm font-mono bg-background/20 p-2 rounded">
+                            Если вы едете со стороны Майкопа, двигайтесь по
+                            главной дороге до перекрёстка, где направо — поворот
+                            на Цветочный, а налево — на Тульский. Поверните
+                            налево в сторону Тульского, а затем сразу же снова
+                            налево. Проехав примерно 100 метров, поверните
+                            направо на улицу Кольцевая. Через ещё 100 метров, по
+                            правую сторону, вас встретит стильный кирпичный
+                            забор в стиле лофт — это и есть La Villa Pine. Добро
+                            пожаловать!
+                          </p>
                         </div>
                         <div>
                           <h4 className="font-semibold mb-2">Расположение:</h4>
                           <ul className="space-y-1 text-sm">
                             <li>• 20 минут от Майкопа</li>
                             <li>• 30 минут до гор</li>
-                            <li>• Поселок Тульский, Республика Адыгея</li>
+                            <li>
+                              • Поселок Тульский, Республика Адыгея, Кольцевая
+                              улица, 4
+                            </li>
                           </ul>
                         </div>
-                        <Link href="/map">
-                          <button className="mt-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary rounded-lg transition-colors text-sm" data-testid="button-view-map">
+                        <Link href="/contacts">
+                          <button
+                            className="mt-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary rounded-lg transition-colors text-sm"
+                            data-testid="button-view-map"
+                          >
                             Посмотреть на карте
                           </button>
                         </Link>
@@ -1105,48 +1169,76 @@ export default function Rules() {
                   </AccordionItem>
 
                   {/* Магазины и аптеки */}
-                  <AccordionItem value="item-4" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-shops-pharmacies">
+                  <AccordionItem
+                    value="item-4"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-shops-pharmacies"
+                    >
                       <div className="flex items-center gap-3">
                         <ShoppingBag className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold text-primary">Ближайшие магазины и аптеки</span>
+                        <span className="font-semibold text-primary">
+                          Ближайшие магазины и аптеки
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
                       <div className="space-y-3 mt-2">
                         <div>
-                          <h4 className="font-semibold mb-2">В поселке Тульский:</h4>
+                          <h4 className="font-semibold mb-2">
+                            В поселке Тульский:
+                          </h4>
                           <ul className="space-y-1 text-sm">
-                            <li>• Продуктовые магазины (ул. Первомайская, ул. Ленина)</li>
+                            <li>
+                              • Продуктовые магазины (ул. Первомайская, ул.
+                              Ленина)
+                            </li>
                             <li>• Аптеки в центре поселка</li>
                             <li>• Местный рынок с фермерскими продуктами</li>
                           </ul>
                         </div>
                         <div>
-                          <h4 className="font-semibold mb-2">Рядом с комплексом:</h4>
+                          <h4 className="font-semibold mb-2">
+                            Рядом с комплексом:
+                          </h4>
                           <ul className="space-y-1 text-sm">
                             <li>• Кофейня (2 минуты пешком)</li>
-                            <li>• Ресторан "Пхали-Хинкали" (доставка доступна)</li>
+                            <li>
+                              • Ресторан "Пхали-Хинкали" (доставка доступна)
+                            </li>
                           </ul>
                         </div>
                         <p className="text-sm text-foreground/70 mt-2">
-                          💡 Рекомендуем использовать 2ГИС или Яндекс.Карты для поиска актуальных адресов и часов работы
+                          💡 Рекомендуем использовать 2ГИС или Яндекс.Карты для
+                          поиска актуальных адресов и часов работы
                         </p>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
 
                   {/* Можно ли готовить */}
-                  <AccordionItem value="item-5" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-cooking">
+                  <AccordionItem
+                    value="item-5"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-cooking"
+                    >
                       <div className="flex items-center gap-3">
                         <ChefHat className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold text-primary">Можно ли готовить свою еду?</span>
+                        <span className="font-semibold text-primary">
+                          Можно ли готовить свою еду?
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
                       <div className="space-y-2 mt-2">
-                        <p>Да! В каждом доме есть полностью оборудованная кухня:</p>
+                        <p>
+                          Да! В каждом доме есть полностью оборудованная кухня:
+                        </p>
                         <ul className="space-y-1 text-sm">
                           <li>✓ Плита и духовка</li>
                           <li>✓ Микроволновая печь</li>
@@ -1154,17 +1246,28 @@ export default function Rules() {
                           <li>✓ Вся необходимая посуда и кухонные приборы</li>
                           <li>✓ Холодильник</li>
                         </ul>
-                        <p className="text-sm mt-3">Пожалуйста, соблюдайте чистоту и не оставляйте плиту без присмотра.</p>
+                        <p className="text-sm mt-3">
+                          Пожалуйста, соблюдайте чистоту и не оставляйте плиту
+                          без присмотра.
+                        </p>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
 
                   {/* Правила перед выездом */}
-                  <AccordionItem value="item-6" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-checkout-rules">
+                  <AccordionItem
+                    value="item-6"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-checkout-rules"
+                    >
                       <div className="flex items-center gap-3">
                         <ClipboardCheck className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold text-primary">Что нужно сделать перед выездом?</span>
+                        <span className="font-semibold text-primary">
+                          Что нужно сделать перед выездом?
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
@@ -1187,18 +1290,26 @@ export default function Rules() {
                           </ul>
                         </div>
                         <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
-                          <p className="text-sm">💡 Расчетный час: до 11:00</p>
+                          <p className="text-sm">💡 Расчетный час: до 12:00</p>
                         </div>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
 
                   {/* Дополнительные услуги */}
-                  <AccordionItem value="item-7" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-additional-services">
+                  <AccordionItem
+                    value="item-7"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-additional-services"
+                    >
                       <div className="flex items-center gap-3">
                         <Package className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold text-primary">Какие дополнительные услуги доступны?</span>
+                        <span className="font-semibold text-primary">
+                          Какие дополнительные услуги доступны?
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
@@ -1206,53 +1317,88 @@ export default function Rules() {
                         <ul className="space-y-2">
                           <li className="p-3 bg-background/10 rounded-lg">
                             <h4 className="font-semibold mb-1">Доставка еды</h4>
-                            <p className="text-sm">Из ресторана "Пхали-Хинкали" прямо к вам</p>
+                            <p className="text-sm">
+                              Из ресторана "Пхали-Хинкали" прямо к вам
+                            </p>
                           </li>
                           <li className="p-3 bg-background/10 rounded-lg">
-                            <h4 className="font-semibold mb-1">Дополнительная уборка</h4>
-                            <p className="text-sm">По запросу за дополнительную плату</p>
+                            <h4 className="font-semibold mb-1">
+                              Дополнительная уборка
+                            </h4>
+                            <p className="text-sm">
+                              По запросу за дополнительную плату
+                            </p>
                           </li>
                           <li className="p-3 bg-background/10 rounded-lg">
-                            <h4 className="font-semibold mb-1">Ранний заезд / Поздний выезд</h4>
-                            <p className="text-sm">При наличии свободных мест (уточняйте стоимость)</p>
+                            <h4 className="font-semibold mb-1">
+                              Ранний заезд / Поздний выезд
+                            </h4>
+                            <p className="text-sm">
+                              При наличии свободных мест (уточняйте стоимость)
+                            </p>
                           </li>
                         </ul>
                         <p className="text-sm text-foreground/70 mt-3">
-                          Все услуги необходимо заранее согласовывать с администратором
+                          Все услуги необходимо заранее согласовывать с
+                          администратором
                         </p>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
 
                   {/* Экстренные контакты */}
-                  <AccordionItem value="item-8" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-emergency-contacts">
+                  <AccordionItem
+                    value="item-8"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-emergency-contacts"
+                    >
                       <div className="flex items-center gap-3">
                         <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
-                        <span className="font-semibold text-primary">Экстренные контакты и помощь</span>
+                        <span className="font-semibold text-primary">
+                          Экстренные контакты и помощь
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
                       <div className="space-y-3 mt-2">
                         <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
-                          <h4 className="font-semibold text-red-400 mb-2">🚨 Экстренные службы:</h4>
+                          <h4 className="font-semibold text-red-400 mb-2">
+                            🚨 Экстренные службы:
+                          </h4>
                           <ul className="space-y-1 text-sm">
-                            <li>• Служба спасения: <strong>112</strong></li>
-                            <li>• Скорая помощь: <strong>103</strong></li>
-                            <li>• Пожарная служба: <strong>101</strong></li>
+                            <li>
+                              • Служба спасения: <strong>112</strong>
+                            </li>
+                            <li>
+                              • Скорая помощь: <strong>103</strong>
+                            </li>
+                            <li>
+                              • Пожарная служба: <strong>101</strong>
+                            </li>
                           </ul>
                         </div>
                         <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
-                          <h4 className="font-semibold text-amber-400 mb-2">При поломке или проблемах:</h4>
+                          <h4 className="font-semibold text-amber-400 mb-2">
+                            При поломке или проблемах:
+                          </h4>
                           <p className="text-sm">
-                            Немедленно свяжитесь с администратором:<br />
-                            <strong className="text-primary">+7‑918‑924‑00‑07</strong>
+                            Немедленно свяжитесь с администратором:
+                            <br />
+                            <strong className="text-primary">
+                              +7‑918‑924‑00‑07
+                            </strong>
                           </p>
                         </div>
                         <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
-                          <h4 className="font-semibold text-blue-400 mb-2">Ближайшая больница:</h4>
+                          <h4 className="font-semibold text-blue-400 mb-2">
+                            Ближайшая больница:
+                          </h4>
                           <p className="text-sm">
-                            Майкопская городская больница (20 мин от комплекса)<br />
+                            Майкопская городская больница (20 мин от комплекса)
+                            <br />
                             Для уточнения адреса обратитесь к администратору
                           </p>
                         </div>
@@ -1261,18 +1407,28 @@ export default function Rules() {
                   </AccordionItem>
 
                   {/* Безопасно ли в лесу */}
-                  <AccordionItem value="item-9" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-forest-safety">
+                  <AccordionItem
+                    value="item-9"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-forest-safety"
+                    >
                       <div className="flex items-center gap-3">
                         <TreePine className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold text-primary">Безопасно ли в лесу?</span>
+                        <span className="font-semibold text-primary">
+                          Безопасно ли в лесу?
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
                       <div className="space-y-3 mt-2">
                         <p>Да, территория безопасна при соблюдении правил:</p>
                         <div>
-                          <h4 className="font-semibold mb-2 text-green-400">✓ Безопасно:</h4>
+                          <h4 className="font-semibold mb-2 text-green-400">
+                            ✓ Безопасно:
+                          </h4>
                           <ul className="space-y-1 text-sm">
                             <li>• Прогулки по видимым тропам</li>
                             <li>• Посещение в светлое время суток</li>
@@ -1281,8 +1437,13 @@ export default function Rules() {
                           </ul>
                         </div>
                         <div>
-                          <h4 className="font-semibold mb-2 text-amber-400">⚠️ Обитатели леса:</h4>
-                          <p className="text-sm">Белки, птицы и другая мелкая фауна. Опасных животных в ближайшей зоне нет.</p>
+                          <h4 className="font-semibold mb-2 text-amber-400">
+                            ⚠️ Обитатели леса:
+                          </h4>
+                          <p className="text-sm">
+                            Белки, птицы и другая мелкая фауна. Опасных животных
+                            в ближайшей зоне нет.
+                          </p>
                         </div>
                         <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
                           <p className="text-sm font-semibold">
@@ -1294,23 +1455,39 @@ export default function Rules() {
                   </AccordionItem>
 
                   {/* Мобильная связь */}
-                  <AccordionItem value="item-10" className="border border-primary/20 rounded-lg px-6 bg-background/5">
-                    <AccordionTrigger className="text-left hover:no-underline py-4" data-testid="faq-mobile-internet">
+                  <AccordionItem
+                    value="item-10"
+                    className="border border-primary/20 rounded-lg px-6 bg-background/5"
+                  >
+                    <AccordionTrigger
+                      className="text-left hover:no-underline py-4"
+                      data-testid="faq-mobile-internet"
+                    >
                       <div className="flex items-center gap-3">
                         <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold text-primary">Работает ли мобильная связь и интернет?</span>
+                        <span className="font-semibold text-primary">
+                          Работает ли мобильная связь и интернет?
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-foreground/90 pb-4">
                       <div className="space-y-3 mt-2">
                         <div>
-                          <h4 className="font-semibold mb-2">Мобильная связь:</h4>
-                          <p className="text-sm">Хорошее покрытие основных операторов (МТС, Билайн, Мегафон, Теле2)</p>
+                          <h4 className="font-semibold mb-2">
+                            Мобильная связь:
+                          </h4>
+                          <p className="text-sm">
+                            Хорошее покрытие основных операторов (МТС, Билайн,
+                            Мегафон, Теле2)
+                          </p>
                         </div>
                         <div>
                           <h4 className="font-semibold mb-2">Интернет:</h4>
                           <ul className="space-y-1 text-sm">
-                            <li>✓ Высокоскоростной Wi-Fi по всей территории комплекса</li>
+                            <li>
+                              ✓ Высокоскоростной Wi-Fi по всей территории
+                              комплекса
+                            </li>
                             <li>✓ Стабильное соединение</li>
                             <li>✓ Достаточно для работы и видеозвонков</li>
                           </ul>
@@ -1357,7 +1534,8 @@ export default function Rules() {
                     </div>
                   </div>
                   <p className="mt-6 text-foreground/90">
-                    С уважением, администрация гостевого комплекса «La Villa Pine»
+                    С уважением, администрация гостевого комплекса «La Villa
+                    Pine»
                   </p>
                 </div>
               </section>
