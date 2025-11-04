@@ -99,7 +99,9 @@ export default function Rules() {
                 data-testid="checkin-widget"
               >
                 <Clock className="w-10 h-10 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-primary mb-1">16:00 - 11:00</div>
+                <div className="text-2xl font-bold text-primary mb-1">
+                  16:00 - 11:00
+                </div>
                 <div className="text-sm text-foreground/70">Заезд - Выезд</div>
               </div>
               <div
@@ -112,7 +114,9 @@ export default function Rules() {
                 data-testid="quiet-hours-widget"
               >
                 <Volume2 className="w-10 h-10 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-primary mb-1">22:00 - 08:00</div>
+                <div className="text-2xl font-bold text-primary mb-1">
+                  22:00 - 08:00
+                </div>
                 <div className="text-sm text-foreground/70">Время тишины</div>
               </div>
               <div
@@ -125,7 +129,9 @@ export default function Rules() {
                 data-testid="smoking-widget"
               >
                 <Cigarette className="w-10 h-10 text-red-400 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-red-400 mb-1">Запрещено</div>
+                <div className="text-2xl font-bold text-red-400 mb-1">
+                  Запрещено
+                </div>
                 <div className="text-sm text-foreground/70">Курение внутри</div>
               </div>
               <div
@@ -138,7 +144,9 @@ export default function Rules() {
                 data-testid="contact-widget"
               >
                 <Phone className="w-10 h-10 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-primary mb-1">09:00 - 21:00</div>
+                <div className="text-2xl font-bold text-primary mb-1">
+                  09:00 - 21:00
+                </div>
                 <div className="text-sm text-foreground/70">Администратор</div>
               </div>
             </div>
@@ -150,7 +158,6 @@ export default function Rules() {
       <div className="relative py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto space-y-8">
-            
             {/* 1. Общие положения */}
             <section
               className="p-8 md:p-10 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.01]"
@@ -173,22 +180,25 @@ export default function Rules() {
               </div>
               <div className="text-center space-y-6">
                 <p className="text-lg text-foreground/90 max-w-2xl mx-auto">
-                  Гостевой комплекс «La Villa Pine» работает круглосуточно для вашего комфортного отдыха
+                  Гостевой комплекс «La Villa Pine» работает круглосуточно для
+                  вашего комфортного отдыха
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
                   <div className="p-6 rounded-xl bg-black/20 text-center">
                     <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="font-semibold text-primary mb-2">Документы</div>
+                    <div className="font-semibold text-primary mb-2">
+                      Документы
+                    </div>
                     <p className="text-sm text-foreground/80">
                       Паспорт для гостей от 14 лет
                     </p>
                   </div>
                   <div className="p-6 rounded-xl bg-black/20 text-center">
                     <Clock className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="font-semibold text-primary mb-2">Режим работы</div>
-                    <p className="text-sm text-foreground/80">
-                      Круглосуточно
-                    </p>
+                    <div className="font-semibold text-primary mb-2">
+                      Режим работы
+                    </div>
+                    <p className="text-sm text-foreground/80">Круглосуточно</p>
                   </div>
                 </div>
               </div>
@@ -217,12 +227,20 @@ export default function Rules() {
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="p-8 rounded-xl bg-primary/10 border border-primary/20 text-center">
                   <div className="text-5xl font-bold text-primary mb-2">6</div>
-                  <div className="text-sm text-foreground/70">Основных мест</div>
+                  <div className="text-sm text-foreground/70">
+                    Основных мест
+                  </div>
                 </div>
                 <div className="p-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-center">
-                  <div className="text-5xl font-bold text-amber-300 mb-2">+2</div>
-                  <div className="text-sm text-foreground/70 mb-3">Дополнительных</div>
-                  <div className="text-amber-200 font-semibold">+5000₽/сутки</div>
+                  <div className="text-5xl font-bold text-amber-300 mb-2">
+                    +2
+                  </div>
+                  <div className="text-sm text-foreground/70 mb-3">
+                    Дополнительных
+                  </div>
+                  <div className="text-amber-200 font-semibold">
+                    +5000₽/сутки
+                  </div>
                 </div>
                 <div className="p-8 rounded-xl bg-red-500/10 border border-red-500/20 text-center">
                   <div className="text-5xl font-bold text-red-400 mb-2">8</div>
@@ -254,7 +272,9 @@ export default function Rules() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="text-center p-6 rounded-xl bg-primary/10 border border-primary/20">
                   <Phone className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <div className="font-semibold text-primary mb-3">Способы связи</div>
+                  <div className="font-semibold text-primary mb-3">
+                    Способы связи
+                  </div>
                   <div className="space-y-2 text-sm text-foreground/80">
                     <div>+7‑918‑924‑00‑07</div>
                     <div>WhatsApp / Telegram</div>
@@ -263,21 +283,23 @@ export default function Rules() {
                 </div>
                 <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
                   <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-4" />
-                  <div className="font-semibold text-green-400 mb-3">Оплата</div>
-                  <div className="text-2xl font-bold text-primary mb-2">10 000₽</div>
+                  <div className="font-semibold text-green-400 mb-3">
+                    Оплата
+                  </div>
+                  <div className="text-2xl font-bold text-primary mb-2">
+                    10 000₽
+                  </div>
                   <div className="text-sm text-foreground/70">Предоплата</div>
-                  <div className="text-xs text-foreground/60 mt-2">Остаток при заезде</div>
+                  <div className="text-xs text-foreground/60 mt-2">
+                    Остаток при заезде
+                  </div>
                 </div>
               </div>
               <div className="mt-6 p-6 rounded-xl bg-blue-500/10 border border-blue-500/20 text-center">
-                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div className="grid md:grid-cols-1 gap-4 text-md">
                   <div className="flex items-center justify-center gap-2">
-                    <Check className="w-4 h-4 text-green-400" />
-                    <span><strong>Пн-Чт:</strong> Посуточно</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <AlertCircle className="w-4 h-4 text-amber-400" />
-                    <span><strong>Пт-Вс:</strong> Минимум 2 суток</span>
+                    <AlertCircle className="w-8 h-8 text-amber-400" />
+                    <span>Минимум 2 суток</span>
                   </div>
                 </div>
               </div>
@@ -305,19 +327,34 @@ export default function Rules() {
               </div>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="text-center p-8 rounded-xl bg-primary/10 border border-primary/20">
-                  <div className="text-5xl font-bold text-primary mb-3">16:00</div>
-                  <div className="text-lg font-semibold text-foreground/90">Заезд</div>
+                  <div className="text-5xl font-bold text-primary mb-3">
+                    16:00
+                  </div>
+                  <div className="text-lg font-semibold text-foreground/90">
+                    Заезд
+                  </div>
                 </div>
                 <div className="text-center p-8 rounded-xl bg-primary/10 border border-primary/20">
-                  <div className="text-5xl font-bold text-primary mb-3">11:00</div>
-                  <div className="text-lg font-semibold text-foreground/90">Выезд</div>
+                  <div className="text-5xl font-bold text-primary mb-3">
+                    11:00
+                  </div>
+                  <div className="text-lg font-semibold text-foreground/90">
+                    Выезд
+                  </div>
                 </div>
               </div>
               <div className="mt-6 p-6 rounded-xl bg-amber-500/10 border border-amber-500/20 text-center">
-                <div className="font-semibold text-amber-300 mb-3">Доплата за изменение</div>
+                <div className="font-semibold text-amber-300 mb-3">
+                  Доплата за изменение
+                </div>
                 <div className="grid md:grid-cols-2 gap-4 text-sm text-foreground/80">
-                  <div>До 4 часов: <strong className="text-amber-200">50%</strong></div>
-                  <div>Свыше 4 часов: <strong className="text-amber-200">100%</strong></div>
+                  <div>
+                    До 4 часов: <strong className="text-amber-200">50%</strong>
+                  </div>
+                  <div>
+                    Свыше 4 часов:{" "}
+                    <strong className="text-amber-200">100%</strong>
+                  </div>
                 </div>
               </div>
             </section>
@@ -344,7 +381,9 @@ export default function Rules() {
               </div>
               <div className="text-center mb-8">
                 <div className="inline-block p-6 rounded-xl bg-primary/10 border border-primary/20">
-                  <div className="text-4xl font-bold text-primary mb-2">22:00 - 08:00</div>
+                  <div className="text-4xl font-bold text-primary mb-2">
+                    22:00 - 08:00
+                  </div>
                   <div className="text-sm text-foreground/70">Время тишины</div>
                 </div>
               </div>
@@ -398,7 +437,9 @@ export default function Rules() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="text-center p-8 rounded-xl bg-red-500/10 border border-red-500/20">
                   <Ban className="w-12 h-12 text-red-400 mx-auto mb-4" />
-                  <div className="font-bold text-red-400 text-xl mb-4">В помещениях запрещено</div>
+                  <div className="font-bold text-red-400 text-xl mb-4">
+                    В помещениях запрещено
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80 text-left max-w-xs mx-auto">
                     <li>• Обычные сигареты</li>
                     <li>• Электронные сигареты</li>
@@ -406,22 +447,32 @@ export default function Rules() {
                     <li>• Любые устройства</li>
                   </ul>
                   <div className="mt-6 p-4 rounded-lg bg-red-500/20">
-                    <div className="text-2xl font-bold text-red-300">5 000₽</div>
+                    <div className="text-2xl font-bold text-red-300">
+                      5 000₽
+                    </div>
                     <div className="text-xs text-foreground/70">Штраф</div>
                   </div>
                 </div>
                 <div className="text-center p-8 rounded-xl bg-amber-500/10 border border-amber-500/20">
                   <AlertTriangle className="w-12 h-12 text-amber-400 mx-auto mb-4" />
-                  <div className="font-bold text-amber-400 text-xl mb-4">На улице</div>
+                  <div className="font-bold text-amber-400 text-xl mb-4">
+                    На улице
+                  </div>
                   <div className="space-y-4">
                     <div className="p-4 rounded-lg bg-green-500/10">
                       <Check className="w-6 h-6 text-green-400 mx-auto mb-2" />
-                      <div className="text-sm text-foreground/80">Разрешено курение</div>
+                      <div className="text-sm text-foreground/80">
+                        Разрешено курение
+                      </div>
                     </div>
                     <div className="p-4 rounded-lg bg-red-500/10">
                       <Ban className="w-6 h-6 text-red-400 mx-auto mb-2" />
-                      <div className="text-sm font-semibold text-red-300">Угольные кальяны запрещены!</div>
-                      <div className="text-xs text-foreground/60 mt-1">(опасны)</div>
+                      <div className="text-sm font-semibold text-red-300">
+                        Угольные кальяны запрещены!
+                      </div>
+                      <div className="text-xs text-foreground/60 mt-1">
+                        (опасны)
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -451,7 +502,9 @@ export default function Rules() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="text-center p-6 rounded-xl bg-blue-500/10 border border-blue-500/20">
                   <div className="text-3xl mb-4">🏊‍♂️</div>
-                  <div className="font-semibold text-blue-300 mb-4">Бассейн</div>
+                  <div className="font-semibold text-blue-300 mb-4">
+                    Бассейн
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80 text-left max-w-xs mx-auto">
                     <li>✓ Принять душ</li>
                     <li>✓ Шапочка для купания</li>
@@ -461,7 +514,9 @@ export default function Rules() {
                 </div>
                 <div className="text-center p-6 rounded-xl bg-orange-500/10 border border-orange-500/20">
                   <div className="text-3xl mb-4">🧖‍♂️</div>
-                  <div className="font-semibold text-orange-300 mb-4">Сауна</div>
+                  <div className="font-semibold text-orange-300 mb-4">
+                    Сауна
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80 text-left max-w-xs mx-auto">
                     <li>✓ Полотенце на лавку</li>
                     <li>✓ Гигиенический душ</li>
@@ -495,7 +550,9 @@ export default function Rules() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
                   <Check className="w-10 h-10 text-green-400 mx-auto mb-4" />
-                  <div className="font-semibold text-green-400 mb-3">Стандартно</div>
+                  <div className="font-semibold text-green-400 mb-3">
+                    Стандартно
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>• После каждого гостя</li>
                     <li>• Смена полотенец</li>
@@ -504,7 +561,9 @@ export default function Rules() {
                 </div>
                 <div className="text-center p-6 rounded-xl bg-blue-500/10 border border-blue-500/20">
                   <Calendar className="w-10 h-10 text-blue-400 mx-auto mb-4" />
-                  <div className="font-semibold text-blue-400 mb-3">При длительном проживании</div>
+                  <div className="font-semibold text-blue-400 mb-3">
+                    При длительном проживании
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>• Раз в 3 дня</li>
                     <li>• По запросу (платно)</li>
@@ -540,7 +599,8 @@ export default function Rules() {
                     Только под присмотром взрослых
                   </div>
                   <p className="text-sm text-foreground/80">
-                    Родители несут полную ответственность за безопасность и поведение детей
+                    Родители несут полную ответственность за безопасность и
+                    поведение детей
                   </p>
                 </div>
               </div>
@@ -569,7 +629,9 @@ export default function Rules() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
                   <Check className="w-10 h-10 text-green-400 mx-auto mb-4" />
-                  <div className="font-semibold text-green-400 mb-3">Разрешено</div>
+                  <div className="font-semibold text-green-400 mb-3">
+                    Разрешено
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>• Только в мангале</li>
                     <li>• Под присмотром</li>
@@ -577,7 +639,9 @@ export default function Rules() {
                 </div>
                 <div className="text-center p-6 rounded-xl bg-red-500/10 border border-red-500/20">
                   <Ban className="w-10 h-10 text-red-400 mx-auto mb-4" />
-                  <div className="font-semibold text-red-400 mb-3">Запрещено</div>
+                  <div className="font-semibold text-red-400 mb-3">
+                    Запрещено
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>• Открытый огонь вне зоны</li>
                     <li>• Оставлять без присмотра</li>
@@ -609,7 +673,9 @@ export default function Rules() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="text-center p-6 rounded-xl bg-red-500/10 border border-red-500/20">
                   <Ban className="w-8 h-8 text-red-400 mx-auto mb-3" />
-                  <div className="font-semibold text-red-400 mb-3">Запрещено</div>
+                  <div className="font-semibold text-red-400 mb-3">
+                    Запрещено
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>✗ Уличная обувь</li>
                     <li>✗ Домашние животные</li>
@@ -618,7 +684,9 @@ export default function Rules() {
                 </div>
                 <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
                   <Check className="w-8 h-8 text-green-400 mx-auto mb-3" />
-                  <div className="font-semibold text-green-400 mb-3">Разрешено</div>
+                  <div className="font-semibold text-green-400 mb-3">
+                    Разрешено
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>✓ Сменная обувь</li>
                     <li>✓ Комфортный отдых</li>
@@ -651,7 +719,9 @@ export default function Rules() {
               <div className="max-w-2xl mx-auto text-center">
                 <div className="p-6 rounded-xl bg-red-500/10 border border-red-500/20">
                   <Ban className="w-10 h-10 text-red-400 mx-auto mb-4" />
-                  <div className="font-semibold text-red-400 mb-4">Запрещено</div>
+                  <div className="font-semibold text-red-400 mb-4">
+                    Запрещено
+                  </div>
                   <div className="grid md:grid-cols-2 gap-3 text-sm text-foreground/80">
                     <div>✗ Петарды, фейерверки</div>
                     <div>✗ Мусор вне урн</div>
@@ -693,7 +763,9 @@ export default function Rules() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="p-6 rounded-xl bg-green-500/10 border border-green-500/20 text-center">
                     <Check className="w-8 h-8 text-green-400 mx-auto mb-3" />
-                    <div className="font-semibold text-green-400 mb-3">Разрешено</div>
+                    <div className="font-semibold text-green-400 mb-3">
+                      Разрешено
+                    </div>
                     <ul className="space-y-2 text-sm text-foreground/80">
                       <li>• По тропам</li>
                       <li>• Днём</li>
@@ -702,7 +774,9 @@ export default function Rules() {
                   </div>
                   <div className="p-6 rounded-xl bg-red-500/10 border border-red-500/20 text-center">
                     <Ban className="w-8 h-8 text-red-400 mx-auto mb-3" />
-                    <div className="font-semibold text-red-400 mb-3">Запрещено</div>
+                    <div className="font-semibold text-red-400 mb-3">
+                      Запрещено
+                    </div>
                     <ul className="space-y-2 text-sm text-foreground/80">
                       <li>• Одному</li>
                       <li>• В темноте</li>
@@ -736,7 +810,9 @@ export default function Rules() {
               <div className="text-center max-w-2xl mx-auto">
                 <div className="p-8 rounded-xl bg-green-500/10 border border-green-500/20">
                   <Car className="w-12 h-12 text-green-400 mx-auto mb-4" />
-                  <div className="text-2xl font-bold text-green-400 mb-3">Бесплатно</div>
+                  <div className="text-2xl font-bold text-green-400 mb-3">
+                    Бесплатно
+                  </div>
                   <p className="text-sm text-foreground/80 mb-4">
                     Парковка на территории для всех гостей
                   </p>
@@ -770,7 +846,9 @@ export default function Rules() {
               <div className="text-center max-w-xl mx-auto">
                 <div className="p-8 rounded-xl bg-red-500/10 border border-red-500/20">
                   <Ban className="w-16 h-16 text-red-400 mx-auto mb-4" />
-                  <div className="text-2xl font-bold text-red-400">Запрещено</div>
+                  <div className="text-2xl font-bold text-red-400">
+                    Запрещено
+                  </div>
                 </div>
               </div>
             </section>
@@ -802,11 +880,13 @@ export default function Rules() {
                     Бережное отношение
                   </div>
                   <p className="text-sm text-foreground/80 mb-6">
-                    При повреждении имущества необходимо возместить 100% стоимости
+                    При повреждении имущества необходимо возместить 100%
+                    стоимости
                   </p>
                   <div className="p-4 rounded-lg bg-red-500/10">
                     <div className="text-sm text-foreground/80">
-                      Штрафы за нарушение правил: <strong className="text-red-400">от 5 000₽</strong>
+                      Штрафы за нарушение правил:{" "}
+                      <strong className="text-red-400">от 5 000₽</strong>
                     </div>
                   </div>
                 </div>
@@ -836,7 +916,9 @@ export default function Rules() {
               <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                 <div className="text-center p-6 rounded-xl bg-red-500/10 border border-red-500/20">
                   <Ban className="w-10 h-10 text-red-400 mx-auto mb-4" />
-                  <div className="font-semibold text-red-400 mb-3">Запрещено</div>
+                  <div className="font-semibold text-red-400 mb-3">
+                    Запрещено
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>✗ Оставлять электроприборы без присмотра</li>
                     <li>✗ Самодельные приборы</li>
@@ -845,7 +927,9 @@ export default function Rules() {
                 </div>
                 <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
                   <Check className="w-10 h-10 text-green-400 mx-auto mb-4" />
-                  <div className="font-semibold text-green-400 mb-3">Обязательно</div>
+                  <div className="font-semibold text-green-400 mb-3">
+                    Обязательно
+                  </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>✓ Знать пути эвакуации</li>
                     <li>✓ Выключать приборы</li>
@@ -877,12 +961,16 @@ export default function Rules() {
               </div>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
-                  <div className="text-3xl font-bold text-green-400 mb-2">100%</div>
+                  <div className="text-3xl font-bold text-green-400 mb-2">
+                    100%
+                  </div>
                   <div className="text-sm text-foreground/70 mb-3">Возврат</div>
                   <div className="text-xs text-foreground/60">За 7+ дней</div>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
-                  <div className="text-3xl font-bold text-amber-300 mb-2">50%</div>
+                  <div className="text-3xl font-bold text-amber-300 mb-2">
+                    50%
+                  </div>
                   <div className="text-sm text-foreground/70 mb-3">Возврат</div>
                   <div className="text-xs text-foreground/60">За 3-6 дней</div>
                 </div>
@@ -969,7 +1057,9 @@ export default function Rules() {
               data-testid="contact-info-section"
             >
               <Phone className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-primary mb-4">Остались вопросы?</h3>
+              <h3 className="text-2xl font-bold text-primary mb-4">
+                Остались вопросы?
+              </h3>
               <div className="text-xl font-semibold text-foreground mb-2">
                 +7‑918‑924‑00‑07
               </div>
