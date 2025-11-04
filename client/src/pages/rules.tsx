@@ -97,7 +97,7 @@ export default function Rules() {
                 data-testid="checkin-widget"
               >
                 <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-primary font-bold">15:00 - 11:00</div>
+                <div className="text-primary font-bold">16:00 - 11:00</div>
                 <div className="text-sm text-foreground/80">Заезд - Выезд</div>
               </div>
               <div
@@ -305,12 +305,12 @@ export default function Rules() {
                     <div className="space-y-3">
                       <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
                         <div className="font-bold text-primary">
-                          Предоплата: 50%
+                          Предоплата: 10 000₽
                         </div>
-                        <div className="text-sm">от стоимости проживания</div>
+                        <div className="text-sm">для подтверждения брони</div>
                       </div>
                       <div className="text-sm text-foreground/90">
-                        Остаток оплаты при заезде наличными
+                        Остаток оплаты при заезде наличными или переводом
                       </div>
                     </div>
                   </div>
@@ -355,7 +355,7 @@ export default function Rules() {
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
                     <div className="text-3xl font-bold text-primary mb-2">
-                      15:00
+                      16:00
                     </div>
                     <div className="text-lg font-semibold mb-2">
                       Время заезда
@@ -380,7 +380,7 @@ export default function Rules() {
                       Доплата за изменение времени
                     </h4>
                     <div className="text-sm text-foreground space-y-1">
-                      <div>Ранний заезд (до 15:00)</div>
+                      <div>Ранний заезд (до 16:00)</div>
                       <div>Поздний выезд (после 11:00)</div>
                       <div className="font-bold">
                         Задержка до 4 часов: 50% стоимости
@@ -393,12 +393,63 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 5. Поведение гостей и тишина */}
+              {/* 5. Посещение посторонними */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(212, 164, 74, 0.15)",
+                  boxShadow:
+                    "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+                }}
+                data-testid="visitors-section"
+              >
+                <div className="flex items-center mb-6">
+                  <Users className="w-8 h-8 text-primary mr-3" />
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                    Посещение посторонними
+                  </h2>
+                </div>
+                <div className="space-y-6">
+                  <div className="p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-amber-300">
+                      ⚠️ Правила посещения
+                    </h3>
+                    <div className="space-y-3 text-foreground">
+                      <p>
+                        Только зарегистрированные жильцы имеют право находиться в
+                        номерах и на территории комплекса.
+                      </p>
+                      <div className="p-4 rounded-lg bg-black/20">
+                        <h4 className="font-semibold mb-2">
+                          Посещение посторонних лиц:
+                        </h4>
+                        <ul className="space-y-1 text-sm">
+                          <li>• Допускается только с разрешения администрации</li>
+                          <li>• Время посещения: с 08:00 до 23:00</li>
+                          <li>
+                            • Требуется предъявление удостоверения личности
+                            администратору
+                          </li>
+                          <li>
+                            • Гости несут ответственность за поведение посетителей
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* 6. Поведение гостей и тишина */}
+              <section
+                className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   border: "1px solid rgba(212, 164, 74, 0.15)",
@@ -461,7 +512,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 6. Курение и алкоголь */}
+              {/* 7. Курение и алкоголь */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -528,7 +579,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 7. Использование бассейна и сауны */}
+              {/* 8. Использование бассейна и сауны */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -620,7 +671,58 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 8. Ответственность за детей */}
+              {/* 9. Уборка и смена белья */}
+              <section
+                className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(212, 164, 74, 0.15)",
+                  boxShadow:
+                    "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+                }}
+                data-testid="cleaning-section"
+              >
+                <div className="flex items-center mb-6">
+                  <ClipboardCheck className="w-8 h-8 text-primary mr-3" />
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                    Уборка и смена белья
+                  </h2>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="p-6 rounded-xl bg-green-500/10 border border-green-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-green-400">
+                      ✓ Стандартная уборка
+                    </h3>
+                    <ul className="space-y-2 text-foreground text-sm">
+                      <li>• Уборка после каждого гостя</li>
+                      <li>• Смена полотенец после каждого гостя</li>
+                      <li>• Смена постельного белья</li>
+                      <li>• Уборка территории</li>
+                    </ul>
+                  </div>
+                  <div className="p-6 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-blue-300">
+                      📅 При длительном проживании
+                    </h3>
+                    <div className="space-y-3 text-foreground text-sm">
+                      <p>
+                        При проживании 3 ночи и более или по специальным тарифам:
+                      </p>
+                      <ul className="space-y-1">
+                        <li>• Уборка раз в 3 дня</li>
+                        <li>• Смена белья раз в 3 дня</li>
+                        <li>• Дополнительная уборка по запросу (платно)</li>
+                        <li>• Смена полотенец по желанию</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* 10. Ответственность за детей */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -677,7 +779,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 9. Мангальная зона */}
+              {/* 11. Мангальная зона */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -732,7 +834,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 10. Правила в помещении */}
+              {/* 12. Правила в помещении */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -781,7 +883,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 11. Правила на территории */}
+              {/* 13. Правила на территории */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -830,7 +932,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 12. Посещение лесной территории */}
+              {/* 14. Посещение лесной территории */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -889,7 +991,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 13. Парковка */}
+              {/* 15. Парковка */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -936,7 +1038,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 14. Животные */}
+              {/* 16. Животные */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -967,7 +1069,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 15. Повреждение имущества и штрафы */}
+              {/* 17. Повреждение имущества и штрафы */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -1031,7 +1133,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 16. Пожарная безопасность */}
+              {/* 18. Пожарная безопасность */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -1088,7 +1190,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 17. Отмена бронирования */}
+              {/* 19. Отмена бронирования */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -1142,7 +1244,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 18. Часто задаваемые вопросы (FAQ) */}
+              {/* 20. Часто задаваемые вопросы (FAQ) */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
