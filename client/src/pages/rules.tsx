@@ -251,7 +251,7 @@ export default function Rules() {
                       </div>
                       <div className="p-3 rounded-lg bg-amber-500/20 text-center">
                         <div className="font-bold text-amber-200">
-                          +2 500₽ в сутки
+                          +5000₽ в сутки
                         </div>
                         <div className="text-sm">с человека</div>
                       </div>
@@ -443,7 +443,9 @@ export default function Rules() {
                         <h3 className="text-xl font-semibold mt-4 mb-2 text-primary">
                           Время тишины: 22:00 - 08:00
                         </h3>
-                        <p className="text-sm text-foreground/80">(закон о тишине)</p>
+                        <p className="text-sm text-foreground/80">
+                          (закон о тишине)
+                        </p>
                       </div>
                     </div>
                   </div>
