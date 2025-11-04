@@ -97,7 +97,7 @@ export default function Rules() {
                 data-testid="checkin-widget"
               >
                 <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-primary font-bold">15:00 - 12:00</div>
+                <div className="text-primary font-bold">15:00 - 11:00</div>
                 <div className="text-sm text-foreground/80">Заезд - Выезд</div>
               </div>
               <div
@@ -366,7 +366,7 @@ export default function Rules() {
                   </div>
                   <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
                     <div className="text-3xl font-bold text-primary mb-2">
-                      12:00
+                      11:00
                     </div>
                     <div className="text-lg font-semibold mb-2">
                       Время выезда
@@ -381,7 +381,7 @@ export default function Rules() {
                     </h4>
                     <div className="text-sm text-foreground space-y-1">
                       <div>Ранний заезд (до 15:00)</div>
-                      <div>Поздний выезд (после 12:00)</div>
+                      <div>Поздний выезд (после 11:00)</div>
                       <div className="font-bold">
                         Задержка до 4 часов: 50% стоимости
                       </div>
@@ -423,8 +423,11 @@ export default function Rules() {
                         <ul className="space-y-1 text-sm">
                           <li>• Шумные разговоры</li>
                           <li>• Громкая музыка</li>
+                          <li>• Свои колонки</li>
                           <li>• Публичные конфликты</li>
                           <li>• Агрессивное поведение</li>
+                          <li>• Шумные вечеринки и мероприятия</li>
+                          <li>• Проживание с животными</li>
                         </ul>
                       </div>
                       <div>
@@ -437,9 +440,10 @@ export default function Rules() {
                           <li>• Тихие активности</li>
                         </ul>
 
-                        <h3 className="text-xl font-semibold mb-4 text-primary">
+                        <h3 className="text-xl font-semibold mt-4 mb-2 text-primary">
                           Время тишины: 22:00 - 08:00
                         </h3>
+                        <p className="text-sm text-foreground/80">(закон о тишине)</p>
                       </div>
                     </div>
                   </div>
@@ -563,10 +567,16 @@ export default function Rules() {
                           Запрещено:
                         </h4>
                         <ul className="space-y-1 text-sm">
-                          <li>• Нырять в мелкой части</li>
-                          <li>• Использовать стеклянную посуду</li>
+                          <li>• Нырять, бегать и прыгать</li>
+                          <li>• Использовать стекло и острые предметы</li>
                           <li>• Приносить еду и напитки</li>
                         </ul>
+                      </div>
+                      <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/20 mt-3">
+                        <h4 className="font-semibold text-amber-300 mb-2">
+                          👨‍👩‍👧 Дети
+                        </h4>
+                        <p className="text-sm">Только с взрослыми</p>
                       </div>
                     </div>
                   </div>
@@ -588,13 +598,20 @@ export default function Rules() {
                       </div>
                       <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
                         <h4 className="font-semibold text-red-300 mb-2">
-                          Противопоказания:
+                          Запрещено:
                         </h4>
                         <ul className="space-y-1 text-sm">
-                          <li>• Сердечно-сосудистые заболевания</li>
-                          <li>• Беременность</li>
-                          <li>• Алкогольное опьянение</li>
+                          <li>• Использовать масла, скрабы и соли</li>
+                          <li>• Посещать при сердечных заболеваниях</li>
+                          <li>• Беременным</li>
+                          <li>• В алкогольном опьянении</li>
                         </ul>
+                      </div>
+                      <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/20 mt-3">
+                        <h4 className="font-semibold text-amber-300 mb-2">
+                          👨‍👩‍👧 Дети
+                        </h4>
+                        <p className="text-sm">Только с взрослыми</p>
                       </div>
                     </div>
                   </div>
@@ -713,7 +730,105 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 10. Посещение лесной территории */}
+              {/* 10. Правила в помещении */}
+              <section
+                className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(212, 164, 74, 0.15)",
+                  boxShadow:
+                    "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+                }}
+                data-testid="indoor-rules-section"
+              >
+                <div className="flex items-center mb-6">
+                  <Home className="w-8 h-8 text-primary mr-3" />
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                    Правила в помещении
+                  </h2>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="p-6 rounded-xl bg-red-500/10 border border-red-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-red-400">
+                      🚫 Запрещено
+                    </h3>
+                    <ul className="space-y-2 text-foreground text-sm">
+                      <li>• Ходить в уличной обуви</li>
+                      <li>• Использовать открытый огонь и свечи</li>
+                      <li>• Использовать гриль в помещении</li>
+                      <li>• Использовать мощные обогреватели</li>
+                      <li>• Переставлять мебель</li>
+                      <li>• Портить имущество</li>
+                    </ul>
+                  </div>
+                  <div className="p-6 rounded-xl bg-green-500/10 border border-green-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-green-400">
+                      ✅ Необходимо
+                    </h3>
+                    <ul className="space-y-2 text-foreground text-sm">
+                      <li>• Использовать сменную обувь или тапочки</li>
+                      <li>• Бережно относиться к мебели и технике</li>
+                      <li>• Сообщать о неисправностях</li>
+                      <li>• Соблюдать чистоту и порядок</li>
+                      <li>• Оставлять ключи на ресепшене при выезде</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* 11. Правила на территории */}
+              <section
+                className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(212, 164, 74, 0.15)",
+                  boxShadow:
+                    "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+                }}
+                data-testid="outdoor-territory-section"
+              >
+                <div className="flex items-center mb-6">
+                  <TreePine className="w-8 h-8 text-primary mr-3" />
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">
+                    Правила на территории
+                  </h2>
+                </div>
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
+                      <h3 className="text-lg font-semibold mb-3 text-red-400">
+                        🚫 Строго запрещено
+                      </h3>
+                      <ul className="space-y-1 text-sm">
+                        <li>• Фейерверки, петарды, фонтаны</li>
+                        <li>• Хлопушки и конфетти</li>
+                        <li>• Пенные вечеринки</li>
+                        <li>• Заезжать на газон</li>
+                        <li>• Повреждать растения и декор</li>
+                      </ul>
+                    </div>
+                    <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
+                      <h3 className="text-lg font-semibold mb-3 text-green-400">
+                        ✅ Необходимо
+                      </h3>
+                      <ul className="space-y-1 text-sm">
+                        <li>• Бережно относиться к растениям</li>
+                        <li>• Не повреждать декор</li>
+                        <li>• Выбрасывать мусор только в контейнеры</li>
+                        <li>• Соблюдать чистоту на территории</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* 12. Посещение лесной территории */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -772,7 +887,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 11. Парковка */}
+              {/* 13. Парковка */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -812,13 +927,14 @@ export default function Rules() {
                       <li>• Парковаться только в отведенных местах</li>
                       <li>• Не блокировать проезды</li>
                       <li>• Соблюдать скоростной режим (5 км/ч)</li>
+                      <li>• Не заезжать на газон</li>
                       <li>• Не оставлять ценные вещи в машине</li>
                     </ul>
                   </div>
                 </div>
               </section>
 
-              {/* 12. Животные */}
+              {/* 14. Животные */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -849,7 +965,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 13. Повреждение имущества и штрафы */}
+              {/* 15. Повреждение имущества и штрафы */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -913,7 +1029,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 14. Пожарная безопасность */}
+              {/* 16. Пожарная безопасность */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -970,7 +1086,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 15. Отмена бронирования */}
+              {/* 17. Отмена бронирования */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -1024,7 +1140,7 @@ export default function Rules() {
                 </div>
               </section>
 
-              {/* 16. Часто задаваемые вопросы (FAQ) */}
+              {/* 18. Часто задаваемые вопросы (FAQ) */}
               <section
                 className="p-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02]"
                 style={{
@@ -1290,7 +1406,7 @@ export default function Rules() {
                           </ul>
                         </div>
                         <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
-                          <p className="text-sm">💡 Расчетный час: до 12:00</p>
+                          <p className="text-sm">💡 Расчетный час: до 11:00</p>
                         </div>
                       </div>
                     </AccordionContent>
