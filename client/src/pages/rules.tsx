@@ -25,6 +25,9 @@ import {
   Check,
   DollarSign,
   Calendar,
+  Waves,
+  Thermometer,
+  Dog,
 } from "lucide-react";
 import {
   Accordion,
@@ -497,14 +500,14 @@ export default function Rules() {
               data-testid="pool-sauna-section"
             >
               <div className="flex items-center justify-center mb-8">
-                <div className="text-4xl mr-3">🏊‍♂️</div>
+                <Waves className="w-10 h-10 text-primary mr-3" />
                 <h2 className="text-3xl md:text-4xl font-bold text-primary font-display">
                   Бассейн и Сауна
                 </h2>
               </div>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="text-center p-6 rounded-xl bg-blue-500/10 border border-blue-500/20">
-                  <div className="text-3xl mb-4">🏊‍♂️</div>
+                  <Waves className="w-10 h-10 text-blue-400 mx-auto mb-4" />
                   <div className="font-semibold text-blue-300 mb-4">
                     Бассейн
                   </div>
@@ -516,7 +519,7 @@ export default function Rules() {
                   </ul>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-orange-500/10 border border-orange-500/20">
-                  <div className="text-3xl mb-4">🧖‍♂️</div>
+                  <Thermometer className="w-10 h-10 text-orange-400 mx-auto mb-4" />
                   <div className="font-semibold text-orange-300 mb-4">
                     Сауна
                   </div>
@@ -843,7 +846,7 @@ export default function Rules() {
               data-testid="pets-section"
             >
               <div className="flex items-center justify-center mb-8">
-                <div className="text-4xl mr-3">🐕</div>
+                <Dog className="w-10 h-10 text-primary mr-3" />
                 <h2 className="text-3xl md:text-4xl font-bold text-primary font-display">
                   Животные
                 </h2>
