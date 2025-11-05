@@ -278,20 +278,23 @@ export default function Rules() {
                   <div className="space-y-2 text-sm text-foreground/80">
                     <div>+7‑918‑924‑00‑07</div>
                     <div>WhatsApp / Telegram</div>
-                    <div>Avito, Суточно.ру</div>
+                    <div>Avito, Суточно.ру, Яндекс Путешествия</div>
                   </div>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
                   <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-4" />
                   <div className="font-semibold text-green-400 mb-3">
-                    Оплата
+                    Предолата
                   </div>
                   <div className="text-2xl font-bold text-primary mb-2">
                     10 000₽
                   </div>
-                  <div className="text-sm text-foreground/70">Предоплата</div>
-                  <div className="text-xs text-foreground/60 mt-2">
+                  <div className="text-sm text-foreground/70">
                     Остаток при заезде
+                  </div>
+                  <div className="text-xs text-foreground/60 mt-2">
+                    размер предоплаты может меняться в зависимости от даты
+                    бронирования
                   </div>
                 </div>
               </div>
@@ -635,6 +638,7 @@ export default function Rules() {
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>• Только в мангале</li>
                     <li>• Под присмотром</li>
+                    <li>• только угли специальная жидкость для розжига</li>
                   </ul>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-red-500/10 border border-red-500/20">
@@ -645,6 +649,7 @@ export default function Rules() {
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>• Открытый огонь вне зоны</li>
                     <li>• Оставлять без присмотра</li>
+                    <li>• Использовать дрова и палеты</li>
                   </ul>
                 </div>
               </div>
@@ -885,8 +890,7 @@ export default function Rules() {
                   </p>
                   <div className="p-4 rounded-lg bg-red-500/10">
                     <div className="text-sm text-foreground/80">
-                      Штрафы за нарушение правил:{" "}
-                      <strong className="text-red-400">от 5 000₽</strong>
+                      Штрафы за нарушение правил по прайс листу{" "}
                     </div>
                   </div>
                 </div>
@@ -964,20 +968,23 @@ export default function Rules() {
                   <div className="text-3xl font-bold text-green-400 mb-2">
                     100%
                   </div>
-                  <div className="text-sm text-foreground/70 mb-3">Возврат</div>
-                  <div className="text-xs text-foreground/60">За 7+ дней</div>
-                </div>
-                <div className="text-center p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
-                  <div className="text-3xl font-bold text-amber-300 mb-2">
-                    50%
+                  <div className="text-sm text-foreground/70 mb-3">
+                    Возврат в обычные дни
                   </div>
-                  <div className="text-sm text-foreground/70 mb-3">Возврат</div>
-                  <div className="text-xs text-foreground/60">За 3-6 дней</div>
+                  <div className="text-xs text-foreground/60">За 14+ дней</div>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-red-500/10 border border-red-500/20">
                   <div className="text-3xl font-bold text-red-400 mb-2">0%</div>
-                  <div className="text-sm text-foreground/70 mb-3">Возврат</div>
-                  <div className="text-xs text-foreground/60">Менее 3 дней</div>
+                  <div className="text-sm text-foreground/70 mb-3">
+                    удержание предоплаты
+                  </div>
+                  <div className="text-xs text-foreground/60">
+                    Менее 14 дней
+                  </div>
+                </div>
+                <div className="text-sm text-foreground/70 mb-3">
+                  Для бронирований с 30.12 - 11.01 предоплата возвращается за
+                  30+ дней
                 </div>
               </div>
             </section>
