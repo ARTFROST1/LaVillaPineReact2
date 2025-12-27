@@ -58,18 +58,10 @@ export default function ContactButtons({
             aria-label={b.aria}
             title={b.label}
             className={cn(
-              // Loft header-like button but rectangular and solid (header colors)
               "loft-nav-button inline-flex items-center justify-center",
               sizes[size],
-              "rounded-xl",
-              // use header glassy/dark gradient defined in styles
-              "loft-header",
-              // gold accent border
-              "border border-amber-400/20",
-              // text and icon use foreground/primary
+              "rounded-lg",
               "text-foreground",
-              "shadow-sm",
-              "hover:brightness-105 active:brightness-95",
               "transition-all duration-200",
               "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary",
             )}
