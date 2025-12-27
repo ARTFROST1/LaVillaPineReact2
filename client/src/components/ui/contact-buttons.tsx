@@ -20,7 +20,7 @@ export default function ContactButtons({
 }: ContactButtonsProps) {
   const sizes: Record<string, string> = {
     sm: "px-3 py-2 text-sm",
-    md: "px-4 py-2 text-sm",
+    md: "px-4 py-2.5 text-sm",
     lg: "px-5 py-3 text-base",
   };
 
@@ -58,19 +58,19 @@ export default function ContactButtons({
             aria-label={b.aria}
             title={b.label}
             className={cn(
-              "inline-flex items-center justify-center",
+              "inline-flex items-center justify-center gap-2",
               sizes[size],
-              "rounded-lg",
-              "bg-white",
-              "text-foreground",
-              "border border-gray-200",
-              "transition-all duration-200",
-              "hover:bg-gray-50 hover:border-gray-300",
+              "rounded-md",
+              "bg-gradient-to-br from-secondary to-secondary/80",
+              "border border-primary/20",
+              "transition-all duration-300",
+              "hover:from-secondary hover:to-secondary/70 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10",
+              "active:scale-95",
               "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary",
             )}
           >
             <Icon className={cn(iconSizes[size], "text-primary")} />
-            <span className={cn(showLabels ? "ml-3 font-semibold text-foreground" : "hidden sm:inline-block ml-3 font-semibold text-foreground")}>{b.label || b.aria}</span>
+            <span className={cn(showLabels ? "font-semibold text-foreground" : "hidden sm:inline-block font-semibold text-foreground")}>{b.label || b.aria}</span>
           </a>
         );
       })}
