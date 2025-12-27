@@ -58,11 +58,14 @@ export default function ContactButtons({
             aria-label={b.aria}
             title={b.label}
             className={cn(
-              "loft-nav-button inline-flex items-center justify-center",
+              "inline-flex items-center justify-center",
               sizes[size],
               "rounded-lg",
+              "bg-white",
               "text-foreground",
+              "border border-gray-200",
               "transition-all duration-200",
+              "hover:bg-gray-50 hover:border-gray-300",
               "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary",
             )}
           >
