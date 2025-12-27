@@ -8,6 +8,7 @@ import { ScrollProvider } from "@/contexts/scroll-context";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import YandexReviews from "@/components/ui/yandex-reviews";
+import { SeasonalEffects } from "@/components/ui/seasonal-effects";
 import Home from "@/pages/home";
 import About from "@/pages/about";
 import Gallery from "@/pages/gallery";
@@ -56,6 +57,7 @@ function App() {
           <Router />
           <CookieConsent />
           <YandexReviews />
+          <SeasonalEffects />
         </TooltipProvider>
       </ScrollProvider>
     </QueryClientProvider>
