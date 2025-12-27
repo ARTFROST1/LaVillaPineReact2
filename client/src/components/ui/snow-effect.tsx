@@ -52,14 +52,10 @@ export function SnowEffect() {
 
     // Анимация
     const animate = () => {
-      // Очистка canvas с полупрозрачностью для эффекта следа
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Полная очистка canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Рисование снежинок
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-      ctx.beginPath();
-
       snowflakesRef.current.forEach((flake) => {
         // Обновление позиции
         flake.y += flake.speed;
@@ -79,8 +75,9 @@ export function SnowEffect() {
           flake.x = canvas.width;
         }
 
-        // Рисование снежинки как круга
+        // Рисование снежинки
         ctx.globalAlpha = flake.opacity;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
         ctx.fillRect(flake.x, flake.y, flake.size, flake.size);
       });
 
