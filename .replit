@@ -7,20 +7,12 @@ channel = "stable-25_05"
 
 [deployment]
 deploymentTarget = "autoscale"
-run = ["npm", "run", "start"]
+run = ["node", "./dist/index.cjs"]
 build = ["npm", "run", "build"]
 
 [[ports]]
 localPort = 5000
 externalPort = 80
-
-[[ports]]
-localPort = 33769
-externalPort = 3001
-
-[[ports]]
-localPort = 43047
-externalPort = 3000
 
 [workflows]
 runButton = "Project"
