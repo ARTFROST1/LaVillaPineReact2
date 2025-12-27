@@ -10,6 +10,7 @@ import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
 import YandexMap from "@/components/ui/yandex-map";
 import StackedAmenities from "@/components/ui/stacked-amenities";
+import ContactButtons from "@/components/ui/contact-buttons";
 import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES, AMENITIES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
@@ -428,12 +429,18 @@ export default function Home() {
                   </div>
                 ) : (
                   <div 
-                    className="space-y-4 transition-opacity duration-1000 ease-out"
+                    className="space-y-6 transition-opacity duration-1000 ease-out"
                     style={{
                       opacity: isBookingFormVisible ? 1 : 0,
                     }}
                   >
                     <div id="hr-widget"></div>
+                    
+                    {/* Contact Buttons */}
+                    <div className="flex justify-center pt-2">
+                      <ContactButtons buttonSize="md" showLabels={false} />
+                    </div>
+
                     {SITE_CONFIG.showBookingDateNotice && (
                       <BookingDateNotice variant="home" />
                     )}
