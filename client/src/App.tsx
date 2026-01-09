@@ -7,6 +7,7 @@ import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import { ScrollProvider } from "@/contexts/scroll-context";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import PageBreadcrumbs from "@/components/ui/page-breadcrumbs";
 import YandexReviews from "@/components/ui/yandex-reviews";
 import { SeasonalEffects } from "@/components/ui/seasonal-effects";
 import Home from "@/pages/home";
@@ -28,6 +29,7 @@ function Router() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      <PageBreadcrumbs />
       <main className="flex-1">
         <Switch>
           <Route path="/" component={Home} />

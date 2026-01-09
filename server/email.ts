@@ -113,11 +113,16 @@ export async function sendContactEmail(data: EmailData): Promise<boolean> {
       const result = await transporter.sendMail(mailOptions);
       console.log('Email отправлен успешно:', result.messageId);
       return true;
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Ошибка отправки email через SMTP:', error);
-      
+
+      const code =
+        error && typeof error === 'object' && 'code' in error
+          ? (error as { code?: unknown }).code
+          : undefined;
+
       // Специальная обработка ошибок аутентификации
-      if (error.code === 'EAUTH') {
+      if (code === 'EAUTH') {
         console.error('Проблема с аутентификацией. Проверьте:');
         console.error('1. Правильность email адреса');
         console.error('2. Используется ли пароль приложения (не основной пароль)');

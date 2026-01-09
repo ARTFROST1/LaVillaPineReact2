@@ -9,6 +9,13 @@ import { sendEmailJSMessage, sendFormspreeMessage } from "./emailjs-service";
 import { sendSimpleEmail, sendWebhookEmail, sendNetlifyForm } from "./simple-email";
 import { notifyIndexNow, getAllSiteUrls, getIndexNowKey, notifyIndexNowSingleUrl, validateIndexNowKey } from "./indexnow";
 import { updateSitemap, getSitemapUrls } from "./sitemap-generator";
+import { 
+  handleRealtyCalendarWebhook, 
+  getBookingLogs, 
+  generateOfflineConversionsCSV,
+  generateOfflineConversionsCSVWithIdType,
+  type RealtyCalendarWebhook 
+} from "./realtycalendar-webhook";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -318,6 +325,119 @@ export async function registerRoutes(app: Express): Promise<Server> {
         message: "Ошибка при обновлении SEO данных" 
       });
     }
+  });
+
+  // =====================================
+  // RealtyCalendar Webhook Endpoints
+  // =====================================
+  
+  /**
+   * Webhook endpoint для RealtyCalendar
+   * URL для настройки в RealtyCalendar: https://lavillapine.onrender.com/api/webhook/realtycalendar
+   * 
+   * События:
+   * - reservation_created - Новое бронирование
+   * - payment_received - Получена оплата
+   * - reservation_cancelled - Отмена
+   */
+  app.post("/api/webhook/realtycalendar", async (req, res) => {
+    try {
+      console.log('[Webhook] Получен webhook от RealtyCalendar:', JSON.stringify(req.body, null, 2));
+      
+      const payload = req.body as RealtyCalendarWebhook;
+      
+      // Валидация базовой структуры
+      if (!payload.event && !payload.data) {
+        // RealtyCalendar может отправлять данные в разных форматах
+        // Принимаем любой формат и логируем
+        console.log('[Webhook] Нестандартный формат webhook, сохраняем как есть');
+        
+        // Пробуем извлечь данные из разных возможных структур
+        const normalizedPayload: RealtyCalendarWebhook = {
+          event: payload.event || req.body.type || req.body.action || 'unknown',
+          timestamp: payload.timestamp || req.body.created_at || new Date().toISOString(),
+          data: payload.data || req.body.reservation || req.body.booking || req.body,
+        };
+        
+        const result = await handleRealtyCalendarWebhook(normalizedPayload);
+        res.json(result);
+        return;
+      }
+      
+      const result = await handleRealtyCalendarWebhook(payload);
+      res.json(result);
+      
+    } catch (error) {
+      console.error('[Webhook] Ошибка обработки webhook:', error);
+      // Всегда возвращаем 200, чтобы RealtyCalendar не повторял запросы
+      res.json({ 
+        success: false, 
+        message: 'Ошибка обработки, но webhook получен' 
+      });
+    }
+  });
+
+  /**
+   * Получение логов бронирований (для администрирования)
+   */
+  app.get("/api/webhook/bookings", async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 100;
+      const logs = getBookingLogs(limit);
+      res.json({ 
+        success: true, 
+        count: logs.length,
+        bookings: logs 
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: 'Ошибка получения логов' 
+      });
+    }
+  });
+
+  /**
+   * Экспорт CSV для загрузки офлайн-конверсий в Яндекс Метрику
+   */
+  app.get("/api/webhook/conversions/csv", async (req, res) => {
+    try {
+      const idTypeRaw = (req.query.idType as string | undefined) ?? 'ClientId';
+      const idType = idTypeRaw === 'yclid' ? 'yclid' : 'ClientId';
+      const csv = idType === 'ClientId'
+        ? generateOfflineConversionsCSV()
+        : generateOfflineConversionsCSVWithIdType('yclid');
+      res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+      res.setHeader('Content-Disposition', 'attachment; filename="offline_conversions.csv"');
+      res.send(csv);
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: 'Ошибка генерации CSV' 
+      });
+    }
+  });
+
+  /**
+   * Тестовый endpoint для проверки webhook
+   */
+  app.get("/api/webhook/test", async (req, res) => {
+    res.json({
+      success: true,
+      message: 'Webhook endpoint работает',
+      webhookUrl: 'https://lavillapine.onrender.com/api/webhook/realtycalendar',
+      instructions: {
+        ru: 'Вставьте этот URL в настройки Webhook в RealtyCalendar',
+        events: ['reservation_created', 'payment_received', 'reservation_cancelled'],
+        goals: {
+          booking_complete: 'Главная цель - завершённое бронирование',
+          contact_form_submit: 'Отправка формы связи',
+          phone_click: 'Клик по телефону',
+          messenger_click: 'Клик по мессенджеру',
+        },
+        metrikaCounterId: '103308092',
+      },
+    });
   });
 
   const httpServer = createServer(app);

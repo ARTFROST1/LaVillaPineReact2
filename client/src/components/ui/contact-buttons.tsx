@@ -3,6 +3,7 @@
 import { Phone, MessageCircle, Send, ExternalLink, type LucideIcon } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { trackPhoneClickWithCallback, trackMessengerClick } from "@/lib/yandex-metrika";
 
 interface ContactButtonsProps {
   className?: string;
@@ -38,6 +39,25 @@ export default function ContactButtons({
     { id: "telegram", label: "", icon: Send, href: SITE_CONFIG.socialLinks.telegram, target: "_blank", aria: "Написать в Telegram" },
   ];
 
+  const handleClick = (buttonId: string, href: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (buttonId === "phone") {
+      e.preventDefault();
+      trackPhoneClickWithCallback("contact-buttons", () => {
+        window.location.href = href;
+      });
+      return;
+    }
+
+    if (buttonId === "whatsapp") {
+      trackMessengerClick("whatsapp", "contact-buttons");
+      return;
+    }
+
+    if (buttonId === "telegram") {
+      trackMessengerClick("telegram", "contact-buttons");
+    }
+  };
+
   return (
     <div
       className={cn(
@@ -57,6 +77,7 @@ export default function ContactButtons({
             rel={b.target === "_blank" ? "noopener noreferrer" : undefined}
             aria-label={b.aria}
             title={b.label}
+            onClick={(e) => handleClick(b.id, b.href, e)}
             className={cn(
               "inline-flex items-center justify-center gap-2",
               sizes[size],

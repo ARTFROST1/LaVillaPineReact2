@@ -5,6 +5,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useDynamicContrast } from "@/hooks/useDynamicContrast";
 import { SiInstagram, SiTelegram } from "react-icons/si";
+import { trackPhoneClickWithCallback, trackMessengerClick } from "@/lib/yandex-metrika";
 // Logo from public directory
 const logoImage = "/images/icons/logo.webp";
 
@@ -121,6 +122,12 @@ export default function Header() {
                 href={`tel:${SITE_CONFIG.phone}`}
                 className={`flex items-center space-x-2 ${transparentTextClass} hover:opacity-80 transition-opacity`}
                 data-testid="link-phone"
+                onClick={(e) => {
+                  e.preventDefault();
+                  trackPhoneClickWithCallback('header', () => {
+                    window.location.href = `tel:${SITE_CONFIG.phone}`;
+                  });
+                }}
               >
                 <Phone className="h-4 w-4" />
                 <span className="text-sm font-medium">{SITE_CONFIG.phone}</span>
@@ -144,6 +151,7 @@ export default function Header() {
                 rel="noopener noreferrer"
                 className={`${transparentTextClass} hover:opacity-80 transition-opacity`}
                 data-testid="link-telegram"
+                onClick={() => trackMessengerClick('telegram', 'header')}
               >
                 <SiTelegram className="h-5 w-5" />
               </a>
@@ -231,6 +239,12 @@ export default function Header() {
                 href={`tel:${SITE_CONFIG.phone}`}
                 className={`flex items-center space-x-3 ${transparentTextClass} hover:opacity-80 transition-opacity py-2`}
                 data-testid="link-mobile-phone"
+                onClick={(e) => {
+                  e.preventDefault();
+                  trackPhoneClickWithCallback('mobile-menu', () => {
+                    window.location.href = `tel:${SITE_CONFIG.phone}`;
+                  });
+                }}
               >
                 <Phone className="h-5 w-5" />
                 <span className="text-base font-medium">{SITE_CONFIG.phone}</span>

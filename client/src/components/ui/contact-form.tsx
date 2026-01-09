@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Loader2 } from "lucide-react";
+import { trackContactFormSubmit } from "@/lib/yandex-metrika";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Имя должно содержать не менее 2 символов"),
@@ -41,6 +42,9 @@ export default function ContactForm() {
       const result = await response.json();
       
       if (result.success) {
+        // Отслеживание цели в Яндекс Метрике
+        trackContactFormSubmit();
+        
         toast({
           title: "Сообщение успешно отправлено!",
           description: "Мы скоро свяжемся с вами.",

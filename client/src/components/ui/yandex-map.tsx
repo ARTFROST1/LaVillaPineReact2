@@ -142,7 +142,9 @@ export default function YandexMap({
                   className.includes("balloon") ||
                   className.includes("icon"))
               ) {
-                element.style.filter = "grayscale(0%) !important";
+                if (element instanceof HTMLElement) {
+                  element.style.setProperty("filter", "grayscale(0%)", "important");
+                }
               }
             });
           }, 1000);
