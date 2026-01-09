@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ui/contact-form";
 import PageMeta from "@/components/seo/PageMeta";
+import StructuredData from "@/components/seo/StructuredData";
 import { SITE_CONFIG } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
 import AvitoIcon from "@/components/ui/avito-icon";
@@ -18,6 +19,7 @@ export default function Contacts() {
         ogImage={SEO_PAGES.contacts.ogImage}
         canonical="https://lavillapine.onrender.com/contacts"
       />
+      <StructuredData type="page" pageName="Контакты" pageUrl="/contacts" />
       
       {/* Hero Section */}
       <section className="relative w-full h-screen min-h-[600px] overflow-hidden">

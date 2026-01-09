@@ -105,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-muted-foreground">
-          <p>&copy; 2025 {SITE_CONFIG.name}. Все права защищены.</p>
+          <p>&copy; 2026 {SITE_CONFIG.name}. Все права защищены.</p>
         </div>
       </div>
     </footer>

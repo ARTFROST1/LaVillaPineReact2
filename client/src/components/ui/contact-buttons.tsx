@@ -60,17 +60,18 @@ export default function ContactButtons({
             className={cn(
               "inline-flex items-center justify-center gap-2",
               sizes[size],
-              "rounded-md",
-              "bg-gradient-to-br from-secondary to-secondary/80",
-              "border border-primary/20",
+              "rounded-lg",
+              "bg-white/90 backdrop-blur-sm",
+              "border border-primary/30",
+              "shadow-md",
               "transition-all duration-300",
-              "hover:from-secondary hover:to-secondary/70 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10",
+              "hover:bg-white hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 hover:scale-105",
               "active:scale-95",
               "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary",
             )}
           >
             <Icon className={cn(iconSizes[size], "text-primary")} />
-            <span className={cn(showLabels ? "font-semibold text-foreground" : "hidden sm:inline-block font-semibold text-foreground")}>{b.label || b.aria}</span>
+            <span className={cn(showLabels ? "font-semibold text-gray-800" : "hidden sm:inline-block font-semibold text-gray-800")}>{b.label || b.aria}</span>
           </a>
         );
       })}

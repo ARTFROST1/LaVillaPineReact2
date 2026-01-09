@@ -2,17 +2,25 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, HelpCircle } from "lucide-react";
 import CarouselHero from "@/components/ui/carousel-hero";
 import DynamicImage from "@/components/ui/dynamic-image";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
+import StructuredData from "@/components/seo/StructuredData";
 import YandexMap from "@/components/ui/yandex-map";
 import StackedAmenities from "@/components/ui/stacked-amenities";
 import ContactButtons from "@/components/ui/contact-buttons";
+import QuickLinks from "@/components/ui/quick-links";
 import { HERO_IMAGES, SITE_CONFIG, GALLERY_IMAGES, AMENITIES } from "@/lib/constants";
 import { SEO_PAGES } from "@/lib/seo-constants";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 // Типы для HomeReserve
 declare global {
@@ -395,6 +403,7 @@ export default function Home() {
         ogImage={SEO_PAGES.home.ogImage}
         canonical="https://lavillapine.onrender.com/"
       />
+      <StructuredData type="home" />
       {/* Hero Section */}
       <section className="relative w-full h-screen overflow-hidden">
         {/* Full width carousel background */}
@@ -438,7 +447,7 @@ export default function Home() {
                     
                     {/* Contact Buttons */}
                     <div className="flex justify-center pt-2">
-                      <ContactButtons buttonSize="md" showLabels={false} />
+                      <ContactButtons size="md" showLabels={false} />
                     </div>
 
                     {SITE_CONFIG.showBookingDateNotice && (
@@ -462,6 +471,7 @@ export default function Home() {
       }}>
         <StackedAmenities onImageClick={openGallery} />
       </section>
+
       {/* Галерея карусель */}
       <section 
         ref={gallerySectionRef}
@@ -778,6 +788,98 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      {/* FAQ Section */}
+      <section 
+        className="py-12 sm:py-16 md:py-20"
+        style={{
+          background: 'linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderTop: '1px solid rgba(212, 164, 74, 0.15)',
+          borderBottom: '1px solid rgba(212, 164, 74, 0.15)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+        }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
+              <div className="flex items-center justify-center mb-6">
+                <HelpCircle className="w-10 h-10 text-primary mr-3" />
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary font-display">
+                  Частые вопросы
+                </h2>
+              </div>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+                Всё, что нужно знать о La Villa Pine
+              </p>
+            </div>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem
+                value="item-1"
+                className="rounded-xl bg-black/20 border border-primary/20 px-6"
+              >
+                <AccordionTrigger className="text-primary hover:text-primary/80 text-left">
+                  Что такое La Villa Pine?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/80">
+                  La Villa Pine — это современные гостевые дома в стиле лофт в горах Адыгеи. Каждый дом оборудован собственным подогреваемым бассейном, финской сауной с RGB-подсветкой и всем необходимым для комфортного отдыха. Мы находимся в окружении леса, всего в 20 минутах от города Майкоп и 30 минутах от горных курортов.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem
+                value="item-2"
+                className="rounded-xl bg-black/20 border border-primary/20 px-6"
+              >
+                <AccordionTrigger className="text-primary hover:text-primary/80 text-left">
+                  Сколько стоит проживание и как забронировать?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/80">
+                  Стоимость зависит от сезона и количества дней. Для бронирования свяжитесь с нами по телефону +7‑918‑924‑00‑07 (WhatsApp / Telegram) или через сервисы Avito, Суточно.ру, Яндекс Путешествия. Требуется предоплата 10 000₽, остаток вносится при заезде. Минимальный срок аренды — 2 суток.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem
+                value="item-3"
+                className="rounded-xl bg-black/20 border border-primary/20 px-6"
+              >
+                <AccordionTrigger className="text-primary hover:text-primary/80 text-left">
+                  Что входит в стоимость проживания?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/80">
+                  В стоимость включено: комфортабельный дом на 6 основных мест, частный подогреваемый бассейн, финская сауна с RGB-подсветкой, полностью оборудованная кухня, бесплатный Wi-Fi, парковка на территории, мангальная зона с углями и жидкостью для розжига, кондиционеры, постельное белье и полотенца.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem
+                value="item-4"
+                className="rounded-xl bg-black/20 border border-primary/20 px-6"
+              >
+                <AccordionTrigger className="text-primary hover:text-primary/80 text-left">
+                  Сколько человек может разместиться?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/80">
+                  В каждом доме 6 основных спальных мест. Возможно размещение до 8 человек с доплатой 5000₽ за дополнительное место в сутки. Максимальное количество гостей — 8 человек.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem
+                value="item-5"
+                className="rounded-xl bg-black/20 border border-primary/20 px-6"
+              >
+                <AccordionTrigger className="text-primary hover:text-primary/80 text-left">
+                  Где находится La Villa Pine и как добраться?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/80">
+                  Мы находимся в Республике Адыгея, п. Тульский, в 20 минутах от города Майкоп. До горнолыжного курорта Лаго-Наки — менее часа, до термальных источников — всего 2 минуты. Бесплатная парковка доступна на территории комплекса.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       {/* Блок бронирования с фиксированным фоном */}
       <section 
         className="relative w-full h-screen md:h-[80vh] lg:h-[90vh] xl:h-screen bg-cover bg-center flex items-center md:bg-fixed booking-section-bg"

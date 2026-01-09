@@ -58,7 +58,7 @@ export const SEO_PAGES = {
 // Технические мета-теги
 export const TECHNICAL_META = {
   author: "La Villa Pine",
-  copyright: "© 2025 La Villa Pine. Все права защищены.",
+  copyright: "© 2026 La Villa Pine. Все права защищены.",
   language: "ru-RU",
   generator: "React, TypeScript, Vite"
 } as const;

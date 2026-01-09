@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import ComingSoonBanner from "@/components/ui/coming-soon-banner";
 import BookingDateNotice from "@/components/ui/booking-date-notice";
 import PageMeta from "@/components/seo/PageMeta";
+import StructuredData from "@/components/seo/StructuredData";
 import { SEO_PAGES } from "@/lib/seo-constants";
 
 // HomeReserve types defined in home.tsx
@@ -68,6 +69,7 @@ export default function Booking() {
         ogImage={SEO_PAGES.booking.ogImage}
         canonical="https://lavillapine.onrender.com/booking"
       />
+      <StructuredData type="page" pageName="Бронирование" pageUrl="/booking" />
       {/* Room background with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"

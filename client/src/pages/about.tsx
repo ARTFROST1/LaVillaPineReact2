@@ -1,5 +1,6 @@
 import DynamicImage from "@/components/ui/dynamic-image";
 import PageMeta from "@/components/seo/PageMeta";
+import StructuredData from "@/components/seo/StructuredData";
 import { SEO_PAGES } from "@/lib/seo-constants";
 import {
   Home,
@@ -28,6 +29,7 @@ export default function About() {
         ogImage={SEO_PAGES.about.ogImage}
         canonical="https://lavillapine.onrender.com/about"
       />
+      <StructuredData type="page" pageName="О нас" pageUrl="/about" />
       {/* Hero Section - similar to home page */}
       <section className="relative w-full h-screen min-h-[500px] overflow-hidden">
         {/* Background image with overlay */}

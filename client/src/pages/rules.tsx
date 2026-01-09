@@ -1,4 +1,5 @@
 import PageMeta from "@/components/seo/PageMeta";
+import StructuredData from "@/components/seo/StructuredData";
 import { SEO_PAGES } from "@/lib/seo-constants";
 import {
   Clock,
@@ -49,6 +50,7 @@ export default function Rules() {
         ogImage={SEO_PAGES.rules.ogImage}
         canonical="https://lavillapine.onrender.com/rules"
       />
+      <StructuredData type="page" pageName="Правила" pageUrl="/rules" />
 
       {/* Hero Section */}
       <section className="relative w-full h-screen min-h-[500px] overflow-hidden">
@@ -146,11 +148,9 @@ export default function Rules() {
                 }}
                 data-testid="contact-widget"
               >
-                <Phone className="w-10 h-10 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-primary mb-1">
-                  09:00 - 21:00
-                </div>
-                <div className="text-sm text-foreground/70">Администратор</div>
+                <Users className="w-10 h-10 text-primary mx-auto mb-3" />
+                <div className="text-2xl font-bold text-primary mb-1">До 8</div>
+                <div className="text-sm text-foreground/70">Гостей</div>
               </div>
             </div>
           </div>
@@ -161,53 +161,7 @@ export default function Rules() {
       <div className="relative py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto space-y-8">
-            {/* 1. Общие положения */}
-            <section
-              className="p-8 md:p-10 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.01]"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(60, 50, 40, 0.4) 0%, rgba(50, 42, 35, 0.3) 50%, rgba(70, 58, 45, 0.45) 100%)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(212, 164, 74, 0.15)",
-                boxShadow:
-                  "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
-              }}
-              data-testid="general-rules-section"
-            >
-              <div className="flex items-center justify-center mb-8">
-                <Home className="w-10 h-10 text-primary mr-3" />
-                <h2 className="text-3xl md:text-4xl font-bold text-primary font-display">
-                  Общие положения
-                </h2>
-              </div>
-              <div className="text-center space-y-6">
-                <p className="text-lg text-foreground/90 max-w-2xl mx-auto">
-                  Гостевой комплекс «La Villa Pine» работает круглосуточно для
-                  вашего комфортного отдыха
-                </p>
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                  <div className="p-6 rounded-xl bg-black/20 text-center">
-                    <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="font-semibold text-primary mb-2">
-                      Документы
-                    </div>
-                    <p className="text-sm text-foreground/80">
-                      Паспорт для гостей от 14 лет
-                    </p>
-                  </div>
-                  <div className="p-6 rounded-xl bg-black/20 text-center">
-                    <Clock className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="font-semibold text-primary mb-2">
-                      Режим работы
-                    </div>
-                    <p className="text-sm text-foreground/80">Круглосуточно</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* 2. Вместимость */}
+            {/* 1. Вместимость */}
             <section
               className="p-8 md:p-10 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.01]"
               style={{
@@ -252,7 +206,7 @@ export default function Rules() {
               </div>
             </section>
 
-            {/* 3. Бронирование */}
+            {/* 2. Бронирование */}
             <section
               className="p-8 md:p-10 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.01]"
               style={{
@@ -276,28 +230,27 @@ export default function Rules() {
                 <div className="text-center p-6 rounded-xl bg-primary/10 border border-primary/20">
                   <Phone className="w-10 h-10 text-primary mx-auto mb-4" />
                   <div className="font-semibold text-primary mb-3">
-                    Способы связи
+                    Как забронировать
                   </div>
                   <div className="space-y-2 text-sm text-foreground/80">
                     <div>+7‑918‑924‑00‑07</div>
                     <div>WhatsApp / Telegram</div>
-                    <div>Avito, Суточно.ру, Яндекс Путешествия</div>
+                    <div>Также: Avito, Суточно.ру, Яндекс Путешествия</div>
                   </div>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
                   <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-4" />
                   <div className="font-semibold text-green-400 mb-3">
-                    Предолата
+                    Предоплата
                   </div>
                   <div className="text-2xl font-bold text-primary mb-2">
                     10 000₽
                   </div>
                   <div className="text-sm text-foreground/70">
-                    Остаток при заезде
+                    Остаток — при заезде
                   </div>
                   <div className="text-xs text-foreground/60 mt-2">
-                    размер предоплаты может меняться в зависимости от даты
-                    бронирования
+                    Размер может меняться в зависимости от дат
                   </div>
                 </div>
               </div>
@@ -305,13 +258,13 @@ export default function Rules() {
                 <div className="grid md:grid-cols-1 gap-4 text-md">
                   <div className="flex items-center justify-center gap-2">
                     <AlertCircle className="w-8 h-8 text-amber-400" />
-                    <span>Минимум 2 суток</span>
+                    <span>Минимальный срок проживания — 2 суток</span>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* 4. Заезд и Выезд */}
+            {/* 3. Заезд и Выезд */}
             <section
               className="p-8 md:p-10 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.01]"
               style={{
@@ -350,17 +303,11 @@ export default function Rules() {
                 </div>
               </div>
               <div className="mt-6 p-6 rounded-xl bg-amber-500/10 border border-amber-500/20 text-center">
-                <div className="font-semibold text-amber-300 mb-3">
-                  Доплата за изменение
+                <div className="font-semibold text-amber-300 mb-2">
+                  Ранний заезд / поздний выезд
                 </div>
-                <div className="grid md:grid-cols-2 gap-4 text-sm text-foreground/80">
-                  <div>
-                    До 4 часов: <strong className="text-amber-200">50%</strong>
-                  </div>
-                  <div>
-                    Свыше 4 часов:{" "}
-                    <strong className="text-amber-200">100%</strong>
-                  </div>
+                <div className="text-sm text-foreground/80">
+                  Возможны по согласованию (при наличии возможности)
                 </div>
               </div>
             </section>
@@ -403,18 +350,18 @@ export default function Rules() {
                     <li>• Громкая музыка и разговоры</li>
                     <li>• Свои колонки</li>
                     <li>• Шумные вечеринки</li>
-                    <li>• Агрессивное поведение</li>
+                    <li>• Крики и шум в ночное время</li>
                   </ul>
                 </div>
                 <div className="p-6 rounded-xl bg-green-500/10 border border-green-500/20">
                   <div className="flex items-center gap-2 mb-4">
                     <Check className="w-6 h-6 text-green-400" />
-                    <h3 className="font-semibold text-green-400">Разрешено</h3>
+                    <h3 className="font-semibold text-green-400">Пожалуйста</h3>
                   </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>• Спокойные беседы</li>
-                    <li>• Умеренное употребление алкоголя</li>
-                    <li>• Тихие активности</li>
+                    <li>• Уважать соседей и персонал</li>
+                    <li>• После 22:00 — тише</li>
                   </ul>
                 </div>
               </div>
@@ -512,8 +459,7 @@ export default function Rules() {
                     Бассейн
                   </div>
                   <ul className="space-y-2 text-sm text-foreground/80 text-left max-w-xs mx-auto">
-                    <li>✓ Принять душ</li>
-                    <li>✓ Шапочка для купания</li>
+                    <li>✓ Душ перед купанием</li>
                     <li>✗ Без обуви</li>
                     <li>✗ Без стеклянной посуды</li>
                   </ul>
@@ -526,53 +472,9 @@ export default function Rules() {
                   <ul className="space-y-2 text-sm text-foreground/80 text-left max-w-xs mx-auto">
                     <li>✓ Полотенце на лавку</li>
                     <li>✓ Гигиенический душ</li>
+                    <li>✗ запрещены масла, скрабы и любые добавки</li>
                     <li>✗ Без алкоголя</li>
                     <li>✗ Дети под присмотром</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* 8. Уборка */}
-            <section
-              className="p-8 md:p-10 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.01]"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(25, 21, 17, 0.6) 50%, rgba(35, 29, 22, 0.75) 100%)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(212, 164, 74, 0.15)",
-                boxShadow:
-                  "0 8px 32px rgba(0, 0, 0, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
-              }}
-              data-testid="cleaning-section"
-            >
-              <div className="flex items-center justify-center mb-8">
-                <ClipboardCheck className="w-10 h-10 text-primary mr-3" />
-                <h2 className="text-3xl md:text-4xl font-bold text-primary font-display">
-                  Уборка
-                </h2>
-              </div>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
-                  <Check className="w-10 h-10 text-green-400 mx-auto mb-4" />
-                  <div className="font-semibold text-green-400 mb-3">
-                    Стандартно
-                  </div>
-                  <ul className="space-y-2 text-sm text-foreground/80">
-                    <li>• После каждого гостя</li>
-                    <li>• Смена полотенец</li>
-                    <li>• Смена белья</li>
-                  </ul>
-                </div>
-                <div className="text-center p-6 rounded-xl bg-blue-500/10 border border-blue-500/20">
-                  <Calendar className="w-10 h-10 text-blue-400 mx-auto mb-4" />
-                  <div className="font-semibold text-blue-400 mb-3">
-                    При длительном проживании
-                  </div>
-                  <ul className="space-y-2 text-sm text-foreground/80">
-                    <li>• Раз в 3 дня</li>
-                    <li>• По запросу (платно)</li>
                   </ul>
                 </div>
               </div>
@@ -641,7 +543,7 @@ export default function Rules() {
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>• Только в мангале</li>
                     <li>• Под присмотром</li>
-                    <li>• только угли специальная жидкость для розжига</li>
+                    <li>• Угли и специальная жидкость для розжига</li>
                   </ul>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-red-500/10 border border-red-500/20">
@@ -678,27 +580,16 @@ export default function Rules() {
                   В помещении
                 </h2>
               </div>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-1 gap-6 max-w-xl mx-auto">
                 <div className="text-center p-6 rounded-xl bg-red-500/10 border border-red-500/20">
                   <Ban className="w-8 h-8 text-red-400 mx-auto mb-3" />
                   <div className="font-semibold text-red-400 mb-3">
-                    Запрещено
+                    Нельзя
                   </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
                     <li>✗ Уличная обувь</li>
                     <li>✗ Домашние животные</li>
-                    <li>✗ Курение</li>
-                  </ul>
-                </div>
-                <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
-                  <Check className="w-8 h-8 text-green-400 mx-auto mb-3" />
-                  <div className="font-semibold text-green-400 mb-3">
-                    Разрешено
-                  </div>
-                  <ul className="space-y-2 text-sm text-foreground/80">
-                    <li>✓ Сменная обувь</li>
-                    <li>✓ Комфортный отдых</li>
-                    <li>✓ Приготовление еды</li>
+                    <li>✗ Курение и вейпы</li>
                   </ul>
                 </div>
               </div>
@@ -927,9 +818,10 @@ export default function Rules() {
                     Запрещено
                   </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
-                    <li>✗ Оставлять электроприборы без присмотра</li>
-                    <li>✗ Самодельные приборы</li>
-                    <li>✗ Блокировать пути эвакуации</li>
+                    <li>✗ Оставлять плиту/мангал и электроприборы без присмотра</li>
+                    <li>✗ Перегружать розетки и удлинители</li>
+                    <li>✗ Использовать открытый огонь в помещении (свечи и т.п.)</li>
+                    <li>✗ Блокировать выходы и проходы</li>
                   </ul>
                 </div>
                 <div className="text-center p-6 rounded-xl bg-green-500/10 border border-green-500/20">
@@ -938,9 +830,10 @@ export default function Rules() {
                     Обязательно
                   </div>
                   <ul className="space-y-2 text-sm text-foreground/80">
-                    <li>✓ Знать пути эвакуации</li>
-                    <li>✓ Выключать приборы</li>
-                    <li>✓ Соблюдать правила</li>
+                    <li>✓ Выключать электроприборы при выходе</li>
+                    <li>✓ Держать выходы и проходы свободными</li>
+                    <li>✓ Сообщать администратору о неисправностях</li>
+                    <li>✓ При задымлении — сразу звонить администратору/112</li>
                   </ul>
                 </div>
               </div>
@@ -986,8 +879,8 @@ export default function Rules() {
                   </div>
                 </div>
                 <div className="text-sm text-foreground/70 mb-3">
-                  Для бронирований с 30.12 - 11.01 предоплата возвращается за
-                  30+ дней
+                Актуальный условия возврата уточняйте у администратора при
+                бронировании.
                 </div>
               </div>
             </section>
@@ -1022,7 +915,7 @@ export default function Rules() {
                     Можно ли приехать раньше 16:00?
                   </AccordionTrigger>
                   <AccordionContent className="text-foreground/80">
-                    Да, ранний заезд возможен по согласованию с доплатой
+                    Да, ранний заезд возможен по согласованию (при наличии возможности)
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem
