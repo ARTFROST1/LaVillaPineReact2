@@ -105,7 +105,7 @@ export default function Rules() {
               >
                 <Clock className="w-10 h-10 text-primary mx-auto mb-3" />
                 <div className="text-2xl font-bold text-primary mb-1">
-                  16:00 - 11:00
+                  15:00 - 11:00
                 </div>
                 <div className="text-sm text-foreground/70">Заезд - Выезд</div>
               </div>
@@ -287,7 +287,7 @@ export default function Rules() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="text-center p-8 rounded-xl bg-primary/10 border border-primary/20">
                   <div className="text-5xl font-bold text-primary mb-3">
-                    16:00
+                    15:00
                   </div>
                   <div className="text-lg font-semibold text-foreground/90">
                     Заезд
@@ -912,7 +912,7 @@ export default function Rules() {
                   data-testid="faq-item-1"
                 >
                   <AccordionTrigger className="text-primary hover:text-primary/80">
-                    Можно ли приехать раньше 16:00?
+                    Можно ли приехать раньше 15:00?
                   </AccordionTrigger>
                   <AccordionContent className="text-foreground/80">
                     Да, ранний заезд возможен по согласованию (при наличии возможности)
